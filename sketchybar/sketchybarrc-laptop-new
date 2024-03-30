@@ -7,103 +7,98 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-sketchybar --bar \
-    height=38 \
-    color=$BAR_COLOR \
-    margin=0 \
-    sticky=on \
-    padding_left=0 \
-    padding_right=0 \
-    notch_width=240 \
-    display=main
 
-sketchybar --default \
-    background.height=38 \
-    icon.color=$TEXT_COLOR \
-    icon.font="$FONT_FACE:Medium:19.0" \
-    icon.padding_left=5 \
-    icon.padding_right=5 \
-    label.color=$TEXT_COLOR \
-    label.font="$FONT_FACE:Bold:14.0" \
-    label.y_offset=1 \
-    label.padding_left=5 \
-    label.padding_right=5
+# ------------------------
+# LEFT
+# ------------------------
 
-sketchybar --add item current_space left \
+sketchybar \
+    --bar \
+        height=38 \
+        color=$COLOR_BAR \
+        margin=0 \
+        sticky=on \
+        padding_left=0 \
+        padding_right=0 \
+        notch_width=240 \
+        display=main
+
+sketchybar \
+    --default \
+        background.height=38 \
+        icon.color=$COLOR_TEXT \
+        icon.font="$FONT_FACE:Medium:19.0" \
+        icon.padding_left=5 \
+        icon.padding_right=5 \
+        label.color=$COLOR_TEXT \
+        label.font="$FONT_FACE:Bold:14.0" \
+        label.y_offset=1 \
+        label.padding_left=5 \
+        label.padding_right=5
+
+sketchybar \
+    --add item current_space left \
     --set current_space \
-    icon.padding_left=20 \
-    icon.padding_right=20 \
-    icon.color=$SPACE_FONT_COLOR \
-    background.color=$SECONDARY_COLOR \
-    label.drawing=off \
-    script="$PLUGIN_SHARED_DIR/current_space.sh" \
+            icon.padding_left=20 \
+            icon.padding_right=20 \
+            icon.color=$COLOR_TEXT_CONTRAST \
+            background.color=$COLOR_SECONDARY \
+            label.drawing=off \
+            script="$PLUGIN_SHARED_DIR/current_space.sh" \
     --subscribe current_space space_change mouse.clicked
 
-sketchybar --add item front_app left \
+sketchybar \
+    --add item front_app left \
     --set front_app \
-    background.color=$ACCENT_COLOR \
-    background.padding_left=0 \
-    background.padding_right=0 \
-    icon.font="sketchybar-app-font:Regular:20.0" \
-    icon.padding_right=20 \
-    icon.padding_left=20 \
-    icon.y_offset=0 \
-    label.drawing=no \
-    script="$PLUGIN_SHARED_DIR/front_app.sh" \
+            background.color=$COLOR_ACCENT \
+            background.padding_left=0 \
+            background.padding_right=0 \
+            icon.font="sketchybar-app-font:Regular:20.0" \
+            icon.padding_right=20 \
+            icon.padding_left=20 \
+            icon.y_offset=0 \
+            label.drawing=no \
+            script="$PLUGIN_SHARED_DIR/front_app.sh" \
     --add item front_app.separator left \
     --set front_app.separator \
-    background.color=0x00000000 \
-    icon= \
-    icon.color=$ACCENT_COLOR \
-    icon.font="$FONT_FACE:Bold:33.0" \
-    icon.padding_left=0 \
-    icon.padding_right=0 \
-    icon.y_offset=1 \
-    label.drawing=no \
+            background.color=0x00000000 \
+            icon= \
+            icon.color=$COLOR_ACCENT \
+            icon.font="$FONT_FACE:Bold:33.0" \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
+            icon.y_offset=1 \
+            label.drawing=no \
     --add item front_app.name left \
     --set front_app.name \
-    background.color=0x00000000 \
-    icon.drawing=off \
-    label.font="$FONT_FACE:Bold:20.0" \
-    label.color=0xffcad3f5 \
-    label.padding_left=20
+            background.color=0x00000000 \
+            icon.drawing=off \
+            label.font="$FONT_FACE:Bold:20.0" \
+            label.color=0xffcad3f5 \
+            label.padding_left=20
 
-sketchybar --add bracket front_app_bracket \
-    front_app \
-    front_app.separator \
-    front_app.name \
+sketchybar \
+    --add bracket front_app_bracket \
+        front_app \
+        front_app.separator \
+        front_app.name \
     --subscribe front_app front_app_switched
 
-# --- Right side ---
+# ------------------------
+# CENTER
+# ------------------------
 
-sketchybar --add item clock right \
-    --set clock \
-    icon.color=$SPACE_FONT_COLOR \
-    icon=󰃰 \
-    icon.padding_left=20 \
-    label.color=$SPACE_FONT_COLOR \
-    label.padding_right=20 \
-    background.color=$SECONDARY_COLOR \
-    update_freq=10 \
-    script="$PLUGIN_SHARED_DIR/clock.sh" \
-    --add item clock.separator right \
-    --set clock.separator \
-    icon= \
-    icon.color=$SECONDARY_COLOR \
-    icon.font="$FONT_FACE:Bold:33.0" \
-    icon.padding_left=0 \
-    icon.padding_right=-12 \
-    icon.y_offset=1
-
-sketchybar --add item volume e \
+sketchybar \
+    --add item volume e \
     --set volume \
-    icon.padding_left=10 \
-    label.padding_right=10 \
-    label.drawing=true \
-    script="$PLUGIN_SHARED_DIR/volume.sh" \
+        icon.padding_left=10 \
+        label.padding_right=10 \
+        label.drawing=true \
+        script="$PLUGIN_SHARED_DIR/volume.sh" \
     --subscribe volume volume_change
-    
-sketchybar --add event spotify_change $SPOTIFY_EVENT \
+
+sketchybar \
+    --add event spotify_change $SPOTIFY_EVENT \
     --add item spotify e \
     --set spotify \
           icon= \
@@ -116,10 +111,11 @@ sketchybar --add event spotify_change $SPOTIFY_EVENT \
           script="$PLUGIN_DIR/spotify.sh" \
     --subscribe spotify spotify_change mouse.clicked
 
-sketchybar --add item battery q \
+sketchybar \
+    --add item battery q \
     --set battery \
-    update_freq=20 \
-    script="$PLUGIN_DIR/battery.sh"
+        update_freq=20 \
+        script="$PLUGIN_DIR/battery.sh"
 
 
 sketchybar --add item cpu q \
@@ -131,19 +127,45 @@ sketchybar --add item cpu q \
 
 sketchybar --add item memory q \
     --set memory \
-    icon=  \
-    icon.padding_left=10 \
-    label.padding_right=10 \
-    update_freq=10 \
-    script="$PLUGIN_SHARED_DIR/memory.sh"
+        icon=  \
+        icon.padding_left=10 \
+        label.padding_right=10 \
+        update_freq=10 \
+        script="$PLUGIN_SHARED_DIR/memory.sh"
+
+# ------------------------
+# RIGHT
+# ------------------------
+
+sketchybar \
+    --add item clock right \
+    --set clock \
+        icon.color=$COLOR_TEXT_CONTRAST \
+        icon=󰃰 \
+        icon.padding_left=20 \
+        label.color=$COLOR_TEXT_CONTRAST \
+        label.padding_right=20 \
+        background.color=$COLOR_SECONDARY \
+        update_freq=10 \
+        script="$PLUGIN_SHARED_DIR/clock.sh" \
+    --add item clock.separator right \
+    --set clock.separator \
+        icon= \
+        icon.color=$COLOR_SECONDARY \
+        icon.font="$FONT_FACE:Bold:33.0" \
+        icon.padding_left=0 \
+        icon.padding_right=-12 \
+        icon.y_offset=1
+
+
 
 #sketchybar --add item media e \
-#           --set media label.color=$ACCENT_COLOR \
+#           --set media label.color=$COLOR_ACCENT \
 #                       label.max_chars=20 \
 #                       icon.padding_left=0 \
 #                       scroll_texts=on \
 #                       icon=􀑪             \
-#                       icon.color=$ACCENT_COLOR   \
+#                       icon.color=$COLOR_ACCENT   \
 #                       background.drawing=off \
 #                       script="$PLUGIN_SHARED_DIR/media.sh" \
 #           --subscribe media media_change

@@ -1,60 +1,68 @@
 #!/usr/bin/env zsh
 
 export WHITE=0xffffffff
-export DATE_COLOR=0xffed8796
+export COLOR_DATE=0xffed8796
 
-export TEXT_COLOR=0xff24273a
-export BAR_COLOR=0x66494d64
+export COLOR_TEXT=0xff24273a
+export COLOR_BAR=0x66494d64
 
-export SPACE_FONT_COLOR=0xffeeeeee
+export COLOR_TEXT_CONTRAST=0xffeeeeee
 
 
 # -- DEFAULT --
-export ACCENT_COLOR=0xffa6da95
-export SECONDARY_COLOR=0xfff5a97f
-export TERTIARY_COLOR=0xffed8796
+export COLOR_ACCENT=0xffa6da95
+export COLOR_SECONDARY=0xfff5a97f
+export COLOR_TERTIARY=0xffed8796
+
+# -- SPOTIFY --
+
+COLOR_SPOTIFY=$COLOR_TEXT
+COLOR_SPOTIFY_PAUSE=$COLOR_TEXT
+
+
+
 
 # -- Teal Scheme --
-export ACCENT_COLOR=0xff2cf9ed
-export SECONDARY_COLOR=0xff003547
-export SPACE_FONT_COLOR=0xffc7c7c7
-#export BAR_COLOR=0xff001f30
+export COLOR_ACCENT=0xff2cf9ed
+export COLOR_SECONDARY=0xff003547
+export COLOR_TEXT_CONTRAST=0xffc7c7c7
+#export COLOR_BAR=0xff001f30
 #export ITEM_BG_COLOR=0xff003547
-#export ACCENT_COLOR=0xff2cf9ed
-#export TEXT_COLOR=0xff24273a
+#export COLOR_ACCENT=0xff2cf9ed
+#export COLOR_TEXT=0xff24273a
 
 # -- Gray Scheme --
-# export BAR_COLOR=0xff101314
+# export COLOR_BAR=0xff101314
 # export ITEM_BG_COLOR=0xff353c3f
-# export ACCENT_COLOR=0xffffffff
+# export COLOR_ACCENT=0xffffffff
 
 # -- Purple Scheme --
-# export BAR_COLOR=0xff140c42
+# export COLOR_BAR=0xff140c42
 # export ITEM_BG_COLOR=0xff2b1c84
-# export ACCENT_COLOR=0xffeb46f9
+# export COLOR_ACCENT=0xffeb46f9
 
 # -- Red Scheme ---
-# export BAR_COLOR=0xff23090e
+# export COLOR_BAR=0xff23090e
 # export ITEM_BG_COLOR=0xff591221
-# export ACCENT_COLOR=0xffff2453
+# export COLOR_ACCENT=0xffff2453
 
 # -- Blue Scheme --- 
-# export BAR_COLOR=0xff021254
+# export COLOR_BAR=0xff021254
 # export ITEM_BG_COLOR=0xff093aa8
-# export ACCENT_COLOR=0xff15bdf9
+# export COLOR_ACCENT=0xff15bdf9
 
 # -- Green Scheme --
-# export BAR_COLOR=0xff003315
+# export COLOR_BAR=0xff003315
 # export ITEM_BG_COLOR=0xff008c39
-# export ACCENT_COLOR=0xff1dfca1
+# export COLOR_ACCENT=0xff1dfca1
 
 
 # -- Orange Scheme --
-# export BAR_COLOR=0xff381c02
+# export COLOR_BAR=0xff381c02
 # export ITEM_BG_COLOR=0xff99440a
-# export ACCENT_COLOR=0xfff97716
+# export COLOR_ACCENT=0xfff97716
 
 # -- Yellow Scheme --
-# export BAR_COLOR=0xff2d2b02
+# export COLOR_BAR=0xff2d2b02
 # export ITEM_BG_COLOR=0xff8e7e0a
-# export ACCENT_COLOR=0xfff7fc17
+# export COLOR_ACCENT=0xfff7fc17

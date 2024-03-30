@@ -2,11 +2,11 @@
 
 COLOR_SPOTIFY=0xffeed49f
 COLOR_SPOTIFY_PAUSE=0xffeed49f
+ICON_SPOTIFY=
+ICON_SPOTIFY_PAUSE=󰏥
+ICON_SPOTIFY_PLAY=
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
-
-COLOR_SPOTIFY=$TEXT_COLOR
-COLOR_SPOTIFY_PAUSE=$TEXT_COLOR
 
 # Max number of characters so it fits nicely to the right of the notch
 # MAY NOT WORK WITH NON-ENGLISH CHARACTERS
@@ -19,15 +19,11 @@ HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
 # Spotify JSON / $INFO comes in malformed, line below sanitizes it
 SPOTIFY_JSON="$INFO"
 
-ICON_SPOTIFY=
-ICON_SPOTIFY_PAUSE=󰏥
-ICON_SPOTIFY_PLAY=
-
 update_track() {
 
     if [[ -z $SPOTIFY_JSON ]]; then
         # 0xffeed49f
-        # $TEXT_COLOR
+        # $COLOR_TEXT
         sketchybar --set $NAME \
                     icon = $ICON_SPOTIFY \
                     icon.color=$COLOR_SPOTIFY \
