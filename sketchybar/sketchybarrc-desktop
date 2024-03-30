@@ -45,7 +45,16 @@ sketchybar \
             background.color=$COLOR_SECONDARY \
             label.drawing=off \
             script="$PLUGIN_SHARED_DIR/current_space.sh" \
-    --subscribe current_space space_change mouse.clicked
+    --subscribe current_space space_change mouse.clicked \
+    --add item current_space.separator left \
+    --set current_space.separator \
+            icon= \
+            icon.color=$COLOR_SECONDARY \
+            background.color=$COLOR_ACCENT \
+            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-8 \
+            icon.y_offset=1
 
 sketchybar \
     --add item front_app left \
@@ -84,29 +93,6 @@ sketchybar \
             front_app.name \
     --subscribe front_app front_app_switched
 
-# --- RIGHT SIDE ---
-# 0xffed8796
-#icon.color=$COLOR_TEXT_CONTRAST \
-    #icon=󰃰 \
-    #icon.padding_left=10 \
-sketchybar \
-    --add item clock right \
-    --set clock \
-            label.color=$COLOR_TEXT_CONTRAST \
-            label.padding_right=$MARGIN_RIGHT \
-            background.color=$COLOR_SECONDARY \
-            update_freq=10 \
-            script="$PLUGIN_SHARED_DIR/clock.sh" \
-    --add item clock.separator right \
-    --set clock.separator \
-            icon= \
-            icon.color=$COLOR_SECONDARY \
-            icon.font="$FONT_FACE:Bold:20.0" \
-            icon.padding_left=0 \
-            icon.padding_right=-8 \
-            icon.y_offset=1
-
-
 # --- MIDDLE ---
 
 sketchybar \
@@ -117,20 +103,6 @@ sketchybar \
             label.drawing=true \
             script="$PLUGIN_SHARED_DIR/volume.sh" \
     --subscribe volume volume_change
-
-sketchybar \
-    --add event spotify_change $SPOTIFY_EVENT \
-    --add item spotify e \
-    --set spotify \
-            icon= \
-            icon.y_offset=0 \
-            icon.padding_left=10 \
-            icon.padding_right=10 \
-            label.padding_right=10 \
-            label.drawing=off \
-            label.padding_left=3 \
-            script="$PLUGIN_DIR/spotify.sh" \
-    --subscribe spotify spotify_change mouse.clicked
 
 sketchybar --add item cpu q \
            --set cpu  update_freq=5 \
@@ -147,6 +119,53 @@ sketchybar \
             label.padding_right=10 \
             update_freq=10 \
             script="$PLUGIN_SHARED_DIR/memory.sh"
+
+
+# --- RIGHT SIDE ---
+# 0xffed8796
+#icon.color=$COLOR_TEXT_CONTRAST \
+    #icon=󰃰 \
+    #icon.padding_left=10 \
+sketchybar \
+    --add item clock right \
+    --set clock \
+            label.color=$COLOR_TEXT_CONTRAST \
+            label.padding_right=$MARGIN_RIGHT \
+            background.color=$COLOR_SECONDARY \
+            update_freq=10 \
+            script="$PLUGIN_SHARED_DIR/clock.sh" \
+    --add item clock.separator right \
+    --set clock.separator \
+            background.color=$COLOR_ACCENT \
+            icon= \
+            icon.color=$COLOR_SECONDARY \
+            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-8 \
+            icon.y_offset=1
+
+sketchybar \
+    --add event spotify_change $SPOTIFY_EVENT \
+    --add item spotify right \
+    --set spotify \
+            icon= \
+            icon.y_offset=0 \
+            icon.padding_left=10 \
+            icon.padding_right=10 \
+            label.padding_right=10 \
+            label.drawing=off \
+            label.padding_left=3 \
+            background.color=$COLOR_ACCENT \
+            script="$PLUGIN_DIR/spotify.sh" \
+    --subscribe spotify spotify_change mouse.clicked \
+    --add item spotify.separator right \
+    --set spotify.separator \
+            icon= \
+            icon.color=$COLOR_ACCENT \
+            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-8 \
+            icon.y_offset=1
 
 #sketchybar --add item media e \
 #           --set media label.color=$COLOR_ACCENT \

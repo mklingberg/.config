@@ -1,15 +1,13 @@
 #!/usr/bin/env zsh
 
+# -- DEFAULT --
+
 export WHITE=0xffffffff
 export COLOR_DATE=0xffed8796
 
 export COLOR_TEXT=0xff24273a
 export COLOR_BAR=0x66494d64
-
 export COLOR_TEXT_CONTRAST=0xffeeeeee
-
-
-# -- DEFAULT --
 export COLOR_ACCENT=0xffa6da95
 export COLOR_SECONDARY=0xfff5a97f
 export COLOR_TERTIARY=0xffed8796
