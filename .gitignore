@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# But not these files...
+!README.md
+!.gitignore
+!skhd
+!skhd/**/*
+!yabai
+!yabai/**/*
+!sketchybar
+!sketchybar/**/*
