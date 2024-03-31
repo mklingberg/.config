@@ -7,11 +7,13 @@ ICON_SPOTIFY_PAUSE=󰏥
 ICON_SPOTIFY_PLAY=
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+MAX_LENGTH=80
 
-# Max number of characters so it fits nicely to the right of the notch
-# MAY NOT WORK WITH NON-ENGLISH CHARACTERS
-
-MAX_LENGTH=55
+# If the display is the built-in display, reduce the max length
+MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
+if [[ $MAIN_DISPLAY = "Built-in" ]]; then
+    MAX_LENGTH=38
+fi
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))

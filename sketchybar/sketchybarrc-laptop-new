@@ -7,6 +7,9 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
+MARGIN_LEFT=20
+MARGIN_RIGHT=20
+BAR_HEIGHT=32
 
 # ------------------------
 # LEFT
@@ -14,24 +17,24 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 sketchybar \
     --bar \
-        height=38 \
+        height=$BAR_HEIGHT \
         color=$COLOR_BAR \
         margin=0 \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        notch_width=240 \
+        notch_width=200 \
         display=main
 
 sketchybar \
     --default \
-        background.height=38 \
+        background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
         icon.font="$FONT_FACE:Medium:19.0" \
         icon.padding_left=5 \
         icon.padding_right=5 \
         label.color=$COLOR_TEXT \
-        label.font="$FONT_FACE:Bold:14.0" \
+        label.font="$FONT_FACE:Bold:13.0" \
         label.y_offset=1 \
         label.padding_left=5 \
         label.padding_right=5
@@ -39,8 +42,8 @@ sketchybar \
 sketchybar \
     --add item current_space left \
     --set current_space \
-            icon.padding_left=20 \
-            icon.padding_right=20 \
+            icon.padding_left=$MARGIN_LEFT \
+            icon.padding_right=10 \
             icon.color=$COLOR_TEXT_CONTRAST \
             background.color=$COLOR_SECONDARY \
             label.drawing=off \
@@ -54,8 +57,8 @@ sketchybar \
             background.padding_left=0 \
             background.padding_right=0 \
             icon.font="sketchybar-app-font:Regular:20.0" \
-            icon.padding_right=20 \
-            icon.padding_left=20 \
+            icon.padding_right=10 \
+            icon.padding_left=10 \
             icon.y_offset=0 \
             label.drawing=no \
             script="$PLUGIN_SHARED_DIR/front_app.sh" \
@@ -64,7 +67,7 @@ sketchybar \
             background.color=0x00000000 \
             icon= \
             icon.color=$COLOR_ACCENT \
-            icon.font="$FONT_FACE:Bold:33.0" \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=0 \
             icon.y_offset=1 \
@@ -98,25 +101,10 @@ sketchybar \
     --subscribe volume volume_change
 
 sketchybar \
-    --add event spotify_change $SPOTIFY_EVENT \
-    --add item spotify e \
-    --set spotify \
-          icon= \
-          icon.y_offset=0 \
-          icon.padding_left=20 \
-          icon.padding_right=20 \
-          label.padding_left=-10 \
-          label.padding_right=20 \
-          label.drawing=off \
-          script="$PLUGIN_DIR/spotify.sh" \
-    --subscribe spotify spotify_change mouse.clicked
-
-sketchybar \
     --add item battery q \
     --set battery \
         update_freq=20 \
-        script="$PLUGIN_DIR/battery.sh"
-
+        script="$PLUGIN_SHARED_DIR/battery.sh"
 
 sketchybar --add item cpu q \
            --set cpu  update_freq=5 \
@@ -140,24 +128,45 @@ sketchybar --add item memory q \
 sketchybar \
     --add item clock right \
     --set clock \
-        icon.color=$COLOR_TEXT_CONTRAST \
-        icon=󰃰 \
-        icon.padding_left=20 \
-        label.color=$COLOR_TEXT_CONTRAST \
-        label.padding_right=20 \
-        background.color=$COLOR_SECONDARY \
-        update_freq=10 \
-        script="$PLUGIN_SHARED_DIR/clock.sh" \
+            icon.padding_left=0 \
+            label.padding_left=0 \
+            label.color=$COLOR_TEXT_CONTRAST \
+            label.padding_right=$MARGIN_RIGHT \
+            background.color=$COLOR_SECONDARY \
+            update_freq=10 \
+            script="$PLUGIN_SHARED_DIR/clock.sh" \
     --add item clock.separator right \
     --set clock.separator \
-        icon= \
-        icon.color=$COLOR_SECONDARY \
-        icon.font="$FONT_FACE:Bold:33.0" \
-        icon.padding_left=0 \
-        icon.padding_right=-12 \
-        icon.y_offset=1
+            background.color=$COLOR_ACCENT \
+            icon= \
+            icon.color=$COLOR_SECONDARY \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=5 \
+            icon.padding_right=-12 \
+            icon.y_offset=1
 
-
+sketchybar \
+    --add event spotify_change $SPOTIFY_EVENT \
+    --add item spotify right \
+    --set spotify \
+            icon= \
+            icon.y_offset=0 \
+            icon.padding_left=10 \
+            icon.padding_right=10 \
+            label.padding_right=10 \
+            label.padding_left=0 \
+            label.drawing=off \
+            background.color=$COLOR_ACCENT \
+            script="$PLUGIN_DIR/spotify.sh" \
+    --subscribe spotify spotify_change mouse.clicked \
+    --add item spotify.separator right \
+    --set spotify.separator \
+            icon= \
+            icon.color=$COLOR_ACCENT \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-12 \
+            icon.y_offset=1
 
 #sketchybar --add item media e \
 #           --set media label.color=$COLOR_ACCENT \
