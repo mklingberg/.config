@@ -7,8 +7,8 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-MARGIN_LEFT=400
-MARGIN_RIGHT=400
+MARGIN_LEFT=700
+MARGIN_RIGHT=700
 
 
 # --- LEFT SIDE ---
@@ -95,15 +95,6 @@ sketchybar \
 
 # --- MIDDLE ---
 
-sketchybar \
-    --add item volume e \
-    --set volume \
-            icon.padding_left=10 \
-            label.padding_right=10 \
-            label.drawing=true \
-            script="$PLUGIN_SHARED_DIR/volume.sh" \
-    --subscribe volume volume_change
-
 sketchybar --add item cpu q \
            --set cpu  update_freq=5 \
                       icon.padding_left=10 \
@@ -119,6 +110,23 @@ sketchybar \
             label.padding_right=10 \
             update_freq=10 \
             script="$PLUGIN_SHARED_DIR/memory.sh"
+
+sketchybar \
+    --add item battery e \
+    --set battery \
+        update_freq=20 \
+        icon.padding_left=10 \
+        label.padding_right=10 \
+        script="$PLUGIN_SHARED_DIR/battery.sh"
+
+sketchybar \
+    --add item volume e \
+    --set volume \
+            icon.padding_left=10 \
+            label.padding_right=10 \
+            label.drawing=true \
+            script="$PLUGIN_SHARED_DIR/volume.sh" \
+    --subscribe volume volume_change
 
 
 # --- RIGHT SIDE ---
