@@ -1,5 +1,4 @@
 #!/bin/bash
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 sketchybar \
     --add item battery q \

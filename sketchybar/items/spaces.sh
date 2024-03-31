@@ -1,5 +1,4 @@
 #!/bin/bash
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 SPACE_SIDS=(1 2 3 4 5 6 7 8 9 10)
 
