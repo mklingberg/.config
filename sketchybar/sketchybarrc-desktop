@@ -5,9 +5,10 @@ source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 FONT_FACE="JetBrainsMono Nerd Font"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
+ITEM_DIR="$CONFIG_DIR/items"
+
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-ITEM_DIR="$CONFIG_DIR/items"
 
 # Get the screen resolution
 #SCREEN_RESOLUTION=$(system_profiler SPDisplaysDataType | awk '/Resolution/{print $2, $4}' | head -n1)
@@ -31,6 +32,11 @@ BAR_HEIGHT=24
 MARGIN_LEFT=300
 MARGIN_RIGHT=300
 SEPARATOR_WIDTH=100
+DEFAULT_PADDING=10
+
+
+FRONT_APP_ICON_SIZE=16
+FRONT_APP_NAME_SIZE=16
 
 # ------------------------
 # MAIN BAR
@@ -123,11 +129,10 @@ sketchybar \
 # MIDDLE
 # ------------------------
 
+source $ITEM_DIR/battery.sh
 source $ITEM_DIR/cpu.sh
 source $ITEM_DIR/memory.sh
-source $ITEM_DIR/battery.sh
 source $ITEM_DIR/volume.sh
-
 
 # ------------------------
 # RIGHT
