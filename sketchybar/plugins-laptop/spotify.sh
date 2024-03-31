@@ -26,7 +26,7 @@ update_track() {
     if [[ -z $SPOTIFY_JSON ]]; then
         # 0xffeed49f
         # $COLOR_TEXT
-        sketchybar --set $NAME \
+        $BAR_NAME --set $NAME \
                     icon = $ICON_SPOTIFY \
                     icon.color=$COLOR_SPOTIFY \
                     label.drawing=no
@@ -60,7 +60,7 @@ update_track() {
             fi
         fi
 
-        sketchybar --set $NAME \
+        $BAR_NAME --set $NAME \
                     icon=$ICON_SPOTIFY_PLAY \
                     label="${TRACK} - ${ARTIST}" \
                     label.drawing=yes \
@@ -69,17 +69,17 @@ update_track() {
                 
 
     elif [ $PLAYER_STATE = "Paused" ]; then
-        sketchybar --set $NAME \
+        $BAR_NAME --set $NAME \
                     icon=$ICON_SPOTIFY_PAUSE \
                     icon.color=$COLOR_SPOTIFY_PAUSE \
                     label.color=$COLOR_SPOTIFY_PAUSE
     elif [ $PLAYER_STATE = "Stopped" ]; then
-        sketchybar --set $NAME \
+        $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
                      icon.color=$COLOR_SPOTIFY \
                      label.drawing=no
     else
-        sketchybar --set $NAME \
+        $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
                      icon.color=$COLOR_SPOTIFY \
                      label.color=$COLOR_SPOTIFY

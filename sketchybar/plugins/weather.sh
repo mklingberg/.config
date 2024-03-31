@@ -14,8 +14,8 @@ WEATHER_JSON=$(curl -s "https://wttr.in/$LOCATION_ESCAPED?format=j1")
 # Fallback if empty
 if [ -z $WEATHER_JSON ]; then
 
-    sketchybar --set $NAME label=$LOCATION
-    sketchybar --set $NAME.moon icon=
+    $BAR_NAME --set $NAME label=$LOCATION
+    $BAR_NAME --set $NAME.moon icon=
 
     return
 fi
@@ -51,5 +51,5 @@ case ${MOON_PHASE} in
     ;;
 esac
 
-sketchybar --set $NAME label="$LOCATION  $TEMPERATURE C $WEATHER_DESCRIPTION"
-sketchybar --set $NAME.moon icon=$ICON
+$BAR_NAME --set $NAME label="$LOCATION  $TEMPERATURE C $WEATHER_DESCRIPTION"
+$BAR_NAME --set $NAME.moon icon=$ICON

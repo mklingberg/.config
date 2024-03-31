@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add item memory q \
     --set memory \
             icon=  \

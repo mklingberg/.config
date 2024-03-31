@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sketchybar --set $NAME label="$(date +'%a %d %b %I:%M %p')"
+$BAR_NAME --set $NAME label="$(date +'%a %d %b %I:%M %p')"

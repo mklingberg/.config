@@ -42,7 +42,7 @@ FRONT_APP_NAME_SIZE=16
 # MAIN BAR
 # ------------------------
 
-sketchybar \
+$BAR_NAME \
     --bar \
         height=$BAR_HEIGHT \
         color=$COLOR_BAR \
@@ -50,9 +50,9 @@ sketchybar \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        display=main
+        display=1
 
-sketchybar \
+$BAR_NAME \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
@@ -71,24 +71,23 @@ sketchybar \
 
 # -- SEPARATOR --
 
-sketchybar --add item separator_1 left \
+$BAR_NAME --add item separator_1 left \
            --set separator_1 \
                  background.color=$COLOR_SECONDARY \
-                 icon.padding_right=$SEPARATOR_WIDTH
+                 icon.padding_right=50
 
 source $ITEM_DIR/spaces.sh
 
 # -- SEPARATOR --
 
-sketchybar --add item separator_2 left \
+$BAR_NAME --add item separator_2 left \
            --set separator_2 \
-                      background.color=$COLOR_SECONDARY \
-                      icon.padding_right=$SEPARATOR_WIDTH
-              
+                 background.color=$COLOR_SECONDARY \
+                 icon.padding_right=50
 
 # -- ACTIVE SPACE & ACTIVE WINDOW --
 
-sketchybar \
+$BAR_NAME \
     --add item current_space.separator left \
     --set current_space.separator \
             icon= \
@@ -101,7 +100,7 @@ sketchybar \
 
 source $ITEM_DIR/front_app_icon.sh
 
-sketchybar \
+$BAR_NAME \
     --add item front_app.separator left \
     --set front_app.separator \
             background.color=0x00000000 \
@@ -115,10 +114,9 @@ sketchybar \
 
 source $ITEM_DIR/front_app_name.sh
 
-
 # -- FRONT APPLICATION --
 
-sketchybar \
+$BAR_NAME \
     --add bracket front_app_bracket \
             front_app \
             front_app.separator \
@@ -140,21 +138,21 @@ source $ITEM_DIR/volume.sh
 
 # -- SEPARATOR --
 
-sketchybar --add item separator_3 right \
+$BAR_NAME --add item separator_3 right \
            --set separator_3 \
-                      background.color=$COLOR_SECONDARY \
-                      icon.padding_right=$SEPARATOR_WIDTH
+                 background.color=$COLOR_SECONDARY \
+                 icon.padding_right=$SEPARATOR_WIDTH
 
 source $ITEM_DIR/clock.sh
 
 # -- SEPARATOR --
 
-sketchybar --add item separator_4 right \
+$BAR_NAME --add item separator_4 right \
            --set separator_4 \
-                      background.color=$COLOR_SECONDARY \
-                      icon.padding_right=$SEPARATOR_WIDTH
+                 background.color=$COLOR_SECONDARY \
+                 icon.padding_right=$SEPARATOR_WIDTH
 
-sketchybar \
+$BAR_NAME \
     --add item clock.separator right \
     --set clock.separator \
             background.color=$COLOR_ACCENT \
@@ -167,7 +165,7 @@ sketchybar \
 
 source $ITEM_DIR/spotify.sh
 
-sketchybar \
+$BAR_NAME \
     --add item spotify.separator right \
     --set spotify.separator \
             icon= \
@@ -182,6 +180,6 @@ sketchybar \
 # INIT
 # ------------------------
 
-sketchybar --update
-sketchybar --trigger space_change
-sketchybar --trigger volume_change
+$BAR_NAME --update
+$BAR_NAME --trigger space_change
+$BAR_NAME --trigger volume_change

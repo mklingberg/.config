@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add event spotify_change $SPOTIFY_EVENT \
     --add item spotify right \
     --set spotify \

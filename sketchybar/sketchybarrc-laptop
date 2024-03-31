@@ -16,8 +16,7 @@ SEPARATOR_WIDTH=20
 FRONT_APP_ICON_SIZE=20
 FRONT_APP_NAME_SIZE=20
 
-
-sketchybar \
+$BAR_NAME \
     --bar \
         height=$BAR_HEIGHT \
         color=$COLOR_BAR \
@@ -28,7 +27,7 @@ sketchybar \
         notch_width=200 \
         display=main
 
-sketchybar \
+$BAR_NAME \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
@@ -45,7 +44,7 @@ sketchybar \
 # LEFT
 # ------------------------
 
-sketchybar --add item separator_1 left \
+$BAR_NAME --add item separator_1 left \
            --set separator_1 \
                  background.color=$COLOR_SECONDARY \
                  icon.padding_right=$MARGIN_LEFT
@@ -53,7 +52,7 @@ sketchybar --add item separator_1 left \
 source $ITEM_DIR/current_space_no.sh
 source $ITEM_DIR/front_app_icon.sh
 
-sketchybar \
+$BAR_NAME \
     --add item front_app.separator left \
     --set front_app.separator \
             background.color=0x00000000 \
@@ -67,7 +66,7 @@ sketchybar \
 
 source $ITEM_DIR/front_app_name.sh
 
-sketchybar \
+$BAR_NAME \
     --add bracket front_app_bracket \
         front_app \
         front_app.separator \
@@ -87,14 +86,14 @@ source $ITEM_DIR/volume.sh
 # RIGHT
 # ------------------------
 
-sketchybar --add item separator_3 right \
+$BAR_NAME --add item separator_3 right \
            --set separator_3 \
                       background.color=$COLOR_SECONDARY \
                       icon.padding_right=$SEPARATOR_WIDTH
 
 source $ITEM_DIR/clock.sh
 
-sketchybar \
+$BAR_NAME \
     --add item clock.separator right \
     --set clock.separator \
             background.color=$COLOR_ACCENT \
@@ -107,7 +106,7 @@ sketchybar \
 
 source $ITEM_DIR/spotify.sh
 
-sketchybar \
+$BAR_NAME \
     --add item spotify.separator right \
     --set spotify.separator \
             icon= \
@@ -120,7 +119,7 @@ sketchybar \
 # ------------------------
 # INIT
 # ------------------------
-sketchybar --update
-sketchybar --trigger space_change
-sketchybar --trigger volume_change
-sketchybar --trigger spotify_change
+$BAR_NAME --update
+$BAR_NAME --trigger space_change
+$BAR_NAME --trigger volume_change
+$BAR_NAME --trigger spotify_change

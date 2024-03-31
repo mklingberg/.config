@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar --add item cpu q \
+$BAR_NAME --add item cpu q \
            --set cpu  update_freq=5 \
                       icon.padding_left=10 \
                       label.padding_right=10 \

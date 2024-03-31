@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add item battery q \
     --set battery \
         update_freq=20 \

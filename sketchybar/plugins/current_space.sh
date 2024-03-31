@@ -16,7 +16,7 @@ update_space() {
         ;;
     esac
 
-    sketchybar --set $NAME \
+    $BAR_NAME --set $NAME \
         icon=$ICON \
         #icon.padding_left=$ICON_PADDING_LEFT \
         #icon.padding_right=$ICON_PADDING_RIGHT
@@ -24,9 +24,9 @@ update_space() {
 
 case "$SENDER" in
 "mouse.clicked")
-    # Reload sketchybar
-    sketchybar --remove '/.*/'
-    source $HOME/.config/sketchybar/sketchybarrc
+    # Reload $BAR_NAME
+    $BAR_NAME --remove '/.*/'
+    source $HOME/.config/$BAR_NAME/$BAR_NAMErc
     ;;
 *)
     update_space

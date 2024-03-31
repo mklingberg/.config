@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add item clock right \
     --set clock \
             label.color=$COLOR_TEXT_CONTRAST \

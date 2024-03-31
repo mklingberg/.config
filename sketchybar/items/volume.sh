@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add item volume e \
     --set volume \
             icon.padding_left=10 \

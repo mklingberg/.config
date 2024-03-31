@@ -42,7 +42,7 @@ if [[ $CHARGING != "" ]]; then
     ICON_COLOR=$COLOR_TEXT
 fi
 
-sketchybar --set $NAME \
+$BAR_NAME --set $NAME \
     icon=$ICON \
     label="${PERCENTAGE}%" \
     icon.color=${ICON_COLOR}

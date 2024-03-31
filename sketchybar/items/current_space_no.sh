@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sketchybar \
+$BAR_NAME \
     --add item current_space left \
     --set current_space \
             icon.padding_right=10 \
