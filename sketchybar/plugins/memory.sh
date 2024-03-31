@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # memory.sh
 # Get the memory usage information
 MEMORY_INFO=$(vm_stat)

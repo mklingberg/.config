@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 COLOR_BATTERY_LOW=0xffee99a0
 COLOR_BATTERY_EMPTY=0xffed8796

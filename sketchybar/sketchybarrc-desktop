@@ -25,14 +25,17 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 #echo "Screen width: $SCREEN_WIDTH" >> ~/sketchybar_debug.log
 #echo "20% of screen width: $SCREEN_WIDTH_PERCENT" >> ~/sketchybar_debug.log
 
-MARGIN_LEFT=700
-MARGIN_RIGHT=700
+BAR_HEIGHT=24
+MARGIN_LEFT=300
+MARGIN_RIGHT=300
 
-# --- LEFT SIDE ---
+# ------------------------
+# MAIN BAR
+# ------------------------
 
 sketchybar \
     --bar \
-        height=24 \
+        height=$BAR_HEIGHT \
         color=$COLOR_BAR \
         margin=0 \
         sticky=on \
@@ -42,7 +45,7 @@ sketchybar \
 
 sketchybar \
     --default \
-        background.height=24 \
+        background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
         icon.font="$FONT_FACE:Medium:16.0" \
         icon.padding_left=5 \
@@ -53,22 +56,65 @@ sketchybar \
         label.padding_left=0 \
         label.padding_right=5
 
+# ------------------------
+# LEFT
+# ------------------------
+
+# -- SEPARATOR --
+
+sketchybar --add item separator_1 left \
+           --set separator_1 \
+                 background.color=$COLOR_SECONDARY \
+                 label.drawing=off \
+                 icon.padding_left=0 \
+                 icon.padding_right=100
+
+# -- SPACES OVERVIEW --
+
+SPACE_SIDS=(1 2 3 4 5 6 7 8 9 10)
+
+for sid in "${SPACE_SIDS[@]}"
+do
+  sketchybar --add space space.$sid left                                 \
+             --set space.$sid space=$sid                                 \
+                              icon=$sid                                  \
+                              icon.padding_left=20                     \
+                              icon.padding_right=10                     \
+                              label.font="sketchybar-app-font:Regular:16.0" \
+                              label.padding_right=40                     \
+                              label.y_offset=-1                          \
+                              script="$PLUGIN_SHARED_DIR/space.sh"
+done
+
+sketchybar --add item space_separator left                             \
+           --set space_separator \
+                                 icon.color=$ACCENT_COLOR \
+                                 label.drawing=off                     \
+                                 icon.drawing=off                     \
+                                 icon.color=$COLOR_TEXT_CONTRAST \
+                                 icon.padding_left=$MARGIN_LEFT \
+                                 script="$PLUGIN_SHARED_DIR/space_windows.sh" \
+           --subscribe space_separator space_windows_change             
+
+# -- SEPARATOR --
+
+sketchybar --add item separator_2 left \
+           --set separator_2 \
+                      background.color=$COLOR_SECONDARY \
+                      label.drawing=off \
+                      icon.padding_left=0 \
+                      icon.padding_right=100
+              
+
+# -- ACTIVE SPACE & ACTIVE WINDOW --
+
 sketchybar \
-    --add item current_space left \
-    --set current_space \
-            icon.padding_left=$MARGIN_LEFT \
-            icon.padding_right=10 \
-            icon.color=$COLOR_TEXT_CONTRAST \
-            background.color=$COLOR_SECONDARY \
-            label.drawing=off \
-            script="$PLUGIN_SHARED_DIR/current_space.sh" \
-    --subscribe current_space space_change mouse.clicked \
     --add item current_space.separator left \
     --set current_space.separator \
             icon= \
             icon.color=$COLOR_SECONDARY \
             background.color=$COLOR_ACCENT \
-            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
             icon.y_offset=1
@@ -90,7 +136,7 @@ sketchybar \
             background.color=0x00000000 \
             icon= \
             icon.color=$COLOR_ACCENT \
-            icon.font="$FONT_FACE:Bold:18.0" \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=0 \
             icon.y_offset=1 \
@@ -103,14 +149,18 @@ sketchybar \
             label.color=0xffcad3f5 \
             label.padding_left=10
 
+# -- FRONT APPLICATION --
+
 sketchybar \
     --add bracket front_app_bracket \
             front_app \
             front_app.separator \
             front_app.name \
-    --subscribe front_app front_app_switched
+    --subscribe front_app front_app_switched mouse.clicked
 
-# --- MIDDLE ---
+# ------------------------
+# MIDDLE
+# ------------------------
 
 sketchybar --add item cpu q \
            --set cpu  update_freq=5 \
@@ -146,11 +196,10 @@ sketchybar \
     --subscribe volume volume_change
 
 
-# --- RIGHT SIDE ---
-# 0xffed8796
-#icon.color=$COLOR_TEXT_CONTRAST \
-    #icon=󰃰 \
-    #icon.padding_left=10 \
+# ------------------------
+# RIGHT
+# ------------------------
+
 sketchybar \
     --add item clock right \
     --set clock \
@@ -164,7 +213,7 @@ sketchybar \
             background.color=$COLOR_ACCENT \
             icon= \
             icon.color=$COLOR_SECONDARY \
-            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
             icon.y_offset=1
@@ -187,23 +236,16 @@ sketchybar \
     --set spotify.separator \
             icon= \
             icon.color=$COLOR_ACCENT \
-            icon.font="$FONT_FACE:Bold:20.0" \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
             icon.y_offset=1
 
-#sketchybar --add item media e \
-#           --set media label.color=$COLOR_ACCENT \
-#                       label.max_chars=20 \
-#                       icon.padding_left=0 \
-#                       scroll_texts=on \
-#                       icon=􀑪             \
-#                       icon.color=$COLOR_ACCENT   \
-#                       background.drawing=off \
-#                       script="$PLUGIN_SHARED_DIR/media.sh" \
-#           --subscribe media media_change
 
-##### Finalizing Setup #####
+# ------------------------
+# INIT
+# ------------------------
+
 sketchybar --update
 sketchybar --trigger space_change
 sketchybar --trigger volume_change

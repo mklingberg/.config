@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 STATE="$(echo "$INFO" | jq -r '.state')"
 if [ "$STATE" = "playing" ]; then

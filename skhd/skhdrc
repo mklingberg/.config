@@ -1,3 +1,5 @@
+# -- Changing Window Focus --
+
 # change window focus within space
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
@@ -26,21 +28,20 @@ shift + alt - m : yabai -m window --toggle zoom-fullscreen
 # balance out tree of windows (resize to occupy same area)
 shift + alt - e : yabai -m space --balance
 
+# -- Moving Windows Around --
+
 # swap windows
 ctrl + shift - j : yabai -m window --swap south
 ctrl + shift - k : yabai -m window --swap north
 ctrl + shift - h : yabai -m window --swap west
 ctrl + shift - l : yabai -m window --swap east
-#shift + alt - j : yabai -m window --swap south
-#shift + alt - k : yabai -m window --swap north
-#shift + alt - h : yabai -m window --swap west
-#shift + alt - l : yabai -m window --swap east
 
 # move window and split
 ctrl + alt - j : yabai -m window --warp south
 ctrl + alt - k : yabai -m window --warp north
 ctrl + alt - h : yabai -m window --warp west
 ctrl + alt - l : yabai -m window --warp east
+
 
 # move window to display left and right
 shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
@@ -71,4 +72,3 @@ ctrl + shift - 7 : yabai -m window --space 7;
 #ctrl + alt - q : brew services stop yabai
 #ctrl + alt - s : brew services start yabai
 #ctrl + alt - r : brew services restart yabai
-

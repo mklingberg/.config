@@ -2,7 +2,9 @@
 
 # -- DEFAULT --
 
+export TRANSPARENT=0x00000000
 export WHITE=0xffffffff
+export BLACK=0xff000000
 export COLOR_DATE=0xffed8796
 
 export COLOR_TEXT=0xff24273a
