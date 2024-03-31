@@ -16,6 +16,6 @@ case "$SENDER" in
 "mouse.clicked")
     # Reload $BAR_NAME
     $BAR_NAME --remove '/.*/'
-    source $HOME/.config/$BAR_NAME/$BAR_NAMErc
+    source $HOME/.config/$BAR_NAME/sketchybarrc
     ;;
 esac
