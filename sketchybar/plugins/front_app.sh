@@ -5,7 +5,7 @@
 # focused application in the $INFO variable:
 # https://felixkratz.github.io/$BAR_NAME/config/events#events-and-scripting
 
-PLUGIN_SHARED_DIR="$HOME/.config/$BAR_NAME/plugins"
+PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 
 if [ "$SENDER" = "front_app_switched" ]; then
   $BAR_NAME --set $NAME icon="$($PLUGIN_SHARED_DIR/icon_map_fn.sh "$INFO")"

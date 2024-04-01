@@ -1,5 +1,4 @@
-#!/usr/bin/env zsh
-
+#!/bin/bash
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 FONT_FACE="JetBrainsMono Nerd Font"
@@ -8,9 +7,9 @@ PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-MARGIN_LEFT=20
-MARGIN_RIGHT=20
-BAR_HEIGHT=32
+MARGIN_LEFT=0
+MARGIN_RIGHT=0
+BAR_HEIGHT=38
 SEPARATOR_WIDTH=20
 
 FRONT_APP_ICON_SIZE=20
@@ -24,7 +23,7 @@ $BAR_NAME \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        notch_width=200 \
+        notch_width=230 \
         display=main
 
 $BAR_NAME \

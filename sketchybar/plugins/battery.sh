@@ -3,7 +3,7 @@
 COLOR_BATTERY_LOW=0xffee99a0
 COLOR_BATTERY_EMPTY=0xffed8796
 
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 # Battery is here bcause the ICON_COLOR doesn't play well with all background colors
 

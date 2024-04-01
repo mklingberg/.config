@@ -6,7 +6,8 @@ ICON_SPOTIFY=
 ICON_SPOTIFY_PAUSE=󰏥
 ICON_SPOTIFY_PLAY=
 
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+
 MAX_LENGTH=80
 
 # If the display is the built-in display, reduce the max length
