@@ -48,6 +48,7 @@ $BAR_NAME --add item separator_1 left \
                  background.color=$COLOR_SECONDARY \
                  icon.padding_right=$MARGIN_LEFT
 
+source $ITEM_DIR/reload.sh
 source $ITEM_DIR/current_space_no.sh
 source $ITEM_DIR/front_app_icon.sh
 

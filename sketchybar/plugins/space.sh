@@ -11,7 +11,7 @@ if [ $SELECTED = true ]; then
                          label.color=$COLOR_BLACK \
                          icon.color=$COLOR_BLACK \
                          icon.padding_left=30 \
-                         label.padding_right=60
+                         label.padding_right=40
 else
   $BAR_NAME --set $NAME background.drawing=on \
                          label.color=$COLOR_TEXT_CONTRAST \

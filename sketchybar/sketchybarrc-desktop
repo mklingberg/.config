@@ -68,6 +68,8 @@ $BAR_NAME \
 # LEFT
 # ------------------------
 
+source $ITEM_DIR/reload.sh
+
 # -- SEPARATOR --
 
 #$BAR_NAME \
