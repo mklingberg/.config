@@ -6,6 +6,7 @@ COLOR_BATTERY_EMPTY=0xffed8796
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 # Battery is here bcause the ICON_COLOR doesn't play well with all background colors
+ICON_COLOR=$COLOR_TEXT_CONTRAST
 
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
@@ -17,11 +18,9 @@ fi
 case ${PERCENTAGE} in
 [8-9][0-9] | 100)
     ICON=""
-    ICON_COLOR=$COLOR_TEXT
     ;;
 7[0-9])
     ICON=""
-    ICON_COLOR=$COLOR_TEXT
     ;;
 [4-6][0-9])
     ICON=""
@@ -39,7 +38,6 @@ esac
 
 if [[ $CHARGING != "" ]]; then
     ICON=""
-    ICON_COLOR=$COLOR_TEXT
 fi
 
 $BAR_NAME --set $NAME \

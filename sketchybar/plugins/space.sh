@@ -7,7 +7,7 @@ source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 if [ $SELECTED = true ]; then
   $BAR_NAME --set $NAME background.drawing=on \
-                         background.color=$COLOR_ACCENT \
+                         background.color=$COLOR_TEXT_CONTRAST \
                          label.color=$COLOR_BLACK \
                          icon.color=$COLOR_BLACK \
                          icon.padding_left=30 \
