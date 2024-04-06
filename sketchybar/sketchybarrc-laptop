@@ -23,7 +23,7 @@ $BAR_NAME \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        notch_width=230 \
+        notch_width=236 \
         display=main
 
 $BAR_NAME \

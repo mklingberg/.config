@@ -19,7 +19,7 @@ do
                   space=$sid \
                   icon=$sid \
                   icon.padding_right=0 \
-                  label.font="sketchybar-app-font:Regular:15.0" \
+                  label.font="sketchybar-app-font:Regular:16.0" \
                   label.padding_left=0 \
                   label.y_offset=-1 \
                   script="$PLUGIN_SHARED_DIR/space.sh" \

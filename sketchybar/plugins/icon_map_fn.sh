@@ -1,3 +1,4 @@
+// https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.16/sketchybar-app-font.ttf
 
 function icon_map() {
   case "$1" in

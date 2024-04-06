@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 COLOR_SPOTIFY=0xffeed49f
 COLOR_SPOTIFY_PAUSE=0xffeed49f

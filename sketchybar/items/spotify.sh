@@ -1,7 +1,7 @@
 #!/bin/bash
 
 $BAR_NAME \
-    --add event spotify_change $SPOTIFY_EVENT \
+    --add event spotify_chang1e $SPOTIFY_EVENT \
     --add item spotify right \
     --set spotify \
             icon= \

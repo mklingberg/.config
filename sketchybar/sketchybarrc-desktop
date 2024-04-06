@@ -27,7 +27,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 #echo "Screen width: $SCREEN_WIDTH" >> ~/sketchybar_debug.log
 #echo "20% of screen width: $SCREEN_WIDTH_PERCENT" >> ~/sketchybar_debug.log
 
-BAR_HEIGHT=30
+BAR_HEIGHT=22
 SEPARATOR_WIDTH=20
 DEFAULT_PADDING=10
 
@@ -47,9 +47,7 @@ $BAR_NAME \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        display=main
-
-$BAR_NAME \
+        display=main \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
@@ -66,34 +64,31 @@ $BAR_NAME \
 # LEFT
 # ------------------------
 
-source $ITEM_DIR/reload.sh
-
-# -- SEPARATOR --
-
-#$BAR_NAME \
-#    --add item current_display left \
-#    --set current_display \
-#            icon= \
-#            icon.padding_right=10 \
-#            icon.color=$COLOR_TEXT_CONTRAST \
-#            background.color=$COLOR_SECONDARY \
-#            label="1" \
-#            label.color=$COLOR_BLACK \
-#            label.drawing=on
-
-$BAR_NAME --add item separator_1 left \
-           --set separator_1 \
-                 background.color=$COLOR_SECONDARY \
-                 icon.padding_right=$SEPARATOR_WIDTH
-
+$BAR_NAME \
+    --add item reload left \
+    --set reload \
+            icon=󰑓 \
+            icon.color=$COLOR_SECONDARY \
+            icon.padding_left=5 \
+            icon.padding_right=5 \
+            background.color=$COLOR_SECONDARY \
+            label.padding_right=0 \
+            label.padding_right=0 \
+            script="$PLUGIN_SHARED_DIR/reload.sh" \
+    --subscribe reload mouse.clicked mouse.entered mouse.exited \
+    --add item separator_1 left \
+    --set separator_1 \
+            background.color=$COLOR_SECONDARY \
+            icon.padding_right=$SEPARATOR_WIDTH
+            
 source $ITEM_DIR/spaces.sh
 
 # -- SEPARATOR --
 
-$BAR_NAME --add item separator_2 left \
-           --set separator_2 \
-                 background.color=$COLOR_SECONDARY \
-                 icon.padding_right=$SEPARATOR_WIDTH
+#$BAR_NAME --add item separator_2 left \
+#           --set separator_2 \
+#                 background.color=$COLOR_SECONDARY \
+#                 icon.padding_right=$SEPARATOR_WIDTH
 
 # -- ACTIVE SPACE & ACTIVE WINDOW --
 
@@ -144,58 +139,41 @@ $BAR_NAME \
 
 # -- SEPARATOR --
 
-$BAR_NAME --add item separator_3 right \
-           --set separator_3 \
-                 background.color=$COLOR_SECONDARY \
-                 icon.padding_right=$SEPARATOR_WIDTH
-
-source $ITEM_DIR/clock.sh
-
-$BAR_NAME --add item separator_5 right \
-           --set separator_5 \
-                 background.color=$COLOR_SECONDARY \
-                 icon.padding_right=$SEPARATOR_WIDTH
-
-
-
 $BAR_NAME \
+    --add item separator_3 right \
+    --set separator_3 \
+            background.color=$COLOR_SECONDARY \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item clock right \
+    --set clock \
+            label.color=$COLOR_TEXT_CONTRAST \
+            background.color=$COLOR_SECONDARY \
+            update_freq=10 \
+            script="$PLUGIN_SHARED_DIR/clock.sh" \
+    --add item separator_5 right \
+    --set separator_5 \
+            background.color=$COLOR_SECONDARY \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add item battery right \
     --set battery \
-        update_freq=20 \
-        icon.padding_left=10 \
-        label.padding_right=10 \
-        label.width=38 \
-        background.color=$COLOR_SECONDARY \
-        label.color=$COLOR_TEXT_CONTRAST \
-        icon.color=$COLOR_TEXT_CONTRAST \
-        script="$PLUGIN_SHARED_DIR/battery.sh"
-
-
-$BAR_NAME --add item cpu right \
-          --set cpu  update_freq=5 \
-                      icon.padding_left=10 \
-                      label.padding_right=10 \
-                      label.width=38 \
-                      icon=􀧓 \
-                      background.color=$COLOR_SECONDARY \
-                      label.color=$COLOR_TEXT_CONTRAST \
-                      icon.color=$COLOR_TEXT_CONTRAST \
-                      script="$PLUGIN_SHARED_DIR/cpu.sh"
-
-#$BAR_NAME \
-#    --add item memory right \
-#    --set memory \
-#            icon=  \
-#            icon.padding_left=10 \
-#            label.padding_right=10 \
-#            label.width=38 \
-#            update_freq=20 \
-#            background.color=$COLOR_SECONDARY \
-#            label.color=$COLOR_TEXT_CONTRAST \
-#            icon.color=$COLOR_TEXT_CONTRAST \
-#            script="$PLUGIN_SHARED_DIR/memory.sh"
-
-$BAR_NAME \
+            update_freq=20 \
+            icon.padding_left=10 \
+            label.padding_right=10 \
+            label.width=38 \
+            background.color=$COLOR_SECONDARY \
+            label.color=$COLOR_TEXT_CONTRAST \
+            icon.color=$COLOR_TEXT_CONTRAST \
+            script="$PLUGIN_SHARED_DIR/battery.sh" \
+    --add item cpu right \
+    --set cpu update_freq=5 \
+            icon.padding_left=10 \
+            label.padding_right=10 \
+            label.width=38 \
+            icon=􀧓 \
+            background.color=$COLOR_SECONDARY \
+            label.color=$COLOR_TEXT_CONTRAST \
+            icon.color=$COLOR_TEXT_CONTRAST \
+            script="$PLUGIN_SHARED_DIR/cpu.sh" \
     --add item volume right \
     --set volume \
             icon.padding_left=10 \
