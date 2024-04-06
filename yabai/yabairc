@@ -5,13 +5,19 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding set to 10px
-yabai -m config top_padding 8
-yabai -m config bottom_padding 8
-yabai -m config left_padding 8
-yabai -m config right_padding 8
-yabai -m config window_gap 8
+yabai -m config top_padding 2
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 2
 
-# center mouse on window with focus
+yabai -m config --display 2 top_padding 0
+yabai -m config --display 2 bottom_padding 0
+yabai -m config --display 2 left_padding 0
+yabai -m config --display 2 right_padding 0
+yabai -m config --display 2 window_gap 2
+
+# center mouse on window with focuts
 #yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
