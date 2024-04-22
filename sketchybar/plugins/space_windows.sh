@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$SENDER" = "space_windows_change" ]; then
+if [ "$SENDER" = "space_windows_change" ]; then #|| [ "$SENDER" = "front_app_switched" ]
   space="$(echo "$INFO" | jq -r '.space')"
   apps="$(echo "$INFO" | jq -r '.apps | keys[]')"
 

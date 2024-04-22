@@ -5,5 +5,3 @@
 
 # Set the item label to the display number.
 $BAR_NAME --set $NAME label="$INFO"
-
-echo "Display: $INFO" >> ~/sketchybar_debug.log

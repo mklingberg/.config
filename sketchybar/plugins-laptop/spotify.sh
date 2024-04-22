@@ -13,7 +13,7 @@ MAX_LENGTH=80
 # If the display is the built-in display, reduce the max length
 MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
 if [[ $MAIN_DISPLAY = "Built-in" ]]; then
-    MAX_LENGTH=32
+    MAX_LENGTH=38
 fi
 
 # Logic starts here, do not modify

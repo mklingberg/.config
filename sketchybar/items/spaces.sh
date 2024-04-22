@@ -23,9 +23,9 @@ do
                   label.padding_left=0 \
                   label.y_offset=-1 \
                   script="$PLUGIN_SHARED_DIR/space.sh" \
-            --subscribe space.$sid space_change mouse.clicked \
-    --add item space.$sid.e left \
-    --set space.$sid.e \
+     --subscribe space.$sid space_change mouse.clicked \
+     --add item space.$sid.e left \
+     --set space.$sid.e \
             icon= \
             icon.color=$COLOR_SECONDARY \
             background.color=$COLOR_SECONDARY \
@@ -40,4 +40,4 @@ $BAR_NAME --add item space_separator left \
                 label.drawing=off \
                 icon.drawing=off \
                 script="$PLUGIN_SHARED_DIR/space_windows.sh" \
-          --subscribe space_separator space_windows_change             
+          --subscribe space_separator space_windows_change
