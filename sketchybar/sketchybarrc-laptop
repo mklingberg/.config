@@ -82,7 +82,7 @@ $BAR_NAME --add item battery q \
                 update_freq=20 \
                 icon.padding_left=10 \
                 label.padding_right=10 \
-                label.width=38 \
+                label.width=44 \
                 label.color=$COLOR_TEXT_CONTRAST \
                 icon.color=$COLOR_TEXT_CONTRAST \
                 script="$PLUGIN_SHARED_DIR/battery.sh"
@@ -101,7 +101,7 @@ $BAR_NAME   --add item volume e \
             --set volume \
                     icon.padding_left=10 \
                     label.padding_right=10 \
-                    label.width=38 \
+                    label.width=44 \
                     label.drawing=true \
                     label.color=$COLOR_TEXT_CONTRAST \
                     icon.color=$COLOR_TEXT_CONTRAST \
