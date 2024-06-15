@@ -1,6 +1,7 @@
 #!/bin/bash
 
 COLOR_FRONT_APP_NAME=0xffcad3f5
+COLOR_FRONT_APP_NAME_BG=0xff2e3440
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
@@ -10,4 +11,6 @@ $BAR_NAME \
             icon.drawing=off \
             label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0" \
             label.color=$COLOR_FRONT_APP_NAME \
-            label.padding_left=10
+            background.color=$COLOR_FRONT_APP_NAME_BG \
+            label.padding_left=5 \
+            label.padding_right=10

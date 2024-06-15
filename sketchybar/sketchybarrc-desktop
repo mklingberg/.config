@@ -32,8 +32,8 @@ SEPARATOR_WIDTH=20
 DEFAULT_PADDING=10
 
 
-FRONT_APP_ICON_SIZE=16
-FRONT_APP_NAME_SIZE=16
+FRONT_APP_ICON_SIZE=14
+FRONT_APP_NAME_SIZE=15
 
 # ------------------------
 # MAIN BAR
@@ -69,24 +69,32 @@ $BAR_NAME \
     --set reload \
             icon= \
             icon.color=$COLOR_RELOAD_ICON \
-            icon.padding_left=15 \
-            icon.padding_right=10 \
+            icon.padding_left=10 \
+            icon.padding_right=5 \
             background.color=$COLOR_RELOAD_BG \
             label.padding_right=0 \
             label.padding_right=0 \
             script="$PLUGIN_SHARED_DIR/reload.sh" \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
-
+    --add item reload.separator left \
+    --set reload.separator \
+            icon= \
+            icon.color=$COLOR_RELOAD_BG \
+            background.color=$COLOR_SPACE_BG \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
+            icon.y_offset=1
             
 source $ITEM_DIR/spaces.sh
 
 # -- SEPARATOR --
 
-$BAR_NAME \
-     --add item separator_2 left \
-     --set separator_2 \
-             background.color=$COLOR_SPACE_BG \
-             icon.padding_right=$SEPARATOR_WIDTH
+#$BAR_NAME \
+#     --add item separator_2 left \
+#     --set separator_2 \
+#             background.color=$COLOR_SPACE_BG \
+#             icon.padding_right=$SEPARATOR_WIDTH
 
 # -- ACTIVE SPACE & ACTIVE WINDOW --
 
@@ -102,6 +110,7 @@ $BAR_NAME \
             icon.y_offset=1
 
 source $ITEM_DIR/front_app_icon.sh
+source $ITEM_DIR/front_app_name.sh
 
 $BAR_NAME \
     --add item front_app.separator left \
@@ -114,8 +123,6 @@ $BAR_NAME \
             icon.padding_right=0 \
             icon.y_offset=1 \
             label.drawing=no
-
-source $ITEM_DIR/front_app_name.sh
 
 # -- FRONT APPLICATION --
 

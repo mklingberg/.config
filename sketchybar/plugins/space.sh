@@ -14,7 +14,7 @@ if [ $SELECTED = true ]; then
                          background.color=$COLOR_SPACE_SELECTED_BG \
                          label.color=$COLOR_SPACE_SELECTED_ICON \
                          icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
-                         icon.padding_left=20 \
+                         icon.padding_left=10 \
                          icon.padding_right=5 \
                          label.padding_right=30 \
                          label.drawing=on
@@ -28,6 +28,6 @@ else
                          background.color=$TRANSPARENT \
                          icon.padding_left=10 \
                          icon.padding_right=5 \
-                         label.padding_right=20 \
+                         label.padding_right=30 \
                          label.drawing=on
 fi
