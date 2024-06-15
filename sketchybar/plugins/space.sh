@@ -8,7 +8,7 @@ source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 if [ $SELECTED = true ]; then
   $BAR_NAME \
             --set $NAME.s background.color=$COLOR_TEXT_CONTRAST \
-            --set $NAME.e background.color=$COLOR_TEXT_CONTRAST \
+            --set $NAME.e icon.color=$COLOR_TEXT_CONTRAST \
             --set $NAME background.drawing=on \
                          background.color=$COLOR_TEXT_CONTRAST \
                          label.color=$COLOR_BLACK \
@@ -20,7 +20,7 @@ if [ $SELECTED = true ]; then
 else
   $BAR_NAME \
             --set $NAME.s background.color=$COLOR_SECONDARY \
-            --set $NAME.e background.color=$COLOR_SECONDARY \
+            --set $NAME.e icon.color=$COLOR_SECONDARY \
             --set $NAME background.drawing=on \
                          label.color=$COLOR_TEXT_CONTRAST \
                          icon.color=$COLOR_ACCENT \

@@ -85,10 +85,11 @@ source $ITEM_DIR/spaces.sh
 
 # -- SEPARATOR --
 
-#$BAR_NAME --add item separator_2 left \
-#           --set separator_2 \
-#                 background.color=$COLOR_SECONDARY \
-#                 icon.padding_right=$SEPARATOR_WIDTH
+$BAR_NAME \
+     --add item separator_2 left \
+     --set separator_2 \
+             background.color=$COLOR_SECONDARY \
+             icon.padding_right=$SEPARATOR_WIDTH
 
 # -- ACTIVE SPACE & ACTIVE WINDOW --
 
