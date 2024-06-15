@@ -156,11 +156,7 @@ $BAR_NAME \
             icon.padding_left=0 \
             icon.padding_right=0 \
             icon.y_offset=1 \
-            label.drawing=no
-
-# -- FRONT APPLICATION --
-
-$BAR_NAME \
+            label.drawing=no \
     --add bracket front_app_bracket \
             front_app \
             front_app.name \
