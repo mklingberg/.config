@@ -63,22 +63,22 @@ $BAR_NAME \
 # ------------------------
 # LEFT
 # ------------------------
-
+#󰑓
 $BAR_NAME \
     --add item reload left \
     --set reload \
-            icon=󰑓 \
-            icon.color=$COLOR_SECONDARY \
-            icon.padding_left=5 \
-            icon.padding_right=5 \
-            background.color=$COLOR_SECONDARY \
+            icon= \
+            icon.color=$COLOR_RELOAD_ICON \
+            icon.padding_left=30 \
+            icon.padding_right=0 \
+            background.color=$COLOR_RELOAD_BG \
             label.padding_right=0 \
             label.padding_right=0 \
             script="$PLUGIN_SHARED_DIR/reload.sh" \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
     --add item separator_1 left \
     --set separator_1 \
-            background.color=$COLOR_SECONDARY \
+            background.color=$COLOR_RELOAD_BG \
             icon.padding_right=$SEPARATOR_WIDTH
             
 source $ITEM_DIR/spaces.sh
@@ -88,7 +88,7 @@ source $ITEM_DIR/spaces.sh
 $BAR_NAME \
      --add item separator_2 left \
      --set separator_2 \
-             background.color=$COLOR_SECONDARY \
+             background.color=$COLOR_SPACE_BG \
              icon.padding_right=$SEPARATOR_WIDTH
 
 # -- ACTIVE SPACE & ACTIVE WINDOW --
@@ -97,8 +97,8 @@ $BAR_NAME \
     --add item current_space.separator left \
     --set current_space.separator \
             icon= \
-            icon.color=$COLOR_SECONDARY \
-            background.color=$COLOR_ACCENT \
+            icon.color=$COLOR_SPACE_BG \
+            background.color=$COLOR_FRONT_APP_ICON_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
@@ -111,7 +111,7 @@ $BAR_NAME \
     --set front_app.separator \
             background.color=0x00000000 \
             icon= \
-            icon.color=$COLOR_ACCENT \
+            icon.color=$COLOR_FRONT_APP_ICON_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=0 \
