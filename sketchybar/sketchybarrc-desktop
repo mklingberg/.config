@@ -28,7 +28,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 #echo "20% of screen width: $SCREEN_WIDTH_PERCENT" >> ~/sketchybar_debug.log
 
 BAR_HEIGHT=22
-SEPARATOR_WIDTH=20
+SEPARATOR_WIDTH=5
 DEFAULT_PADDING=10
 
 
@@ -65,17 +65,29 @@ $BAR_NAME \
 # ------------------------
 #󰑓
 $BAR_NAME \
+    --add item separator_reload_1 left \
+    --set separator_reload_1 \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add item reload left \
     --set reload \
             icon= \
             icon.color=$COLOR_RELOAD_ICON \
-            icon.padding_left=10 \
-            icon.padding_right=5 \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
             background.color=$COLOR_RELOAD_BG \
             label.padding_right=0 \
             label.padding_right=0 \
             script="$PLUGIN_SHARED_DIR/reload.sh" \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
+    --add item separator_reload_2 left \
+    --set separator_reload_2 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add bracket reload_bracket \
+              reload \
+              separator_reload_1 \
+              separator_reload_2 \
+    --set reload_bracket \
+              background.color=$COLOR_RELOAD_BG \
     --add item reload.separator left \
     --set reload.separator \
             icon= \
@@ -85,9 +97,25 @@ $BAR_NAME \
             icon.padding_left=0 \
             icon.padding_right=0 \
             icon.y_offset=1
-            
+
 source $ITEM_DIR/spaces.sh
 
+$BAR_NAME \
+    --add bracket spaces_bracket \
+              space.1 \
+              space.2 \
+              space.3 \
+              space.4 \
+              space.5 \
+              space.6 \
+              space.7 \
+              space.8 \
+              space.9 \
+              separator_spaces_1 \
+    --set spaces_bracket \
+              background.color=$COLOR_SPACE_BG \
+              background.padding_left=0 \
+              background.padding_right=0
 # -- SEPARATOR --
 
 #$BAR_NAME \
@@ -103,21 +131,27 @@ $BAR_NAME \
     --set current_space.separator \
             icon= \
             icon.color=$COLOR_SPACE_BG \
-            background.color=$COLOR_FRONT_APP_ICON_BG \
+            background.color=$COLOR_FRONT_APP_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
-            icon.y_offset=1
+            icon.y_offset=1 \
+    --add item separator_front_app_1 left \
+    --set separator_front_app_1 \
+            icon.padding_right=$SEPARATOR_WIDTH
 
 source $ITEM_DIR/front_app_icon.sh
 source $ITEM_DIR/front_app_name.sh
 
 $BAR_NAME \
+    --add item separator_front_app_2 left \
+    --set separator_front_app_2 \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add item front_app.separator left \
     --set front_app.separator \
-            background.color=0x00000000 \
+            background.color=$TRANSPARENT \
             icon= \
-            icon.color=$COLOR_FRONT_APP_ICON_BG \
+            icon.color=$COLOR_FRONT_APP_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=0 \
@@ -129,8 +163,11 @@ $BAR_NAME \
 $BAR_NAME \
     --add bracket front_app_bracket \
             front_app \
-            front_app.separator \
             front_app.name \
+            separator_front_app_2 \
+            separator_front_app_1 \
+     --set front_app_bracket \
+            background.color=$COLOR_FRONT_APP_BG \
     --subscribe front_app front_app_switched mouse.clicked
 
 # ------------------------
@@ -145,16 +182,35 @@ $BAR_NAME \
 # -- SEPARATOR --
 
 $BAR_NAME \
-    --add item separator_3 right \
-    --set separator_3 \
+    --add item separator_clock_1 right \
+    --set separator_clock_1 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item clock right \
     --set clock \
             label.color=$COLOR_RIGHT_AREA_TEXT \
+            icon.drawing=no \
             update_freq=10 \
             script="$PLUGIN_SHARED_DIR/clock.sh" \
-    --add item separator_5 right \
-    --set separator_5 \
+    --add item separator_clock_2 right \
+    --set separator_clock_2 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add bracket clock_bracket \
+            separator_clock_1 \
+            separator_clock_2 \
+            clock \
+     --set clock_bracket \
+            background.color=$COLOR_RIGHT_AREA_BG \
+     --add item clock.separator right \
+     --set clock.separator \
+            background.color=$COLOR_STATS_BG \
+            icon= \
+            icon.color=$COLOR_RIGHT_AREA_BG \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-8 \
+            icon.y_offset=1 \
+    --add item separator_stats_1 right \
+    --set separator_stats_1 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item battery right \
     --set battery \
@@ -162,8 +218,8 @@ $BAR_NAME \
             icon.padding_left=10 \
             label.padding_right=10 \
             label.width=38 \
-            label.color=$COLOR_RIGHT_AREA_TEXT \
-            icon.color=$COLOR_RIGHT_AREA_TEXT \
+            label.color=$COLOR_STATS \
+            icon.color=$COLOR_STATS \
             script="$PLUGIN_SHARED_DIR/battery.sh" \
     --add item cpu right \
     --set cpu update_freq=5 \
@@ -171,62 +227,71 @@ $BAR_NAME \
             label.padding_right=10 \
             label.width=38 \
             icon=􀧓 \
-            label.color=$COLOR_RIGHT_AREA_TEXT \
-            icon.color=$COLOR_RIGHT_AREA_TEXT \
+            label.color=$COLOR_STATS \
+            icon.color=$COLOR_STATS \
             script="$PLUGIN_SHARED_DIR/cpu.sh" \
     --add item volume right \
     --set volume \
-            icon.padding_left=10 \
+            icon.padding_left=0 \
             label.padding_right=10 \
             label.width=38 \
             label.drawing=true \
-            label.color=$COLOR_RIGHT_AREA_TEXT \
-            icon.color=$COLOR_RIGHT_AREA_TEXT \
+            label.color=$COLOR_STATS \
+            icon.color=$COLOR_STATS \
             script="$PLUGIN_SHARED_DIR/volume.sh" \
     --subscribe volume volume_change \
-    --add item separator_4 right \
-    --set separator_4 \
-                icon.padding_right=0 \
-    --add bracket right_area \
-            separator_3 \
-            clock \
-            separator_4 \
-            separator_5 \
+    --add item separator_stats_2 right \
+    --set separator_stats_2 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item stats.separator right \
+    --set stats.separator \
+            icon= \
+            icon.color=$COLOR_STATS_BG \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-8 \
+            icon.y_offset=1 \
+            background.color=$COLOR_SPOTIFY_BG \
+    --add bracket stats_bracket \
+            separator_stats_1 \
+            separator_stats_2 \
             battery \
             cpu \
             volume \
-     --set right_area \
-            background.color=$COLOR_RIGHT_AREA_BG
+     --set stats_bracket \
+            background.color=$COLOR_STATS_BG
 
 # -- SEPARATOR --
 
 $BAR_NAME \
-        --add item clock.separator right \
-        --set clock.separator \
-                background.color=$COLOR_ACCENT \
-                icon= \
-                icon.color=$COLOR_RIGHT_AREA_BG \
-                icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-                icon.padding_left=0 \
-                icon.padding_right=-8 \
-                icon.y_offset=1 \
+        --add item separator_spotify_1 right \
+        --set separator_spotify_1 \
+                icon.padding_right=$SEPARATOR_WIDTH \
         --add event spotify_change $SPOTIFY_EVENT \
         --add item spotify right \
         --set spotify \
                 icon= \
                 icon.y_offset=1 \
-                icon.padding_left=10 \
-                icon.padding_right=10 \
-                label.padding_right=10 \
+                icon.padding_left=0 \
+                label.padding_right=0 \
                 label.drawing=off \
-                label.padding_left=3 \
-                background.color=$COLOR_ACCENT \
+                label.padding_left=0 \
+                background.color=$COLOR_SPOTIFY_BG \
                 script="$PLUGIN_DIR/spotify.sh" \
         --subscribe spotify spotify_change mouse.clicked \
+        --add item separator_spotify_2 right \
+        --set separator_spotify_2 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+        --add bracket spotify_bracket \
+                separator_spotify_1 \
+                separator_spotify_2 \
+                spotify \
+        --set spotify_bracket \
+                background.color=$COLOR_SPOTIFY_BG \
         --add item spotify.separator right \
         --set spotify.separator \
                 icon= \
-                icon.color=$COLOR_ACCENT \
+                icon.color=$COLOR_SPOTIFY_BG \
                 icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
                 icon.padding_left=0 \
                 icon.padding_right=-8 \

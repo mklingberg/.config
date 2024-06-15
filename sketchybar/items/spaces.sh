@@ -36,20 +36,4 @@ $BAR_NAME --add item space_separator left \
                 icon.drawing=off \
                 script="$PLUGIN_SHARED_DIR/space_windows.sh" \
           --subscribe space_separator space_windows_change
-
-$BAR_NAME \
-    --add bracket spaces_bracket \
-              space.1 \
-              space.2 \
-              space.3 \
-              space.4 \
-              space.5 \
-              space.6 \
-              space.7 \
-              space.8 \
-              space.9 \
-       --set spaces_bracket \
-              background.color=$COLOR_SPACE_BG \
-              background.padding_left=0 \
-              background.padding_right=0
               
