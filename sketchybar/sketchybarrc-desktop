@@ -69,17 +69,14 @@ $BAR_NAME \
     --set reload \
             icon= \
             icon.color=$COLOR_RELOAD_ICON \
-            icon.padding_left=30 \
-            icon.padding_right=0 \
+            icon.padding_left=15 \
+            icon.padding_right=10 \
             background.color=$COLOR_RELOAD_BG \
             label.padding_right=0 \
             label.padding_right=0 \
             script="$PLUGIN_SHARED_DIR/reload.sh" \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
-    --add item separator_1 left \
-    --set separator_1 \
-            background.color=$COLOR_RELOAD_BG \
-            icon.padding_right=$SEPARATOR_WIDTH
+
             
 source $ITEM_DIR/spaces.sh
 
@@ -143,17 +140,14 @@ $BAR_NAME \
 $BAR_NAME \
     --add item separator_3 right \
     --set separator_3 \
-            background.color=$COLOR_SECONDARY \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item clock right \
     --set clock \
-            label.color=$COLOR_TEXT_CONTRAST \
-            background.color=$COLOR_SECONDARY \
+            label.color=$COLOR_RIGHT_AREA_TEXT \
             update_freq=10 \
             script="$PLUGIN_SHARED_DIR/clock.sh" \
     --add item separator_5 right \
     --set separator_5 \
-            background.color=$COLOR_SECONDARY \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item battery right \
     --set battery \
@@ -161,9 +155,8 @@ $BAR_NAME \
             icon.padding_left=10 \
             label.padding_right=10 \
             label.width=38 \
-            background.color=$COLOR_SECONDARY \
-            label.color=$COLOR_TEXT_CONTRAST \
-            icon.color=$COLOR_TEXT_CONTRAST \
+            label.color=$COLOR_RIGHT_AREA_TEXT \
+            icon.color=$COLOR_RIGHT_AREA_TEXT \
             script="$PLUGIN_SHARED_DIR/battery.sh" \
     --add item cpu right \
     --set cpu update_freq=5 \
@@ -171,9 +164,8 @@ $BAR_NAME \
             label.padding_right=10 \
             label.width=38 \
             icon=􀧓 \
-            background.color=$COLOR_SECONDARY \
-            label.color=$COLOR_TEXT_CONTRAST \
-            icon.color=$COLOR_TEXT_CONTRAST \
+            label.color=$COLOR_RIGHT_AREA_TEXT \
+            icon.color=$COLOR_RIGHT_AREA_TEXT \
             script="$PLUGIN_SHARED_DIR/cpu.sh" \
     --add item volume right \
     --set volume \
@@ -181,24 +173,32 @@ $BAR_NAME \
             label.padding_right=10 \
             label.width=38 \
             label.drawing=true \
-            background.color=$COLOR_SECONDARY \
-            label.color=$COLOR_TEXT_CONTRAST \
-            icon.color=$COLOR_TEXT_CONTRAST \
+            label.color=$COLOR_RIGHT_AREA_TEXT \
+            icon.color=$COLOR_RIGHT_AREA_TEXT \
             script="$PLUGIN_SHARED_DIR/volume.sh" \
-    --subscribe volume volume_change
+    --subscribe volume volume_change \
+    --add item separator_4 right \
+    --set separator_4 \
+                icon.padding_right=0 \
+    --add bracket right_area \
+            separator_3 \
+            clock \
+            separator_4 \
+            separator_5 \
+            battery \
+            cpu \
+            volume \
+     --set right_area \
+            background.color=$COLOR_RIGHT_AREA_BG
 
 # -- SEPARATOR --
 
 $BAR_NAME \
-        --add item separator_4 right \
-        --set separator_4 \
-                background.color=$COLOR_SECONDARY \
-                icon.padding_right=0 \
         --add item clock.separator right \
         --set clock.separator \
                 background.color=$COLOR_ACCENT \
                 icon= \
-                icon.color=$COLOR_SECONDARY \
+                icon.color=$COLOR_RIGHT_AREA_BG \
                 icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
                 icon.padding_left=0 \
                 icon.padding_right=-8 \

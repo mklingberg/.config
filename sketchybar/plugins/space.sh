@@ -1,12 +1,5 @@
 #!/bin/sh
 
-COLOR_SPACE_SELECTED_BG=0xffc7c7c7
-COLOR_SPACE_SELECTED_SPACE_NO=0xff000000
-COLOR_SPACE_SELECTED_ICON=0xff000000
-
-COLOR_SPACE_BG=0xff24273a
-COLOR_SPACE_SPACE_NO=0xffc7c7c7
-COLOR_SPACE_ICON=0xffc7c7c7
 
 # The $SELECTED variable is available for space components and indicates if
 # the space invoking this script (with name: $NAME) is currently selected:
@@ -28,11 +21,11 @@ if [ $SELECTED = true ]; then
 else
   $BAR_NAME \
             --set $NAME.s background.color=$COLOR_SPACE_BG \
-            --set $NAME.e icon.color=$COLOR_SPACE_BG \
+            --set $NAME.e icon.color=$TRANSPARENT \
             --set $NAME background.drawing=on \
                          label.color=$COLOR_SPACE_ICON \
                          icon.color=$COLOR_SPACE_SPACE_NO \
-                         background.color=$COLOR_SPACE_BG \
+                         background.color=$TRANSPARENT \
                          icon.padding_left=10 \
                          icon.padding_right=5 \
                          label.padding_right=20 \

@@ -2,11 +2,9 @@
 
 COLOR_BATTERY_LOW=0xffee99a0
 COLOR_BATTERY_EMPTY=0xffed8796
+COLOR_BATTERY_ICON=0xffc7c7c7
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
-
-# Battery is here bcause the ICON_COLOR doesn't play well with all background colors
-ICON_COLOR=$COLOR_TEXT_CONTRAST
 
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
@@ -24,15 +22,15 @@ case ${PERCENTAGE} in
     ;;
 [4-6][0-9])
     ICON=""
-    ICON_COLOR=$COLOR_SECONDARY
+    COLOR_BATTERY_ICON=$COLOR_SECONDARY
     ;;
 [1-3][0-9])
     ICON=""
-    ICON_COLOR=$COLOR_BATTERY_LOW
+    COLOR_BATTERY_ICON=$COLOR_BATTERY_LOW
     ;;
 [0-9])
     ICON=""
-    ICON_COLOR=$COLOR_BATTERY_EMPTY
+    COLOR_BATTERY_ICON=$COLOR_BATTERY_EMPTY
     ;;
 esac
 
@@ -43,4 +41,4 @@ fi
 $BAR_NAME --set $NAME \
     icon=$ICON \
     label="${PERCENTAGE}%" \
-    icon.color=${ICON_COLOR}
+    icon.color=${COLOR_BATTERY_ICON}
