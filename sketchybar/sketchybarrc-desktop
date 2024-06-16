@@ -92,45 +92,19 @@ $BAR_NAME \
     --set reload.separator \
             icon= \
             icon.color=$COLOR_RELOAD_BG \
-            background.color=$COLOR_SPACE_BG \
+            background.color=$COLOR_CURRENT_SPACE_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=0 \
             icon.y_offset=1
 
-source $ITEM_DIR/spaces.sh
-
-$BAR_NAME \
-    --add bracket spaces_bracket \
-              space.1 \
-              space.2 \
-              space.3 \
-              space.4 \
-              space.5 \
-              space.6 \
-              space.7 \
-              space.8 \
-              space.9 \
-              separator_spaces_1 \
-    --set spaces_bracket \
-              background.color=$COLOR_SPACE_BG \
-              background.padding_left=0 \
-              background.padding_right=0
-# -- SEPARATOR --
-
-#$BAR_NAME \
-#     --add item separator_2 left \
-#     --set separator_2 \
-#             background.color=$COLOR_SPACE_BG \
-#             icon.padding_right=$SEPARATOR_WIDTH
-
-# -- ACTIVE SPACE & ACTIVE WINDOW --
+source $ITEM_DIR/current_space_no.sh
 
 $BAR_NAME \
     --add item current_space.separator left \
     --set current_space.separator \
             icon= \
-            icon.color=$COLOR_SPACE_BG \
+            icon.color=$COLOR_CURRENT_SPACE_BG \
             background.color=$COLOR_FRONT_APP_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
@@ -169,7 +143,90 @@ $BAR_NAME \
 # ------------------------
 # MIDDLE
 # ------------------------
+#    --add item battery center \
+#    --set battery \
+#            update_freq=20 \
+#            icon.padding_left=10 \
+#            label.padding_right=10 \
+#            label.width=38 \
+#            label.color=$COLOR_STATS \
+#            icon.color=$COLOR_STATS \
+#            script="$PLUGIN_SHARED_DIR/battery.sh" \
 
+$BAR_NAME \
+    --add item cpu center \
+    --set cpu update_freq=5 \
+            icon.padding_left=10 \
+            label.padding_right=10 \
+            label.width=38 \
+            icon=􀧓 \
+            label.color=$COLOR_STATS \
+            icon.color=$COLOR_STATS \
+            script="$PLUGIN_SHARED_DIR/cpu.sh" \
+    --add item separator_stats_2 center \
+    --set separator_stats_2 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add bracket stats_bracket \
+            separator_stats_2 \
+            battery \
+            cpu \
+     --set stats_bracket \
+            background.color=$TRANSPARENT \
+    --add item spaces_separator_1 center \
+    --set spaces_separator_1 \
+            icon= \
+            icon.color=$COLOR_SPACE_BG \
+            background.color=$TRANSPARENT \
+            label.padding_right=0 \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=-2 \
+            icon.y_offset=1 \
+    --add item spaces_separator_2 center \
+    --set spaces_separator_2 \
+            icon.padding_right=$SEPARATOR_WIDTH
+
+source $ITEM_DIR/spaces.sh
+
+$BAR_NAME \
+    --add bracket spaces_bracket \
+              space.1 \
+              space.2 \
+              space.3 \
+              space.4 \
+              space.5 \
+              space.6 \
+              space.7 \
+              space.8 \
+              space.9 \
+              spaces_separator_2 \
+    --set spaces_bracket \
+              background.color=$COLOR_SPACE_BG \
+              background.padding_left=0 \
+              background.padding_right=0 \
+    --add item spaces_separator_3 center \
+    --set spaces_separator_3 \
+            icon= \
+            icon.color=$COLOR_SPACE_BG \
+            background.color=$TRANSPARENT \
+            label.padding_right=0 \
+            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
+            icon.y_offset=1 \
+    --add item volume_separator_1 center \
+    --set volume_separator_1 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item volume center \
+    --set volume \
+            icon.padding_left=10 \
+            label.padding_right=10 \
+            label.width=38 \
+            label.drawing=true \
+            label.color=$COLOR_STATS \
+            icon.color=$COLOR_STATS \
+            script="$PLUGIN_SHARED_DIR/volume.sh" \
+    --subscribe volume volume_change
 
 # ------------------------
 # RIGHT
@@ -198,64 +255,13 @@ $BAR_NAME \
             background.color=$COLOR_RIGHT_AREA_BG \
      --add item clock.separator right \
      --set clock.separator \
-            background.color=$COLOR_STATS_BG \
+            background.color=$COLOR_SPOTIFY_BG \
             icon= \
             icon.color=$COLOR_RIGHT_AREA_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-8 \
-            icon.y_offset=1 \
-    --add item separator_stats_1 right \
-    --set separator_stats_1 \
-            icon.padding_right=$SEPARATOR_WIDTH \
-    --add item battery right \
-    --set battery \
-            update_freq=20 \
-            icon.padding_left=10 \
-            label.padding_right=10 \
-            label.width=38 \
-            label.color=$COLOR_STATS \
-            icon.color=$COLOR_STATS \
-            script="$PLUGIN_SHARED_DIR/battery.sh" \
-    --add item cpu right \
-    --set cpu update_freq=5 \
-            icon.padding_left=10 \
-            label.padding_right=10 \
-            label.width=38 \
-            icon=􀧓 \
-            label.color=$COLOR_STATS \
-            icon.color=$COLOR_STATS \
-            script="$PLUGIN_SHARED_DIR/cpu.sh" \
-    --add item volume right \
-    --set volume \
-            icon.padding_left=0 \
-            label.padding_right=10 \
-            label.width=38 \
-            label.drawing=true \
-            label.color=$COLOR_STATS \
-            icon.color=$COLOR_STATS \
-            script="$PLUGIN_SHARED_DIR/volume.sh" \
-    --subscribe volume volume_change \
-    --add item separator_stats_2 right \
-    --set separator_stats_2 \
-            icon.padding_right=$SEPARATOR_WIDTH \
-    --add item stats.separator right \
-    --set stats.separator \
-            icon= \
-            icon.color=$COLOR_STATS_BG \
-            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-            icon.padding_left=0 \
-            icon.padding_right=-8 \
-            icon.y_offset=1 \
-            background.color=$COLOR_SPOTIFY_BG \
-    --add bracket stats_bracket \
-            separator_stats_1 \
-            separator_stats_2 \
-            battery \
-            cpu \
-            volume \
-     --set stats_bracket \
-            background.color=$COLOR_STATS_BG
+            icon.y_offset=1
 
 # -- SEPARATOR --
 

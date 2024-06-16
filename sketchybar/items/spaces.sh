@@ -18,7 +18,7 @@ SPACE_SIDS=(1 2 3 4 5) # 6 7 8 9 10
 for sid in "${SPACE_SIDS[@]}"
 do
   $BAR_NAME \
-     --add space space.$sid left \
+     --add space space.$sid center \
      --set space.$sid \
             space=$sid \
             icon=$sid \
@@ -30,7 +30,7 @@ do
      --subscribe space.$sid space_change mouse.clicked
 done
 
-$BAR_NAME --add item space_separator left \
+$BAR_NAME --add item space_separator center \
           --set space_separator \
                 label.drawing=off \
                 icon.drawing=off \
