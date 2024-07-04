@@ -13,7 +13,7 @@ COLOR_SPACE_ICON=0xffc7c7c7
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
-SPACE_SIDS=(1 2 3 4 5) # 6 7 8 9 10
+SPACE_SIDS=(1 2 3 4 5 6 7 8 9 10)
 
 for sid in "${SPACE_SIDS[@]}"
 do

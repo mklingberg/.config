@@ -1,7 +1,8 @@
 #!/bin/bash
 
+
 update_space() {
-    SPACE_ID=$(echo "$INFO" | jq -r '."display-1"')
+    SPACE_ID=$(echo "$INFO" | jq -r 'to_entries | .[] | select(.key | startswith("display-")) | .value')
 
     case $SPACE_ID in
     #1)

@@ -2,30 +2,11 @@
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 FONT_FACE="JetBrainsMono Nerd Font"
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
-
-
-# Get the screen resolution
-#SCREEN_RESOLUTION=$(system_profiler SPDisplaysDataType | awk '/Resolution/{print $2, $4}' | head -n1)
-# Extract the width from the resolution
-#SCREEN_WIDTH=$(echo $SCREEN_RESOLUTION | awk '{print $1}')
-# Calculate 10% of the screen width
-#SCREEN_WIDTH_PERCENT=$(echo "$SCREEN_WIDTH * 0.10" | bc -l)
-# Round the result to an integer, as screen dimensions should be whole numbers
-#SCREEN_WIDTH_PERCENT=$(printf "%.0f" $SCREEN_WIDTH_PERCENT)
-# If the number is odd, subtract 1 to make it even
-#if [ $(($SCREEN_WIDTH_PERCENT % 2)) -ne 0 ]; then
-#    SCREEN_WIDTH_PERCENT=$(($SCREEN_WIDTH_PERCENT - 1))
-#fi
-
-# Debug output
-#echo "Screen resolution: $SCREEN_RESOLUTION" >> ~/sketchybar_debug.log
-#echo "Screen width: $SCREEN_WIDTH" >> ~/sketchybar_debug.log
-#echo "20% of screen width: $SCREEN_WIDTH_PERCENT" >> ~/sketchybar_debug.log
 
 BAR_HEIGHT=22
 SEPARATOR_WIDTH=5
@@ -47,7 +28,7 @@ $BAR_NAME \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        display=main \
+        display=2 \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
@@ -143,15 +124,6 @@ $BAR_NAME \
 # ------------------------
 # MIDDLE
 # ------------------------
-#    --add item battery center \
-#    --set battery \
-#            update_freq=20 \
-#            icon.padding_left=10 \
-#            label.padding_right=10 \
-#            label.width=38 \
-#            label.color=$COLOR_STATS \
-#            icon.color=$COLOR_STATS \
-#            script="$PLUGIN_SHARED_DIR/battery.sh" \
 
 $BAR_NAME \
     --add item cpu center \
@@ -168,7 +140,6 @@ $BAR_NAME \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add bracket stats_bracket \
             separator_stats_2 \
-            battery \
             cpu \
      --set stats_bracket \
             background.color=$TRANSPARENT \
@@ -199,6 +170,7 @@ $BAR_NAME \
               space.7 \
               space.8 \
               space.9 \
+              space.10 \
               spaces_separator_2 \
     --set spaces_bracket \
               background.color=$COLOR_SPACE_BG \

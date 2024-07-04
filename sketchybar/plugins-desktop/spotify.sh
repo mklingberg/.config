@@ -1,9 +1,14 @@
 #!/bin/bash
 
-# Max number of characters so it fits nicely to the right of the notch
-# MAY NOT WORK WITH NON-ENGLISH CHARACTERS
+COLOR_SPOTIFY=0xffeed49f
+COLOR_SPOTIFY_PAUSE=0xffeed49f
+ICON_SPOTIFY=
+ICON_SPOTIFY_PAUSE=󰏥
+ICON_SPOTIFY_PLAY=
 
-MAX_LENGTH=100
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+
+MAX_LENGTH=80
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
@@ -14,7 +19,10 @@ SPOTIFY_JSON="$INFO"
 update_track() {
 
     if [[ -z $SPOTIFY_JSON ]]; then
-        $BAR_NAME --set $NAME background.color=0xffeed49f label.drawing=no
+        $BAR_NAME --set $NAME \
+                    icon = $ICON_SPOTIFY \
+                    icon.color=$COLOR_SPOTIFY \
+                    label.drawing=no
         return
     fi
 
@@ -44,14 +52,33 @@ update_track() {
                 ARTIST="${ARTIST:0:$((MAX_LENGTH - TRACK_LENGTH - 1))}…"
             fi
         fi
-        $BAR_NAME --set $NAME label="${TRACK} - ${ARTIST}" label.drawing=yes background.color=0xffa6da95
+
+        $BAR_NAME --set $NAME \
+                    icon=$ICON_SPOTIFY_PLAY \
+                    icon.padding_right=10 \
+                    label="${TRACK} - ${ARTIST}" \
+                    label.drawing=yes \
+                    icon.color=$COLOR_SPOTIFY \
+                    label.color=$COLOR_SPOTIFY
+                
 
     elif [ $PLAYER_STATE = "Paused" ]; then
-        $BAR_NAME --set $NAME background.color=0xffeed49f
+        $BAR_NAME --set $NAME \
+                    icon=$ICON_SPOTIFY_PAUSE \
+                    icon.color=$COLOR_SPOTIFY_PAUSE \
+                    label.color=$COLOR_SPOTIFY_PAUSE
     elif [ $PLAYER_STATE = "Stopped" ]; then
-        $BAR_NAME --set $NAME background.color=0xffeed49f label.drawing=no
+        $BAR_NAME --set $NAME \
+                     icon=$ICON_SPOTIFY \
+                     icon.color=$COLOR_SPOTIFY \
+                     icon.padding_right=0 \
+                     label.drawing=no
     else
-        $BAR_NAME --set $NAME background.color=0xffeed49f
+        $BAR_NAME --set $NAME \
+                     icon=$ICON_SPOTIFY \
+                     icon.color=$COLOR_SPOTIFY \
+                     label.color=$COLOR_SPOTIFY
+                    
     fi
 }
 

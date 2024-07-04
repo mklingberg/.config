@@ -1,15 +1,12 @@
-#!/bin/sh
-
+#!/bin/bash
 
 # The $SELECTED variable is available for space components and indicates if
 # the space invoking this script (with name: $NAME) is currently selected:
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 if [ $SELECTED = true ]; then
   $BAR_NAME \
-            --set $NAME.s background.color=$COLOR_SPACE_SELECTED_BG \
-            --set $NAME.e icon.color=$COLOR_SPACE_SELECTED_BG \
             --set $NAME background.drawing=on \
                          background.color=$COLOR_SPACE_SELECTED_BG \
                          label.color=$COLOR_SPACE_SELECTED_ICON \
@@ -20,8 +17,6 @@ if [ $SELECTED = true ]; then
                          label.drawing=on
 else
   $BAR_NAME \
-            --set $NAME.s background.color=$COLOR_SPACE_BG \
-            --set $NAME.e icon.color=$TRANSPARENT \
             --set $NAME background.drawing=on \
                          label.color=$COLOR_SPACE_ICON \
                          icon.color=$COLOR_SPACE_SPACE_NO \

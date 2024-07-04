@@ -24,9 +24,7 @@ $BAR_NAME \
         padding_left=0 \
         padding_right=0 \
         notch_width=236 \
-        display=main
-
-$BAR_NAME \
+        display=1 \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
@@ -82,7 +80,6 @@ source $ITEM_DIR/current_space_no.sh
 $BAR_NAME \
     --add bracket spaces_bracket \
               current_space \
-              separator_spaces_1 \
     --set spaces_bracket \
               background.color=$COLOR_CURRENT_SPACE_BG \
               background.padding_left=0 \

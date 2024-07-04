@@ -8,13 +8,7 @@ ICON_SPOTIFY_PLAY=
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-MAX_LENGTH=80
-
-# If the display is the built-in display, reduce the max length
-MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
-if [[ $MAIN_DISPLAY = "Built-in" ]]; then
-    MAX_LENGTH=38
-fi
+MAX_LENGTH=38
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
@@ -25,8 +19,6 @@ SPOTIFY_JSON="$INFO"
 update_track() {
 
     if [[ -z $SPOTIFY_JSON ]]; then
-        # 0xffeed49f
-        # $COLOR_TEXT
         $BAR_NAME --set $NAME \
                     icon = $ICON_SPOTIFY \
                     icon.color=$COLOR_SPOTIFY \
