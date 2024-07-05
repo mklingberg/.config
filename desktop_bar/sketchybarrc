@@ -2,16 +2,6 @@
 SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
 CONFIG_DIR="$HOME/.config/sketchybar"
 
+DISPLAY_NUMBER=2
+
 source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
-
-# This is used to determine if a monitor is used
-# Since the notch is -only- on the laptop, if a monitor isn't used,
-# then that means the internal display is used ¯\_(ツ)_/¯
-#MAIN_DISPLAY=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:' | awk '/Display Type/ {print $3}')
-
-#DISPLAY_NUMBER=1
-
-#if [[ $MAIN_DISPLAY != "Built-in" ]]; then
-#    # Only load the desktop config if an external monitor is connected
-#    source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
-#fi

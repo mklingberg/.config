@@ -24,7 +24,7 @@ $BAR_NAME \
         padding_left=0 \
         padding_right=0 \
         notch_width=236 \
-        display=1 \
+        display=$DISPLAY_NUMBER \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \

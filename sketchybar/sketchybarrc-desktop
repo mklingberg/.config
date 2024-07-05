@@ -28,7 +28,7 @@ $BAR_NAME \
         sticky=on \
         padding_left=0 \
         padding_right=0 \
-        display=2 \
+        display=$DISPLAY_NUMBER \
     --default \
         background.height=$BAR_HEIGHT \
         icon.color=$COLOR_TEXT \
