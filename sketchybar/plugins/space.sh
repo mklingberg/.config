@@ -6,9 +6,9 @@
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 if [ $SELECTED = true ]; then
+  #background.color=$COLOR_SPACE_SELECTED_BG \
   $BAR_NAME \
             --set $NAME background.drawing=on \
-                         background.color=$COLOR_SPACE_SELECTED_BG \
                          label.color=$COLOR_SPACE_SELECTED_ICON \
                          icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
                          icon.padding_left=10 \
