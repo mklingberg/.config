@@ -73,23 +73,10 @@ $BAR_NAME \
     --set reload.separator \
             icon= \
             icon.color=$COLOR_RELOAD_BG \
-            background.color=$COLOR_CURRENT_SPACE_BG \
-            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-            icon.padding_left=0 \
-            icon.padding_right=0 \
-            icon.y_offset=1
-
-source $ITEM_DIR/current_space_no.sh
-
-$BAR_NAME \
-    --add item current_space.separator left \
-    --set current_space.separator \
-            icon= \
-            icon.color=$COLOR_CURRENT_SPACE_BG \
             background.color=$COLOR_FRONT_APP_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
-            icon.padding_right=-8 \
+            icon.padding_right=0 \
             icon.y_offset=1 \
     --add item separator_front_app_1 left \
     --set separator_front_app_1 \
