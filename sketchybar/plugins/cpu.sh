@@ -1,9 +1,23 @@
 #!/bin/bash
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
+WARNING_THRESHOLD=80
+
+# Get the total number of CPU cores
 CORE_COUNT=$(sysctl -n machdep.cpu.thread_count)
-CPU_INFO=$(ps -eo pcpu,user)
-CPU_SYS=$(echo "$CPU_INFO" | grep -v $(whoami) | sed "s/[^ 0-9\.]//g" | awk "{sum+=\$1} END {print sum/(100.0 * $CORE_COUNT)}")
-CPU_USER=$(echo "$CPU_INFO" | grep $(whoami) | sed "s/[^ 0-9\.]//g" | awk "{sum+=\$1} END {print sum/(100.0 * $CORE_COUNT)}")
-CPU_PERCENT="$(echo "$CPU_SYS $CPU_USER" | awk '{printf "%.0f\n", ($1 + $2)*100}')"
 
-$BAR_NAME --set $NAME label="$CPU_PERCENT%"
+# Get the CPU usage from the top command
+CPU_USAGE=$(top -l 1 -n 0 | grep "CPU usage" | awk '{print $3 + $5}')
+
+# Calculate the CPU percentage
+CPU_PERCENT=$(echo "$CPU_USAGE" | awk '{printf "%.0f\n", $1}')
+
+# Determine the color based on CPU usage
+if [ $CPU_PERCENT -gt $WARNING_THRESHOLD ]; then
+	ICON_COLOR=$COLOR_WARNING  # Red color in hex
+else
+	ICON_COLOR=$COLOR_STATS  # Default color
+fi
+
+# Update the bar with the CPU percentage and icon color
+$BAR_NAME --set $NAME label="$CPU_PERCENT%" label.color=$ICON_COLOR icon.color=$ICON_COLOR

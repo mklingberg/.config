@@ -4,6 +4,7 @@
 export TRANSPARENT=0x00000000
 export COLOR_WHITE=0xffffffff
 export COLOR_BLACK=0xff000000
+export COLOR_WARNING=0xffff0000
 
 # -- DEFAULT --
 
@@ -45,6 +46,8 @@ export COLOR_TEXT_CONTRAST=0xffc7c7c7
 export COLOR_ACCENT=0xffbd93f9 # purple
 export COLOR_SECONDARY=0xff21222c
 export COLOR_TERTIARY=0xfff8f8f2 
+
+COLOR_WARNING=$COLOR_DRACULA_MORBIUS
 
 
 # RELOAD
