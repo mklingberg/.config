@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 WARNING_THRESHOLD=80
 
