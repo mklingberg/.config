@@ -1,24 +1,23 @@
 #!/bin/bash
 
 SHOW_LABEL=true
+ICON_PADDING_RIGHT=10
 
 case ${INFO} in
 0)
     ICON="󰖁"
-    ICON_PADDING_RIGHT=10
     SHOW_LABEL=false
     ;;
-[1-9]|[1-2][0-9])
+[1-9]|[1-3][0-9])
     ICON="󰖀"
-    ICON_PADDING_RIGHT=10
+    SHOW_LABEL=false
     ;;
-[3-5][0-9])
+[4-6][0-9])
     ICON="󰕾"
-    ICON_PADDING_RIGHT=10
+    SHOW_LABEL=false
     ;;
-[6-9][0-9]|100)
+[7-9][0-9]|100)
     ICON=""
-    ICON_PADDING_RIGHT=10
     ;;
 esac
 
