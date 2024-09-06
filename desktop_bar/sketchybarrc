@@ -4,30 +4,35 @@ CONFIG_DIR="$HOME/.config/sketchybar"
 
 DISPLAY_NUMBER=2
 
+# Secondary bar is not supported on the primary/laptop display, hardcode desktop config
+source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
+
+# DISPLAY_NUMBER=2
+
 # Function to get the display type by display number
-get_display_type_by_number() {
-    system_profiler SPDisplaysDataType | awk -v RS="" -v num="$DISPLAY_NUMBER" '
-    /Displays:/ {
-        display_count++
-        if (display_count == num) {
-            match($0, /Display Type: [^\n]*/)
-            print substr($0, RSTART + 14, RLENGTH - 14)
-        }
-    }'
-}
+# get_display_type_by_number() {
+#     system_profiler SPDisplaysDataType | awk -v RS="" -v num="$DISPLAY_NUMBER" '
+#     /Displays:/ {
+#         display_count++
+#         if (display_count == num) {
+#             match($0, /Display Type: [^\n]*/)
+#             print substr($0, RSTART + 14, RLENGTH - 14)
+#         }
+#     }'
+# }
 
 # Get the display type for the specified display number
-DISPLAY_TYPE=$(get_display_type_by_number $DISPLAY_NUMBER)
+#DISPLAY_TYPE=$(get_display_type_by_number $DISPLAY_NUMBER)
 
 # Determines if a monitor is used
 # Since the notch is -only- on the laptop, if a monitor isn't used,
 # then that means the internal display is used ¯\_(ツ)_/¯
 
-# Check if the display type is "Built-in"
-if [[ "$DISPLAY_TYPE" == "Built-in"* ]]; then
-	echo "Display number $DISPLAY_NUMBER is of type 'Built-in'. Loading laptop configuration."
-	source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
-else
-	echo "Display number $DISPLAY_NUMBER is not of type 'Built-in'. Loading desktop configuration."
-	source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
-fi
+# # Check if the display type is "Built-in"
+# if [[ "$DISPLAY_TYPE" == "Built-in"* ]]; then
+# 	echo "Display number $DISPLAY_NUMBER is of type 'Built-in'. Loading laptop configuration."
+# 	source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
+# else
+# 	echo "Display number $DISPLAY_NUMBER is not of type 'Built-in'. Loading desktop configuration."
+# 	source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
+# fi

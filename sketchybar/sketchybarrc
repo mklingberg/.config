@@ -5,12 +5,16 @@ DISPLAY_NUMBER=1
 
 # Function to get the display type by display number
 get_display_type_by_number() {
-    system_profiler SPDisplaysDataType | awk -v RS="" -v num="$DISPLAY_NUMBER" '
-    /Displays:/ {
-        display_count++
-        if (display_count == num) {
-            match($0, /Display Type: [^\n]*/)
-            print substr($0, RSTART + 14, RLENGTH - 14)
+    system_profiler SPDisplaysDataType | awk -v num="$DISPLAY_NUMBER" '
+    BEGIN { display_count = 0 }
+    /Displays:/, /^$/ {
+        if ($0 ~ /Display Type:/) {
+            display_count++
+            if (display_count == num) {
+                match($0, /Display Type: [^\n]*/)
+                print substr($0, RSTART + 14, RLENGTH - 14)
+                exit
+            }
         }
     }'
 }
@@ -21,7 +25,7 @@ DISPLAY_TYPE=$(get_display_type_by_number $DISPLAY_NUMBER)
 # Determines if a monitor is used
 # Since the notch is -only- on the laptop, if a monitor isn't used,
 # then that means the internal display is used ¯\_(ツ)_/¯
-
+echo "Display Type: $DISPLAY_TYPE"
 # Check if the display type is "Built-in"
 if [[ "$DISPLAY_TYPE" == "Built-in"* ]]; then
 	echo "Display number $DISPLAY_NUMBER is of type 'Built-in'. Loading laptop configuration."
