@@ -16,7 +16,7 @@ case ${INFO} in
     ;;
 [1-9]|[1-4][0-9])
     ICON="󰖀"
-    SHOW_LABEL=false
+    #SHOW_LABEL=false
     ;;
 [5-7][0-9])
     ICON="󰕾"
