@@ -3,7 +3,7 @@
 COLOR_SPOTIFY=0xffeed49f
 COLOR_SPOTIFY_PAUSE=0xffeed49f
 ICON_SPOTIFY=
-ICON_SPOTIFY_PAUSE=󰏥
+ICON_SPOTIFY_PAUSE=
 ICON_SPOTIFY_PLAY=
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
