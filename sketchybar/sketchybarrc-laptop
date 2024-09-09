@@ -167,7 +167,7 @@ $BAR_NAME \
     --set spotify \
             icon=  \
             icon.font="$FONT_FACE:Medium:22.0" \
-            icon.y_offset=0 \
+            icon.y_offset=1 \
             icon.padding_left=14 \
             icon.padding_right=14 \
             label.padding_right=14 \
