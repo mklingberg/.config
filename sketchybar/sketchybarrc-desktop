@@ -62,7 +62,7 @@ $BAR_NAME \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
     --add item separator_reload_2 left \
     --set separator_reload_2 \
-            icon.padding_right=$SEPARATOR_WIDTH \
+            icon.padding_right=0 \
     --add bracket reload_bracket \
               reload \
               separator_reload_1 \
@@ -80,7 +80,7 @@ $BAR_NAME \
             icon.y_offset=1 \
     --add item separator_front_app_1 left \
     --set separator_front_app_1 \
-            icon.padding_right=$SEPARATOR_WIDTH
+            icon.padding_right=0
 
 source $ITEM_DIR/front_app_icon.sh
 source $ITEM_DIR/front_app_name.sh
@@ -142,7 +142,7 @@ $BAR_NAME \
             icon.y_offset=1 \
     --add item spaces_separator_2 center \
     --set spaces_separator_2 \
-            icon.padding_right=$SEPARATOR_WIDTH
+            icon.padding_right=0
 
 source $ITEM_DIR/spaces.sh
 
@@ -175,7 +175,7 @@ $BAR_NAME \
             icon.y_offset=1 \
     --add item volume_separator_1 center \
     --set volume_separator_1 \
-            icon.padding_right=$SEPARATOR_WIDTH \
+            icon.padding_right=0 \
     --add item volume center \
     --set volume \
             icon.padding_left=10 \
@@ -227,15 +227,15 @@ $BAR_NAME \
 $BAR_NAME \
         --add item separator_spotify_1 right \
         --set separator_spotify_1 \
-                icon.padding_right=-4 \
+                icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
         --add event spotify_change $SPOTIFY_EVENT \
         --add item spotify right \
         --set spotify \
                 icon= \
                 icon.y_offset=1 \
-                icon.padding_left=0 \
-                icon.padding_right=10 \
+                icon.padding_left=5 \
+                icon.padding_right=5 \
                 label.padding_right=10 \
                 label.drawing=off \
                 label.padding_left=0 \
@@ -244,7 +244,7 @@ $BAR_NAME \
         --subscribe spotify spotify_change mouse.clicked \
         --add item separator_spotify_2 right \
         --set separator_spotify_2 \
-                icon.padding_right=5 \
+                icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
         --add bracket spotify_bracket \
                 separator_spotify_1 \
