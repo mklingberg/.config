@@ -21,10 +21,18 @@ case ${INFO} in
 [5-7][0-9])
     ICON="󰕾"
     #SHOW_LABEL=false
-    ICON_COLOR=$COLOR_VOLUME_MEDIUM
     ;;
 [8-9][0-9]|100)
     ICON=""
+    #SHOW_LABEL=false
+    ;;
+esac
+
+case ${INFO} in
+[7][0-9])
+    ICON_COLOR=$COLOR_VOLUME_MEDIUM
+    ;;
+[8-9][0-9]|100)
     ICON_COLOR=$COLOR_VOLUME_HIGH
     ;;
 esac
