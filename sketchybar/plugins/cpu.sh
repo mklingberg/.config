@@ -8,6 +8,7 @@ source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 # Init default values
 MEDIUM_THRESHOLD=50
 HIGH_THRESHOLD=80
+LABEL_THRESHOLD=30
 SHOW_LABEL=true
 
 # Get the total number of CPU cores
@@ -26,7 +27,10 @@ elif [ $CPU_PERCENT -gt $MEDIUM_THRESHOLD ]; then
 	ICON_COLOR=$COLOR_CPU_MEDIUM
 else
 	ICON_COLOR=$COLOR_CPU_LOW  # Default color
-    SHOW_LABEL=false
+fi
+
+if [ $CPU_PERCENT -gt $LABEL_THRESHOLD ]; then
+  SHOW_LABEL=true
 fi
 
 # Update the bar with the CPU percentage and icon color
