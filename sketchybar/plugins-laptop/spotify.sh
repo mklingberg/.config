@@ -8,7 +8,7 @@ ICON_SPOTIFY_PLAY=
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-MAX_LENGTH=38
+MAX_LENGTH=37
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
