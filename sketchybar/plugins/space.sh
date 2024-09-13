@@ -5,7 +5,7 @@
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-PADDING_RIGHT=30
+PADDING_RIGHT=24
 PADDING_LEFT=10
 
 if [ $SELECTED = true ]; then

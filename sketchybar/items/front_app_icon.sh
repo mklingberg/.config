@@ -11,7 +11,7 @@ $BAR_NAME \
             background.padding_left=0 \
             background.padding_right=0 \
             icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0" \
-            icon.padding_right=10 \
+            icon.padding_right=5 \
             icon.padding_left=0 \
             icon.y_offset=0 \
             label.drawing=no \
