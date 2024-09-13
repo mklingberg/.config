@@ -51,6 +51,7 @@ $BAR_NAME \
             icon.color=$COLOR_RELOAD_ICON \
             icon.padding_left=0 \
             icon.padding_right=0 \
+            icon.y_offset=1 \
             background.color=$COLOR_RELOAD_BG \
             label.padding_right=0 \
             label.padding_left=0 \
