@@ -10,7 +10,7 @@ ICON_SPOTIFY_PLAY= #
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 
-MAX_LENGTH=64
+MAX_LENGTH=62
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
@@ -62,7 +62,6 @@ update_track() {
                     label.drawing=yes \
                     icon.color=$COLOR_SPOTIFY_ICON \
                     label.color=$COLOR_SPOTIFY
-                
 
     elif [ $PLAYER_STATE = "Paused" ]; then
         $BAR_NAME --set $NAME \
