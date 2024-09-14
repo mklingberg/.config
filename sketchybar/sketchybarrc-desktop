@@ -129,38 +129,66 @@ $BAR_NAME \
             background.color=$COLOR_FRONT_APP_BG \
     --subscribe front_app front_app_switched mouse.clicked
 
+
 # ------------------------
-# MIDDLE
+# CENTER
 # ------------------------
 
-brew=(
-        icon.color=$COLOR_STATS
-        icon=$ICON_BREW
-        icon.padding_right=10
+
+# -- SPOTIFY --
+
+spotify=(
+        icon=$ICON_SPOTIFY
         icon.y_offset=1
-        label=?
-        label.color=$COLOR_STATS
-        padding_right=10
-        script="$PLUGIN_SHARED_DIR/brew.sh"
+        icon.padding_left=0
+        icon.padding_right=0
+        label.padding_right=6
+        label.padding_left=0
+        label.drawing=off
+        label.y_offset=2
+        background.color=$COLOR_SPOTIFY_BG
+        script="$PLUGIN_DIR/spotify.sh"
 )
 
-cpu=(
-        update_freq=10
-        icon=$ICON_CPU
-        icon.color=$COLOR_STATS
-        icon.padding_left=10
-        icon.padding_right=10
+spotify_separator=(
+        icon=$ICON_SEPARATOR_LEFT
+        icon.color=$COLOR_SPOTIFY_BG
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=-2
         icon.y_offset=1
-        label.padding_right=10
-        label.width=38
-        label.color=$COLOR_STATS
-        script="$PLUGIN_SHARED_DIR/cpu.sh"
 )
+
+$BAR_NAME \
+        --add item spotify.separator center \
+        --set spotify.separator "${spotify_separator[@]}" \
+        --add item separator_spotify_1 center \
+        --set separator_spotify_1 \
+                icon.padding_left=-4 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+        --add event spotify_change $SPOTIFY_EVENT \
+        --add item spotify center \
+        --set spotify "${spotify[@]}" \
+        --subscribe spotify spotify_change mouse.clicked \
+        --add item separator_spotify_2 center \
+        --set separator_spotify_2 \
+                icon.padding_left=-4 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+        --add bracket spotify_bracket \
+                separator_spotify_1 \
+                separator_spotify_2 \
+                spotify \
+        --set spotify_bracket \
+                background.color=$COLOR_SPOTIFY_BG
+
+# -- SPACES --
 
 spaces_separator_1=(
         icon=$ICON_SEPARATOR_LEFT
         icon.color=$COLOR_SPACE_BG
-        background.color=$TRANSPARENT
+        background.color=$COLOR_SPOTIFY_BG
         label.padding_right=0
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
@@ -171,7 +199,7 @@ spaces_separator_1=(
 spaces_separator_3=(
         icon=$ICON_SEPARATOR_RIGHT
         icon.color=$COLOR_SPACE_BG
-        background.color=$TRANSPARENT
+        background.color=$COLOR_SPOTIFY_BG
         label.padding_right=0
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
@@ -179,32 +207,7 @@ spaces_separator_3=(
         icon.y_offset=1
 )
 
-volume=(
-        icon=$ICON_VOLUME
-        icon.color=$COLOR_STATS
-        icon.padding_left=10
-        label.padding_right=10
-        label.width=38
-        label.drawing=true
-        label.color=$COLOR_STATS
-        script="$PLUGIN_SHARED_DIR/volume.sh"
-)
-
 $BAR_NAME \
-    --add event brew_update \
-    --add item brew center \
-    --set brew "${brew[@]}" \
-    --subscribe brew brew_update \
-    --add item cpu center \
-    --set cpu "${cpu[@]}" \
-    --add item separator_stats_2 center \
-    --set separator_stats_2 \
-            icon.padding_right=$SEPARATOR_WIDTH \
-    --add bracket stats_bracket \
-            separator_stats_2 \
-            cpu \
-     --set stats_bracket \
-            background.color=$TRANSPARENT \
     --add item spaces_separator_1 center \
     --set spaces_separator_1 "${spaces_separator_1[@]}" \
     --add item spaces_separator_2 center \
@@ -237,25 +240,99 @@ $BAR_NAME \
             background.padding_left=0 \
             background.padding_right=0 \
     --add item spaces_separator_3 center \
-    --set spaces_separator_3 "${spaces_separator_3[@]}" \
-    --add item volume_separator_1 center \
-    --set volume_separator_1 \
-            icon.padding_left=0 \
-            icon.padding_right=$SEPARATOR_WIDTH \
+    --set spaces_separator_3 "${spaces_separator_3[@]}"
+
+# -- UTILS --
+
+brew=(        
+        icon=$ICON_BREW
+        icon.color=$COLOR_STATS
+        icon.padding_right=10
+        icon.y_offset=1
+        label=?
+        label.color=$COLOR_STATS
+        padding_right=10
+        update_freq=1200 # 20 minutes
+        script="$PLUGIN_SHARED_DIR/brew.sh"
+)
+
+cpu=(
+        update_freq=10
+        icon=$ICON_CPU
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        icon.padding_right=10
+        icon.y_offset=1
+        label.padding_right=10
+        label.width=38
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/cpu.sh"
+)
+
+volume=(
+        icon=$ICON_VOLUME
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        label.padding_right=10
+        label.width=38
+        label.drawing=true
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/volume.sh"
+)
+
+utils_separator=(
+        icon=$ICON_SEPARATOR_RIGHT
+        icon.color=$COLOR_SPOTIFY_BG
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=-2
+        icon.y_offset=1
+)
+
+$BAR_NAME \
+    --add item separator_utils_1 center \
+    --set separator_utils_1 \
+                icon.padding_left=0 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+    --add event brew_update \
+    --add item brew center \
+    --set brew "${brew[@]}" \
+    --subscribe brew brew_update \
+    --add item cpu center \
+    --set cpu "${cpu[@]}" \
     --add item volume center \
     --set volume "${volume[@]}" \
-    --subscribe volume volume_change
+    --subscribe volume volume_change \
+    --add item separator_utils_2 center \
+    --set separator_utils_2 \
+                icon.padding_left=-8 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+    --add item spotify_weight center \
+    --add bracket utils_bracket \
+                separator_utils_1 \
+                separator_utils_2 \
+                brew \
+                cpu \
+                volume \
+                spotify_weight \
+    --set utils_bracket \
+                background.color=$COLOR_SPOTIFY_BG \
+    --add item utils.separator center \
+    --set utils.separator "${utils_separator[@]}"
+
 
 # ------------------------
 # RIGHT
 # ------------------------
 
-# -- SEPARATOR --
+# -- DATE & TIME --
 
 clock_separator=(
         icon=$ICON_SEPARATOR_LEFT
         icon.color=$COLOR_RIGHT_AREA_BG
-        background.color=$COLOR_SPOTIFY_BG
+        background.color=$TRANSPARENT
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
@@ -286,54 +363,6 @@ $BAR_NAME \
             background.color=$COLOR_RIGHT_AREA_BG \
      --add item clock.separator right \
      --set clock.separator "${clock_separator[@]}"
-
-# -- SEPARATOR --
-
-spotify=(
-        icon=$ICON_SPOTIFY
-        icon.y_offset=1
-        icon.padding_left=0
-        icon.padding_right=0
-        label.padding_right=6
-        label.padding_left=0
-        label.drawing=off
-        label.y_offset=2
-        background.color=$COLOR_SPOTIFY_BG
-        script="$PLUGIN_DIR/spotify.sh"
-)
-
-spotify_separator=(
-        icon=$ICON_SEPARATOR_LEFT
-        icon.color=$COLOR_SPOTIFY_BG
-        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-        icon.padding_left=0
-        icon.padding_right=-2
-        icon.y_offset=1
-)
-
-$BAR_NAME \
-        --add item separator_spotify_1 right \
-        --set separator_spotify_1 \
-                icon.padding_left=-4 \
-                icon.padding_right=$SEPARATOR_WIDTH \
-                label.drawing=off \
-        --add event spotify_change $SPOTIFY_EVENT \
-        --add item spotify right \
-        --set spotify "${spotify[@]}" \
-        --subscribe spotify spotify_change mouse.clicked \
-        --add item separator_spotify_2 right \
-        --set separator_spotify_2 \
-                icon.padding_left=-8 \
-                icon.padding_right=$SEPARATOR_WIDTH \
-                label.drawing=off \
-        --add bracket spotify_bracket \
-                separator_spotify_1 \
-                separator_spotify_2 \
-                spotify \
-        --set spotify_bracket \
-                background.color=$COLOR_SPOTIFY_BG \
-        --add item spotify.separator right \
-        --set spotify.separator "${spotify_separator[@]}"
 
 # ------------------------
 # INIT
