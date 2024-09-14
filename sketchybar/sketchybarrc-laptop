@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
 FONT_FACE="JetBrainsMono Nerd Font"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
@@ -47,7 +48,7 @@ $BAR_NAME \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item reload left \
     --set reload \
-            icon= \
+            icon=$ICON_APPLE \
             icon.color=$COLOR_RELOAD_ICON \
             icon.padding_left=0 \
             icon.padding_right=0 \
@@ -68,7 +69,7 @@ $BAR_NAME \
             background.color=$COLOR_RELOAD_BG \
     --add item reload.separator left \
     --set reload.separator \
-            icon= \
+            icon=$ICON_SEPARATOR_RIGHT \
             icon.color=$COLOR_RELOAD_BG \
             background.color=$COLOR_CURRENT_SPACE_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
@@ -77,7 +78,6 @@ $BAR_NAME \
             icon.y_offset=1
 
 source $PLUGIN_DIR/spaces.sh
-#source $ITEM_DIR/current_space_no.sh
 
 $BAR_NAME \
     --add bracket current_space_bracket \
@@ -155,7 +155,7 @@ $BAR_NAME \
     --add item clock.separator right \
     --set clock.separator \
             background.color=$COLOR_SPOTIFY_BG \
-            icon= \
+            icon=$ICON_SEPARATOR_LEFT \
             icon.color=$COLOR_RIGHT_AREA_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=5 \
@@ -166,7 +166,7 @@ $BAR_NAME \
     --add event spotify_change $SPOTIFY_EVENT \
     --add item spotify right \
     --set spotify \
-            icon=  \
+            icon=$ICON_SPOTIFY \
             icon.font="$FONT_FACE:Medium:22.0" \
             icon.y_offset=1 \
             icon.padding_left=14 \
@@ -181,7 +181,7 @@ $BAR_NAME \
 $BAR_NAME \
     --add item spotify.separator right \
     --set spotify.separator \
-            icon= \
+            icon=$ICON_SEPARATOR_LEFT \
             icon.color=$COLOR_SPOTIFY_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \

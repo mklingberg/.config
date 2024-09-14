@@ -8,6 +8,7 @@ ICON_SPOTIFY_PAUSE= #
 ICON_SPOTIFY_PLAY= #
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+#source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 
 MAX_LENGTH=37
 
