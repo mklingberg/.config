@@ -21,26 +21,54 @@ FRONT_APP_NAME_SIZE=15
 # MAIN BAR
 # ------------------------
 
-$BAR_NAME \
-    --bar \
-        height=$BAR_HEIGHT \
-        color=$COLOR_BAR \
-        margin=0 \
-        sticky=on \
-        padding_left=0 \
-        padding_right=0 \
-        display=$DISPLAY_NUMBER \
-    --default \
-        background.height=$BAR_HEIGHT \
-        icon.color=$COLOR_TEXT \
-        icon.font="$FONT_FACE:Medium:16.0" \
-        icon.padding_left=0 \
-        icon.padding_right=0 \
-        label.color=$COLOR_TEXT \
-        label.font="$FONT_FACE:Bold:14.0" \
-        label.y_offset=1 \
-        label.padding_left=0 \
+bar=(
+        height=$BAR_HEIGHT
+        color=$COLOR_BAR
+        margin=0
+        sticky=on
+        padding_left=0
+        padding_right=0
+        display=$DISPLAY_NUMBER
+)
+
+default=(
+        background.height=$BAR_HEIGHT
+        icon.color=$COLOR_TEXT
+        icon.font="$FONT_FACE:Medium:16.0"
+        icon.padding_left=0
+        icon.padding_right=0
+        label.color=$COLOR_TEXT
+        label.font="$FONT_FACE:Bold:14.0"
+        label.y_offset=1
+        label.padding_left=0
         label.padding_right=0
+)
+
+$BAR_NAME \
+        --bar "${bar[@]}" \
+        --default "${default[@]}"
+
+reload=(
+        icon=$ICON_APPLE
+        icon.color=$COLOR_RELOAD_ICON
+        icon.padding_left=0
+        icon.padding_right=0
+        icon.y_offset=1
+        background.color=$COLOR_RELOAD_BG
+        label.padding_right=0
+        label.padding_left=0
+        script="$PLUGIN_SHARED_DIR/reload.sh"
+)
+
+reload_separator=(
+        icon=$ICON_SEPARATOR_RIGHT
+        icon.color=$COLOR_RELOAD_BG
+        background.color=$COLOR_FRONT_APP_BG
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=0
+        icon.y_offset=1
+)
 
 # ------------------------
 # LEFT
@@ -52,14 +80,7 @@ $BAR_NAME \
             icon.padding_left=0 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item reload left \
-    --set reload \
-            icon=$ICON_APPLE \
-            icon.color=$COLOR_RELOAD_ICON \
-            icon.padding_left=0 \
-            icon.padding_right=0 \
-            icon.y_offset=1 \
-            background.color=$COLOR_RELOAD_BG \
-            script="$PLUGIN_SHARED_DIR/reload.sh" \
+    --set reload "${reload[@]}" \
     --subscribe reload mouse.clicked mouse.entered mouse.exited \
     --add item separator_reload_2 left \
     --set separator_reload_2 \
@@ -72,14 +93,7 @@ $BAR_NAME \
     --set reload_bracket \
               background.color=$COLOR_RELOAD_BG \
     --add item reload.separator left \
-    --set reload.separator \
-            icon=$ICON_SEPARATOR_RIGHT \
-            icon.color=$COLOR_RELOAD_BG \
-            background.color=$COLOR_FRONT_APP_BG \
-            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-            icon.padding_left=0 \
-            icon.padding_right=0 \
-            icon.y_offset=1 \
+    --set reload.separator "${reload_separator[@]}" \
     --add item separator_front_app_1 left \
     --set separator_front_app_1 \
             icon.padding_left=0 \
@@ -88,21 +102,24 @@ $BAR_NAME \
 source $ITEM_DIR/front_app_icon.sh
 source $ITEM_DIR/front_app_name.sh
 
+front_app_separator=(
+        icon=$ICON_SEPARATOR_RIGHT
+        icon.color=$COLOR_FRONT_APP_BG
+        background.color=$TRANSPARENT
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=0
+        icon.y_offset=1
+        label.drawing=no
+)
+
 $BAR_NAME \
     --add item separator_front_app_2 left \
     --set separator_front_app_2 \
             icon.padding_left=0 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item front_app.separator left \
-    --set front_app.separator \
-            background.color=$TRANSPARENT \
-            icon=$ICON_SEPARATOR_RIGHT \
-            icon.color=$COLOR_FRONT_APP_BG \
-            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-            icon.padding_left=0 \
-            icon.padding_right=0 \
-            icon.y_offset=1 \
-            label.drawing=no \
+    --set front_app.separator  "${front_app_separator[@]}" \
     --add bracket front_app_bracket \
             front_app \
             front_app.name \
@@ -235,6 +252,16 @@ $BAR_NAME \
 
 # -- SEPARATOR --
 
+clock_separator=(
+        icon=$ICON_SEPARATOR_LEFT
+        icon.color=$COLOR_RIGHT_AREA_BG
+        background.color=$COLOR_SPOTIFY_BG
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=-2
+        icon.y_offset=1
+)
+
 $BAR_NAME \
     --add item separator_clock_1 right \
     --set separator_clock_1 \
@@ -258,16 +285,31 @@ $BAR_NAME \
      --set clock_bracket \
             background.color=$COLOR_RIGHT_AREA_BG \
      --add item clock.separator right \
-     --set clock.separator \
-            background.color=$COLOR_SPOTIFY_BG \
-            icon=$ICON_SEPARATOR_LEFT \
-            icon.color=$COLOR_RIGHT_AREA_BG \
-            icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-            icon.padding_left=0 \
-            icon.padding_right=-2 \
-            icon.y_offset=1
+     --set clock.separator "${clock_separator[@]}"
 
 # -- SEPARATOR --
+
+spotify=(
+        icon=$ICON_SPOTIFY
+        icon.y_offset=1
+        icon.padding_left=0
+        icon.padding_right=0
+        label.padding_right=6
+        label.padding_left=0
+        label.drawing=off
+        label.y_offset=2
+        background.color=$COLOR_SPOTIFY_BG
+        script="$PLUGIN_DIR/spotify.sh"
+)
+
+spotify_separator=(
+        icon=$ICON_SEPARATOR_LEFT
+        icon.color=$COLOR_SPOTIFY_BG
+        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+        icon.padding_left=0
+        icon.padding_right=-2
+        icon.y_offset=1
+)
 
 $BAR_NAME \
         --add item separator_spotify_1 right \
@@ -277,17 +319,7 @@ $BAR_NAME \
                 label.drawing=off \
         --add event spotify_change $SPOTIFY_EVENT \
         --add item spotify right \
-        --set spotify \
-                icon=$ICON_SPOTIFY \
-                icon.y_offset=1 \
-                icon.padding_left=0 \
-                icon.padding_right=0 \
-                label.padding_right=6 \
-                label.padding_left=0 \
-                label.drawing=off \
-                label.y_offset=2 \
-                background.color=$COLOR_SPOTIFY_BG \
-                script="$PLUGIN_DIR/spotify.sh" \
+        --set spotify "${spotify[@]}" \
         --subscribe spotify spotify_change mouse.clicked \
         --add item separator_spotify_2 right \
         --set separator_spotify_2 \
@@ -301,13 +333,7 @@ $BAR_NAME \
         --set spotify_bracket \
                 background.color=$COLOR_SPOTIFY_BG \
         --add item spotify.separator right \
-        --set spotify.separator \
-                icon=$ICON_SEPARATOR_LEFT \
-                icon.color=$COLOR_SPOTIFY_BG \
-                icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
-                icon.padding_left=0 \
-                icon.padding_right=-2 \
-                icon.y_offset=1
+        --set spotify.separator "${spotify_separator[@]}"
 
 # ------------------------
 # INIT
