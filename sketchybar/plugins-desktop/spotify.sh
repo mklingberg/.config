@@ -2,13 +2,14 @@
 
 COLOR_SPOTIFY=0xffeed49f
 COLOR_SPOTIFY_PAUSE=0xffeed49f
+COLOR_SPOTIFY_ICON=$COLOR_SPOTIFY
 ICON_SPOTIFY=
-ICON_SPOTIFY_PAUSE=
-ICON_SPOTIFY_PLAY=
+ICON_SPOTIFY_PAUSE= #
+ICON_SPOTIFY_PLAY= #
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-MAX_LENGTH=80
+MAX_LENGTH=64
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
@@ -21,7 +22,7 @@ update_track() {
     if [[ -z $SPOTIFY_JSON ]]; then
         $BAR_NAME --set $NAME \
                     icon = $ICON_SPOTIFY \
-                    icon.color=$COLOR_SPOTIFY \
+                    icon.color=$COLOR_SPOTIFY_ICON \
                     label.drawing=no
         return
     fi
@@ -58,15 +59,17 @@ update_track() {
                     icon.padding_right=10 \
                     label="${TRACK} - ${ARTIST}" \
                     label.drawing=yes \
-                    icon.color=$COLOR_SPOTIFY \
+                    icon.color=$COLOR_SPOTIFY_ICON \
                     label.color=$COLOR_SPOTIFY
                 
 
     elif [ $PLAYER_STATE = "Paused" ]; then
         $BAR_NAME --set $NAME \
                     icon=$ICON_SPOTIFY_PAUSE \
-                    icon.color=$COLOR_SPOTIFY_PAUSE \
-                    label.color=$COLOR_SPOTIFY_PAUSE
+                    icon.color=$COLOR_SPOTIFY_ICON \
+                    label.color=$COLOR_SPOTIFY_PAUSE \
+                    icon.padding_right=0 \
+                    label.drawing=no
     elif [ $PLAYER_STATE = "Stopped" ]; then
         $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
@@ -76,7 +79,7 @@ update_track() {
     else
         $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
-                     icon.color=$COLOR_SPOTIFY \
+                     icon.color=$COLOR_SPOTIFY_ICON \
                      label.color=$COLOR_SPOTIFY
                     
     fi

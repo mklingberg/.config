@@ -146,7 +146,7 @@ $BAR_NAME   --add item volume e \
 
 $BAR_NAME --add item separator_3 right \
            --set separator_3 \
-                      background.color=$COLOR_SECONDARY \
+                      background.color=$COLOR_RIGHT_AREA_BG \
                       icon.padding_right=$SEPARATOR_WIDTH
 
 source $ITEM_DIR/clock.sh
@@ -154,9 +154,9 @@ source $ITEM_DIR/clock.sh
 $BAR_NAME \
     --add item clock.separator right \
     --set clock.separator \
-            background.color=$COLOR_ACCENT \
+            background.color=$COLOR_SPOTIFY_BG \
             icon= \
-            icon.color=$COLOR_SECONDARY \
+            icon.color=$COLOR_RIGHT_AREA_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=5 \
             icon.padding_right=-12 \
@@ -174,7 +174,7 @@ $BAR_NAME \
             label.padding_right=14 \
             label.drawing=off \
             label.padding_left=3 \
-            background.color=$COLOR_ACCENT \
+            background.color=$COLOR_SPOTIFY_BG \
             script="$PLUGIN_DIR/spotify.sh" \
     --subscribe spotify spotify_change mouse.clicked
 
@@ -182,7 +182,7 @@ $BAR_NAME \
     --add item spotify.separator right \
     --set spotify.separator \
             icon= \
-            icon.color=$COLOR_ACCENT \
+            icon.color=$COLOR_SPOTIFY_BG \
             icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0" \
             icon.padding_left=0 \
             icon.padding_right=-12 \
