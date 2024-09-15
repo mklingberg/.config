@@ -34,6 +34,6 @@ $BAR_NAME --add item space_separator e \
           --set space_separator \
                 label.drawing=off \
                 icon.drawing=off \
-                script="$PLUGIN_SHARED_DIR/space_windows.sh" \
+                script="$PLUGIN_SHARED_DIR/space_windows_min.sh" \
           --subscribe space_separator space_windows_change
               

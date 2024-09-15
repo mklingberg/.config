@@ -11,6 +11,6 @@ $BAR_NAME \
             icon.drawing=off \
             label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0" \
             label.color=$COLOR_FRONT_APP_NAME \
-            background.color=$COLOR_FRONT_APP_BG \
+            background.color=$COLOR_FRONT_APP_NAME_BG \
             label.padding_left=5 \
             label.padding_right=0

@@ -6,7 +6,6 @@ COLOR_BATTERY_ICON=0xffc7c7c7
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-COLOR_BATTERY_ICON=$COLOR_STATS
 SHOW_LABEL=true
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')

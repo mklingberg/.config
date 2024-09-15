@@ -37,6 +37,7 @@ default=(
         icon.font="$FONT_FACE:Medium:16.0"
         icon.padding_left=0
         icon.padding_right=0
+        icon.y_offset=1
         label.color=$COLOR_TEXT
         label.font="$FONT_FACE:Bold:14.0"
         label.y_offset=1
@@ -53,7 +54,6 @@ reload=(
         icon.color=$COLOR_RELOAD_ICON
         icon.padding_left=0
         icon.padding_right=0
-        icon.y_offset=1
         background.color=$COLOR_RELOAD_BG
         label.padding_right=0
         label.padding_left=0
@@ -67,7 +67,6 @@ reload_separator=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=0
-        icon.y_offset=1
 )
 
 # ------------------------
@@ -102,7 +101,6 @@ brew=(
         icon=$ICON_BREW
         icon.color=$COLOR_STATS
         icon.padding_right=10
-        icon.y_offset=1
         label=?
         label.color=$COLOR_STATS
         padding_right=10
@@ -116,7 +114,6 @@ cpu=(
         icon.color=$COLOR_STATS
         icon.padding_left=10
         icon.padding_right=10
-        icon.y_offset=1
         label.padding_right=10
         label.width=38
         label.color=$COLOR_STATS
@@ -140,7 +137,6 @@ utils_separator=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
-        icon.y_offset=1
 )
 
 $BAR_NAME \
@@ -181,12 +177,10 @@ $BAR_NAME \
 # CENTER
 # ------------------------
 
-
 # -- SPOTIFY --
 
 spotify=(
         icon=$ICON_SPOTIFY
-        icon.y_offset=1
         icon.padding_left=0
         icon.padding_right=0
         label.padding_right=6
@@ -203,7 +197,6 @@ spotify_separator=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
-        icon.y_offset=1
 )
 
 $BAR_NAME \
@@ -240,7 +233,6 @@ spaces_separator_1=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
-        icon.y_offset=1
 )
 
 spaces_separator_3=(
@@ -251,7 +243,6 @@ spaces_separator_3=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
-        icon.y_offset=1
 )
 
 $BAR_NAME \
@@ -267,7 +258,7 @@ source $ITEM_DIR/spaces.sh
 $BAR_NAME \
     --add item spaces_separator_21 center \
     --set spaces_separator_21 \
-            icon.padding_left=-12 \
+            icon.padding_left=4 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add bracket spaces_bracket \
             space.1 \
@@ -295,31 +286,6 @@ $BAR_NAME \
 
 # -- FRONT APP --
 
-source $ITEM_DIR/front_app_icon.sh
-source $ITEM_DIR/front_app_name.sh
-
-$BAR_NAME \
-    --add item front_app center \
-    --set front_app \
-            background.color=$COLOR_FRONT_APP_BG \
-            background.padding_left=0 \
-            background.padding_right=0 \
-            icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0" \
-            icon.padding_right=5 \
-            icon.padding_left=0 \
-            icon.y_offset=0 \
-            label.drawing=no \
-            script="$PLUGIN_SHARED_DIR/front_app.sh" \
-    --add item front_app.name center \
-    --set front_app.name \
-            icon.drawing=off \
-            label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0" \
-            label.color=$COLOR_FRONT_APP_NAME \
-            background.color=$COLOR_FRONT_APP_BG \
-            label.padding_left=5 \
-            label.padding_right=0
-
-
 front_app_separator=(
         icon=$ICON_SEPARATOR_RIGHT
         icon.color=$COLOR_FRONT_APP_BG
@@ -327,11 +293,35 @@ front_app_separator=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=0
-        icon.y_offset=1
         label.drawing=no
 )
 
+front_app=(
+        background.padding_left=0
+        background.padding_right=0
+        icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0"
+        icon.padding_right=5
+        icon.padding_left=0
+        icon.color=$COLOR_FRONT_APP_ICON
+        icon.y_offset=0
+        label.drawing=no
+        script="$PLUGIN_SHARED_DIR/front_app.sh"
+)
+
+front_app_name=(
+        icon.drawing=off
+        label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0"
+        label.color=$COLOR_FRONT_APP_NAME
+        background.color=$COLOR_FRONT_APP_NAME_BG
+        label.padding_left=5
+        label.padding_right=0
+)
+
 $BAR_NAME \
+    --add item front_app center \
+    --set front_app "${front_app[@]}" \
+    --add item front_app.name center \
+    --set front_app.name "${front_app_name[@]}" \
     --add item separator_front_app_2 center \
     --set separator_front_app_2 \
             icon.padding_left=0 \
@@ -362,7 +352,6 @@ clock_separator=(
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=-2
-        icon.y_offset=1
 )
 
 $BAR_NAME \
@@ -373,7 +362,6 @@ $BAR_NAME \
     --add item clock right \
     --set clock \
             label.color=$COLOR_RIGHT_AREA_TEXT \
-            label.y_offset=2 \
             icon.drawing=no \
             update_freq=10 \
             script="$PLUGIN_SHARED_DIR/clock.sh" \
