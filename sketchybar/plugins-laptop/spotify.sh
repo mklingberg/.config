@@ -4,7 +4,7 @@ COLOR_SPOTIFY=0xffeed49f
 COLOR_SPOTIFY_PAUSE=0xffeed49f
 COLOR_SPOTIFY_ICON=$COLOR_SPOTIFY
 ICON_SPOTIFY=
-ICON_SPOTIFY_PAUSE= #
+ICON_SPOTIFY_PAUSE=
 ICON_SPOTIFY_PLAY= #
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
@@ -23,7 +23,7 @@ update_track() {
     if [[ -z $SPOTIFY_JSON ]]; then
         $BAR_NAME --set $NAME \
                     icon = $ICON_SPOTIFY \
-                    icon.color=$COLOR_SPOTIFY \
+                    icon.color=$COLOR_SPOTIFY_ICON \
                     label.drawing=no
         return
     fi
@@ -68,7 +68,7 @@ update_track() {
         $BAR_NAME --set $NAME \
                     icon=$ICON_SPOTIFY_PAUSE \
                     icon.color=$COLOR_SPOTIFY_ICON \
-                    label.drawing=no \
+                    label.drawing=yes \
                     label.color=$COLOR_SPOTIFY_PAUSE
     elif [ $PLAYER_STATE = "Stopped" ]; then
         $BAR_NAME --set $NAME \

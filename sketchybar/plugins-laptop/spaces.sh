@@ -13,12 +13,12 @@ COLOR_SPACE_ICON=0xffc7c7c7
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
-SPACE_SIDS=(0 1 2 3 4 5 6 7 8 9 10)
+SPACE_SIDS=(0 1 2 3 4 5 6 7 8 9 10) # 10 9 8 7 6 5 4 3 2 1 0
 
 for sid in "${SPACE_SIDS[@]}"
 do
   $BAR_NAME \
-     --add space space.$sid left \
+     --add space space.$sid e \
      --set space.$sid \
             space=$sid \
             icon=$sid \
@@ -30,7 +30,7 @@ do
      --subscribe space.$sid space_change mouse.clicked
 done
 
-$BAR_NAME --add item space_separator left \
+$BAR_NAME --add item space_separator e \
           --set space_separator \
                 label.drawing=off \
                 icon.drawing=off \

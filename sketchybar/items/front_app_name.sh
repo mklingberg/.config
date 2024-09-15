@@ -6,7 +6,7 @@ COLOR_FRONT_APP_NAME_BG=0xff2e3440
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 $BAR_NAME \
-    --add item front_app.name left \
+    --add item front_app.name center \
     --set front_app.name \
             icon.drawing=off \
             label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0" \

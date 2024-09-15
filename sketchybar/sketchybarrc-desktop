@@ -63,7 +63,7 @@ reload=(
 reload_separator=(
         icon=$ICON_SEPARATOR_RIGHT
         icon.color=$COLOR_RELOAD_BG
-        background.color=$COLOR_FRONT_APP_BG
+        background.color=$COLOR_UTILS_BG
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
         icon.padding_right=0
@@ -93,41 +93,88 @@ $BAR_NAME \
     --set reload_bracket \
               background.color=$COLOR_RELOAD_BG \
     --add item reload.separator left \
-    --set reload.separator "${reload_separator[@]}" \
-    --add item separator_front_app_1 left \
-    --set separator_front_app_1 \
-            icon.padding_left=0 \
-            icon.padding_right=$SEPARATOR_WIDTH
+    --set reload.separator "${reload_separator[@]}"
 
-source $ITEM_DIR/front_app_icon.sh
-source $ITEM_DIR/front_app_name.sh
 
-front_app_separator=(
+# -- UTILS --
+
+brew=(        
+        icon=$ICON_BREW
+        icon.color=$COLOR_STATS
+        icon.padding_right=10
+        icon.y_offset=1
+        label=?
+        label.color=$COLOR_STATS
+        padding_right=10
+        update_freq=1200 # 20 minutes
+        script="$PLUGIN_SHARED_DIR/brew.sh"
+)
+
+cpu=(
+        update_freq=10
+        icon=$ICON_CPU
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        icon.padding_right=10
+        icon.y_offset=1
+        label.padding_right=10
+        label.width=38
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/cpu.sh"
+)
+
+volume=(
+        icon=$ICON_VOLUME
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        label.padding_right=10
+        label.width=38
+        label.drawing=true
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/volume.sh"
+)
+
+utils_separator=(
         icon=$ICON_SEPARATOR_RIGHT
-        icon.color=$COLOR_FRONT_APP_BG
-        background.color=$TRANSPARENT
+        icon.color=$COLOR_UTILS_BG
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
-        icon.padding_right=0
+        icon.padding_right=-2
         icon.y_offset=1
-        label.drawing=no
 )
 
 $BAR_NAME \
-    --add item separator_front_app_2 left \
-    --set separator_front_app_2 \
-            icon.padding_left=0 \
-            icon.padding_right=$SEPARATOR_WIDTH \
-    --add item front_app.separator left \
-    --set front_app.separator  "${front_app_separator[@]}" \
-    --add bracket front_app_bracket \
-            front_app \
-            front_app.name \
-            separator_front_app_2 \
-            separator_front_app_1 \
-     --set front_app_bracket \
-            background.color=$COLOR_FRONT_APP_BG \
-    --subscribe front_app front_app_switched mouse.clicked
+    --add item separator_utils_1 left \
+    --set separator_utils_1 \
+                icon.padding_left=0 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+    --add event brew_update \
+    --add item brew left \
+    --set brew "${brew[@]}" \
+    --subscribe brew brew_update \
+    --add item cpu left \
+    --set cpu "${cpu[@]}" \
+    --add item volume left \
+    --set volume "${volume[@]}" \
+    --subscribe volume volume_change \
+    --add item separator_utils_2 left \
+    --set separator_utils_2 \
+                icon.padding_left=-8 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
+    --add item spotify_weight left \
+    --add bracket utils_bracket \
+                separator_utils_1 \
+                separator_utils_2 \
+                brew \
+                cpu \
+                volume \
+                spotify_weight \
+    --set utils_bracket \
+                background.color=$COLOR_UTILS_BG \
+    --add item utils.separator left \
+    --set utils.separator "${utils_separator[@]}"
 
 
 # ------------------------
@@ -240,87 +287,66 @@ $BAR_NAME \
             background.padding_left=0 \
             background.padding_right=0 \
     --add item spaces_separator_3 center \
-    --set spaces_separator_3 "${spaces_separator_3[@]}"
+    --set spaces_separator_3 "${spaces_separator_3[@]}" \
+    --add item separator_front_app_1 center \
+    --set separator_front_app_1 \
+            icon.padding_left=0 \
+            icon.padding_right=$SEPARATOR_WIDTH
 
-# -- UTILS --
+# -- FRONT APP --
 
-brew=(        
-        icon=$ICON_BREW
-        icon.color=$COLOR_STATS
-        icon.padding_right=10
-        icon.y_offset=1
-        label=?
-        label.color=$COLOR_STATS
-        padding_right=10
-        update_freq=1200 # 20 minutes
-        script="$PLUGIN_SHARED_DIR/brew.sh"
-)
+source $ITEM_DIR/front_app_icon.sh
+source $ITEM_DIR/front_app_name.sh
 
-cpu=(
-        update_freq=10
-        icon=$ICON_CPU
-        icon.color=$COLOR_STATS
-        icon.padding_left=10
-        icon.padding_right=10
-        icon.y_offset=1
-        label.padding_right=10
-        label.width=38
-        label.color=$COLOR_STATS
-        script="$PLUGIN_SHARED_DIR/cpu.sh"
-)
+$BAR_NAME \
+    --add item front_app center \
+    --set front_app \
+            background.color=$COLOR_FRONT_APP_BG \
+            background.padding_left=0 \
+            background.padding_right=0 \
+            icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0" \
+            icon.padding_right=5 \
+            icon.padding_left=0 \
+            icon.y_offset=0 \
+            label.drawing=no \
+            script="$PLUGIN_SHARED_DIR/front_app.sh" \
+    --add item front_app.name center \
+    --set front_app.name \
+            icon.drawing=off \
+            label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0" \
+            label.color=$COLOR_FRONT_APP_NAME \
+            background.color=$COLOR_FRONT_APP_BG \
+            label.padding_left=5 \
+            label.padding_right=0
 
-volume=(
-        icon=$ICON_VOLUME
-        icon.color=$COLOR_STATS
-        icon.padding_left=10
-        label.padding_right=10
-        label.width=38
-        label.drawing=true
-        label.color=$COLOR_STATS
-        script="$PLUGIN_SHARED_DIR/volume.sh"
-)
 
-utils_separator=(
+front_app_separator=(
         icon=$ICON_SEPARATOR_RIGHT
-        icon.color=$COLOR_SPOTIFY_BG
+        icon.color=$COLOR_FRONT_APP_BG
+        background.color=$TRANSPARENT
         icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
         icon.padding_left=0
-        icon.padding_right=-2
+        icon.padding_right=0
         icon.y_offset=1
+        label.drawing=no
 )
 
 $BAR_NAME \
-    --add item separator_utils_1 center \
-    --set separator_utils_1 \
-                icon.padding_left=0 \
-                icon.padding_right=$SEPARATOR_WIDTH \
-                label.drawing=off \
-    --add event brew_update \
-    --add item brew center \
-    --set brew "${brew[@]}" \
-    --subscribe brew brew_update \
-    --add item cpu center \
-    --set cpu "${cpu[@]}" \
-    --add item volume center \
-    --set volume "${volume[@]}" \
-    --subscribe volume volume_change \
-    --add item separator_utils_2 center \
-    --set separator_utils_2 \
-                icon.padding_left=-8 \
-                icon.padding_right=$SEPARATOR_WIDTH \
-                label.drawing=off \
-    --add item spotify_weight center \
-    --add bracket utils_bracket \
-                separator_utils_1 \
-                separator_utils_2 \
-                brew \
-                cpu \
-                volume \
-                spotify_weight \
-    --set utils_bracket \
-                background.color=$COLOR_SPOTIFY_BG \
-    --add item utils.separator center \
-    --set utils.separator "${utils_separator[@]}"
+    --add item separator_front_app_2 center \
+    --set separator_front_app_2 \
+            icon.padding_left=0 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item front_app.separator center \
+    --set front_app.separator "${front_app_separator[@]}" \
+    --add bracket front_app_bracket \
+            front_app \
+            front_app.name \
+            separator_front_app_2 \
+            separator_front_app_1 \
+     --set front_app_bracket \
+            background.color=$COLOR_FRONT_APP_BG \
+    --subscribe front_app front_app_switched mouse.clicked
+
 
 
 # ------------------------
@@ -368,7 +394,6 @@ $BAR_NAME \
 # INIT
 # ------------------------
 
-$BAR_NAME --hotload on
 $BAR_NAME --update
 $BAR_NAME --trigger space_change
 $BAR_NAME --trigger volume_change

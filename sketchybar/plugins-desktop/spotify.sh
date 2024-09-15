@@ -72,7 +72,7 @@ update_track() {
     elif [ $PLAYER_STATE = "Stopped" ]; then
         $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
-                     icon.color=$COLOR_SPOTIFY \
+                     icon.color=$COLOR_SPOTIFY_ICON \
                      icon.padding_right=0 \
                      label.drawing=no
     else
