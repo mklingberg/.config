@@ -103,7 +103,7 @@ brew=(
         icon.padding_right=10
         label=?
         label.color=$COLOR_STATS
-        padding_right=10
+        label.padding_right=10
         update_freq=1200 # 20 minutes
         script="$PLUGIN_SHARED_DIR/brew.sh"
 )
@@ -117,6 +117,7 @@ cpu=(
         label.padding_right=10
         label.width=38
         label.color=$COLOR_STATS
+        label.drawing=false
         script="$PLUGIN_SHARED_DIR/cpu.sh"
 )
 
@@ -126,9 +127,33 @@ volume=(
         icon.padding_left=10
         label.padding_right=10
         label.width=38
-        label.drawing=true
+        label.drawing=false
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/volume.sh"
+)
+
+docker_cpu=(
+        update_freq=10
+        icon=$ICON_DOCKER
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        icon.padding_right=10
+        label.drawing=false
+        label.padding_right=0
+        label.width=38
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/docker_cpu.sh"
+)
+
+docker_memory=(
+        drawing=false
+        update_freq=60
+        icon.drawing=false
+        label.padding_left=0
+        label.width=38
+        label.padding_right=10
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/docker_memory.sh"
 )
 
 utils_separator=(
@@ -139,6 +164,8 @@ utils_separator=(
         icon.padding_right=-2
 )
 
+# Add a new item to SketchyBar
+    
 $BAR_NAME \
     --add item separator_utils_1 left \
     --set separator_utils_1 \
@@ -151,6 +178,10 @@ $BAR_NAME \
     --subscribe brew brew_update \
     --add item cpu left \
     --set cpu "${cpu[@]}" \
+    --add item docker_cpu left \
+    --set docker_cpu "${docker_cpu[@]}" \
+    --add item docker_memory left \
+    --set docker_memory "${docker_memory[@]}" \
     --add item volume left \
     --set volume "${volume[@]}" \
     --subscribe volume volume_change \

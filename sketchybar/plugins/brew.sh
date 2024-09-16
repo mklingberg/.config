@@ -12,6 +12,7 @@ source "$HOME/.config/sketchybar/icons.sh" # Loads all defined colors
 COUNT="$(brew outdated | wc -l | tr -d ' ')"
 
 COLOR=$COLOR_BREW_OUTDATED
+SHOW_LABEL=true
 
 case "$COUNT" in
   [3-5][0-9]) COLOR=$COLOR_BREW_HIGH
@@ -22,7 +23,8 @@ case "$COUNT" in
   ;;
   0) COLOR=$COLOR_BREW_UPDATED
      COUNT=$ICON_BREW_UPDATED
+     SHOW_LABEL=false
   ;;
 esac
 
-$BAR_NAME --set $NAME label=$COUNT icon.color=$COLOR label.color=$COLOR
+$BAR_NAME --set $NAME label=$COUNT label.drawing=$SHOW_LABEL icon.color=$COLOR label.color=$COLOR

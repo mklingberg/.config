@@ -8,8 +8,8 @@ source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 # Init default values
 MEDIUM_THRESHOLD=50
 HIGH_THRESHOLD=80
-LABEL_THRESHOLD=30
-SHOW_LABEL=true
+LABEL_THRESHOLD=40
+SHOW_LABEL=false
 
 # Get the total number of CPU cores
 CORE_COUNT=$(sysctl -n machdep.cpu.thread_count)
