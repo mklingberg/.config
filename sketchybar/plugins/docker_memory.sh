@@ -8,7 +8,7 @@ DOCKER_STATS_MEM=$(docker stats --no-stream --format "{{.MemPerc}}")
 
 # Initialize total memory usage percentage
 TOTAL_MEMORY_PERCENT=0
-LABEL_THRESHOLD=40
+LABEL_THRESHOLD=50
 SHOW_LABEL=false
 
 # Sum up the memory usage percentages
