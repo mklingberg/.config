@@ -99,6 +99,7 @@ utils_separator=(
 )
 
 battery=(
+    update_freq=120
     icon=$ICON_BATTERY
     icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
