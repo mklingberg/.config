@@ -64,3 +64,6 @@ ICON_BREW_UPDATED=􀆅
 
 # Docker
 ICON_DOCKER=
+
+# Airpods
+ICON_AIRPODS=󰋋

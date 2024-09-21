@@ -101,7 +101,7 @@ brew=(
         icon=$ICON_BREW
         icon.color=$COLOR_STATS
         icon.padding_right=10
-        label=?
+        label.drawing=false
         label.color=$COLOR_STATS
         label.padding_right=10
         update_freq=1200 # 20 minutes
@@ -113,9 +113,9 @@ cpu=(
         icon=$ICON_CPU
         icon.color=$COLOR_STATS
         icon.padding_left=10
-        icon.padding_right=10
+        icon.padding_right=12
         label.padding_right=10
-        label.width=38
+        label.width=34
         label.color=$COLOR_STATS
         label.drawing=false
         script="$PLUGIN_SHARED_DIR/cpu.sh"
@@ -124,15 +124,16 @@ cpu=(
 volume=(
         icon=$ICON_VOLUME
         icon.color=$COLOR_STATS
-        icon.padding_left=8
+        icon.padding_left=10
         label.padding_right=10
-        label.width=38
+        label.width=34
         label.drawing=false
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/volume.sh"
 )
 
 docker_cpu=(
+        drawing=false
         update_freq=10
         icon=$ICON_DOCKER
         icon.color=$COLOR_STATS
@@ -140,7 +141,7 @@ docker_cpu=(
         icon.padding_right=10
         label.drawing=false
         label.padding_right=0
-        label.width=38
+        label.width=34
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/docker_cpu.sh"
 )
@@ -150,10 +151,24 @@ docker_memory=(
         update_freq=60
         icon.drawing=false
         label.padding_left=0
-        label.width=38
+        label.width=34
         label.padding_right=10
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/docker_memory.sh"
+)
+
+airpods=(
+        drawing=false
+        update_freq=10
+        icon=$ICON_AIRPODS
+        icon.color=$COLOR_STATS
+        icon.padding_left=6
+        icon.padding_right=10
+        label.padding_left=0
+        label.padding_right=8
+        label.width=34
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/airpods.sh"
 )
 
 utils_separator=(
@@ -182,6 +197,8 @@ $BAR_NAME \
     --set docker_cpu "${docker_cpu[@]}" \
     --add item docker_memory left \
     --set docker_memory "${docker_memory[@]}" \
+    --add item airpods left \
+    --set airpods "${airpods[@]}" \
     --add item volume left \
     --set volume "${volume[@]}" \
     --subscribe volume volume_change \
