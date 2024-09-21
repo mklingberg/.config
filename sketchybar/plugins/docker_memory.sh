@@ -6,6 +6,13 @@
 # Get the docker stats for all containers
 DOCKER_STATS_MEM=$(docker stats --no-stream --format "{{.MemPerc}}")
 
+# Check if DOCKER_STATS_MEM is empty
+if [ -z "$DOCKER_STATS_MEM" ]; then
+    # Hide the item if no stats are returned, then docker isnt running
+    $BAR_NAME --set $NAME drawing=false
+    exit 0
+fi
+
 # Initialize total memory usage percentage
 TOTAL_MEMORY_PERCENT=0
 LABEL_THRESHOLD=50

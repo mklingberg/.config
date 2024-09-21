@@ -9,6 +9,13 @@ SHOW_LABEL=false
 # Get the docker stats for all containers
 DOCKER_STATS_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}")
 
+# Check if DOCKER_STATS_CPU is empty
+if [ -z "$DOCKER_STATS_CPU" ]; then
+    # Hide the item if no stats are returned, then docker isnt running
+    $BAR_NAME --set $NAME drawing=false
+    exit 0
+fi
+
 # Initialize total CPU usage percentage
 TOTAL_CPU_PERCENT=0
 
@@ -27,4 +34,4 @@ if [ $TOTAL_CPU_PERCENT -gt $LABEL_THRESHOLD ]; then
 fi
 
 # Set the CPU usage percentage in SketchyBar
-$BAR_NAME --set $NAME label.drawing=$SHOW_LABEL label="${TOTAL_CPU_PERCENT}%"
+$BAR_NAME --set $NAME drawing=true label.drawing=$SHOW_LABEL label="${TOTAL_CPU_PERCENT}%"
