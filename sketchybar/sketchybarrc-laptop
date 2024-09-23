@@ -109,6 +109,20 @@ battery=(
     script="$PLUGIN_SHARED_DIR/battery.sh"
 )
 
+airpods=(
+        drawing=false
+        update_freq=10
+        icon=$ICON_AIRPODS
+        icon.color=$COLOR_STATS
+        icon.padding_left=6
+        icon.padding_right=10
+        label.padding_left=0
+        label.padding_right=8
+        label.width=44
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/airpods.sh"
+)
+
 volume=(
     icon=$ICON_VOLUME
     icon.font="$FONT_FACE:Medium:20.0"
@@ -132,10 +146,13 @@ $BAR_NAME \
                 icon.padding_left=-10 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
+    --add item airpods left \
+    --set airpods "${airpods[@]}" \
     --add item battery left \
     --set battery "${battery[@]}" \
     --add bracket utils_bracket \
                 separator_utils_1 \
+                airpods \
                 battery \
     --set utils_bracket \
                 background.color=$COLOR_UTILS_LAPTOP_BG \
