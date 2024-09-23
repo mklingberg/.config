@@ -99,14 +99,14 @@ utils_separator=(
 )
 
 battery=(
-    update_freq=120
-    icon=$ICON_BATTERY
+    update_freq=20
+    icon=$ICON_BATTERY_UNKNOWN
     icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
     label.width=48
-    script="$PLUGIN_SHARED_DIR/battery.sh"
+    script="$PLUGIN_DIR/battery.sh"
 )
 
 airpods=(
@@ -120,7 +120,7 @@ airpods=(
         label.padding_right=8
         label.width=44
         label.color=$COLOR_STATS
-        script="$PLUGIN_SHARED_DIR/airpods.sh"
+        script="$PLUGIN_DIR/airpods.sh"
 )
 
 volume=(

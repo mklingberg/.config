@@ -6,7 +6,8 @@ COLOR_BATTERY_ICON=0xffc7c7c7
 
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
-SHOW_LABEL=true
+LABEL_THRESHOLD=50
+SHOW_LABEL=false
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
 
@@ -34,17 +35,10 @@ case ${PERCENTAGE} in
     ;;
 esac
 
-case ${PERCENTAGE} in
-    100)
-    SHOW_LABEL=false
-    ;;
-[1-3][0-9])
-    SHOW_LABEL=true
-    ;;
-[0-9])
-    SHOW_LABEL=true
-    ;;
-esac
+# Show label if percentage is less than x%
+if [ $PERCENTAGE -lt $LABEL_THRESHOLD ]; then
+  SHOW_LABEL=true
+fi
 
 if [[ $CHARGING != "" ]]; then
     ICON=""
