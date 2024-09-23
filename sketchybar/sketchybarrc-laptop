@@ -111,7 +111,7 @@ battery=(
 
 airpods=(
         drawing=false
-        update_freq=10
+        update_freq=5
         icon=$ICON_AIRPODS
         icon.color=$COLOR_STATS
         icon.padding_left=6

@@ -159,8 +159,7 @@ docker_memory=(
 
 airpods=(
         drawing=false
-        update_freq=10
-        icon=$ICON_AIRPODS
+        update_freq=5
         icon.color=$COLOR_STATS
         icon.padding_left=6
         icon.padding_right=10
