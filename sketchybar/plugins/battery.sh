@@ -25,14 +25,24 @@ case ${PERCENTAGE} in
     ICON=""
     ;;
 [1-3][0-9])
-    SHOW_LABEL=true
     ICON=""
     COLOR_BATTERY_ICON=$COLOR_BATTERY_LOW
     ;;
 [0-9])
-    SHOW_LABEL=true
     ICON=""
     COLOR_BATTERY_ICON=$COLOR_BATTERY_EMPTY
+    ;;
+esac
+
+case ${PERCENTAGE} in
+    100)
+    SHOW_LABEL=false
+    ;;
+[1-3][0-9])
+    SHOW_LABEL=true
+    ;;
+[0-9])
+    SHOW_LABEL=true
     ;;
 esac
 
