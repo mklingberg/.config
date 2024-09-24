@@ -91,16 +91,15 @@ $BAR_NAME \
 # -- UTILS --
 
 utils_separator=(
-        icon=$ICON_SEPARATOR_RIGHT
-        icon.color=$COLOR_UTILS_LAPTOP_BG
-        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-        icon.padding_left=0
-        icon.padding_right=-12
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_UTILS_LAPTOP_BG
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-12
 )
 
 battery=(
     update_freq=20
-    icon=$ICON_BATTERY_UNKNOWN
     icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
     icon.padding_right=10
@@ -110,17 +109,17 @@ battery=(
 )
 
 airpods=(
-        drawing=false
-        update_freq=5
-        icon=$ICON_AIRPODS
-        icon.color=$COLOR_STATS
-        icon.padding_left=6
-        icon.padding_right=10
-        label.padding_left=0
-        label.padding_right=8
-        label.width=44
-        label.color=$COLOR_STATS
-        script="$PLUGIN_DIR/airpods.sh"
+    drawing=false
+    update_freq=5
+    icon=$ICON_AIRPODS
+    icon.color=$COLOR_STATS
+    icon.padding_left=6
+    icon.padding_right=10
+    label.padding_left=0
+    label.padding_right=8
+    label.width=44
+    label.color=$COLOR_STATS
+    script="$PLUGIN_DIR/airpods.sh"
 )
 
 volume=(
@@ -150,8 +149,14 @@ $BAR_NAME \
     --set airpods "${airpods[@]}" \
     --add item battery left \
     --set battery "${battery[@]}" \
+    --add item separator_utils_2 left \
+    --set separator_utils_2 \
+                icon.padding_left=0 \
+                icon.padding_right=$SEPARATOR_WIDTH \
+                label.drawing=off \
     --add bracket utils_bracket \
                 separator_utils_1 \
+                separator_utils_2 \
                 airpods \
                 battery \
     --set utils_bracket \
@@ -279,14 +284,15 @@ front_app_name=(
         label.padding_right=0
 )
 
+    # --add item front_app.name e \
+    # --set front_app.name "${front_app_name[@]}" \
+
 $BAR_NAME \
     --add item front_app e \
     --set front_app "${front_app[@]}" \
-    --add item front_app.name e \
-    --set front_app.name "${front_app_name[@]}" \
     --add item separator_front_app_2 e \
     --set separator_front_app_2 \
-            icon.padding_left=0 \
+            icon.padding_left=-10 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item front_app.separator e \
     --set front_app.separator "${front_app_separator[@]}" \
