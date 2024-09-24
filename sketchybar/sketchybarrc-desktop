@@ -2,7 +2,6 @@
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
-FONT_FACE="JetBrainsMono Nerd Font"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
@@ -12,7 +11,6 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 BAR_HEIGHT=22
 SEPARATOR_WIDTH=12
 DEFAULT_PADDING=1
-
 
 FRONT_APP_ICON_SIZE=14
 FRONT_APP_NAME_SIZE=15
@@ -103,8 +101,9 @@ brew=(
         icon.padding_right=10
         label.drawing=false
         label.color=$COLOR_STATS
-        label.padding_right=10
-        update_freq=1200 # 20 minutes
+        label.padding_right=8
+        label.padding_left=-5
+        update_freq=60
         script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
@@ -112,10 +111,10 @@ cpu=(
         update_freq=10
         icon=$ICON_CPU
         icon.color=$COLOR_STATS
-        icon.padding_left=10
-        icon.padding_right=12
+        icon.padding_left=8
+        icon.padding_right=10
         label.padding_right=10
-        label.width=34
+        label.padding_left=-5
         label.color=$COLOR_STATS
         label.drawing=false
         script="$PLUGIN_SHARED_DIR/cpu.sh"
@@ -125,8 +124,8 @@ volume=(
         icon=$ICON_VOLUME
         icon.color=$COLOR_STATS
         icon.padding_left=10
+        label.padding_left=-5
         label.padding_right=10
-        label.width=34
         label.drawing=false
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/volume.sh"
@@ -140,8 +139,8 @@ docker_cpu=(
         icon.padding_left=10
         icon.padding_right=10
         label.drawing=false
-        label.padding_right=0
-        label.width=34
+        label.padding_left=-5
+        label.padding_right=10
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/docker_cpu.sh"
 )
@@ -150,8 +149,7 @@ docker_memory=(
         drawing=false
         update_freq=60
         icon.drawing=false
-        label.padding_left=0
-        label.width=34
+        label.padding_left=-5
         label.padding_right=10
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/docker_memory.sh"
@@ -160,12 +158,12 @@ docker_memory=(
 airpods=(
         drawing=false
         update_freq=5
+        icon.font="$FONT_FACE:Medium:20.0"
         icon.color=$COLOR_STATS
-        icon.padding_left=6
+        icon.padding_left=10
         icon.padding_right=10
-        label.padding_left=0
+        label.padding_left=-5
         label.padding_right=8
-        label.width=34
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/airpods.sh"
 )
@@ -260,7 +258,7 @@ $BAR_NAME \
         --subscribe spotify spotify_change mouse.clicked \
         --add item separator_spotify_2 center \
         --set separator_spotify_2 \
-                icon.padding_left=-4 \
+                icon.padding_left=-1 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
         --add bracket spotify_bracket \
