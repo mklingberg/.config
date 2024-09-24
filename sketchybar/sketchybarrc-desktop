@@ -158,7 +158,7 @@ docker_memory=(
 airpods=(
         drawing=false
         update_freq=5
-        icon.font="$FONT_FACE:Medium:20.0"
+        icon.font="$FONT_FACE:Medium:16.0"
         icon.color=$COLOR_STATS
         icon.padding_left=10
         icon.padding_right=10
@@ -166,6 +166,19 @@ airpods=(
         label.padding_right=8
         label.color=$COLOR_STATS
         script="$PLUGIN_SHARED_DIR/airpods.sh"
+)
+
+airpods_case=(
+        drawing=false
+        update_freq=5
+        icon.font="$FONT_FACE:Medium:20.0"
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        icon.padding_right=10
+        label.padding_left=-5
+        label.padding_right=8
+        label.color=$COLOR_STATS
+        script="$PLUGIN_SHARED_DIR/airpods_case.sh"
 )
 
 utils_separator=(
@@ -194,6 +207,8 @@ $BAR_NAME \
     --set docker_cpu "${docker_cpu[@]}" \
     --add item docker_memory left \
     --set docker_memory "${docker_memory[@]}" \
+    --add item airpods_case left \
+    --set airpods_case "${airpods_case[@]}" \
     --add item airpods left \
     --set airpods "${airpods[@]}" \
     --add item volume left \
@@ -211,6 +226,8 @@ $BAR_NAME \
                 brew \
                 cpu \
                 volume \
+                airpods \
+                airpods_case \
                 spotify_weight \
     --set utils_bracket \
                 background.color=$COLOR_UTILS_BG \
