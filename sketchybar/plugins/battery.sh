@@ -15,25 +15,20 @@ if [ $PERCENTAGE = "" ]; then
     exit 0
 fi
 
-case ${PERCENTAGE} in
-[8-9][0-9] | 100)
-    ICON=""
-    ;;
-7[0-9])
-    ICON=""
-    ;;
-[4-6][0-9])
-    ICON=""
-    ;;
-[1-3][0-9])
-    ICON=""
+# Set battery icon based on percentage
+if [ $PERCENTAGE -eq 100 ]; then
+  ICON=$ICON_BATTERY_100
+elif [ $PERCENTAGE -ge 75 ]; then
+    ICON=$ICON_BATTERY_75
+elif [ $PERCENTAGE -ge 50 ]; then
+    ICON=$ICON_BATTERY_50
+elif [ $PERCENTAGE -ge 25 ]; then
+    ICON=$ICON_BATTERY_25
     COLOR_BATTERY_ICON=$COLOR_BATTERY_LOW
-    ;;
-[0-9])
-    ICON=""
+else
+    ICON=$ICON_BATTERY_0
     COLOR_BATTERY_ICON=$COLOR_BATTERY_EMPTY
-    ;;
-esac
+fi
 
 # Show label if percentage is less than x%
 if [ $PERCENTAGE -lt $LABEL_THRESHOLD ]; then
