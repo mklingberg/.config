@@ -9,7 +9,8 @@ COLOR_BREW_UPDATED=0xffa6da95
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 source "$HOME/.config/sketchybar/icons.sh" # Loads all defined colors
 
-COUNT="$(brew outdated | wc -l | tr -d ' ')"
+COUNT="$(brew outdated | wc -l | xargs)"
+COUNT=${COUNT:-0}
 
 COLOR=$COLOR_BREW_OUTDATED
 SHOW_LABEL=true
