@@ -108,19 +108,6 @@ brew=(
         script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
-# cpu=(
-#         update_freq=3
-#         icon=$ICON_CPU
-#         icon.color=$COLOR_STATS
-#         icon.padding_left=10
-#         icon.padding_right=10
-#         label.padding_right=10
-#         label.padding_left=-5
-#         label.color=$COLOR_STATS
-#         label.drawing=false
-#         script="$PLUGIN_SHARED_DIR/cpu_detailed.sh"
-# )
-
 cpu_user=(
         update_freq=3
         icon=$ICON_CPU_USER

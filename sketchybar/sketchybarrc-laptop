@@ -112,13 +112,38 @@ airpods=(
     update_freq=5
     icon=$ICON_AIRPODS
     icon.color=$COLOR_STATS
-    icon.padding_left=6
+    icon.padding_left=7
     icon.padding_right=10
     label.padding_left=0
     label.padding_right=8
     label.width=44
     label.color=$COLOR_STATS
     script="$PLUGIN_DIR/airpods.sh"
+)
+
+# cpu_user=(
+#         update_freq=3
+#         icon=$ICON_CPU_USER
+#         icon.color=$COLOR_STATS
+#         icon.padding_left=6
+#         icon.padding_right=10
+#         icon.y_offset=0
+#         label.padding_right=10
+#         label.padding_left=-5
+#         label.color=$COLOR_STATS
+#         #label.width=30
+#         #drawing=false
+#         script="$PLUGIN_SHARED_DIR/cpu_user.sh"
+# )
+
+cpu_user=(
+        update_freq=10
+        icon=$ICON_CPU_USER
+        icon.color=$COLOR_STATS
+        icon.padding_left=8
+        icon.padding_right=10
+        label.drawing=false
+        script="$PLUGIN_SHARED_DIR/cpu_load.sh"
 )
 
 volume=(
@@ -144,10 +169,12 @@ $BAR_NAME \
                 icon.padding_left=-10 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
-    --add item airpods left \
-    --set airpods "${airpods[@]}" \
     --add item battery left \
     --set battery "${battery[@]}" \
+    --add item cpu_user left \
+    --set cpu_user "${cpu_user[@]}" \
+    --add item airpods left \
+    --set airpods "${airpods[@]}" \
     --add item separator_utils_2 left \
     --set separator_utils_2 \
                 icon.padding_left=0 \
@@ -156,6 +183,7 @@ $BAR_NAME \
     --add bracket utils_bracket \
                 separator_utils_1 \
                 separator_utils_2 \
+                cpu_user \
                 airpods \
                 battery \
     --set utils_bracket \
@@ -281,14 +309,16 @@ front_app_name=(
         background.color=$COLOR_FRONT_APP_NAME_BG
         label.padding_left=5
         label.padding_right=0
+        drawing=no
 )
 
-    # --add item front_app.name e \
-    # --set front_app.name "${front_app_name[@]}" \
+
 
 $BAR_NAME \
     --add item front_app e \
     --set front_app "${front_app[@]}" \
+    --add item front_app.name e \
+    --set front_app.name "${front_app_name[@]}" \
     --add item separator_front_app_2 e \
     --set separator_front_app_2 \
             icon.padding_left=-10 \

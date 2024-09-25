@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$HOME/.config/sketchybar/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 
 # airpods.sh
@@ -24,7 +25,7 @@ LOWEST_BATTERY=$(( LEFT_BATTERY < RIGHT_BATTERY ? LEFT_BATTERY : RIGHT_BATTERY )
 
 # Check if we have a value for case battery, then show it
 if [ "$CASE_BATTERY" -gt 0 ]; then
-    $BAR_NAME --set $NAME drawing=on label.drawing=true label="$CASE_BATTERY%" icon=$ICON_AIRPODS_CASE
+    $BAR_NAME --set $NAME drawing=on label.drawing=true label="$CASE_BATTERY%" icon=$ICON_AIRPODS_CASE icon.font="$FONT_FACE:Medium:26.0"
 # Check if LOWEST_BATTERY is empty (AirPods not connected)
 elif [ "$LOWEST_BATTERY" -eq 0 ]; then
     # Hide the item if LOWEST_BATTERY is empty
@@ -36,5 +37,5 @@ else
     fi
 
     # Show the item and set the label if LOWEST_BATTERY is not empty
-    $BAR_NAME --set $NAME drawing=on label.drawing=$SHOW_LABEL label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS
+    $BAR_NAME --set $NAME drawing=on label.drawing=$SHOW_LABEL label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS icon.font="$FONT_FACE:Medium:20.0"
 fi

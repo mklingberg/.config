@@ -42,4 +42,4 @@ fi
 LABEL="${USER_CPU}%"
 
 # Update the bar with the CPU percentage and icon color
-$BAR_NAME --set $NAME label="$LABEL" drawing=$SHOW_LABEL label.color=$ICON_COLOR icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME label="$LABEL" label.drawing=$SHOW_LABEL label.color=$ICON_COLOR icon.color=$ICON_COLOR
