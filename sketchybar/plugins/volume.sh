@@ -16,15 +16,15 @@ case ${INFO} in
     ;;
 [1-9]|[1-4][0-9])
     ICON="󰖀"
-    #SHOW_LABEL=false
+    SHOW_LABEL=true
     ;;
 [5-7][0-9])
     ICON="󰕾"
-    #SHOW_LABEL=false
+    SHOW_LABEL=true
     ;;
 [8-9][0-9]|100)
     ICON=""
-    #SHOW_LABEL=false
+    SHOW_LABEL=true
     ;;
 esac
 
