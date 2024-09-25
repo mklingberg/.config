@@ -28,4 +28,4 @@ case "$COUNT" in
   ;;
 esac
 
-$BAR_NAME --set $NAME label=$COUNT label.drawing=$SHOW_LABEL icon.color=$COLOR label.color=$COLOR
+$BAR_NAME --set $NAME label=$COUNT drawing=$SHOW_LABEL icon.color=$COLOR label.color=$COLOR

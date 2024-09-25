@@ -36,8 +36,8 @@ ICON_YABAI_GRID=􀧍
 
 # CPU Icons
 ICON_CPU=
-ICON_CPU_USER=󰣆 # #
-ICON_CPU_SYS=
+ICON_CPU_USER= #󰣆 # #
+ICON_CPU_SYS=
 
 # Battery Icons
 ICON_BATTERY_100=

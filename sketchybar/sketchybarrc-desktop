@@ -98,14 +98,28 @@ $BAR_NAME \
 brew=(
         icon=$ICON_BREW
         icon.color=$COLOR_STATS
+        icon.padding_left=10
         icon.padding_right=10
-        label.drawing=false
+        drawing=false
         label.color=$COLOR_STATS
         label.padding_right=8
         label.padding_left=-5
         update_freq=60
         script="$PLUGIN_SHARED_DIR/brew.sh"
 )
+
+# cpu=(
+#         update_freq=3
+#         icon=$ICON_CPU
+#         icon.color=$COLOR_STATS
+#         icon.padding_left=10
+#         icon.padding_right=10
+#         label.padding_right=10
+#         label.padding_left=-5
+#         label.color=$COLOR_STATS
+#         label.drawing=false
+#         script="$PLUGIN_SHARED_DIR/cpu_detailed.sh"
+# )
 
 cpu_user=(
         update_freq=3
@@ -116,7 +130,8 @@ cpu_user=(
         label.padding_right=10
         label.padding_left=-5
         label.color=$COLOR_STATS
-        label.drawing=false
+        #label.width=30
+        drawing=false
         script="$PLUGIN_SHARED_DIR/cpu_user.sh"
 )
 
@@ -124,12 +139,12 @@ cpu_sys=(
         update_freq=3
         icon=$ICON_CPU_SYS
         icon.color=$COLOR_STATS
-        icon.padding_left=8
+        icon.padding_left=10
         icon.padding_right=10
         label.padding_right=10
         label.padding_left=-5
         label.color=$COLOR_STATS
-        label.drawing=false
+        drawing=false
         script="$PLUGIN_SHARED_DIR/cpu_sys.sh"
 )
 
@@ -139,8 +154,8 @@ volume=(
         icon.padding_left=10
         label.padding_left=-5
         label.padding_right=10
-        label.drawing=false
         label.color=$COLOR_STATS
+        drawing=false
         script="$PLUGIN_SHARED_DIR/volume.sh"
 )
 
@@ -207,7 +222,7 @@ utils_separator=(
 $BAR_NAME \
     --add item separator_utils_1 left \
     --set separator_utils_1 \
-                icon.padding_left=0 \
+                icon.padding_left=-12 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
     --add event brew_update \
@@ -231,7 +246,7 @@ $BAR_NAME \
     --subscribe volume volume_change \
     --add item separator_utils_2 left \
     --set separator_utils_2 \
-                icon.padding_left=-8 \
+                icon.padding_left=-12 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
     --add item spotify_weight left \
