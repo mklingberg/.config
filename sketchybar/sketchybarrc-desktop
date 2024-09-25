@@ -95,7 +95,7 @@ $BAR_NAME \
 
 # -- UTILS --
 
-brew=(        
+brew=(
         icon=$ICON_BREW
         icon.color=$COLOR_STATS
         icon.padding_right=10
@@ -107,9 +107,22 @@ brew=(
         script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
-cpu=(
-        update_freq=10
-        icon=$ICON_CPU
+cpu_user=(
+        update_freq=3
+        icon=$ICON_CPU_USER
+        icon.color=$COLOR_STATS
+        icon.padding_left=10
+        icon.padding_right=10
+        label.padding_right=10
+        label.padding_left=-5
+        label.color=$COLOR_STATS
+        label.drawing=false
+        script="$PLUGIN_SHARED_DIR/cpu_user.sh"
+)
+
+cpu_sys=(
+        update_freq=3
+        icon=$ICON_CPU_SYS
         icon.color=$COLOR_STATS
         icon.padding_left=8
         icon.padding_right=10
@@ -117,7 +130,7 @@ cpu=(
         label.padding_left=-5
         label.color=$COLOR_STATS
         label.drawing=false
-        script="$PLUGIN_SHARED_DIR/cpu.sh"
+        script="$PLUGIN_SHARED_DIR/cpu_sys.sh"
 )
 
 volume=(
@@ -201,8 +214,10 @@ $BAR_NAME \
     --add item brew left \
     --set brew "${brew[@]}" \
     --subscribe brew brew_update \
-    --add item cpu left \
-    --set cpu "${cpu[@]}" \
+    --add item cpu_user left \
+    --set cpu_user "${cpu_user[@]}" \
+    --add item cpu_sys left \
+    --set cpu_sys "${cpu_sys[@]}" \
     --add item docker_cpu left \
     --set docker_cpu "${docker_cpu[@]}" \
     --add item docker_memory left \
@@ -224,7 +239,8 @@ $BAR_NAME \
                 separator_utils_1 \
                 separator_utils_2 \
                 brew \
-                cpu \
+                cpu_user \
+                cpu_sys \
                 volume \
                 airpods \
                 airpods_case \
