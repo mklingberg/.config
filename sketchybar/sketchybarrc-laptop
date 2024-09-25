@@ -137,11 +137,13 @@ airpods=(
 # )
 
 cpu_user=(
-        update_freq=10
-        icon=$ICON_CPU_USER
+        update_freq=20
+        icon=$ICON_CPU_LOAD_1
+        icon.font="$FONT_FACE:Medium:21.0"
         icon.color=$COLOR_STATS
         icon.padding_left=8
         icon.padding_right=10
+        icon.y_offset=0
         label.drawing=false
         script="$PLUGIN_SHARED_DIR/cpu_load.sh"
 )
