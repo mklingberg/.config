@@ -11,8 +11,9 @@ LABEL_THRESHOLD=50
 SHOW_LABEL=false
 ICON=$ICON_BATTERY_V100
 
-PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
-CHARGING=$(pmset -g batt | grep 'AC Power')
+BATTERY_STATS=$(pmset -g batt)
+PERCENTAGE=$(echo "$BATTERY_STATS" | grep -Eo "\d+%" | cut -d% -f1)
+CHARGING=$(echo "$BATTERY_STATS" | grep 'AC Power')
 
 if [ $PERCENTAGE = "" ]; then
     exit 0
