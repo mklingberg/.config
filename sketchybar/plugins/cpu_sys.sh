@@ -6,7 +6,7 @@ COLOR_CPU_HIGH=0xffff0000
 source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
 
 # Init default values
-LOAD_THRESHOLD=4.0
+LOAD_THRESHOLD=6.0
 
 MEDIUM_THRESHOLD=60
 HIGH_THRESHOLD=80

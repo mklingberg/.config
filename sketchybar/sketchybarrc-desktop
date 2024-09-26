@@ -118,7 +118,7 @@ cpu_user=(
         label.padding_left=-5
         label.color=$COLOR_STATS
         #label.width=30
-        drawing=false
+        #drawing=false
         script="$PLUGIN_SHARED_DIR/cpu_user.sh"
 )
 
