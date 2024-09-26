@@ -110,7 +110,7 @@ brew=(
 
 cpu_user=(
         update_freq=3
-        icon=$ICON_CPU_USER
+        icon=$ICON_CPU_IDLE
         icon.color=$COLOR_STATS
         icon.padding_left=10
         icon.padding_right=10
@@ -118,7 +118,7 @@ cpu_user=(
         label.padding_left=-5
         label.color=$COLOR_STATS
         #label.width=30
-        #drawing=false
+        label.drawing=false
         script="$PLUGIN_SHARED_DIR/cpu_user.sh"
 )
 
@@ -216,6 +216,13 @@ $BAR_NAME \
     --add item brew left \
     --set brew "${brew[@]}" \
     --subscribe brew brew_update \
+    --add item airpods_case left \
+    --set airpods_case "${airpods_case[@]}" \
+    --add item airpods left \
+    --set airpods "${airpods[@]}" \
+    --add item volume left \
+    --set volume "${volume[@]}" \
+    --subscribe volume volume_change \
     --add item cpu_user left \
     --set cpu_user "${cpu_user[@]}" \
     --add item cpu_sys left \
@@ -224,19 +231,11 @@ $BAR_NAME \
     --set docker_cpu "${docker_cpu[@]}" \
     --add item docker_memory left \
     --set docker_memory "${docker_memory[@]}" \
-    --add item airpods_case left \
-    --set airpods_case "${airpods_case[@]}" \
-    --add item airpods left \
-    --set airpods "${airpods[@]}" \
-    --add item volume left \
-    --set volume "${volume[@]}" \
-    --subscribe volume volume_change \
     --add item separator_utils_2 left \
     --set separator_utils_2 \
                 icon.padding_left=-12 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
-    --add item spotify_weight left \
     --add bracket utils_bracket \
                 separator_utils_1 \
                 separator_utils_2 \
@@ -246,7 +245,6 @@ $BAR_NAME \
                 volume \
                 airpods \
                 airpods_case \
-                spotify_weight \
     --set utils_bracket \
                 background.color=$COLOR_UTILS_BG \
     --add item utils.separator left \
