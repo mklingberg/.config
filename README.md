@@ -8,5 +8,5 @@ Configuration for sketchybar that integrates with yabai. Two bar layouts, deskto
 
 ## Adding a secondary bar
 
-Use the command `ln -s $(which sketchybar) $(dirname $(which sketchybar))/desktop_bar` to add a secondary bar for external screen.
+Use the command `ln -s $(which sketchybar) $(dirname $(which sketchybar))/sketchybar-2` to add a secondary bar for external screen.
 The main bar is set to be shown on the main screen and the laptop screen should be assigned `main display` with this config.

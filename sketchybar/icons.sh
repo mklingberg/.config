@@ -8,7 +8,7 @@ export ICON_APPLE=
 export ICON_PREFERENCES=􀺽
 export ICON_ACTIVITY=􀒓
 export ICON_LOCK=􀒳
-export ICON_BELL=􀋚
+export ICON_tBELL=􀋚
 export ICON_BELL_DOT=􀝗
 
 # Separators

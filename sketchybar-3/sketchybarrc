@@ -1,17 +1,16 @@
 #!/bin/bash
-source "$HOME/.config/$BAR_NAME/utils.sh"
+source "$HOME/.config/sketchybar/utils.sh"
 
 SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
-export DISPLAY_NUMBER=1
+CONFIG_DIR="$HOME/.config/sketchybar"
+DISPLAY_NUMBER=3
 
-# Determines if a monitor is used
-# Since the notch is -only- on the laptop, if a monitor isn't used,
-# then that means the internal display is used ¯\_(ツ)_/¯
+# Get the display type of the secondary display
 DISPLAY_TYPE=$(get_display_type $DISPLAY_NUMBER)
-echo "Display 1 is of type '$DISPLAY_TYPE'."
+echo "Display 3 is of type '$DISPLAY_TYPE'."
 
-# Check if the display type is "Built-in"
-if [[ $DISPLAY_TYPE = "Built-in" ]]; then
+# Check if the secondary display type is "Built-in"
+if [[ $DISPLAY_TYPE = "Built-in"* ]]; then
 	echo "Display number $DISPLAY_NUMBER is of type 'Built-in'. Loading laptop configuration."
 	source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
 else

@@ -12,3 +12,9 @@
 !sketchybar/**/*
 !desktop_bar
 !desktop_bar/**/*
+!sketchybar-2
+!sketchybar-2/**/*
+!sketchybar-3
+!sketchybar-3/**/*
+!start_sketchybar_2.sh
+!start_sketchybar_3.sh
