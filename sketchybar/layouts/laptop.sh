@@ -137,7 +137,7 @@ airpods=(
 # )
 
 cpu_user=(
-        update_freq=20
+        update_freq=3
         icon=$ICON_CPU_LOAD_1
         icon.font="$FONT_FACE:Medium:21.0"
         icon.color=$COLOR_STATS
