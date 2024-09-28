@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/utils.sh"
 
-SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
+LAYOUTS="$HOME/.config/sketchybar/layouts"
 export DISPLAY_NUMBER=1
 
 # Determines if a monitor is used
@@ -12,9 +12,7 @@ echo "Display 1 is of type '$DISPLAY_TYPE'."
 
 # Check if the display type is "Built-in"
 if [[ $DISPLAY_TYPE = "Built-in" ]]; then
-	echo "Display number $DISPLAY_NUMBER is of type 'Built-in'. Loading laptop configuration."
-	source "$SKETCHYBAR_CONFIG/sketchybarrc-laptop"
+	source "$LAYOUTS/laptop.sh"
 else
-	echo "Display number $DISPLAY_NUMBER is not of type 'Built-in'. Loading desktop configuration."
-	source "$SKETCHYBAR_CONFIG/sketchybarrc-desktop"
+	source "$LAYOUTS/desktop.sh"
 fi
