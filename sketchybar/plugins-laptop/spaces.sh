@@ -1,17 +1,17 @@
 #!/bin/bash
 
-COLOR_SPACE_SELECTED_BG=0xffc7c7c7
-COLOR_SPACE_SELECTED_SPACE_NO=0xff000000
-COLOR_SPACE_SELECTED_ICON=0xff000000
+# COLOR_SPACE_SELECTED_BG=0xffc7c7c7
+# COLOR_SPACE_SELECTED_SPACE_NO=0xff000000
+# COLOR_SPACE_SELECTED_ICON=0xff000000
 
-COLOR_SPACE_BG=0xff24273a
-COLOR_SPACE_SPACE_NO=0xffc7c7c7
-COLOR_SPACE_ICON=0xffc7c7c7
+# COLOR_SPACE_BG=0xff24273a
+# COLOR_SPACE_SPACE_NO=0xffc7c7c7
+# COLOR_SPACE_ICON=0xffc7c7c7
 
 # The $SELECTED variable is available for space components and indicates if
 # the space invoking this script (with name: $NAME) is currently selected:
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+#source "$HOME/.config/$BAR_NAME/colors.sh" # Loads all defined colors
 
 SPACE_SIDS=(0 1 2 3 4 5 6 7 8 9 10) # 10 9 8 7 6 5 4 3 2 1 0
 

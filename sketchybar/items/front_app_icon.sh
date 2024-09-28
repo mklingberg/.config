@@ -2,7 +2,7 @@
 
 COLOR_FRONT_APP_ICON=0xffc7c7c7
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 
 $BAR_NAME \
     --add item front_app center \

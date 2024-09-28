@@ -3,7 +3,7 @@
 COLOR_FRONT_APP_NAME=0xffcad3f5
 COLOR_FRONT_APP_NAME_BG=0xff2e3440
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 
 $BAR_NAME \
     --add item front_app.name center \

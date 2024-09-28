@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh" # Loads all defined colors
 source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
@@ -41,8 +41,8 @@ default=(
 )
 
 $BAR_NAME \
-        --bar "${bar[@]}" \
-        --default "${default[@]}"
+    --bar "${bar[@]}" \
+    --default "${default[@]}"
 
 # ------------------------
 # LEFT

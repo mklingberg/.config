@@ -2,7 +2,7 @@
 COLOR_RELOAD_ICON=0xffc7c7c7
 COLOR_RELOAD_BG=0xff21222c
 
-source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 
 $BAR_NAME \
     --add item reload left \

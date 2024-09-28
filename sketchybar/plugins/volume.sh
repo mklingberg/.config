@@ -3,7 +3,7 @@ COLOR_VOLUME_LOW=0xffee99a0
 COLOR_VOLUME_MEDIUM=0xffed8796
 COLOR_VOLUME_HIGH=0xffff0000
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 
 SHOW_LABEL=true
 ICON_PADDING_RIGHT=10

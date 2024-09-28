@@ -4,7 +4,7 @@ COLOR_BATTERY_LOW=0xffee99a0
 COLOR_BATTERY_EMPTY=0xffed8796
 COLOR_BATTERY_ICON=0xffc7c7c7
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 
 LABEL_THRESHOLD=50
 SHOW_LABEL=false

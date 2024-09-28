@@ -3,11 +3,12 @@ COLOR_CPU_LOW=0xffee99a0
 COLOR_CPU_MEDIUM=0xffed8796
 COLOR_CPU_HIGH=0xffff0000
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 
 # Init default values
 LOAD_THRESHOLD=3.0
+LABEL_THRESHOLD=30
 
 MEDIUM_THRESHOLD=60
 HIGH_THRESHOLD=80
@@ -43,7 +44,11 @@ if (( $(echo "$LOAD_AVG > $LOAD_THRESHOLD" | bc -l) )); then
         COLOR=$COLOR_CPU_LOW  # Default color
     fi
 
-    SHOW_LABEL=true
+    # Check if the label should be shown
+    if [ $USER_CPU -gt $LABEL_THRESHOLD ]; then
+        SHOW_LABEL=true
+    fi
+
     # Format the label
     LABEL="${USER_CPU}%"
     ICON=$ICON_CPU_USER

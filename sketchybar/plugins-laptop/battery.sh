@@ -4,7 +4,7 @@ COLOR_BATTERY_LOW=0xffee99a0
 COLOR_BATTERY_EMPTY=0xffed8796
 COLOR_BATTERY_ICON=0xffc7c7c7
 
-source "$HOME/.config/sketchybar/colors.sh"
+source "$HOME/.config/$BAR_NAME/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 
 LABEL_THRESHOLD=50
@@ -25,10 +25,8 @@ if [ $PERCENTAGE -lt $LABEL_THRESHOLD ]; then
 fi
 
 if [[ $CHARGING != "" ]]; then
+    ICON=$ICON_BATTERY_CH_V100
     case ${PERCENTAGE} in
-    [100])
-        ICON=$ICON_BATTERY_CH_V100
-        ;;
     [9][0-9])
         ICON=$ICON_BATTERY_CH_V90
         ;;
@@ -64,10 +62,8 @@ if [[ $CHARGING != "" ]]; then
         ;;
     esac
 else
+    ICON=$ICON_BATTERY_V100
     case ${PERCENTAGE} in
-    [100])
-        ICON=$ICON_BATTERY_V100
-        ;;
     [9][0-9])
         ICON=$ICON_BATTERY_V90
         ;;

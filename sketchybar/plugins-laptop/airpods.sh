@@ -1,5 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/sketchybar/colors.sh"
+source "$HOME/.config/$BAR_NAME/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 
 # airpods.sh
