@@ -36,7 +36,7 @@ default=(
     icon.padding_right=0
     icon.y_offset=1
     label.color=$COLOR_TEXT
-    label.font="$FONT_FACE:Bold:14.0"
+    label.font="$FONT_FACE:Medium:14.0"
     label.y_offset=1
     label.padding_left=0
     label.padding_right=0
@@ -202,6 +202,17 @@ utils_separator=(
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
+    background.color=$COLOR_UTILS_SEPARATOR2
+)
+
+utils_separator2=(
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_UTILS_SEPARATOR2
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=-2
+    icon.padding_right=-2
+    label.drawing=false
 )
 
 # Add a new item to SketchyBar
@@ -248,7 +259,9 @@ $BAR_NAME \
     --set utils_bracket \
                 background.color=$COLOR_UTILS_BG \
     --add item utils.separator left \
-    --set utils.separator "${utils_separator[@]}"
+    --set utils.separator "${utils_separator[@]}" \
+    --add item utils.separator2 left \
+    --set utils.separator2 "${utils_separator2[@]}"
 
 
 # ------------------------
@@ -275,9 +288,22 @@ spotify_separator=(
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
+    background.color=$COLOR_SPOTIFY_SEPARATOR2
+)
+
+spotify_separator2=(
+    icon=$ICON_SEPARATOR_LEFT
+    icon.color=$COLOR_SPOTIFY_SEPARATOR2
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-4
+    label.drawing=false
 )
 
 $BAR_NAME \
+    --add item spotify.separator2 center \
+    --set spotify.separator2 "${spotify_separator2[@]}" \
     --add item spotify.separator center \
     --set spotify.separator "${spotify_separator[@]}" \
     --add item separator_spotify_1 center \
@@ -367,11 +393,21 @@ $BAR_NAME \
 front_app_separator=(
     icon=$ICON_SEPARATOR_RIGHT
     icon.color=$COLOR_FRONT_APP_BG
-    background.color=$TRANSPARENT
+    background.color=$COLOR_FRONT_APP_SEPARATOR2
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
-    icon.padding_right=0
+    icon.padding_right=-2
     label.drawing=no
+)
+
+front_app_separator2=(
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_FRONT_APP_SEPARATOR2
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=-2
+    icon.padding_right=0
+    label.drawing=false
 )
 
 front_app=(
@@ -413,7 +449,9 @@ $BAR_NAME \
             separator_front_app_1 \
      --set front_app_bracket \
             background.color=$COLOR_FRONT_APP_BG \
-    --subscribe front_app front_app_switched mouse.clicked
+    --subscribe front_app front_app_switched mouse.clicked \
+    --add item front_app.separator2 center \
+    --set front_app.separator2 "${front_app_separator2[@]}"
 
 
 
@@ -426,10 +464,20 @@ $BAR_NAME \
 clock_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_RIGHT_AREA_BG
-    background.color=$TRANSPARENT
+    background.color=$COLOR_RIGHT_EXTRA_SEPARATOR
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
+)
+
+clock_separator2=(
+    icon=$ICON_SEPARATOR_LEFT
+    icon.color=$COLOR_RIGHT_EXTRA_SEPARATOR
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-4
+    label.drawing=false
 )
 
 $BAR_NAME \
@@ -451,10 +499,12 @@ $BAR_NAME \
             separator_clock_1 \
             separator_clock_2 \
             clock \
-     --set clock_bracket \
+    --set clock_bracket \
             background.color=$COLOR_RIGHT_AREA_BG \
-     --add item clock.separator right \
-     --set clock.separator "${clock_separator[@]}"
+    --add item clock.separator right \
+    --set clock.separator "${clock_separator[@]}" \
+    --add item clock_separator2 right \
+    --set clock_separator2 "${clock_separator2[@]}"     
 
 # ------------------------
 # INIT
