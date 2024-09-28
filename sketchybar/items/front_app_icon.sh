@@ -2,7 +2,7 @@
 
 COLOR_FRONT_APP_ICON=0xffc7c7c7
 
-source "$HOME/.config/$BAR_NAME/colors.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 $BAR_NAME \
     --add item front_app center \

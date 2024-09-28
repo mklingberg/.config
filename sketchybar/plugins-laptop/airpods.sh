@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/$BAR_NAME/colors.sh"
-source "$HOME/.config/sketchybar/icons.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 # airpods.sh
 # Fetch the left and right battery status of connected AirPods and update the bar label with the lowest value

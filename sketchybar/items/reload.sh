@@ -2,7 +2,7 @@
 COLOR_RELOAD_ICON=0xffc7c7c7
 COLOR_RELOAD_BG=0xff21222c
 
-source "$HOME/.config/$BAR_NAME/colors.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 $BAR_NAME \
     --add item reload left \

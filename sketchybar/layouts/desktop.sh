@@ -1,6 +1,5 @@
 #!/bin/bash
-source "$HOME/.config/$BAR_NAME/colors.sh" # Loads all defined colors
-source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"

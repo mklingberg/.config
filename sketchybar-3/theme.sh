@@ -1,4 +1,4 @@
-source "$HOME/.config/sketchybar/colors.sh"
+source "$HOME/.config/sketchybar/theme.sh"
 
 COLOR_SPACE_BG=$COLOR_DRACULA_BUFFY
 COLOR_CURRENT_SPACE_BG=$COLOR_DRACULA_BUFFY

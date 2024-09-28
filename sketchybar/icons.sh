@@ -49,7 +49,7 @@ export ICON_CPU_LOAD_6=󰪢
 export ICON_CPU_LOAD_7=󰪣
 export ICON_CPU_LOAD_8=󰪤
 export ICON_CPU_LOAD_9=󰪥
-export ICON_CPU_LOAD_10=󰀨 #󱠇 #󰄯
+export ICON_CPU_LOAD_10=$ICON_CPU #󰀨 #󱠇 #󰄯
 #ICON_CPU_LOAD_11=
 
 # Battery Icons

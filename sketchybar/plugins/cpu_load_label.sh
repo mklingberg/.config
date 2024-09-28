@@ -3,8 +3,7 @@ COLOR_CPU_LOW=0xffee99a0
 COLOR_CPU_MEDIUM=0xffed8796
 COLOR_CPU_HIGH=0xffff0000
 
-source "$HOME/.config/$BAR_NAME/colors.sh"
-source "$HOME/.config/sketchybar/icons.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 # Init default values
 LABEL_THRESHOLD=3.0

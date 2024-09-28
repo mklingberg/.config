@@ -5,7 +5,7 @@
 COLOR_RELOAD_ENTERED=0xffa6da95
 COLOR_RELOAD_EXITED=0xfff5a97f
 
-source "$HOME/.config/$BAR_NAME/colors.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 case "$SENDER" in
 "mouse.clicked") # | "power_source_change" | "system_woke"

@@ -6,8 +6,7 @@ COLOR_BREW_MEDIUM=0xffeed49f
 COLOR_BREW_LOW=0xffcad3f5
 COLOR_BREW_UPDATED=0xffa6da95
 
-source "$HOME/.config/$BAR_NAME/colors.sh"
-source "$HOME/.config/sketchybar/icons.sh" # Loads all defined colors
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 COUNT="$(brew outdated | wc -l | xargs)"
 COUNT=${COUNT:-0}
