@@ -7,10 +7,13 @@ source "$HOME/.config/$BAR_NAME/colors.sh"
 source "$HOME/.config/sketchybar/icons.sh"
 
 # Init default values
+LABEL_THRESHOLD=3.0
 MEDIUM_THRESHOLD=6.0
 HIGH_THRESHOLD=10.0
-
+SHOW_LABEL=false
 ICON=$ICON_CPU_LOAD_1
+
+LABEL_TEXT=""
 
 # Get the total number of CPU cores
 STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
@@ -52,5 +55,20 @@ else
     ICON=$ICON_CPU_LOAD_1
 fi
 
+if (( $(echo "$LOAD_AVG > $LABEL_THRESHOLD" | bc -l) )); then
+    SHOW_LABEL=true
+    
+    # Get the CPU usage from the top command
+    USER_CPU=$(echo "$STATS" | grep "CPU usage" | awk -F'[:,%]' '{print $2}' | xargs)
+
+    # Set locale to C for correct number interpretation
+    export LC_NUMERIC=C
+
+    # Round the values to zero decimals
+    USER_CPU=$(printf "%.0f" "$USER_CPU")
+
+    LABEL_TEXT="${USER_CPU}%"
+fi
+
 # Update the bar with the CPU percentage and icon color
-$BAR_NAME --set $NAME icon=$ICON icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME icon=$ICON icon.color=$ICON_COLOR label.drawing=$SHOW_LABEL label=$LABEL_TEXT

@@ -119,7 +119,7 @@ cpu_user=(
     label.color=$COLOR_STATS
     #label.width=30
     label.drawing=false
-    script="$PLUGIN_SHARED_DIR/cpu_user.sh"
+    script="$PLUGIN_SHARED_DIR/cpu_load_label.sh"
 )
 
 cpu_sys=(

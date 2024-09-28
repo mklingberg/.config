@@ -17,16 +17,15 @@ LABEL=""
 ICON=$ICON_CPU_IDLE
 COLOR=$COLOR_CPU_LOW
 
-# Get the total number of CPU cores
-CORE_COUNT=$(sysctl -n machdep.cpu.thread_count)
+STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 
 # Extract Load Avg values 
-LOAD_AVG=$(top -l 1 -n 0 | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
+LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
 
 # Check if the 1-minute load average is above the threshold
 if (( $(echo "$LOAD_AVG > $LOAD_THRESHOLD" | bc -l) )); then
     # Extract user and system CPU percentages
-    USER_CPU=$(echo "$CORE_COUNT" | top -l 1 -n 0 | grep "CPU usage" | awk -F'[:,%]' '{print $2}' | xargs)
+    USER_CPU=$(echo "$STATS" | grep "CPU usage" | awk -F'[:,%]' '{print $2}' | xargs)
 
     # Set locale to C for correct number interpretation
     export LC_NUMERIC=C
