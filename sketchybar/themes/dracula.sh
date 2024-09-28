@@ -1,5 +1,4 @@
 #!/bin/bash
-FONT_FACE="JetBrainsMono Nerd Font"
 
 # -- GLOBAL --
 export TRANSPARENT=0x00000000

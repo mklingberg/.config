@@ -1,3 +1,4 @@
+#!/bin/bash
 
 get_display_type() {
     local CURRENT_DISPLAY_NUMBER=$1
