@@ -11,7 +11,7 @@ COLOR_SPACE_ICON=0xffc7c7c7
 # The $SELECTED variable is available for space components and indicates if
 # the space invoking this script (with name: $NAME) is currently selected:
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
-#source "$HOME/.config/$BAR_NAME/theme.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
 
 SPACE_SIDS=(0 1 2 3 4 5 6 7 8 9 10)
 
