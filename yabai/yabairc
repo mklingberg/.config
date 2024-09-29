@@ -33,11 +33,15 @@ yabai -m mouse_drop_action swap
 #yabai -m rule --add app="^Calculator$" manage=off
 #yabai -m rule --add app="^Karabiner-Elements$" manage=off 
 
-#yabai -m rule --add app="^Rider$" manage=on
-#yabai -m rule --add app="^Google Chrome$" manage=on
-#yabai -m rule --add app="^Visual Studio Code$" manage=on
-#yabai -m rule --add app="^iTerm$" manage=on
 yabai -m rule --add app=".*$" manage=off
+
+yabai -m rule --add app="^JetBrains Rider$" manage=on
+yabai -m rule --add app="^Google Chrome$" manage=on
+yabai -m rule --add app="^Firefox$" manage=on
+yabai -m rule --add app="^Code$" manage=on
+yabai -m rule --add app="^iTerm2$" manage=on
+yabai -m rule --add app="^Arc$" manage=on
+yabai -m rule --add app="^Slack$" manage=on
 
 # You can cause the next insertion to happen in stack mode on the focused window whenever the focused window changes:
 #yabai -m signal --add event=window_focused action='yabai -m window $YABAI_WINDOW_ID --insert stack'
