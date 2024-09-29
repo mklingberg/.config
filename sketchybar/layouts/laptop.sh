@@ -274,7 +274,7 @@ source $PLUGIN_DIR/spaces.sh
 
 current_space_separator=(
     icon=$ICON_SEPARATOR_RIGHT
-    icon.color=$COLOR_CURRENT_SPACE_BG
+    icon.color=$COLOR_SPACE_BG
     background.color=$COLOR_FRONT_APP_BG
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
@@ -302,7 +302,7 @@ $BAR_NAME \
               space.9 \
               space.10 \
     --set current_space_bracket \
-              background.color=$COLOR_CURRENT_SPACE_BG \
+              background.color=$COLOR_SPACE_BG \
     --add item separator_front_app_1 e \
     --set separator_front_app_1 \
             icon.padding_left=0 \

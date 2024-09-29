@@ -4,21 +4,33 @@ get_display_type() {
     local CURRENT_DISPLAY_NUMBER=$1
     DISPLAY_INFO=$(system_profiler SPDisplaysDataType)
     DISPLAY_COUNT=$(echo "$DISPLAY_INFO" | grep -c 'Resolution') 
-    DISPLAY_INDEX_INTERNAL=$(echo "$DISPLAY_INFO" | awk '
-    BEGIN { display_index = 0; in_display_block = 0 }
-    {
-        if ($1 == "") {
-            in_display_block = 0
-        }
-        if ($1 != "" && $2 == "" && $3 == "") {
-            in_display_block = 1
-            display_index++
-        }
-        if (in_display_block && $0 ~ /Connection Type: Internal/) {
-            print display_index
-            exit
-        }
-    }')
+
+    # Initialize variables
+    INDEX=0
+    DISPLAY_INDEX_INTERNAL=""
+    IN_DISPLAYS_BLOCK=0
+
+    # Loop through each line of the output
+    while IFS= read -r LINE; do
+        # Check if we've entered the Displays block
+        if [[ $LINE == *"Displays:"* ]]; then
+            IN_DISPLAYS_BLOCK=1
+        fi
+
+        # Only process lines if inside the Displays block
+        if [[ $IN_DISPLAYS_BLOCK -eq 1 ]]; then
+            # Check if the line contains the name of a display (first indentation)
+            if [[ $LINE =~ ^[[:space:]]{8}[^[:space:]].*: ]]; then
+                ((INDEX++))  # Increment index for each new display
+            fi
+
+            # Check if the line contains "Connection Type: Internal"
+            if [[ $LINE == *"Connection Type: Internal"* ]]; then
+                DISPLAY_INDEX_INTERNAL=$INDEX
+                break  # Exit the loop once the internal display is found
+            fi
+        fi
+    done <<< "$DISPLAY_INFO"
 
     if [[ $DISPLAY_COUNT -eq 3 && $DISPLAY_INDEX_INTERNAL != "" ]] ; then
          # With 3 displays, the internal display seems to get index 2 with system profiler but 3 with sketchybar?!
