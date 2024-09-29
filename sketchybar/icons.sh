@@ -38,8 +38,8 @@ export ICON_YABAI_GRID=􀧍
 export ICON_CPU=
 export ICON_CPU_USER= #󰣆 # #
 export ICON_CPU_SYS=
-
 export ICON_CPU_IDLE=󰌪
+
 export ICON_CPU_LOAD_1=$ICON_CPU_IDLE #󱤅 #󰄴 #󰗡 #󰄰
 export ICON_CPU_LOAD_2=󰪞
 export ICON_CPU_LOAD_3=󰪟
