@@ -9,6 +9,7 @@ source "$HOME/.config/$BAR_NAME/theme.sh"
 MEDIUM_THRESHOLD=6.0
 HIGH_THRESHOLD=10.0
 
+ICON_COLOR=$COLOR_CPU_LOW
 ICON=$ICON_CPU_LOAD_1
 
 # Get the total number of CPU cores
@@ -24,8 +25,6 @@ if (( $(echo "$LOAD_AVG > $HIGH_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_HIGH
 elif (( $(echo "$LOAD_AVG > $MEDIUM_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_MEDIUM
-else
-    ICON_COLOR=$COLOR_CPU_LOW  # Default color
 fi
 
 # Determine the icon based on CPU usage

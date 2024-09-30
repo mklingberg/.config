@@ -20,7 +20,7 @@ STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 
 # Extract Load Avg values 
 LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
-#LOAD_AVG=20.0
+#LOAD_AVG=13.0
 
 
 # Determine the color based on CPU usage
@@ -28,8 +28,6 @@ if (( $(echo "$LOAD_AVG > $HIGH_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_HIGH
 elif (( $(echo "$LOAD_AVG > $MEDIUM_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_MEDIUM
-else
-    ICON_COLOR=$COLOR_CPU_LOW  # Default color
 fi
 
 # Determine the icon based on CPU usage
