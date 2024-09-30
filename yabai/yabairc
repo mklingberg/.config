@@ -33,9 +33,11 @@ yabai -m mouse_drop_action swap
 #yabai -m rule --add app="^Calculator$" manage=off
 #yabai -m rule --add app="^Karabiner-Elements$" manage=off 
 
-yabai -m rule --add app=".*$" manage=off
+#yabai -m rule --add app=".*$" manage=off
+yabai -m rule --add app="^$" manage=off
+#yabai -m rule --add app="^Microsoft Edge Dev$" title="^polkadot\{\.js\}$" manage=off
 
-yabai -m rule --add app="^JetBrains Rider$" manage=on
+#yabai -m rule --add app="^JetBrains Rider$" manage=on
 yabai -m rule --add app="^Google Chrome$" manage=on
 yabai -m rule --add app="^Firefox$" manage=on
 yabai -m rule --add app="^Code$" manage=on
