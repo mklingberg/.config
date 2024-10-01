@@ -29,21 +29,47 @@ yabai -m config --display 2 window_gap 2
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
 
+#NOTE: Debug with `yabai -m query --windows`
+
 #yabai -m rule --add app="^System Settings$" manage=off
 #yabai -m rule --add app="^Calculator$" manage=off
 #yabai -m rule --add app="^Karabiner-Elements$" manage=off 
 
-#yabai -m rule --add app=".*$" manage=off
-yabai -m rule --add app="^$" manage=off
-#yabai -m rule --add app="^Microsoft Edge Dev$" title="^polkadot\{\.js\}$" manage=off
 
-#yabai -m rule --add app="^JetBrains Rider$" manage=on
+# Dont manage windows by default
+#yabai -m rule --add app="^$" manage=off
+yabai -m rule --add app=".*$" manage=off
+
+
+# Manage JetBrains Rider
+yabai -m rule --add app="^JetBrains Rider$" manage=on
+
+# Excluding these dialogs
+yabai -m rule --add app="^JetBrains Rider$" title="Get from Version Control" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Settings" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Preferences Layers" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Welcome to JetBrains Rider" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="New Solution" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="New Solution" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Update Project" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Rollback Changes" manage=off
+yabai -m rule --add app="^JetBrains Rider$" title="Create New Branch" manage=off
+
 yabai -m rule --add app="^Google Chrome$" manage=on
 yabai -m rule --add app="^Firefox$" manage=on
 yabai -m rule --add app="^Code$" manage=on
 yabai -m rule --add app="^iTerm2$" manage=on
-yabai -m rule --add app="^Arc$" manage=on
 yabai -m rule --add app="^Slack$" manage=on
+
+yabai -m rule --add app="^Arc$" manage=on
+yabai -m rule --add app="^Arc$" title="Marcus" manage=off
+yabai -m rule --add app="^Arc$" title="General" manage=off
+yabai -m rule --add app="^Arc$" title="Profiles" manage=off
+yabai -m rule --add app="^Arc$" title="Max" manage=off
+yabai -m rule --add app="^Arc$" title="Links" manage=off
+yabai -m rule --add app="^Arc$" title="Shortcuts" manage=off
+yabai -m rule --add app="^Arc$" title="Icon" manage=off
+
 
 # You can cause the next insertion to happen in stack mode on the focused window whenever the focused window changes:
 #yabai -m signal --add event=window_focused action='yabai -m window $YABAI_WINDOW_ID --insert stack'
