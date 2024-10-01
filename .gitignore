@@ -18,3 +18,5 @@
 !sketchybar-3/**/*
 !start_sketchybar_2.sh
 !start_sketchybar_3.sh
+!zsh
+!zsh/**/*
