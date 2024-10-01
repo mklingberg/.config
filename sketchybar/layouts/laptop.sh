@@ -104,7 +104,7 @@ utils_separator2=(
     icon.color=$COLOR_UTILS_SEPARATOR2
     background.color=$TRANSPARENT
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=-8
+    icon.padding_left=-6
     icon.padding_right=0
     label.drawing=false
 )
