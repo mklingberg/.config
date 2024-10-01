@@ -26,7 +26,7 @@ do
             label.font="sketchybar-app-font:Regular:16.0" \
             label.padding_left=0 \
             label.y_offset=-1 \
-            script="$PLUGIN_SHARED_DIR/space.sh" \
+            script="$PLUGIN_SHARED_DIR/space_large.sh" \
      --subscribe space.$sid space_change mouse.clicked
 done
 
