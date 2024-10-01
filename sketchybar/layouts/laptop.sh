@@ -53,6 +53,7 @@ reload=(
     icon.padding_left=0
     icon.padding_right=5
     background.color=$COLOR_RELOAD_BG
+    label.font="$FONT_FACE:Medium:19.0"
     label=$DISPLAY_NUMBER
     label.padding_right=1
     label.padding_left=0
