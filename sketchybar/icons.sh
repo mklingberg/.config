@@ -1,21 +1,21 @@
 #!/bin/bash
 # https://www.nerdfonts.com/cheat-sheet
 
-󰀶
-
-
-
-
-
-󰅂
-
-
-󰍝
-󰍠
-
-
-
-
+# 󰀶
+# 
+# 
+# 
+# 
+# 
+# 󰅂
+# 
+# 
+# 󰍝
+# 󰍠
+# 
+# 
+# 
+# 
 
 
 # General Icons
