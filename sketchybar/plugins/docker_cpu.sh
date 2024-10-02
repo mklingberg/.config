@@ -10,8 +10,8 @@ SHOW_LABEL=false
 DOCKER_STATS_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}")
 
 # Check if DOCKER_STATS_CPU is empty
-if [ -z "$DOCKER_STATS_CPU" ]; then
-    # Hide the item if no stats are returned, then docker isnt running
+if [ $DOCKER_STATS_CPU = "" ]; then
+# Hide the item if no stats are returned, then docker isnt running
     $BAR_NAME --set $NAME drawing=false
     exit 0
 fi
