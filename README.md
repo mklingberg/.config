@@ -12,9 +12,11 @@ Use the command `ln -s $(which sketchybar) $(dirname $(which sketchybar))/sketch
 The main bar is set to be shown on the main screen and the laptop screen should be assigned `main display` with this config.
 
 ## Zsh
+Create links to config folder
 
-ln -s ~/.config/zsh/zshrc ~/.zshrc
-ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh
+`ln -s ~/.config/zsh/zshrc ~/.zshrc`
+
+`ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh`
 
 ### Dracula Zsh
 
