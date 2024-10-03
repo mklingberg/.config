@@ -354,7 +354,7 @@ $BAR_NAME \
     --set spaces_separator_1 "${spaces_separator_1[@]}" \
     --add item spaces_separator_2 center \
     --set spaces_separator_2 \
-            icon.padding_left=-4 \
+            icon.padding_left=-8 \
             icon.padding_right=$SEPARATOR_WIDTH
 
 source $ITEM_DIR/spaces.sh
@@ -362,7 +362,7 @@ source $ITEM_DIR/spaces.sh
 $BAR_NAME \
     --add item spaces_separator_21 center \
     --set spaces_separator_21 \
-            icon.padding_left=4 \
+            icon.padding_left=0 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add bracket spaces_bracket \
             space.1 \

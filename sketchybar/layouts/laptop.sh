@@ -266,7 +266,7 @@ $BAR_NAME \
     --set separator_spotify2 "${spotify_separator2[@]}" \
     --add item separator_current_space_0 e \
     --set separator_current_space_0 \
-            icon.padding_left=10 \
+            icon.padding_left=4 \
             icon.padding_right=$SEPARATOR_WIDTH \
 
 # -- SPACES --

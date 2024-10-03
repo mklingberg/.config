@@ -22,10 +22,8 @@ do
      --set space.$sid \
             space=$sid \
             icon=$sid \
-            icon.padding_right=0 \
             icon.y_offset=1 \
             label.font="sketchybar-app-font:Regular:14.0" \
-            label.padding_left=0 \
             label.y_offset=0 \
             script="$PLUGIN_SHARED_DIR/space.sh" \
      --subscribe space.$sid space_change mouse.clicked
