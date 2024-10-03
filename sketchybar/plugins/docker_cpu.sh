@@ -7,14 +7,17 @@ SHOW_LABEL=false
 # Get the CPU usage percentage across all Docker containers
 
 # Get the docker stats for all containers
-DOCKER_STATS_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}")
+DOCKER_STATS_CPU=$(docker stats --no-stream --format "{{.CPUPerc}}" | xargs)
 
 # Check if DOCKER_STATS_CPU is empty
-if [ $DOCKER_STATS_CPU = "" ]; then
-# Hide the item if no stats are returned, then docker isnt running
+if [ -z "$DOCKER_STATS_CPU" ]; then
+  # Hide the item if no stats are returned, then docker isnt running
     $BAR_NAME --set $NAME drawing=false
+    echo "No stats returned"
     exit 0
 fi
+
+echo $DOCKER_STATS_CPU
 
 # Initialize total CPU usage percentage
 TOTAL_CPU_PERCENT=0
