@@ -63,7 +63,7 @@ yabai -m rule --add app="^Firefox$" manage=on
 yabai -m rule --add app="^Code$" manage=on
 yabai -m rule --add app="^iTerm2$" manage=on
 yabai -m rule --add app="^Slack$" manage=on
-yabai -m rule --add app="^GeForceNOW$" title="^$" manage=on
+yabai -m rule --add app="^GeForceNOW$" manage=on
 
 yabai -m rule --add app="^Arc$" manage=on
 yabai -m rule --add app="^Arc$" title="^Marcus$" manage=off
