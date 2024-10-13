@@ -5,7 +5,7 @@ COLOR_VOLUME_HIGH=0xffff0000
 
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
-SHOW_LABEL=true
+SHOW_LABEL=false
 ICON_PADDING_RIGHT=10
 ICON_COLOR=$COLOR_VOLUME_LOW  # Default color
 
