@@ -6,7 +6,7 @@ COLOR_CPU_HIGH=0xffff0000
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
 # Init default values
-MEDIUM_THRESHOLD=6.0
+MEDIUM_THRESHOLD=8.0
 HIGH_THRESHOLD=10.0
 
 ICON_COLOR=$COLOR_CPU_LOW
@@ -16,7 +16,7 @@ ICON=$ICON_CPU_LOAD_1
 STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 
 # Extract Load Avg values 
-LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
+LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $3}' | xargs)
 #LOAD_AVG=20.0
 
 

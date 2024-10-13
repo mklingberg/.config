@@ -6,7 +6,7 @@ COLOR_CPU_HIGH=0xffff0000
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
 # Init default values
-LOAD_THRESHOLD=6.0
+LOAD_THRESHOLD=10.0
 
 MEDIUM_THRESHOLD=60
 HIGH_THRESHOLD=80
@@ -16,7 +16,7 @@ SHOW_LABEL=false
 STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 
 # Extract Load Avg values 
-LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
+LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $3}' | xargs)
 
 # Check if the 1-minute load average is above the threshold
 if (( $(echo "$LOAD_AVG > $LOAD_THRESHOLD" | bc -l) )); then
