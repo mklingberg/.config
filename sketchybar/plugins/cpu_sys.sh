@@ -16,7 +16,7 @@ SHOW_LABEL=false
 STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 
 # Extract Load Avg values 
-LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $3}' | xargs)
+LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
 
 # Check if the 1-minute load average is above the threshold
 if (( $(echo "$LOAD_AVG > $LOAD_THRESHOLD" | bc -l) )); then

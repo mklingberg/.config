@@ -15,7 +15,7 @@ SHOW_LABEL=false
 CORE_COUNT=$(sysctl -n machdep.cpu.thread_count)
 
 # Get the CPU usage from the top command
-CPU_USAGE=$(top -l 1 -n 0 | grep "CPU usage" | awk '{print $3 + $5}')
+CPU_USAGE=$(top -l 1 -n 0 | grep "CPU usage" | awk '{print $2 + $5}')
 
 # Calculate the CPU percentage
 CPU_PERCENT=$(echo "$CPU_USAGE" | awk '{printf "%.0f\n", $1}')
