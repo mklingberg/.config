@@ -1,5 +1,11 @@
 #!/bin/bash
-source "$HOME/.config/sketchybar/icons.sh"
+source "$HOME/.config/$BAR_NAME/theme.sh"
+
+WARNING_THRESHOLD=45
+CRITICAL_THRESHOLD=20
+COLOR=$COLOR_HEADPHONES
+
+SHOW_LABEL=false
 
 # airpods.sh
 # Fetch the left and right battery status of connected AirPods and update the bar label with the lowest value
@@ -16,13 +22,22 @@ LEFT_BATTERY=${LEFT_BATTERY:-0}
 RIGHT_BATTERY=${RIGHT_BATTERY:-0}
 
 # Determine the lowest battery level
-LOWEST_BATTERY=$(( LEFT_BATTERY < RIGHT_BATTERY ? LEFT_BATTERY : RIGHT_BATTERY ))
+LOWEST_BATTERY=$(( LEFT_BATTERY > 0 && LEFT_BATTERY < RIGHT_BATTERY ? LEFT_BATTERY : RIGHT_BATTERY ))
 
 # Check if LOWEST_BATTERY is empty (AirPods not connected)
 if [ "$LOWEST_BATTERY" -eq 0 ]; then
     # Hide the item if LOWEST_BATTERY is empty
-    $BAR_NAME --set $NAME drawing=off
+    $BAR_NAME --set $NAME drawing=false
 else
+    # Determine the color based on battery level
+    if [ $LOWEST_BATTERY -lt $CRITICAL_THRESHOLD ]; then
+        COLOR=$COLOR_HEADPHONES_CRITICAL
+        SHOW_LABEL=true
+    elif [ $LOWEST_BATTERY -lt $WARNING_THRESHOLD ]; then
+        COLOR=$COLOR_HEADPHONES_WARNING
+        SHOW_LABEL=true
+    fi
+
     # Show the item and set the label if LOWEST_BATTERY is not empty
-    $BAR_NAME --set $NAME drawing=on label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS
+    $BAR_NAME --set $NAME drawing=true label.drawing=$SHOW_LABEL label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS icon.color=$COLOR
 fi

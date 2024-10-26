@@ -135,16 +135,7 @@ cpu_sys=(
     script="$PLUGIN_SHARED_DIR/cpu_sys.sh"
 )
 
-volume=(
-    icon=$ICON_VOLUME
-    icon.color=$COLOR_STATS
-    icon.padding_left=10
-    label.padding_left=-5
-    label.padding_right=10
-    label.color=$COLOR_STATS
-    drawing=false
-    script="$PLUGIN_SHARED_DIR/volume.sh"
-)
+
 
 docker_cpu=(
     drawing=false
@@ -170,31 +161,7 @@ docker_memory=(
     script="$PLUGIN_SHARED_DIR/docker_memory.sh"
 )
 
-airpods=(
-    drawing=false
-    update_freq=5
-    icon.font="$FONT_FACE:Medium:16.0"
-    icon.color=$COLOR_STATS
-    icon.padding_left=10
-    icon.padding_right=10
-    label.padding_left=-5
-    label.padding_right=8
-    label.color=$COLOR_STATS
-    script="$PLUGIN_SHARED_DIR/airpods.sh"
-)
 
-airpods_case=(
-    drawing=false
-    update_freq=5
-    icon.font="$FONT_FACE:Medium:20.0"
-    icon.color=$COLOR_STATS
-    icon.padding_left=10
-    icon.padding_right=10
-    label.padding_left=-5
-    label.padding_right=8
-    label.color=$COLOR_STATS
-    script="$PLUGIN_SHARED_DIR/airpods_case.sh"
-)
 
 utils_separator=(
     icon=$ICON_SEPARATOR_RIGHT
@@ -227,13 +194,6 @@ $BAR_NAME \
     --add item brew left \
     --set brew "${brew[@]}" \
     --subscribe brew brew_update \
-    --add item airpods_case left \
-    --set airpods_case "${airpods_case[@]}" \
-    --add item airpods left \
-    --set airpods "${airpods[@]}" \
-    --add item volume left \
-    --set volume "${volume[@]}" \
-    --subscribe volume volume_change \
     --add item cpu_user left \
     --set cpu_user "${cpu_user[@]}" \
     --add item cpu_sys left \
@@ -253,9 +213,6 @@ $BAR_NAME \
                 brew \
                 cpu_user \
                 cpu_sys \
-                volume \
-                airpods \
-                airpods_case \
     --set utils_bracket \
                 background.color=$COLOR_UTILS_BG \
     --add item utils.separator left \
@@ -464,20 +421,10 @@ $BAR_NAME \
 clock_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_RIGHT_AREA_BG
-    background.color=$COLOR_RIGHT_EXTRA_SEPARATOR
+    background.color=$COLOR_UTILS_RIGHT_BG
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
-)
-
-clock_separator2=(
-    icon=$ICON_SEPARATOR_LEFT
-    icon.color=$COLOR_RIGHT_EXTRA_SEPARATOR
-    background.color=$TRANSPARENT
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=0
-    icon.padding_right=-4
-    label.drawing=false
 )
 
 $BAR_NAME \
@@ -502,18 +449,107 @@ $BAR_NAME \
     --set clock_bracket \
             background.color=$COLOR_RIGHT_AREA_BG \
     --add item clock.separator right \
-    --set clock.separator "${clock_separator[@]}" \
-    --add item clock_separator2 right \
-    --set clock_separator2 "${clock_separator2[@]}"     
+    --set clock.separator "${clock_separator[@]}"
+
+
+# -- UTILS RIGHT --
+
+# VOLUME
+
+volume=(
+    icon=$ICON_VOLUME
+    icon.color=$COLOR_STATS
+    icon.padding_left=10
+    label.padding_left=-5
+    label.padding_right=4
+    label.color=$COLOR_STATS
+    #drawing=false
+    label.drawing=false
+    script="$PLUGIN_SHARED_DIR/volume.sh"
+)
+
+airpods=(
+    drawing=false
+    update_freq=5
+    icon.font="$FONT_FACE:Medium:17.0"
+    icon.color=$COLOR_STATS
+    icon.padding_left=6
+    icon.padding_right=6
+    label.padding_left=-5
+    label.padding_right=4
+    label.color=$COLOR_STATS
+    script="$PLUGIN_SHARED_DIR/airpods.sh"
+)
+
+airpods_case=(
+    drawing=false
+    update_freq=5
+    icon.font="$FONT_FACE:Medium:17.0"
+    icon.color=$COLOR_STATS
+    icon.padding_left=6
+    icon.padding_right=6
+    label.padding_left=-5
+    label.padding_right=4
+    label.color=$COLOR_STATS
+    script="$PLUGIN_SHARED_DIR/airpods_case.sh"
+)
+
+utils_r_separator=(
+    icon=$ICON_SEPARATOR_LEFT
+    icon.color=$COLOR_UTILS_RIGHT_BG
+    background.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-2
+)
+
+utils_r_separator2=(
+    icon=$ICON_SEPARATOR_LEFT
+    icon.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-4
+    label.drawing=false
+)
+
+$BAR_NAME \
+    --add item separator_utils_r_1 right \
+    --set separator_utils_r_1 \
+            icon.padding_left=-8 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item airpods_case right \
+    --set airpods_case "${airpods_case[@]}" \
+    --add item airpods right \
+    --set airpods "${airpods[@]}" \
+    --add item volume right \
+    --set volume "${volume[@]}" \
+    --subscribe volume volume_change \
+    --add item separator_utils_r_2 right \
+    --set separator_utils_r_2 \
+            icon.padding_left=-22 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add bracket utils_right \
+            separator_utils_r_1 \
+            separator_utils_r_2 \
+            airpods_case \
+            airpods \
+            volume \
+    --set utils_right \
+            background.color=$COLOR_UTILS_RIGHT_BG \
+    --add item utils_right.separator right \
+    --set utils_right.separator "${utils_r_separator[@]}" \
+    --add item utils_right.separator2 right \
+    --set utils_right.separator2 "${utils_r_separator2[@]}"     
 
 # ------------------------
 # INIT
 # ------------------------
 
 $BAR_NAME --update
-#$BAR_NAME --trigger space_change
-#$BAR_NAME --trigger volume_change
-#$BAR_NAME --trigger display_change
+$BAR_NAME --trigger space_change
+$BAR_NAME --trigger volume_change
+$BAR_NAME --trigger display_change
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'
