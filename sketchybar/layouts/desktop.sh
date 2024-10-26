@@ -471,9 +471,9 @@ volume=(
 airpods=(
     drawing=false
     update_freq=5
-    icon.font="$FONT_FACE:Medium:17.0"
+    icon.font="$FONT_FACE:Medium:16.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=6
+    icon.padding_left=4
     icon.padding_right=6
     label.padding_left=-5
     label.padding_right=4
@@ -484,12 +484,13 @@ airpods=(
 airpods_case=(
     drawing=false
     update_freq=5
-    icon.font="$FONT_FACE:Medium:17.0"
+    icon.font="$FONT_FACE:Medium:21.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=6
+    icon.padding_left=8
     icon.padding_right=6
     label.padding_left=-5
     label.padding_right=4
+    icon.y_offset=1
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods_case.sh"
 )
@@ -516,7 +517,7 @@ utils_r_separator2=(
 $BAR_NAME \
     --add item separator_utils_r_1 right \
     --set separator_utils_r_1 \
-            icon.padding_left=-8 \
+            icon.padding_left=-6 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item airpods_case right \
     --set airpods_case "${airpods_case[@]}" \
