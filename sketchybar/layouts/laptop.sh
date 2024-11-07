@@ -404,15 +404,15 @@ $BAR_NAME \
 
 # -- UTILS RIGHT --
 
-
 airpods=(
     drawing=false
     update_freq=5
     icon=$ICON_AIRPODS
     icon.font="$FONT_FACE:Medium:20.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=6
-    icon.padding_right=10
+    icon.y_offset=0
+    icon.padding_left=10
+    icon.padding_right=6
     label.padding_left=0
     label.padding_right=10
     label.color=$COLOR_STATS
@@ -436,7 +436,7 @@ volume=(
     icon=$ICON_VOLUME
     icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
-    icon.padding_right=10
+    icon.padding_right=6
     label.padding_right=8
     label.drawing=false
     label.color=$COLOR_UTILS_LAPTOP

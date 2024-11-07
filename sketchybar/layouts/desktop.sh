@@ -135,14 +135,12 @@ cpu_sys=(
     script="$PLUGIN_SHARED_DIR/cpu_sys.sh"
 )
 
-
-
 docker_cpu=(
     drawing=false
     update_freq=10
     icon=$ICON_DOCKER
     icon.color=$COLOR_STATS
-    icon.padding_left=10
+    icon.padding_left=8
     icon.padding_right=10
     label.drawing=false
     label.padding_left=-5
@@ -460,8 +458,9 @@ volume=(
     icon=$ICON_VOLUME
     icon.color=$COLOR_STATS
     icon.padding_left=10
+    icon.padding_right=10
     label.padding_left=-5
-    label.padding_right=4
+    label.padding_right=10
     label.color=$COLOR_STATS
     #drawing=false
     label.drawing=false
@@ -473,10 +472,10 @@ airpods=(
     update_freq=5
     icon.font="$FONT_FACE:Medium:16.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=4
+    icon.padding_left=6
     icon.padding_right=6
     label.padding_left=-5
-    label.padding_right=4
+    label.padding_right=10
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods.sh"
 )
@@ -489,7 +488,7 @@ airpods_case=(
     icon.padding_left=8
     icon.padding_right=6
     label.padding_left=-5
-    label.padding_right=4
+    label.padding_right=10
     icon.y_offset=1
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods_case.sh"

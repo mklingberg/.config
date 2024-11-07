@@ -6,7 +6,7 @@ COLOR_VOLUME_HIGH=0xffff0000
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
 SHOW_LABEL=false
-ICON_PADDING_RIGHT=10
+#ICON_PADDING_RIGHT=10
 ICON_COLOR=$COLOR_VOLUME_LOW  # Default color
 
 case ${INFO} in
@@ -37,4 +37,4 @@ case ${INFO} in
     ;;
 esac
 
-$BAR_NAME --set $NAME icon=$ICON icon.padding_right=$ICON_PADDING_RIGHT label="$INFO%" label.color=$ICON_COLOR icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$ICON_COLOR icon.color=$ICON_COLOR
