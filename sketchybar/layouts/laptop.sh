@@ -438,6 +438,7 @@ volume=(
     icon.padding_left=10
     icon.padding_right=6
     label.padding_right=8
+    label.padding_left=0
     label.drawing=false
     label.color=$COLOR_UTILS_LAPTOP
     icon.color=$COLOR_UTILS_LAPTOP
