@@ -31,23 +31,23 @@ elif (( $(echo "$LOAD_AVG > $MEDIUM_THRESHOLD" | bc -l) )); then
 fi
 
 # Determine the icon based on CPU usage
-if (( $(echo "$LOAD_AVG > 12.0" | bc -l) )); then
+if (( $(echo "$LOAD_AVG > 14.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_10
-elif (( $(echo "$LOAD_AVG > 10.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 13.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_9
-elif (( $(echo "$LOAD_AVG > 9.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 12.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_8
-elif (( $(echo "$LOAD_AVG > 8.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 11.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_7
-elif (( $(echo "$LOAD_AVG > 7.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 10.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_6
-elif (( $(echo "$LOAD_AVG > 6.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 9.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_5
-elif (( $(echo "$LOAD_AVG > 5.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 8.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_4
-elif (( $(echo "$LOAD_AVG > 4.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 7.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_3
-elif (( $(echo "$LOAD_AVG > 3.0" | bc -l) )); then
+elif (( $(echo "$LOAD_AVG > 6.0" | bc -l) )); then
     ICON=$ICON_CPU_LOAD_2
 else
     ICON=$ICON_CPU_LOAD_1
