@@ -16,11 +16,27 @@ yabai -m config --display 2 left_padding 0
 yabai -m config --display 2 right_padding 0
 yabai -m config --display 2 window_gap 2
 
+# You can hide the insertion overlay by setting the config option insert_feedback_color.
+#yabai -m config insert_feedback_color 0x00FFFFFF
+
+# Set some space for sketchybar
+yabai -m config external_bar all:20:0
+
+# Set new windows to open on the active displa
+yabai -m config window_origin_display focused
+
+# Set the border color of the focused window to dracula yellow
+yabai -m config insert_feedback_color 0xfff1fa8c
+
+# Automatically focus windows when the mouse enters them
+yabai -m config focus_follows_mouse autofocus
+
 # center mouse on window with focuts
 #yabai -m config mouse_follows_focus on
 
 # modifier for clicking and dragging with mouse
-#yabai -m config mouse_modifier alt
+yabai -m config mouse_modifier alt
+
 # set modifier + left-click drag to move window
 #yabai -m config mouse_action1 move
 # set modifier + right-click drag to resize window
@@ -28,6 +44,15 @@ yabai -m config --display 2 window_gap 2
 
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
+
+# send display events to sketchybar
+#yabai -m signal --add event=display_added action="$HOME/.config/sketchybar/plugins/reload.sh display_added"
+#yabai -m signal --add event=display_removed action="$HOME/.config/sketchybar/plugins/reload.sh display_removed"
+
+
+# ------------------------------------------------------------
+# WINDOW RULES
+# ------------------------------------------------------------
 
 #NOTE: Debug with `yabai -m query --windows`
 
@@ -66,6 +91,7 @@ yabai -m rule --add app="^Firefox$" manage=on
 yabai -m rule --add app="^Code$" manage=on
 yabai -m rule --add app="^iTerm2$" manage=on
 yabai -m rule --add app="^Slack$" manage=on
+yabai -m rule --add app="^Warp$" manage=on
 
 yabai -m rule --add app="^Arc$" manage=on
 yabai -m rule --add app="^Arc$" title="^Marcus$" manage=off
@@ -79,16 +105,3 @@ yabai -m rule --add app="^Arc$" title="^Icon$" manage=off
 
 yabai -m rule --add app="^Spotify$" manage=on
 #yabai -m rule --add app="^Postman$" manage=on
-
-
-# You can cause the next insertion to happen in stack mode on the focused window whenever the focused window changes:
-#yabai -m signal --add event=window_focused action='yabai -m window $YABAI_WINDOW_ID --insert stack'
-#yabai -m signal --add event=application_front_switched action='yabai -m window --insert stack'
-# You can hide the insertion overlay by setting the config option insert_feedback_color.
-#yabai -m config insert_feedback_color 0x00FFFFFF
-
-# The only time it fails is if you close a window and create a new one. I added
-#yabai -m signal --add event=application_terminated action='yabai -m window --insert stack'
-#yabai -m signal --add event=window_destroyed action='yabai -m window --insert stack'
-
-yabai -m config external_bar all:20:0

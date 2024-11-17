@@ -92,6 +92,10 @@ ctrl + shift - g : yabai -m window --display east; yabai -m display --focus east
 ctrl + shift - f : yabai -m window --display north; yabai -m display --focus north;
 ctrl + shift - d : yabai -m window --display south; yabai -m display --focus south;
 
+# increase horizontal size of the selected window
+#ctrl + shift - a : yabai -m window --resize right:60:0
+#ctrl + shift - z : yabai -m window --resize right:-60:0
+
 #move window to prev and next space
 #fn + shift - p : yabai -m window --space prev;
 #fn + shift - n : yabai -m window --space next;
