@@ -159,7 +159,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "6B408FA0-5DE2-46DA-ADEF-29DAF739CF98",
+  "BTTPresetUUID" : "F009F19B-431B-477F-8415-31F3E2C51C22",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -435,7 +435,7 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1731755558.8825231,
+          "BTTLastUpdatedAt" : 1731757738.1461101,
           "BTTTriggerType" : 630,
           "BTTTriggerTypeDescriptionReadOnly" : "Group",
           "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
@@ -449,127 +449,7 @@
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8825831,
-              "BTTTriggerType" : 35,
-              "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Left",
-              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
-              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-              "BTTUUID" : "F979CC40-6441-4D82-86A8-CF59D85368C1",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 0,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731262464.9208121,
-                  "BTTTriggerParentUUID" : "F979CC40-6441-4D82-86A8-CF59D85368C1",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "AE9D85E0-454C-45F6-9649-9D8DCCDEC5AB",
-                  "BTTLayoutIndependentActionChar" : "h",
-                  "BTTShortcutToSend" : "59,56,4",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 8
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882539,
-              "BTTTriggerType" : 36,
-              "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Right",
-              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
-              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-              "BTTUUID" : "AC66B5DB-174B-4679-A749-AF33D8E008B7",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 1,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731262475.5899601,
-                  "BTTTriggerParentUUID" : "AC66B5DB-174B-4679-A749-AF33D8E008B7",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "B8A9904C-6987-4C96-B88D-7857C3D06DAD",
-                  "BTTLayoutIndependentActionChar" : "l",
-                  "BTTShortcutToSend" : "59,56,37",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 7
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8825531,
-              "BTTTriggerType" : 33,
-              "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Down",
-              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
-              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-              "BTTUUID" : "B28EE323-E16E-4313-A0C4-EA5F889A1FCC",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 2,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731263796.218509,
-                  "BTTTriggerParentUUID" : "B28EE323-E16E-4313-A0C4-EA5F889A1FCC",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "DEDCB776-459D-4751-893E-38E9EC394977",
-                  "BTTLayoutIndependentActionChar" : "j",
-                  "BTTShortcutToSend" : "59,56,38",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 9
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882534,
-              "BTTTriggerType" : 34,
-              "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Up",
-              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
-              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-              "BTTUUID" : "8FD2C39B-CCDC-40C7-8D1E-B0F2790C2391",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 3,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731263803.8317339,
-                  "BTTTriggerParentUUID" : "8FD2C39B-CCDC-40C7-8D1E-B0F2790C2391",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "2845D5D7-E918-4FC1-A218-7D69E1831674",
-                  "BTTLayoutIndependentActionChar" : "k",
-                  "BTTShortcutToSend" : "59,56,40",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 10
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8825779,
+              "BTTLastUpdatedAt" : 1731757738.146003,
               "BTTTriggerType" : 4,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Tap",
               "BTTTriggerTypeDescription" : "Toggle window docked state",
@@ -581,7 +461,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 4,
+              "BTTOrder" : 0,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -601,149 +481,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8824811,
-              "BTTTriggerType" : 630,
-              "BTTTriggerTypeDescriptionReadOnly" : "Group",
-              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
-              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-              "BTTUUID" : "7742E51D-F29B-4417-B7C1-DBC79257B111",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTGroupName" : "Move between displays",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTOrder" : 5,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731266633.5578361,
-                  "BTTTriggerType" : 7,
-                  "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
-                  "BTTTriggerParentUUID" : "7742E51D-F29B-4417-B7C1-DBC79257B111",
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "7D278E2D-3ABA-447E-A232-5499388CC2C8",
-                  "BTTPredefinedActionType" : 366,
-                  "BTTPredefinedActionName" : "Empty Placeholder",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTRequiredModifierKeys" : 524288,
-                  "BTTOrder" : 4,
-                  "BTTAdditionalActions" : [
-                    {
-                      "BTTActionCategory" : 0,
-                      "BTTLastUpdatedAt" : 1731256591.4116831,
-                      "BTTTriggerParentUUID" : "7D278E2D-3ABA-447E-A232-5499388CC2C8",
-                      "BTTIsPureAction" : true,
-                      "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                      "BTTUUID" : "5352A512-6D9E-4C92-9057-23284573E26E",
-                      "BTTLayoutIndependentActionChar" : "f",
-                      "BTTShortcutToSend" : "59,56,3",
-                      "BTTEnabled" : 1,
-                      "BTTEnabled2" : 1,
-                      "BTTOrder" : 6
-                    }
-                  ],
-                  "BTTTriggerConfig" : {
-                    "BTTNoTouchTimeout" : 0,
-                    "BTTHUDText" : "Move down"
-                  }
-                },
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731266633.5579031,
-                  "BTTTriggerType" : 8,
-                  "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
-                  "BTTTriggerParentUUID" : "7742E51D-F29B-4417-B7C1-DBC79257B111",
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "829E06B1-8341-43C3-A9F1-B46857B723A9",
-                  "BTTPredefinedActionType" : 366,
-                  "BTTPredefinedActionName" : "Empty Placeholder",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTRequiredModifierKeys" : 524288,
-                  "BTTOrder" : 5,
-                  "BTTAdditionalActions" : [
-                    {
-                      "BTTActionCategory" : 0,
-                      "BTTLastUpdatedAt" : 1731256813.203073,
-                      "BTTTriggerParentUUID" : "829E06B1-8341-43C3-A9F1-B46857B723A9",
-                      "BTTIsPureAction" : true,
-                      "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                      "BTTUUID" : "0CDC8499-0038-4E1A-8A71-3FCAFB15DD0C",
-                      "BTTLayoutIndependentActionChar" : "d",
-                      "BTTShortcutToSend" : "59,56,2",
-                      "BTTEnabled" : 1,
-                      "BTTEnabled2" : 1,
-                      "BTTOrder" : 7
-                    }
-                  ]
-                },
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731266633.5578899,
-                  "BTTTriggerType" : 5,
-                  "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Left",
-                  "BTTTriggerParentUUID" : "7742E51D-F29B-4417-B7C1-DBC79257B111",
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "B88E3B4B-AB66-465E-B237-D820574A2310",
-                  "BTTPredefinedActionType" : 366,
-                  "BTTPredefinedActionName" : "Empty Placeholder",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTRequiredModifierKeys" : 524288,
-                  "BTTOrder" : 6,
-                  "BTTAdditionalActions" : [
-                    {
-                      "BTTActionCategory" : 0,
-                      "BTTLastUpdatedAt" : 1731256825.669729,
-                      "BTTTriggerParentUUID" : "B88E3B4B-AB66-465E-B237-D820574A2310",
-                      "BTTIsPureAction" : true,
-                      "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                      "BTTUUID" : "AF1110FD-6915-4328-8D99-953C5DED9960",
-                      "BTTLayoutIndependentActionChar" : "s",
-                      "BTTShortcutToSend" : "59,56,1",
-                      "BTTEnabled" : 1,
-                      "BTTEnabled2" : 1,
-                      "BTTOrder" : 8
-                    }
-                  ]
-                },
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731266633.557915,
-                  "BTTTriggerType" : 6,
-                  "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
-                  "BTTTriggerParentUUID" : "7742E51D-F29B-4417-B7C1-DBC79257B111",
-                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                  "BTTUUID" : "A0419DB6-577D-4A45-B2FA-EDAD108316A8",
-                  "BTTPredefinedActionType" : 366,
-                  "BTTPredefinedActionName" : "Empty Placeholder",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTRequiredModifierKeys" : 524288,
-                  "BTTOrder" : 7,
-                  "BTTAdditionalActions" : [
-                    {
-                      "BTTActionCategory" : 0,
-                      "BTTLastUpdatedAt" : 1731256832.4206018,
-                      "BTTTriggerParentUUID" : "A0419DB6-577D-4A45-B2FA-EDAD108316A8",
-                      "BTTIsPureAction" : true,
-                      "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
-                      "BTTUUID" : "E659AFC2-BD6F-4719-8289-2D37F96D12FF",
-                      "BTTLayoutIndependentActionChar" : "g",
-                      "BTTShortcutToSend" : "59,56,5",
-                      "BTTEnabled" : 1,
-                      "BTTEnabled2" : 1,
-                      "BTTOrder" : 9
-                    }
-                  ]
-                }
-              ],
-              "BTTAdditionalData" : "eyJCVFRJY29uQ29uZmlnSWNvbkhlaWdodCI6MjUsIkJUVEljb25Db25maWdJY29uSWNvbldpZHRoIjoyNX0="
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8825731,
+              "BTTLastUpdatedAt" : 1731757738.1459219,
               "BTTTriggerType" : 1,
               "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Tap",
               "BTTTriggerTypeDescription" : "Maximise window",
@@ -755,7 +493,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 6,
+              "BTTOrder" : 1,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -775,7 +513,305 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755607.0636749,
+              "BTTLastUpdatedAt" : 1731757738.1460528,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Movement",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "877937C3-0A24-42DB-9944-A518E1B69672",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "100.000002, 178.000005, 233.000001, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 2,
+              "BTTGestureNotes" : "Movement"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757819.732765,
+              "BTTTriggerType" : 5,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Left",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "F979CC40-6441-4D82-86A8-CF59D85368C1",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 3,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731262464.9208121,
+                  "BTTTriggerParentUUID" : "F979CC40-6441-4D82-86A8-CF59D85368C1",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "AE9D85E0-454C-45F6-9649-9D8DCCDEC5AB",
+                  "BTTLayoutIndependentActionChar" : "h",
+                  "BTTShortcutToSend" : "59,56,4",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 8
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757841.008203,
+              "BTTTriggerType" : 6,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "AC66B5DB-174B-4679-A749-AF33D8E008B7",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 4,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731262475.5899601,
+                  "BTTTriggerParentUUID" : "AC66B5DB-174B-4679-A749-AF33D8E008B7",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "B8A9904C-6987-4C96-B88D-7857C3D06DAD",
+                  "BTTLayoutIndependentActionChar" : "l",
+                  "BTTShortcutToSend" : "59,56,37",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 7
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757854.8359699,
+              "BTTTriggerType" : 8,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "B28EE323-E16E-4313-A0C4-EA5F889A1FCC",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 5,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731263796.218509,
+                  "BTTTriggerParentUUID" : "B28EE323-E16E-4313-A0C4-EA5F889A1FCC",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "DEDCB776-459D-4751-893E-38E9EC394977",
+                  "BTTLayoutIndependentActionChar" : "j",
+                  "BTTShortcutToSend" : "59,56,38",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 9
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757866.267514,
+              "BTTTriggerType" : 7,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "8FD2C39B-CCDC-40C7-8D1E-B0F2790C2391",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 6,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731263803.8317339,
+                  "BTTTriggerParentUUID" : "8FD2C39B-CCDC-40C7-8D1E-B0F2790C2391",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "2845D5D7-E918-4FC1-A218-7D69E1831674",
+                  "BTTLayoutIndependentActionChar" : "k",
+                  "BTTShortcutToSend" : "59,56,40",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 10
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757748.9173598,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Movement Between Displays",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "0754B92E-71E8-4650-B559-982E4C767D5A",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "100.000002, 178.000005, 233.000001, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 7,
+              "BTTGestureNotes" : "Movement Between Displays"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757912.9475009,
+              "BTTTriggerType" : 7,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "7D278E2D-3ABA-447E-A232-5499388CC2C8",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 786432,
+              "BTTOrder" : 8,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731757704.6769061,
+                  "BTTTriggerParentUUID" : "7D278E2D-3ABA-447E-A232-5499388CC2C8",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "5352A512-6D9E-4C92-9057-23284573E26E",
+                  "BTTLayoutIndependentActionChar" : "f",
+                  "BTTShortcutToSend" : "59,56,3",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 6
+                }
+              ],
+              "BTTTriggerConfig" : {
+                "BTTNoTouchTimeout" : 0,
+                "BTTHUDText" : "Move down"
+              }
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757922.068135,
+              "BTTTriggerType" : 8,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "829E06B1-8341-43C3-A9F1-B46857B723A9",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 786432,
+              "BTTOrder" : 9,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731757704.67975,
+                  "BTTTriggerParentUUID" : "829E06B1-8341-43C3-A9F1-B46857B723A9",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "0CDC8499-0038-4E1A-8A71-3FCAFB15DD0C",
+                  "BTTLayoutIndependentActionChar" : "d",
+                  "BTTShortcutToSend" : "59,56,2",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 7
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757926.1890368,
+              "BTTTriggerType" : 5,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Left",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "B88E3B4B-AB66-465E-B237-D820574A2310",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 786432,
+              "BTTOrder" : 10,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731757704.6822171,
+                  "BTTTriggerParentUUID" : "B88E3B4B-AB66-465E-B237-D820574A2310",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "AF1110FD-6915-4328-8D99-953C5DED9960",
+                  "BTTLayoutIndependentActionChar" : "s",
+                  "BTTShortcutToSend" : "59,56,1",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 8
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757928.953011,
+              "BTTTriggerType" : 6,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "A0419DB6-577D-4A45-B2FA-EDAD108316A8",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 786432,
+              "BTTOrder" : 11,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731757704.6838598,
+                  "BTTTriggerParentUUID" : "A0419DB6-577D-4A45-B2FA-EDAD108316A8",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+                  "BTTUUID" : "E659AFC2-BD6F-4719-8289-2D37F96D12FF",
+                  "BTTLayoutIndependentActionChar" : "g",
+                  "BTTShortcutToSend" : "59,56,5",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 9
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757738.1460428,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Window layout",
+              "BTTTriggerParentUUID" : "8343F9E7-D553-484E-A6DF-172F9325C5DE",
+              "BTTTriggerClass" : "BTTTriggerTypeMagicMouse",
+              "BTTUUID" : "D142427B-670F-49EF-B6A8-C07FF6506A82",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "73.000003, 155.000006, 201.000003, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 12,
+              "BTTGestureNotes" : "Window layout"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731757738.1458449,
               "BTTTriggerType" : 5,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Left",
               "BTTTriggerTypeDescription" : "Balance windows",
@@ -787,7 +823,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 7,
+              "BTTOrder" : 13,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -807,7 +843,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882488,
+              "BTTLastUpdatedAt" : 1731757738.1459432,
               "BTTTriggerType" : 6,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
               "BTTTriggerTypeDescription" : "Rotate clockwise",
@@ -819,7 +855,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 8,
+              "BTTOrder" : 14,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -839,7 +875,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.8825169,
+              "BTTLastUpdatedAt" : 1731757738.1460938,
               "BTTTriggerType" : 35,
               "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Left",
               "BTTTriggerTypeDescription" : "Flip y axis",
@@ -851,7 +887,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 9,
+              "BTTOrder" : 15,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -871,7 +907,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882549,
+              "BTTLastUpdatedAt" : 1731757738.145932,
               "BTTTriggerType" : 36,
               "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Right",
               "BTTTriggerTypeDescription" : "Flip y axis",
@@ -883,7 +919,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 10,
+              "BTTOrder" : 16,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -903,7 +939,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882529,
+              "BTTLastUpdatedAt" : 1731757738.1459532,
               "BTTTriggerType" : 34,
               "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Up",
               "BTTTriggerTypeDescription" : "Flip x axis",
@@ -915,7 +951,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 11,
+              "BTTOrder" : 17,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -935,7 +971,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731755558.882544,
+              "BTTLastUpdatedAt" : 1731757738.145993,
               "BTTTriggerType" : 33,
               "BTTTriggerTypeDescriptionReadOnly" : "1 Finger Swipe Down",
               "BTTTriggerTypeDescription" : "Flip x axis",
@@ -947,7 +983,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 655360,
-              "BTTOrder" : 12,
+              "BTTOrder" : 18,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -999,7 +1035,7 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1731273824.303237,
+          "BTTLastUpdatedAt" : 1731758816.528549,
           "BTTTriggerType" : 630,
           "BTTTriggerTypeDescriptionReadOnly" : "Group",
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
@@ -1013,7 +1049,7 @@
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6196899,
+              "BTTLastUpdatedAt" : 1731758898.537775,
               "BTTTriggerType" : 159,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Left",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1043,97 +1079,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6197009,
-              "BTTTriggerType" : 160,
-              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
-              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
-              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-              "BTTUUID" : "AA20A2F2-BDE8-4DC9-88CF-CDA3CF307D41",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 1,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731272012.9176459,
-                  "BTTTriggerParentUUID" : "AA20A2F2-BDE8-4DC9-88CF-CDA3CF307D41",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-                  "BTTUUID" : "6D57EDFA-0C44-4BEC-8B91-5BE593315520",
-                  "BTTLayoutIndependentActionChar" : "l",
-                  "BTTShortcutToSend" : "59,56,37",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 13
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6196542,
-              "BTTTriggerType" : 162,
-              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
-              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
-              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-              "BTTUUID" : "2A96866E-4D8D-4747-9C33-30B57A657515",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 2,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731272029.463136,
-                  "BTTTriggerParentUUID" : "2A96866E-4D8D-4747-9C33-30B57A657515",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-                  "BTTUUID" : "813490FE-5900-4652-8DB8-C55CF4CEB68B",
-                  "BTTLayoutIndependentActionChar" : "j",
-                  "BTTShortcutToSend" : "59,56,38",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 14
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6196408,
-              "BTTTriggerType" : 161,
-              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
-              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
-              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-              "BTTUUID" : "456755A2-69C7-4394-9E34-8CA60FFB6B8D",
-              "BTTPredefinedActionType" : 366,
-              "BTTPredefinedActionName" : "Empty Placeholder",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 3,
-              "BTTAdditionalActions" : [
-                {
-                  "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1731272039.0305839,
-                  "BTTTriggerParentUUID" : "456755A2-69C7-4394-9E34-8CA60FFB6B8D",
-                  "BTTIsPureAction" : true,
-                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-                  "BTTUUID" : "77919FB4-32D3-4D1B-A5A4-405CD949EEF3",
-                  "BTTLayoutIndependentActionChar" : "k",
-                  "BTTShortcutToSend" : "59,56,40",
-                  "BTTEnabled" : 1,
-                  "BTTEnabled2" : 1,
-                  "BTTOrder" : 15
-                }
-              ]
-            },
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731615136.8730259,
+              "BTTLastUpdatedAt" : 1731758898.5377331,
               "BTTTriggerType" : 179,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Double-Tap",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1144,7 +1090,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 4,
+              "BTTOrder" : 1,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1163,7 +1109,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731615142.2883968,
+              "BTTLastUpdatedAt" : 1731758898.537837,
               "BTTTriggerType" : 173,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Tap",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1174,7 +1120,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 5,
+              "BTTOrder" : 2,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1193,7 +1139,133 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6196661,
+              "BTTLastUpdatedAt" : 1731758898.53775,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Movement",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "3EE0F61C-F5E2-43A9-9F26-40292448CFA7",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "100.000002, 178.000005, 233.000001, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 3,
+              "BTTGestureNotes" : "Movement"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.5377631,
+              "BTTTriggerType" : 160,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Right",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "AA20A2F2-BDE8-4DC9-88CF-CDA3CF307D41",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 4,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731272012.9176459,
+                  "BTTTriggerParentUUID" : "AA20A2F2-BDE8-4DC9-88CF-CDA3CF307D41",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+                  "BTTUUID" : "6D57EDFA-0C44-4BEC-8B91-5BE593315520",
+                  "BTTLayoutIndependentActionChar" : "l",
+                  "BTTShortcutToSend" : "59,56,37",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 13
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.537812,
+              "BTTTriggerType" : 162,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "2A96866E-4D8D-4747-9C33-30B57A657515",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 5,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731272029.463136,
+                  "BTTTriggerParentUUID" : "2A96866E-4D8D-4747-9C33-30B57A657515",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+                  "BTTUUID" : "813490FE-5900-4652-8DB8-C55CF4CEB68B",
+                  "BTTLayoutIndependentActionChar" : "j",
+                  "BTTShortcutToSend" : "59,56,38",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 14
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.5378861,
+              "BTTTriggerType" : 161,
+              "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "456755A2-69C7-4394-9E34-8CA60FFB6B8D",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTRequiredModifierKeys" : 524288,
+              "BTTOrder" : 6,
+              "BTTAdditionalActions" : [
+                {
+                  "BTTActionCategory" : 0,
+                  "BTTLastUpdatedAt" : 1731272039.0305839,
+                  "BTTTriggerParentUUID" : "456755A2-69C7-4394-9E34-8CA60FFB6B8D",
+                  "BTTIsPureAction" : true,
+                  "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+                  "BTTUUID" : "77919FB4-32D3-4D1B-A5A4-405CD949EEF3",
+                  "BTTLayoutIndependentActionChar" : "k",
+                  "BTTShortcutToSend" : "59,56,40",
+                  "BTTEnabled" : 1,
+                  "BTTEnabled2" : 1,
+                  "BTTOrder" : 15
+                }
+              ]
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.5377879,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Movement Between Displays",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "188ED057-8459-44A3-820C-54264A32B0B2",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "100.000002, 178.000005, 233.000001, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 7,
+              "BTTGestureNotes" : "Movement Between Displays"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.5378489,
               "BTTTriggerType" : 108,
               "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Swipe Up",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1204,7 +1276,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 6,
+              "BTTOrder" : 8,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1223,7 +1295,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6197329,
+              "BTTLastUpdatedAt" : 1731758898.5378609,
               "BTTTriggerType" : 107,
               "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Swipe Down",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1234,7 +1306,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 7,
+              "BTTOrder" : 9,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1253,7 +1325,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.619678,
+              "BTTLastUpdatedAt" : 1731758898.5377998,
               "BTTTriggerType" : 105,
               "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Swipe Left",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1264,7 +1336,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 8,
+              "BTTOrder" : 10,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1283,7 +1355,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6197429,
+              "BTTLastUpdatedAt" : 1731758898.537873,
               "BTTTriggerType" : 106,
               "BTTTriggerTypeDescriptionReadOnly" : "4 Finger Swipe Right",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1294,7 +1366,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 9,
+              "BTTOrder" : 11,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
@@ -1313,7 +1385,25 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1731273238.6197529,
+              "BTTLastUpdatedAt" : 1731758898.5378242,
+              "BTTTriggerType" : 202,
+              "BTTTriggerTypeDescriptionReadOnly" : "",
+              "BTTTriggerTypeDescription" : "Window layout",
+              "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
+              "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+              "BTTUUID" : "E9FC154E-5A48-4262-8FD6-6A331F5F61BC",
+              "BTTPredefinedActionType" : 366,
+              "BTTPredefinedActionName" : "Empty Placeholder",
+              "BTTSeparatorFontColor" : "233.374680, 233.374680, 233.374680, 255.000000",
+              "BTTSeparatorBackgroundColor" : "73.000003, 155.000006, 201.000003, 255.000000",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 12,
+              "BTTGestureNotes" : "Window layout"
+            },
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1731758898.5378981,
               "BTTTriggerType" : 118,
               "BTTTriggerTypeDescriptionReadOnly" : "Rotate Right",
               "BTTTriggerParentUUID" : "AC40784D-7CF5-4CDE-A957-1D735EBFBADE",
@@ -1324,7 +1414,7 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTRequiredModifierKeys" : 524288,
-              "BTTOrder" : 10,
+              "BTTOrder" : 13,
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
