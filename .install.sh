@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Homebrew
 ## Install
 echo "Installing Brew..."
