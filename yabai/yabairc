@@ -1,107 +1,99 @@
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # default layout (can be bsp, stack or float)
-yabai -m config layout bsp
+yabai -m config layout                          bsp
 
 # New window spawns to the right if vertical split, or bottom if horizontal split
-yabai -m config window_placement second_child
+yabai -m config window_placement                second_child
 
-yabai -m config top_padding 0
-yabai -m config bottom_padding 0
-yabai -m config left_padding 0
-yabai -m config right_padding 0
-yabai -m config window_gap 2
+yabai -m config top_padding                     1
+yabai -m config bottom_padding                  3
+yabai -m config left_padding                    3
+yabai -m config right_padding                   3
+yabai -m config window_gap                      6
 
-yabai -m config --display 2 top_padding 0
-yabai -m config --display 2 bottom_padding 0
-yabai -m config --display 2 left_padding 0
-yabai -m config --display 2 right_padding 0
-yabai -m config --display 2 window_gap 2
+yabai -m config --display 2 top_padding         1
+yabai -m config --display 2 bottom_padding      3
+yabai -m config --display 2 left_padding        3
+yabai -m config --display 2 right_padding       3
+yabai -m config --display 2 window_gap          6
 
 # You can hide the insertion overlay by setting the config option insert_feedback_color.
 #yabai -m config insert_feedback_color 0x00FFFFFF
 
 # Set some space for sketchybar
-yabai -m config external_bar all:20:0
+yabai -m config external_bar                    all:20:0
 
 # Set new windows to open on the active displa
-yabai -m config window_origin_display focused
+yabai -m config window_origin_display           focused
 
-# Set the border color of the focused window to dracula yellow
-yabai -m config insert_feedback_color 0xfff1fa8c
+# Set the border color of the focused window
+yabai -m config insert_feedback_color           0x99ffffff #0xfff1fa8c
 
 # Automatically focus windows when the mouse enters them
-yabai -m config focus_follows_mouse autofocus
+yabai -m config focus_follows_mouse             autofocus
 
 # center mouse on window with focuts
-#yabai -m config mouse_follows_focus on
+yabai -m config mouse_follows_focus             on
 
 # modifier for clicking and dragging with mouse
-yabai -m config mouse_modifier alt
-
-# set modifier + left-click drag to move window
-#yabai -m config mouse_action1 move
-# set modifier + right-click drag to resize window
-#yabai -m config mouse_action2 resize
+yabai -m config mouse_modifier                  alt
 
 # when window is dropped in center of another window, swap them (on edges it will split it)
-yabai -m mouse_drop_action swap
+yabai -m mouse_drop_action                      swap
 
 # send display events to sketchybar
 #yabai -m signal --add event=display_added action="$HOME/.config/sketchybar/plugins/reload.sh display_added"
 #yabai -m signal --add event=display_removed action="$HOME/.config/sketchybar/plugins/reload.sh display_removed"
 
 
-# ------------------------------------------------------------
 # WINDOW RULES
-# ------------------------------------------------------------
 
 #NOTE: Debug with `yabai -m query --windows`
 
-#yabai -m rule --add app="^System Settings$" manage=off
-#yabai -m rule --add app="^Calculator$" manage=off
-#yabai -m rule --add app="^Karabiner-Elements$" manage=off 
-
-
 # Dont manage windows by default
-#yabai -m rule --add app="^$" manage=off
-yabai -m rule --add app=".*$" manage=off
-
+#yabai -m rule --add app=".*$" manage=off
 
 # Manage JetBrains Rider
-#yabai -m rule --add app="^JetBrains Rider$" manage=on
-
-# Excluding these dialogs
-# yabai -m rule --add app="^JetBrains Rider$" title="^Get from Version Control$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Settings$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Preferences Layers$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Welcome to JetBrains Rider$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^New Solution$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Update Project$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Rollback Changes$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Create New Branch$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Push Commits.*$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Rename$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Move to Another File$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Add File to Git$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Create: Directory$" manage=off
-# yabai -m rule --add app="^JetBrains Rider$" title="^Move to Folder$" manage=off
+JB_Apps='^(CLion|PyCharm|IntelliJ IDEA|JetBrains Rider)$'
+yabai -m rule --add app="${JB_Apps}" manage=off
+# If `Open last project when launch` is checked, add this rule. And make sure `always show project path` is also checked.
+# yabai -m rule --add app="${JB_Apps}" title=".*\[.*\].*" manage=on 
+yabai -m rule --add app="${JB_Apps}" title="^$" manage=on
 
 
-yabai -m rule --add app="^Google Chrome$" manage=on
-yabai -m rule --add app="^Firefox$" manage=on
-yabai -m rule --add app="^Code$" manage=on
-yabai -m rule --add app="^iTerm2$" manage=on
-yabai -m rule --add app="^Slack$" manage=on
-yabai -m rule --add app="^Warp$" manage=on
+# Opt in to manage these apps
 
-yabai -m rule --add app="^Arc$" manage=on
-yabai -m rule --add app="^Arc$" title="^Marcus$" manage=off
-yabai -m rule --add app="^Arc$" title="^General$" manage=off
-yabai -m rule --add app="^Arc$" title="^Profiles$" manage=off
-yabai -m rule --add app="^Arc$" title="^Max$" manage=off
-yabai -m rule --add app="^Arc$" title="^Links$" manage=off
-yabai -m rule --add app="^Arc$" title="^Shortcuts$" manage=off
-yabai -m rule --add app="^Arc$" title="^Icon$" manage=off
-#yabai -m rule --add app="^Arc$" title="^$" manage=off
+# yabai -m rule --add app="^Google Chrome$" manage=on
+# yabai -m rule --add app="^Firefox$" manage=on
+# yabai -m rule --add app="^Code$" manage=on
+# yabai -m rule --add app="^iTerm2$" manage=on
+# yabai -m rule --add app="^Slack$" manage=on
+# yabai -m rule --add app="^Microsoft Teams$" manage=on
+# yabai -m rule --add app="^Warp$" manage=on
+# yabai -m rule --add app="^Spotify$" manage=on
+# yabai -m rule --add app="^Postman$" manage=on
+# yabai -m rule --add app="^ChatGPT$" manage=on
+#yabai -m rule --add app="^Finder$" manage=on
 
-yabai -m rule --add app="^Spotify$" manage=on
-#yabai -m rule --add app="^Postman$" manage=on
+# IGNORE RULES
+#yabai -m rule --add app="^Arc$" title="^$" mouse_follows_focus=off
+#yabai -m rule --add app="^Arc$" subrole='AXSystemDialog' manage=off mouse_follows_focus=off
+# This probably doesn't work
+#yabai -m rule --add app="Arc.LittleBrowserWindow" manage=off
+yabai -m rule --add label="Arc" app="^Arc$" title="^(Icon|Marcus|General|Profiles|Max|Links|Shortcuts|Icon)$" manage=off
+
+yabai -m rule --add app="^(Azure VPN Client|BankID Security Application|BetterTouchTool)$" manage=off
+
+# Exclude problematic apps from being managed:
+yabai -m rule --add app="^(Calculator|Software Update|VLC|System Preferences|System Settings|Archive Utility|Python|App Store|Activity Monitor)$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+
+
+# Borders
+# 0xaab48dee
+#
+borders active_color=0x99ffffff inactive_color=0x33000000 width=4.0 blur_radius=2.0 hidpi=on &
