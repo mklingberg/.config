@@ -10,16 +10,16 @@ PADDING_LEFT=10
 
 PADDING_RIGHT_SELECTED=28
 PADDING_LEFT_SELECTED=16
-PADDING_RIGHT_OUTSIDE_SELECTED=8
-PADDING_LEFT_OUTSIDE_SELECTED=16
+PADDING_RIGHT_OUTSIDE_SELECTED=4
+PADDING_LEFT_OUTSIDE_SELECTED=12
 SHADOW_COLOR=0x22000000
 SHADOW_DISTANCE=3
 
 if [ $SELECTED = true ]; then
     $BAR_NAME \
         --set $NAME background.drawing=on \
-            icon.font="$FONT_FACE:Medium:32.0" \
-            label.font="sketchybar-app-font:Regular:18.0" \
+            icon.font="$FONT_FACE:Medium:24.0" \
+            label.font="sketchybar-app-font:Regular:16.0" \
             label.color=$COLOR_SPACE_SELECTED_ICON \
             icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
             icon.padding_left=$PADDING_LEFT_SELECTED \
@@ -40,8 +40,8 @@ if [ $SELECTED = true ]; then
 else
     $BAR_NAME \
         --set $NAME background.drawing=on \
-            icon.font="$FONT_FACE:Medium:22.0" \
-            label.font="sketchybar-app-font:Regular:16.0" \
+            icon.font="$FONT_FACE:Medium:18.0" \
+            label.font="sketchybar-app-font:Regular:14.0" \
             label.color=$COLOR_SPACE_ICON \
             label.y_offset=-1 \
             label.padding_right=$PADDING_RIGHT \
