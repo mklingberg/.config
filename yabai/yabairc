@@ -7,13 +7,13 @@ yabai -m config layout                          bsp
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement                second_child
 
-yabai -m config top_padding                     2
+yabai -m config top_padding                     3
 yabai -m config bottom_padding                  3
 yabai -m config left_padding                    3
 yabai -m config right_padding                   3
 yabai -m config window_gap                      6
 
-yabai -m config --display 2 top_padding         2
+yabai -m config --display 2 top_padding         3
 yabai -m config --display 2 bottom_padding      3
 yabai -m config --display 2 left_padding        3
 yabai -m config --display 2 right_padding       3
@@ -84,7 +84,8 @@ yabai -m rule --add app="${JB_Apps}" title="^$" manage=on
 #yabai -m rule --add app="Arc.LittleBrowserWindow" manage=off
 yabai -m rule --add label="Arc" app="^Arc$" title="^(Icon|Marcus|General|Profiles|Max|Links|Shortcuts|Icon)$" manage=off
 
-yabai -m rule --add app="^(Azure VPN Client|BankID Security Application|BetterTouchTool)$" manage=off
+yabai -m rule --add app="^(Azure VPN Client|BankID Security Application|BetterTouchTool|Microsoft Remote Desktop)$" manage=off
+yabai -m rule --add app="^Microsoft Remote Desktop$" title="^(?!.*Microsoft Remote Desktop).*$" manage=on
 
 # Exclude problematic apps from being managed:
 yabai -m rule --add app="^(Calculator|Software Update|VLC|System Preferences|System Settings|Archive Utility|Python|App Store|Activity Monitor)$" manage=off

@@ -39,7 +39,6 @@ else
             background.color=$TRANSPARENT \
             icon.padding_left=$PADDING_LEFT \
             icon.padding_right=2 \
-            background.color=$COLOR_SPACE_INACTIVE_BG \
             background.padding_left=0 \
             background.padding_right=0
 fi
