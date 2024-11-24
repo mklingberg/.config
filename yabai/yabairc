@@ -97,4 +97,4 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 # Borders
 # 0xaab48dee
 #
-borders active_color=0x99ffffff inactive_color=0x33000000 width=6.0 blur_radius=2.0 hidpi=on &
+borders active_color=0x66ffffff inactive_color=0x33000000 width=6.0 blur_radius=4.0 hidpi=on &
