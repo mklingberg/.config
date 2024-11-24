@@ -1,18 +1,23 @@
 #!/bin/bash
 
 if [ "$SENDER" = "space_windows_change" ]; then #|| [ "$SENDER" = "front_app_switched" ]
-  space="$(echo "$INFO" | jq -r '.space')"
-  apps="$(echo "$INFO" | jq -r '.apps | keys[]')"
+  SPACE="$(echo "$INFO" | jq -r '.space')"
+  APPS="$(echo "$INFO" | jq -r '.apps | keys[]')"
 
-  icon_strip=" "
-  if [ "${apps}" != "" ]; then
+  ICON_STRIP=" "
+  if [ "${APPS}" != "" ]; then
     while read -r app
     do
-      icon_strip+=" $($HOME/.config/sketchybar/plugins/icon_map_fn.sh "$app")"      
-    done <<< "${apps}"
+      ICON_STRIP+=" $($HOME/.config/sketchybar/plugins/icon_map_fn.sh "$app")"      
+    done <<< "${APPS}"
+      
+    $BAR_NAME --set space.$SPACE \
+        label.drawing=on \
+        label="$ICON_STRIP"
   else
-    icon_strip=" —"
+    $BAR_NAME --set space.$SPACE \
+        label.drawing=off \
+        label=""
   fi
-
-  $BAR_NAME --set space.$space label="$icon_strip"
+      
 fi

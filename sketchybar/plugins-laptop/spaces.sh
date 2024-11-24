@@ -20,6 +20,7 @@ do
   $BAR_NAME \
      --add space space.$sid e \
      --set space.$sid \
+            drawing=off \
             space=$sid \
             icon=$sid \
             icon.padding_right=0 \

@@ -12,11 +12,11 @@ if [ "$SENDER" = "space_windows_change" ]; then #|| [ "$SENDER" = "front_app_swi
     done <<< "${APPS}"
       
     $BAR_NAME --set space.$SPACE \
-        label.drawing=on \
+        drawing=on \
         label="$ICON_STRIP"
   else
     $BAR_NAME --set space.$SPACE \
-        label.drawing=off \
+        drawing=off \
         label=""
   fi
       
