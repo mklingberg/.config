@@ -10,6 +10,8 @@ PADDING_LEFT=10
 
 PADDING_RIGHT_SELECTED=28
 PADDING_LEFT_SELECTED=16
+PADDING_RIGHT_OUTSIDE_SELECTED=8
+PADDING_LEFT_OUTSIDE_SELECTED=16
 
 if [ $SELECTED = true ]; then
     $BAR_NAME \
@@ -24,8 +26,8 @@ if [ $SELECTED = true ]; then
             label.y_offset=-2 \
             background.color=$COLOR_SPACE_SELECTED_BG \
             background.corner_radius=8 \
-            background.padding_left=12 \
-            background.padding_right=8 \
+            background.padding_left=$PADDING_LEFT_OUTSIDE_SELECTED \
+            background.padding_right=$PADDING_RIGHT_OUTSIDE_SELECTED \
             background.height=30
 else
     $BAR_NAME \
