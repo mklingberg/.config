@@ -8,7 +8,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 MARGIN_LEFT=0
 MARGIN_RIGHT=0
-BAR_HEIGHT=38
+BAR_HEIGHT=40
 SEPARATOR_WIDTH=5
 
 FRONT_APP_ICON_SIZE=20
@@ -21,7 +21,7 @@ bar=(
     sticky=on
     padding_left=0
     padding_right=0
-    notch_width=200
+    notch_width=0
     display=$DISPLAY_NUMBER
 )
 
@@ -220,7 +220,7 @@ spotify_separator2=(
 $BAR_NAME \
     --add item separator_spotify_1 q \
     --set separator_spotify_1 \
-            icon.padding_left=0 \
+            icon.padding_left=100 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add event spotify_change $SPOTIFY_EVENT \
     --add item spotify q \
@@ -235,10 +235,16 @@ $BAR_NAME \
         background.color=$COLOR_SPOTIFY_BG \
     --add item separator_spotify2 q \
     --set separator_spotify2 "${spotify_separator2[@]}" \
+    --add item separator_notch e \
+    --set separator_notch \
+            background.color=$COLOR_SPOTIFY_SEPARATOR2 \
+            icon.padding_left=0 \
+            icon.padding_right=0 \
     --add item separator_current_space_0 e \
     --set separator_current_space_0 \
-            icon.padding_left=4 \
-            icon.padding_right=$SEPARATOR_WIDTH \
+            label.drawing=false \
+            icon.padding_left=100 \
+            icon.padding_right=$SEPARATOR_WIDTH
 
 # -- SPACES --
 
