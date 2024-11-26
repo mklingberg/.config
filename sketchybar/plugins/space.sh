@@ -5,8 +5,8 @@
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
 source "$HOME/.config/$BAR_NAME/theme.sh" # Loads all defined colors
 
-PADDING_RIGHT=12
-PADDING_LEFT=8
+PADDING_RIGHT=18
+PADDING_LEFT=12
 
 PADDING_RIGHT_SELECTED=20
 PADDING_LEFT_SELECTED=12
