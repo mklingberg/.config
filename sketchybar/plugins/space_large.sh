@@ -5,13 +5,13 @@
 # https://felixkratz.github.io/sketchybar/config/components#space----associate-mission-control-spaces-with-an-item
 source "$HOME/.config/$BAR_NAME/theme.sh" # Loads all defined colors
 
-PADDING_RIGHT=10
-PADDING_LEFT=10
+PADDING_RIGHT=18
+PADDING_LEFT=12
 
 PADDING_RIGHT_SELECTED=28
 PADDING_LEFT_SELECTED=16
 PADDING_RIGHT_OUTSIDE_SELECTED=4
-PADDING_LEFT_OUTSIDE_SELECTED=12
+PADDING_LEFT_OUTSIDE_SELECTED=8
 SHADOW_COLOR=0x22000000
 SHADOW_DISTANCE=3
 
@@ -23,7 +23,7 @@ if [ $SELECTED = true ]; then
             label.color=$COLOR_SPACE_SELECTED_ICON \
             icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
             icon.padding_left=$PADDING_LEFT_SELECTED \
-            icon.padding_right=2 \
+            icon.padding_right=4 \
             label.padding_right=$PADDING_RIGHT_SELECTED \
             label.y_offset=-2 \
             background.color=$COLOR_SPACE_SELECTED_BG \
@@ -42,7 +42,7 @@ else
             icon.color=$COLOR_SPACE_SPACE_NO \
             background.color=$TRANSPARENT \
             icon.padding_left=$PADDING_LEFT \
-            icon.padding_right=2 \
+            icon.padding_right=4 \
             background.padding_left=0 \
             background.padding_right=0
 fi

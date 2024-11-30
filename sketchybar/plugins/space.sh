@@ -19,11 +19,11 @@ if [ $SELECTED = true ]; then
     $BAR_NAME \
         --set $NAME \
             icon.font="$FONT_FACE:Medium:22.0" \
-            label.font="sketchybar-app-font:Regular:13.0" \
+            label.font="sketchybar-app-font:Regular:14.0" \
             label.color=$COLOR_SPACE_SELECTED_ICON \
             icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
             icon.padding_left=$PADDING_LEFT_SELECTED \
-            icon.padding_right=2 \
+            icon.padding_right=5 \
             label.padding_left=0 \
             label.padding_right=$PADDING_RIGHT_SELECTED \
             background.color=$COLOR_SPACE_SELECTED_BG \
@@ -40,7 +40,7 @@ else
             label.shadow.drawing=off \
             icon.color=$COLOR_SPACE_SPACE_NO \
             icon.padding_left=$PADDING_LEFT \
-            icon.padding_right=2 \
+            icon.padding_right=5 \
             label.padding_left=0 \
             label.padding_right=$PADDING_RIGHT \
             background.corner_radius=8 \
