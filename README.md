@@ -15,7 +15,7 @@ The main bar is set to be shown on the main screen and the laptop screen should 
 Create links to config folder
 
 `ln -s ~/.config/zsh/zshrc ~/.zshrc`
-
+`ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua`
 `ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh`
 
 ### Dracula Zsh

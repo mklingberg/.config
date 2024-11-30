@@ -21,5 +21,7 @@
 !start_sketchybar_3.sh
 !zsh
 !zsh/**/*
+!wezterm
+!wezterm/**/*
 !.install.sh
 !Default.bttpreset
