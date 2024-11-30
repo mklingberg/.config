@@ -119,6 +119,10 @@ rm -rf /tmp/SFMono_Nerd_Font/
 
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.28/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 
+# Create links to use .config
+ln -s ~/.config/zsh/zshrc ~/.zshrc
+ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua
+ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh
 
 # Start Services
 echo "Starting Services (grant permissions)..."
