@@ -6,6 +6,9 @@ Using tiling window manager yabai and skhd for additional, customizable keyboard
 ## Sketchybar
 Configuration for sketchybar that integrates with yabai. Two bar layouts, desktop and laptop. Desktop to be used with external displays and laptop as the main MacBook display.
 
+## Borders
+Running borders as a standalone service `brew services start borders`.
+
 ## Adding a secondary bar
 
 Use the command `ln -s $(which sketchybar) $(dirname $(which sketchybar))/sketchybar-2` to add a secondary bar for external screen.
