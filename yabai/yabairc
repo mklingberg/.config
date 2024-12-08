@@ -7,6 +7,9 @@ yabai -m config layout                          bsp
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement                second_child
 
+# Allow floating windows to cast shadows
+yabai -m config window_shadow                   float
+
 yabai -m config top_padding                     3
 yabai -m config bottom_padding                  4
 yabai -m config left_padding                    4
@@ -35,10 +38,16 @@ yabai -m config insert_feedback_color           0x99ffffff #0xfff1fa8c
 yabai -m config focus_follows_mouse             autoraise
 
 # center mouse on window with focuts
-yabai -m config mouse_follows_focus             off
+yabai -m config mouse_follows_focus             on
 
 # modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier                  ctrl
+
+# Set modifier + left-click drag to move window (default: move)
+yabai -m config mouse_action1 move
+
+# Set modifier + right-click drag to resize window (default: resize)
+yabai -m config mouse_action2 resize
 
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action                      swap
