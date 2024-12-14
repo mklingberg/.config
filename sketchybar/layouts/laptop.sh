@@ -8,10 +8,10 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 MARGIN_LEFT=0
 MARGIN_RIGHT=0
-BAR_HEIGHT=40
+BAR_HEIGHT=38
 SEPARATOR_WIDTH=5
 
-FRONT_APP_ICON_SIZE=20
+FRONT_APP_ICON_SIZE=16
 FRONT_APP_NAME_SIZE=16
 
 bar=(
@@ -28,12 +28,12 @@ bar=(
 default=(
     background.height=$BAR_HEIGHT
     icon.color=$COLOR_TEXT
-    icon.font="$FONT_FACE:Medium:20.0"
+    icon.font="$FONT_FACE:Medium:18.0"
     icon.padding_left=5
     icon.padding_right=5
     icon.y_offset=0
     label.color=$COLOR_TEXT
-    label.font="$FONT_FACE:Medium:16.0"
+    label.font="$FONT_FACE:Medium:14.0"
     label.y_offset=0
     label.padding_left=5
     label.padding_right=5
@@ -53,7 +53,7 @@ reload=(
     icon.padding_left=0
     icon.padding_right=5
     background.color=$COLOR_RELOAD_BG
-    label.font="$FONT_FACE:Medium:19.0"
+    label.font="$FONT_FACE:Medium:16.0"
     label=$DISPLAY_NUMBER
     label.padding_right=1
     label.padding_left=0
@@ -112,7 +112,7 @@ utils_separator2=(
 
 battery=(
     update_freq=20
-    icon.font="$FONT_FACE:Medium:20.0"
+    #icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
     icon.padding_right=8
     label.padding_right=10
@@ -136,22 +136,16 @@ battery=(
 # )
 
 cpu_user=(
-        update_freq=3
-        icon=$ICON_CPU_LOAD_1
-        icon.font="$FONT_FACE:Medium:21.0"
-        icon.color=$COLOR_STATS
-        icon.padding_left=8
-        icon.padding_right=10
-        icon.y_offset=0
-        label.drawing=false
-        script="$PLUGIN_SHARED_DIR/cpu_load.sh"
+    update_freq=3
+    icon=$ICON_CPU_LOAD_1
+    icon.color=$COLOR_STATS
+    icon.padding_left=8
+    icon.padding_right=10
+    icon.y_offset=0
+    label.drawing=false
+    script="$PLUGIN_SHARED_DIR/cpu_load.sh"
 )
 
-
-
-#     --add item volume right \
-#     --set volume "${volume[@]}" \
-#     --subscribe volume volume_change \
 
 $BAR_NAME \
     --add item separator_utils_1 left \
@@ -188,7 +182,6 @@ $BAR_NAME \
 
 spotify=(
     icon=$ICON_SPOTIFY
-    icon.font="$FONT_FACE:Medium:22.0"
     icon.padding_left=14
     icon.padding_right=14
     label.padding_right=14
@@ -289,13 +282,13 @@ $BAR_NAME \
 # -- FRONT APP --
 
 front_app_separator=(
-        icon=$ICON_SEPARATOR_RIGHT
-        icon.color=$COLOR_FRONT_APP_BG
-        background.color=$COLOR_FRONT_APP_SEPARATOR2
-        icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-        icon.padding_left=0
-        icon.padding_right=0
-        label.drawing=false
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_FRONT_APP_BG
+    background.color=$COLOR_FRONT_APP_SEPARATOR2
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=0
+    label.drawing=false
 )
 
 front_app_separator2=(
@@ -309,27 +302,24 @@ front_app_separator2=(
 )
 
 front_app=(
-        background.padding_left=0
-        background.padding_right=0
-        icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0"
-        icon.padding_right=5
-        icon.padding_left=0
-        icon.color=$COLOR_FRONT_APP_ICON
-        label.drawing=false
-        script="$PLUGIN_SHARED_DIR/front_app.sh"
+    background.padding_left=0
+    background.padding_right=0
+    icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0"
+    icon.padding_right=5
+    icon.padding_left=0
+    icon.color=$COLOR_FRONT_APP_ICON
+    label.drawing=false
+    script="$PLUGIN_SHARED_DIR/front_app.sh"
 )
 
 front_app_name=(
-        icon.drawing=off
-        #label.font="$FONT_FACE:Bold:$FRONT_APP_NAME_SIZE.0"
-        label.color=$COLOR_FRONT_APP_NAME
-        background.color=$COLOR_FRONT_APP_NAME_BG
-        label.padding_left=5
-        label.padding_right=0
-        drawing=no
+    icon.drawing=off
+    label.color=$COLOR_FRONT_APP_NAME
+    background.color=$COLOR_FRONT_APP_NAME_BG
+    label.padding_left=5
+    label.padding_right=0
+    drawing=yes
 )
-
-
 
 $BAR_NAME \
     --add item front_app e \
@@ -388,6 +378,17 @@ clock=(
     script="$PLUGIN_SHARED_DIR/time.sh"
 )
 
+clock_icon=(
+    background.color=$COLOR_RIGHT_AREA_BG
+    icon=$ICON_CLOCK
+    icon.color=$COLOR_CLOCK
+    icon.y_offset=0
+    icon.padding_left=10
+    icon.padding_right=0
+    label.padding_left=0
+    label.padding_right=0
+)
+
 clock_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_RIGHT_AREA_BG
@@ -402,6 +403,8 @@ $BAR_NAME \
     --set separator_3 \
         background.color=$COLOR_RIGHT_AREA_BG \
         icon.padding_right=$SEPARATOR_WIDTH \
+    --add item clock_icon right \
+    --set clock_icon "${clock_icon[@]}" \
     --add item clock right \
     --set clock "${clock[@]}" \
     --add item clock_separator right \
@@ -414,7 +417,6 @@ airpods=(
     drawing=false
     update_freq=5
     icon=$ICON_AIRPODS
-    icon.font="$FONT_FACE:Medium:20.0"
     icon.color=$COLOR_STATS
     icon.y_offset=0
     icon.padding_left=10
@@ -428,7 +430,6 @@ airpods=(
 airpods_case=(
     drawing=false
     update_freq=5
-    icon.font="$FONT_FACE:Medium:28.0"
     icon.color=$COLOR_STATS
     icon.padding_left=6
     icon.padding_right=6
@@ -440,7 +441,6 @@ airpods_case=(
 
 volume=(
     icon=$ICON_VOLUME
-    icon.font="$FONT_FACE:Medium:20.0"
     icon.padding_left=10
     icon.padding_right=6
     label.padding_right=8
@@ -473,7 +473,7 @@ utils_r_separator2=(
 $BAR_NAME \
     --add item separator_utils_r_1 right \
     --set separator_utils_r_1 \
-            icon.padding_left=-8 \
+            icon.padding_left=0 \
             icon.padding_right=$SEPARATOR_WIDTH \
     --add item airpods_case right \
     --set airpods_case "${airpods_case[@]}" \

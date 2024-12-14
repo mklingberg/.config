@@ -126,3 +126,6 @@ export ICON_DOCKER=
 # Airpods
 export ICON_AIRPODS=󰋋
 export ICON_AIRPODS_CASE=󰋌
+
+# Clock
+export ICON_CLOCK=󰥔 # #

@@ -10,17 +10,17 @@ yabai -m config window_placement                second_child
 # Allow floating windows to cast shadows
 yabai -m config window_shadow                   float
 
-yabai -m config top_padding                     3
-yabai -m config bottom_padding                  4
-yabai -m config left_padding                    4
-yabai -m config right_padding                   4
-yabai -m config window_gap                      8
+yabai -m config top_padding                     4
+yabai -m config bottom_padding                  8
+yabai -m config left_padding                    6
+yabai -m config right_padding                   6
+yabai -m config window_gap                      12
 
-yabai -m config --display 2 top_padding         3
-yabai -m config --display 2 bottom_padding      4
-yabai -m config --display 2 left_padding        4
-yabai -m config --display 2 right_padding       4
-yabai -m config --display 2 window_gap          8
+yabai -m config --display 2 top_padding         4
+yabai -m config --display 2 bottom_padding      8
+yabai -m config --display 2 left_padding        6
+yabai -m config --display 2 right_padding       6
+yabai -m config --display 2 window_gap          12
 
 # You can hide the insertion overlay by setting the config option insert_feedback_color.
 #yabai -m config insert_feedback_color 0x00FFFFFF
@@ -36,7 +36,7 @@ yabai -m config insert_feedback_color           0x99ffffff #0xfff1fa8c
 
 # Automatically focus windows when the mouse enters them
 yabai -m config focus_follows_mouse             autoraise
-
+z
 # center mouse on window with focuts
 yabai -m config mouse_follows_focus             on
 z

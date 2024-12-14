@@ -159,8 +159,6 @@ docker_memory=(
     script="$PLUGIN_SHARED_DIR/docker_memory.sh"
 )
 
-
-
 utils_separator=(
     icon=$ICON_SEPARATOR_RIGHT
     icon.color=$COLOR_UTILS_BG
@@ -425,11 +423,23 @@ clock_separator=(
     icon.padding_right=-2
 )
 
+clock_icon=(
+    icon=$ICON_CLOCK
+    icon.color=$COLOR_CLOCK
+    icon.y_offset=0
+    icon.padding_left=10
+    icon.padding_right=0
+    label.padding_left=0
+    label.padding_right=0
+)
+
 $BAR_NAME \
     --add item separator_clock_1 right \
     --set separator_clock_1 \
             icon.padding_left=0 \
             icon.padding_right=$SEPARATOR_WIDTH \
+    --add item clock_icon right \
+    --set clock_icon "${clock_icon[@]}" \
     --add item clock right \
     --set clock \
             label.color=$COLOR_RIGHT_AREA_TEXT \
