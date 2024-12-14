@@ -38,3 +38,13 @@ ctrl - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # maximize a window
 ctrl - m : yabai -m window --toggle zoom-fullscreen
 ctrl + shift - m : yabai -m window --toggle native-fullscreen
+
+
+# Play/Pause Spotify
+ctrl + alt - p : osascript -e 'tell application "Spotify" to playpause'
+
+# Next Track
+ctrl + alt - n : osascript -e 'tell application "Spotify" to next track'
+
+# Previous Track
+ctrl + alt - b : osascript -e 'tell application "Spotify" to previous track'
