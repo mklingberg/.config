@@ -27,3 +27,4 @@
 !wezterm/**/*
 !.install.sh
 !Default.bttpreset
+!bm_cfg.plist

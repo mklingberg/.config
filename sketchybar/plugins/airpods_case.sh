@@ -32,5 +32,5 @@ if [ "$CASE_BATTERY" -gt 0 ]; then
 
     $BAR_NAME --set $NAME drawing=true label="$CASE_BATTERY%" label.drawing=$SHOW_LABEL icon=$ICON_AIRPODS_CASE icon.color=$COLOR
 else
-    $BAR_NAME --set $NAME drawing=false
+    $BAR_NAME --set $NAME drawing=falsel
 fi
