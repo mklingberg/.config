@@ -37,4 +37,4 @@ case ${INFO} in
     ;;
 esac
 
-$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$ICON_COLOR icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$COLOR_VOLUME_TEXT icon.color=$ICON_COLOR

@@ -8,7 +8,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 MARGIN_LEFT=0
 MARGIN_RIGHT=0
-BAR_HEIGHT=38
+BAR_HEIGHT=40
 SEPARATOR_WIDTH=5
 
 FRONT_APP_ICON_SIZE=16
@@ -383,7 +383,7 @@ clock_icon=(
     icon=$ICON_CLOCK
     icon.color=$COLOR_CLOCK
     icon.y_offset=0
-    icon.padding_left=10
+    icon.padding_left=6
     icon.padding_right=0
     label.padding_left=0
     label.padding_right=0
