@@ -3,11 +3,14 @@ COLOR_VOLUME_LOW=0xffee99a0
 COLOR_VOLUME_MEDIUM=0xffed8796
 COLOR_VOLUME_HIGH=0xffff0000
 
+source "$HOME/.config/sketchybar/utils.sh"
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
 SHOW_LABEL=false
 #ICON_PADDING_RIGHT=10
 ICON_COLOR=$COLOR_VOLUME_LOW  # Default color
+
+LABEL_TRANSPARENCY=99
 
 case ${INFO} in
 0)
@@ -37,4 +40,6 @@ case ${INFO} in
     ;;
 esac
 
-$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$COLOR_VOLUME_TEXT icon.color=$ICON_COLOR
+LABEL_COLOR=$(fade_color $ICON_COLOR)
+
+$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$LABEL_COLOR icon.color=$ICON_COLOR

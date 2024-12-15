@@ -21,7 +21,7 @@ update_track() {
 
     if [[ -z $SPOTIFY_JSON ]]; then
         $BAR_NAME --set $NAME \
-                    icon = $ICON_SPOTIFY \
+                    icon=$ICON_SPOTIFY \
                     icon.color=$COLOR_SPOTIFY_ICON \
                     label.drawing=no
         return

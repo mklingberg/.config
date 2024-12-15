@@ -43,3 +43,10 @@ get_display_type() {
         echo "External"
     fi
 }
+
+fade_color() {
+    local original_color=$1
+    local transparency=${2:-99}  # Default if $2 is not specified
+    local faded_color="0x${transparency}${original_color:4}"
+    echo $faded_color
+}

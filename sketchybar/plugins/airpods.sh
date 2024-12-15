@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/theme.sh"
+source "$HOME/.config/sketchybar/utils.sh"
 
 WARNING_THRESHOLD=45
 CRITICAL_THRESHOLD=20
@@ -38,6 +39,7 @@ else
         SHOW_LABEL=true
     fi
 
+    LABEL_COLOR=$(fade_color $COLOR)
     # Show the item and set the label if LOWEST_BATTERY is not empty
-    $BAR_NAME --set $NAME drawing=true label.drawing=$SHOW_LABEL label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS icon.color=$COLOR
+    $BAR_NAME --set $NAME drawing=true label.drawing=$SHOW_LABEL label="$LOWEST_BATTERY%" icon=$ICON_AIRPODS icon.color=$COLOR label.color=$LABEL_COLOR
 fi
