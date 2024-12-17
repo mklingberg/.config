@@ -422,6 +422,13 @@ clock_separator=(
     icon.padding_right=-2
 )
 
+clock=(
+    label.color=$COLOR_RIGHT_AREA_TEXT
+    icon.drawing=no
+    update_freq=10
+    script="$PLUGIN_SHARED_DIR/time.sh"
+)
+
 clock_icon=(
     icon=$ICON_CLOCK
     icon.color=$COLOR_CLOCK
@@ -459,11 +466,7 @@ $BAR_NAME \
     --add item clock_icon right \
     --set clock_icon "${clock_icon[@]}" \
     --add item clock right \
-    --set clock \
-            label.color=$COLOR_RIGHT_AREA_TEXT \
-            icon.drawing=no \
-            update_freq=10 \
-            script="$PLUGIN_SHARED_DIR/time.sh" \
+    --set clock "${clock[@]}" \
     --add item separator_clock_2 right \
     --set separator_clock_2 \
             icon.padding_left=0 \
