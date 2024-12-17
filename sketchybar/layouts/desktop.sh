@@ -137,7 +137,7 @@ cpu_sys=(
 
 docker_cpu=(
     drawing=false
-    update_freq=10
+    update_freq=60
     icon=$ICON_DOCKER
     icon.color=$COLOR_STATS
     icon.padding_left=8
@@ -151,7 +151,7 @@ docker_cpu=(
 
 docker_memory=(
     drawing=false
-    update_freq=60
+    update_freq=120
     icon.drawing=false
     label.padding_left=-5
     label.padding_right=10
@@ -407,7 +407,6 @@ $BAR_NAME \
     --set front_app.separator2 "${front_app_separator2[@]}"
 
 
-
 # ------------------------
 # RIGHT
 # ------------------------
@@ -417,7 +416,7 @@ $BAR_NAME \
 clock_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_RIGHT_AREA_BG
-    background.color=$COLOR_UTILS_RIGHT_BG
+    background.color=$COLOR_DATE_BG
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
@@ -433,6 +432,25 @@ clock_icon=(
     label.padding_right=0
 )
 
+date=(
+    label.color=$COLOR_DATE_TEXT
+    background.color=$COLOR_DATE_BG
+    label.padding_left=10
+    label.padding_right=20
+    icon.drawing=no
+    update_freq=120
+    script="$PLUGIN_SHARED_DIR/date.sh"
+)
+
+date_separator=(
+    icon=$ICON_SEPARATOR_LEFT
+    icon.color=$COLOR_DATE_BG
+    background.color=$COLOR_UTILS_RIGHT_BG
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-2
+)
+
 $BAR_NAME \
     --add item separator_clock_1 right \
     --set separator_clock_1 \
@@ -445,7 +463,7 @@ $BAR_NAME \
             label.color=$COLOR_RIGHT_AREA_TEXT \
             icon.drawing=no \
             update_freq=10 \
-            script="$PLUGIN_SHARED_DIR/clock.sh" \
+            script="$PLUGIN_SHARED_DIR/time.sh" \
     --add item separator_clock_2 right \
     --set separator_clock_2 \
             icon.padding_left=0 \
@@ -454,10 +472,15 @@ $BAR_NAME \
             separator_clock_1 \
             separator_clock_2 \
             clock \
+            date \
     --set clock_bracket \
             background.color=$COLOR_RIGHT_AREA_BG \
     --add item clock.separator right \
-    --set clock.separator "${clock_separator[@]}"
+    --set clock.separator "${clock_separator[@]}" \
+    --add item date right \
+    --set date "${date[@]}" \
+    --add item date.separator right \
+    --set date.separator "${date_separator[@]}"
 
 
 # -- UTILS RIGHT --
@@ -550,7 +573,7 @@ $BAR_NAME \
     --add item utils_right.separator right \
     --set utils_right.separator "${utils_r_separator[@]}" \
     --add item utils_right.separator2 right \
-    --set utils_right.separator2 "${utils_r_separator2[@]}"     
+    --set utils_right.separator2 "${utils_r_separator2[@]}"
 
 # ------------------------
 # INIT
