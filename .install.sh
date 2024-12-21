@@ -33,6 +33,7 @@ brew install azure-cli
 ### Utilities
 brew install --cask betterdisplay
 brew install --cask bettertouchtool
+brew install --cask bettermouse
 brew install --cask cheatsheet
 
 ### Terminals

@@ -12,6 +12,9 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 10
 
+-- Prevent WezTerm from reusing existing windows
+-- config.window_close_confirmation = "NeverPrompt"
+
 config.color_scheme = "Dracula"
 config.colors = {
     foreground = "#c0c0c0",
