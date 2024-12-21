@@ -95,19 +95,6 @@ $BAR_NAME \
 
 # -- UTILS --
 
-brew=(
-    icon=$ICON_BREW
-    icon.color=$COLOR_STATS
-    icon.padding_left=10
-    icon.padding_right=10
-    drawing=false
-    label.color=$COLOR_STATS
-    label.padding_right=8
-    label.padding_left=-5
-    update_freq=60
-    script="$PLUGIN_SHARED_DIR/brew.sh"
-)
-
 cpu_user=(
     update_freq=3
     icon=$ICON_CPU_IDLE
@@ -165,7 +152,7 @@ utils_separator=(
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
-    background.color=$COLOR_UTILS_SEPARATOR2
+    background.color=$COLOR_UTILS_UPDATES_BG
 )
 
 utils_separator2=(
@@ -178,6 +165,26 @@ utils_separator2=(
     label.drawing=false
 )
 
+# -- UTILS UPDATES / BREW --
+
+brew=(
+    icon=$ICON_BREW
+    icon.padding_right=0
+    label.padding_left=8
+    label.drawing=off
+    update_freq=60
+    script="$PLUGIN_SHARED_DIR/brew.sh"
+)
+
+utils_update_separator=(
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_UTILS_UPDATES_BG
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=0
+    icon.padding_right=-2
+    background.color=$COLOR_UTILS_SEPARATOR2
+)
+
 # Add a new item to SketchyBar
     
 $BAR_NAME \
@@ -186,10 +193,6 @@ $BAR_NAME \
                 icon.padding_left=-12 \
                 icon.padding_right=$SEPARATOR_WIDTH \
                 label.drawing=off \
-    --add event brew_update \
-    --add item brew left \
-    --set brew "${brew[@]}" \
-    --subscribe brew brew_update \
     --add item cpu_user left \
     --set cpu_user "${cpu_user[@]}" \
     --add item cpu_sys left \
@@ -213,6 +216,27 @@ $BAR_NAME \
                 background.color=$COLOR_UTILS_BG \
     --add item utils.separator left \
     --set utils.separator "${utils_separator[@]}" \
+    --add item separator_utils_update_1 left \
+    --set separator_utils_update_1 \
+            icon.padding_left=0 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add event brew_update \
+    --add item brew left \
+    --set brew "${brew[@]}" \
+    --subscribe brew brew_update \
+    --add item separator_utils_update_2 left \
+    --set separator_utils_update_2 \
+            icon.padding_left=-4 \
+            icon.padding_right=$SEPARATOR_WIDTH \
+    --add item utils_update_separator left \
+    --set utils_update_separator "${utils_update_separator[@]}" \
+    --add bracket utils_update_bracket \
+                separator_utils_update_1 \
+                separator_utils_update_2 \
+                brew \
+                utils_update_separator \
+    --set utils_update_bracket \
+                background.color=$COLOR_UTILS_UPDATES_BG \
     --add item utils.separator2 left \
     --set utils.separator2 "${utils_separator2[@]}"
 
@@ -442,8 +466,6 @@ clock_icon=(
 date=(
     label.color=$COLOR_DATE_TEXT
     background.color=$COLOR_DATE_BG
-    label.padding_left=10
-    label.padding_right=20
     icon.drawing=no
     update_freq=120
     script="$PLUGIN_SHARED_DIR/date.sh"
@@ -475,15 +497,28 @@ $BAR_NAME \
             separator_clock_1 \
             separator_clock_2 \
             clock \
-            date \
     --set clock_bracket \
             background.color=$COLOR_RIGHT_AREA_BG \
     --add item clock.separator right \
     --set clock.separator "${clock_separator[@]}" \
+    --add item separator_date_1 right \
+    --set separator_date_1 \
+            icon.padding_left=4 \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add item date right \
     --set date "${date[@]}" \
+    --add item separator_date_2 right \
+    --set separator_date_2 \
+            icon.padding_left=0 \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add item date.separator right \
-    --set date.separator "${date_separator[@]}"
+    --set date.separator "${date_separator[@]}" \
+    --add bracket date_bracket \
+            separator_date_1 \
+            separator_date_2 \
+            date \
+    --set date_bracket \
+            background.color=$COLOR_DATE_BG
 
 
 # -- UTILS RIGHT --
@@ -495,7 +530,6 @@ volume=(
     icon.color=$COLOR_STATS
     icon.padding_left=10
     icon.padding_right=10
-    label.padding_left=-5
     label.padding_right=10
     label.color=$COLOR_STATS
     #drawing=false

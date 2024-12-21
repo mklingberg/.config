@@ -117,8 +117,8 @@ export ICON_WIFI_CONNECTED=􀙇
 export ICON_WIFI_DISCONNECTED=􀙈
 
 # Brew
-export ICON_BREW=􀐛
-export ICON_BREW_UPDATED=􀆅
+export ICON_BREW=􀐛 # # #
+export ICON_BREW_UPDATED= # #󰸞 #􀆅
 
 # Docker
 export ICON_DOCKER=
@@ -129,3 +129,4 @@ export ICON_AIRPODS_CASE=󰋌
 
 # Clock
 export ICON_CLOCK=󰥔 # #
+export ICON_CALENDAR=
