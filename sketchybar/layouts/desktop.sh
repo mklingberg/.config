@@ -155,16 +155,6 @@ utils_separator=(
     background.color=$COLOR_UTILS_UPDATES_BG
 )
 
-utils_separator2=(
-    icon=$ICON_SEPARATOR_RIGHT
-    icon.color=$COLOR_UTILS_SEPARATOR2
-    background.color=$TRANSPARENT
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=-2
-    icon.padding_right=-2
-    label.drawing=false
-)
-
 # -- UTILS UPDATES / BREW --
 
 brew=(
@@ -172,7 +162,7 @@ brew=(
     icon.padding_right=0
     label.padding_left=8
     label.drawing=off
-    update_freq=60
+    update_freq=120
     script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
@@ -182,7 +172,7 @@ utils_update_separator=(
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
     icon.padding_right=-2
-    background.color=$COLOR_UTILS_SEPARATOR2
+    background.color=$TRANSPARENT
 )
 
 # Add a new item to SketchyBar
@@ -209,7 +199,6 @@ $BAR_NAME \
     --add bracket utils_bracket \
                 separator_utils_1 \
                 separator_utils_2 \
-                brew \
                 cpu_user \
                 cpu_sys \
     --set utils_bracket \
@@ -234,11 +223,8 @@ $BAR_NAME \
                 separator_utils_update_1 \
                 separator_utils_update_2 \
                 brew \
-                utils_update_separator \
     --set utils_update_bracket \
-                background.color=$COLOR_UTILS_UPDATES_BG \
-    --add item utils.separator2 left \
-    --set utils.separator2 "${utils_separator2[@]}"
+                background.color=$COLOR_UTILS_UPDATES_BG
 
 
 # ------------------------
@@ -567,20 +553,10 @@ airpods_case=(
 utils_r_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_UTILS_RIGHT_BG
-    background.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=0
-    icon.padding_right=-2
-)
-
-utils_r_separator2=(
-    icon=$ICON_SEPARATOR_LEFT
-    icon.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
     background.color=$TRANSPARENT
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
-    icon.padding_right=-4
-    label.drawing=false
+    icon.padding_right=-2
 )
 
 $BAR_NAME \
@@ -608,9 +584,7 @@ $BAR_NAME \
     --set utils_right \
             background.color=$COLOR_UTILS_RIGHT_BG \
     --add item utils_right.separator right \
-    --set utils_right.separator "${utils_r_separator[@]}" \
-    --add item utils_right.separator2 right \
-    --set utils_right.separator2 "${utils_r_separator2[@]}"
+    --set utils_right.separator "${utils_r_separator[@]}"
 
 # ------------------------
 # INIT
