@@ -13,6 +13,11 @@ SHOW_LABEL=false
 ICON=$ICON_CPU_LOAD_1
 ICON_COLOR=$COLOR_CPU_LOW
 
+# Refresh rate
+UPDATE_FREQ_STANDBY=30
+UPDATE_FREQ_HI=1
+UPDATE_FREQ=$UPDATE_FREQ_STANDBY
+
 LABEL_TEXT=""
 
 # Get the total number of CPU cores
@@ -21,7 +26,6 @@ STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
 # Extract Load Avg values 
 LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
 #LOAD_AVG=13.0
-
 
 # Determine the color based on CPU usage
 if (( $(echo "$LOAD_AVG > $HIGH_THRESHOLD" | bc -l) )); then
@@ -66,7 +70,17 @@ if (( $(echo "$LOAD_AVG > $LABEL_THRESHOLD" | bc -l) )); then
     USER_CPU=$(printf "%.0f" "$USER_CPU")
 
     LABEL_TEXT="${USER_CPU}%"
+
+    UPDATE_FREQ=$UPDATE_FREQ_HI
 fi
 
+cpu=(
+    icon=$ICON
+    icon.color=$ICON_COLOR
+    label.drawing=$SHOW_LABEL
+    label=$LABEL_TEXT
+    update_freq=$UPDATE_FREQ
+)
+
 # Update the bar with the CPU percentage and icon color
-$BAR_NAME --set $NAME icon=$ICON icon.color=$ICON_COLOR label.drawing=$SHOW_LABEL label=$LABEL_TEXT
+$BAR_NAME --set $NAME "${cpu[@]}"

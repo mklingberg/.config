@@ -96,7 +96,6 @@ $BAR_NAME \
 # -- UTILS --
 
 cpu_user=(
-    update_freq=3
     icon=$ICON_CPU_IDLE
     icon.color=$COLOR_STATS
     icon.padding_left=10
@@ -104,13 +103,11 @@ cpu_user=(
     label.padding_right=10
     label.padding_left=-5
     label.color=$COLOR_STATS
-    #label.width=30
     label.drawing=false
     script="$PLUGIN_SHARED_DIR/cpu_load_label.sh"
 )
 
 cpu_sys=(
-    update_freq=3
     icon=$ICON_CPU_SYS
     icon.color=$COLOR_STATS
     icon.padding_left=10

@@ -11,6 +11,11 @@ LOAD_THRESHOLD=10.0
 MEDIUM_THRESHOLD=60
 HIGH_THRESHOLD=80
 
+# Refresh rate
+UPDATE_FREQ_STANDBY=30
+UPDATE_FREQ_HI=1
+UPDATE_FREQ=$UPDATE_FREQ_STANDBY
+
 SHOW_LABEL=false
 
 STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
@@ -42,7 +47,17 @@ if (( $(echo "$LOAD_AVG > $LOAD_THRESHOLD" | bc -l) )); then
 
     # Format the label
     LABEL="${SYS_CPU}%"
+
+    UPDATE_FREQ=$UPDATE_FREQ_HI
 fi
 
+cpu_sys=(
+    label=$LABEL
+    drawing=$SHOW_LABEL
+    label.color=$ICON_COLOR
+    icon.color=$ICON_COLOR
+    update_freq=$UPDATE_FREQ
+)
+
 # Update the bar with the CPU percentage and icon color
-$BAR_NAME --set $NAME label="$LABEL" drawing=$SHOW_LABEL label.color=$ICON_COLOR icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME "${cpu_sys[@]}" 
