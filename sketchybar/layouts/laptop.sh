@@ -246,10 +246,21 @@ source $PLUGIN_DIR/spaces.sh
 current_space_separator=(
     icon=$ICON_SEPARATOR_RIGHT
     icon.color=$COLOR_SPACE_BG
-    background.color=$COLOR_FRONT_APP_BG
+    background.color=$COLOR_CURRENT_SPACE_SEPARATOR2
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
-    icon.padding_right=-12
+    icon.padding_right=0
+    label.drawing=false
+)
+
+current_space_separator2=(
+    icon=$ICON_SEPARATOR_RIGHT
+    icon.color=$COLOR_CURRENT_SPACE_SEPARATOR2
+    background.color=$TRANSPARENT
+    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
+    icon.padding_left=-6
+    icon.padding_right=0
+    label.drawing=false
 )
 
 $BAR_NAME \
@@ -274,96 +285,8 @@ $BAR_NAME \
               space.10 \
     --set current_space_bracket \
               background.color=$COLOR_SPACE_BG \
-    --add item separator_front_app_1 e \
-    --set separator_front_app_1 \
-            icon.padding_left=0 \
-            icon.padding_right=$SEPARATOR_WIDTH
-
-# -- FRONT APP --
-
-front_app_separator=(
-    icon=$ICON_SEPARATOR_RIGHT
-    icon.color=$COLOR_FRONT_APP_BG
-    background.color=$COLOR_FRONT_APP_SEPARATOR2
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=0
-    icon.padding_right=0
-    label.drawing=false
-)
-
-front_app_separator2=(
-    icon=$ICON_SEPARATOR_RIGHT
-    icon.color=$COLOR_FRONT_APP_SEPARATOR2
-    background.color=$TRANSPARENT
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=-6
-    icon.padding_right=0
-    label.drawing=false
-)
-
-front_app=(
-    background.padding_left=0
-    background.padding_right=0
-    icon.font="sketchybar-app-font:Regular:$FRONT_APP_ICON_SIZE.0"
-    icon.padding_right=5
-    icon.padding_left=0
-    icon.color=$COLOR_FRONT_APP_ICON
-    label.drawing=false
-    script="$PLUGIN_SHARED_DIR/front_app.sh"
-)
-
-front_app_name=(
-    icon.drawing=off
-    label.color=$COLOR_FRONT_APP_NAME
-    background.color=$COLOR_FRONT_APP_NAME_BG
-    label.padding_left=5
-    label.padding_right=0
-    drawing=yes
-)
-
-$BAR_NAME \
-    --add item front_app e \
-    --set front_app "${front_app[@]}" \
-    --add item front_app.name e \
-    --set front_app.name "${front_app_name[@]}" \
-    --add item separator_front_app_2 e \
-    --set separator_front_app_2 \
-            icon.padding_left=-10 \
-            icon.padding_right=$SEPARATOR_WIDTH \
-    --add item front_app.separator e \
-    --set front_app.separator "${front_app_separator[@]}" \
-    --add bracket front_app_bracket \
-            front_app \
-            front_app.name \
-            separator_front_app_2 \
-            separator_front_app_1 \
-     --set front_app_bracket \
-            background.color=$COLOR_FRONT_APP_BG \
-    --subscribe front_app front_app_switched mouse.clicked \
-    --add item front_app.separator2 e \
-    --set front_app.separator2 "${front_app_separator2[@]}"
-
-
-# $BAR_NAME --add item battery q \
-#           --set battery \
-#                 update_freq=20 \
-#                 icon.padding_left=10 \
-#                 label.padding_right=10 \
-#                 label.width=44 \
-#                 label.color=$COLOR_TEXT_CONTRAST \
-#                 icon.color=$COLOR_TEXT_CONTRAST \
-#                 script="$PLUGIN_SHARED_DIR/battery.sh"
-
-#$BAR_NAME --add item cpu q \
-#           --set cpu  update_freq=5 \
-#                      icon.padding_left=10 \
-#                      label.padding_right=10 \
-#                      label.width=38 \
-#                      icon=􀧓 \
-#                      label.color=$COLOR_TEXT_CONTRAST \
-#                      icon.color=$COLOR_TEXT_CONTRAST \
-#                      script="$PLUGIN_SHARED_DIR/cpu.sh"
-
+    --add item current_space.separator2 e \
+    --set current_space.separator2 "${current_space_separator2[@]}"
 
 # ------------------------
 # RIGHT
@@ -454,20 +377,10 @@ volume=(
 utils_r_separator=(
     icon=$ICON_SEPARATOR_LEFT
     icon.color=$COLOR_UTILS_RIGHT_BG
-    background.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
-    icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
-    icon.padding_left=0
-    icon.padding_right=-12
-)
-
-utils_r_separator2=(
-    icon=$ICON_SEPARATOR_LEFT
-    icon.color=$COLOR_UTILS_RIGHT_EXTRA_SEPARATOR
     background.color=$TRANSPARENT
     icon.font="$FONT_FACE:Bold:$BAR_HEIGHT.0"
     icon.padding_left=0
-    icon.padding_right=-8
-    label.drawing=false
+    icon.padding_right=-12
 )
 
 $BAR_NAME \
@@ -489,9 +402,7 @@ $BAR_NAME \
     --set utils_right \
             background.color=$COLOR_UTILS_RIGHT_BG \
     --add item utils_right.separator right \
-    --set utils_right.separator "${utils_r_separator[@]}" \
-    --add item utils_right.separator2 right \
-    --set utils_right.separator2 "${utils_r_separator2[@]}"
+    --set utils_right.separator "${utils_r_separator[@]}"
 
 
 # ------------------------
