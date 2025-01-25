@@ -40,7 +40,7 @@ default=(
     icon.font="$FONT_FACE:Medium:16.0"
     icon.padding_left=0
     icon.padding_right=0
-    icon.y_offset=1
+    icon.y_offset=0
     label.color=$COLOR_TEXT
     label.font="$FONT_FACE:Medium:14.0"
     label.y_offset=1
@@ -59,6 +59,7 @@ $BAR_NAME \
 screen=(
     icon=$ICON_APPLE
     icon.color=$COLOR_RELOAD_ICON
+    icon.y_offset=1
     icon.padding_right=5
     label=$DISPLAY_NUMBER
     background.padding_left=10
@@ -206,8 +207,8 @@ $BAR_NAME \
     --set spaces_bracket \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
-            background.padding_right=10 \
-            background.padding_left=10 \
+            background.padding_right=20 \
+            background.padding_left=20 \
             background.color=$COLOR_SPACE_BG
 
 
@@ -228,14 +229,13 @@ clock=(
 clock_icon=(
     icon=$ICON_CLOCK
     icon.color=$COLOR_CLOCK
-    icon.y_offset=0
     background.padding_right=10
     background.padding_left=0
 )
 
 date=(
     label.color=$COLOR_DATE_TEXT
-    background.padding_right=10
+    background.padding_right=20
     background.padding_left=10
     icon.drawing=no
     update_freq=120
@@ -249,9 +249,10 @@ date=(
 volume=(
     icon=$ICON_VOLUME
     icon.color=$COLOR_STATS
-    icon.padding_left=10
-    icon.padding_right=10
-    label.padding_right=10
+    icon.padding_right=5
+    icon.padding_left=5
+    background.padding_right=10
+    background.padding_left=10
     label.color=$COLOR_STATS
     #drawing=false
     label.drawing=false
@@ -263,10 +264,9 @@ airpods=(
     update_freq=5
     icon.font="$FONT_FACE:Medium:16.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=6
-    icon.padding_right=10
-    label.padding_left=-5
-    label.padding_right=10
+    icon.padding_right=5
+    background.padding_right=10
+    background.padding_left=5
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods.sh"
 )
@@ -276,11 +276,9 @@ airpods_case=(
     update_freq=5
     icon.font="$FONT_FACE:Medium:21.0"
     icon.color=$COLOR_STATS
-    icon.padding_left=8
-    icon.padding_right=10
-    label.padding_left=-5
-    label.padding_right=10
-    icon.y_offset=1
+    icon.padding_right=5
+    background.padding_right=10
+    background.padding_left=0
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods_case.sh"
 )
@@ -332,7 +330,7 @@ $BAR_NAME \
     --set utils_right \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
-            background.padding_right=10 \
+            background.padding_right=20 \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
 
