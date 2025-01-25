@@ -1,28 +1,24 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
-PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
-
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-BAR_HEIGHT=36
-SEPARATOR_WIDTH=12
-DEFAULT_PADDING=1
+MARGIN_LEFT=0
+MARGIN_RIGHT=0
+BAR_HEIGHT=44
+SEPARATOR_WIDTH=5
 
-DEFAULT_RADIUS=12
-INNER_RADIUS=11
+DEFAULT_RADIUS=16
+INNER_RADIUS=14
 
-OUTER_HEIGHT=24
-INNER_HEIGHT=22
+OUTER_HEIGHT=32
+INNER_HEIGHT=28
 
-FRONT_APP_ICON_SIZE=14
-FRONT_APP_NAME_SIZE=15
-
-# ------------------------
-# MAIN BAR
-# ------------------------
+FRONT_APP_ICON_SIZE=16
+FRONT_APP_NAME_SIZE=16
 
 bar=(
     height=$BAR_HEIGHT
@@ -31,6 +27,7 @@ bar=(
     sticky=on
     padding_left=8
     padding_right=8
+    notch_width=0
     display=$DISPLAY_NUMBER
 )
 
@@ -69,6 +66,15 @@ screen=(
 
 # -- UTILS --
 
+battery=(
+    update_freq=30
+    icon.padding_right=5
+    icon.padding_left=0
+    background.padding_left=0
+    background.padding_right=5
+    script="$PLUGIN_DIR/battery.sh"
+)
+
 cpu_user=(
     icon=$ICON_CPU_IDLE
     icon.color=$COLOR_STATS
@@ -77,7 +83,7 @@ cpu_user=(
     label.color=$COLOR_STATS
     background.padding_left=10
     background.padding_right=5
-    script="$PLUGIN_SHARED_DIR/cpu_load_label.sh"
+    script="$PLUGIN_SHARED_DIR/cpu_load.sh"
 )
 
 brew=(
@@ -92,14 +98,14 @@ brew=(
     script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
-# Add a new item to SketchyBar
-
 $BAR_NAME \
     --add item screen left \
     --set screen "${screen[@]}" \
     --subscribe screen mouse.clicked mouse.entered mouse.exited \
     --add item cpu_user left \
     --set cpu_user "${cpu_user[@]}" \
+    --add item battery left \
+    --set battery "${battery[@]}" \
     --add event brew_update \
     --add item brew left \
     --set brew "${brew[@]}" \
@@ -126,7 +132,6 @@ $BAR_NAME \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_BG
 
-
 # ------------------------
 # CENTER
 # ------------------------
@@ -142,20 +147,32 @@ spotify=(
 )
 
 $BAR_NAME \
+    --add item separator_spotify_1 q \
+    --set separator_spotify_1 \
+            icon.padding_left=110 \
+            icon.padding_right=$SEPARATOR_WIDTH \
     --add event spotify_change $SPOTIFY_EVENT \
-    --add item spotify center \
+    --add item spotify q \
     --set spotify "${spotify[@]}" \
     --subscribe spotify spotify_change mouse.clicked \
-    --add item separator_spotify_2 center \
+    --add item separator_spotify_2 q \
     --add bracket spotify_bracket \
             spotify \
     --set spotify_bracket \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
             background.padding_right=10 \
-            background.padding_left=10
+            background.padding_left=10 \
+            background.color=$COLOR_SPOTIFY_BG \
+    --add item separator_current_space_0 e \
+    --set separator_current_space_0 \
+            label.drawing=false \
+            icon.padding_left=120 \
+            icon.padding_right=$SEPARATOR_WIDTH
 
 # -- SPACES --
 
-source $ITEM_DIR/spaces.sh
+source $PLUGIN_DIR/spaces_large.sh
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -174,20 +191,20 @@ front_app_name=(
 )
 
 $BAR_NAME \
-    --add item front_app center \
-    --set front_app "${front_app[@]}" \
-    --add item front_app.name center \
-    --set front_app.name "${front_app_name[@]}" \
-    --add bracket front_app_bracket \
-            front_app \
-            front_app.name \
-    --set front_app_bracket \
-            background.padding_right=10 \
-            background.padding_left=10 \
-    --subscribe front_app front_app_switched mouse.clicked \
+    --add item separator_spaces e \
     --add bracket center_bracket \
             spotify_bracket \
-            front_app_bracket \
+            space.1 \
+            space.2 \
+            space.3 \
+            space.4 \
+            space.5 \
+            space.6 \
+            space.7 \
+            space.8 \
+            space.9 \
+            space.10 \
+            separator_spaces \
     --set center_bracket \
             background.height=$OUTER_HEIGHT \
             background.corner_radius=$DEFAULT_RADIUS \
@@ -210,8 +227,7 @@ $BAR_NAME \
             background.corner_radius=$INNER_RADIUS \
             background.padding_right=20 \
             background.padding_left=20 \
-            background.color=$COLOR_SPACE_BG
-
+            background.color=$COLOR_SPACE_BG \
 
 # ------------------------
 # RIGHT
@@ -232,15 +248,6 @@ clock_icon=(
     icon.color=$COLOR_CLOCK
     background.padding_right=10
     background.padding_left=0
-)
-
-date=(
-    label.color=$COLOR_DATE_TEXT
-    background.padding_right=20
-    background.padding_left=10
-    icon.drawing=no
-    update_freq=120
-    script="$PLUGIN_SHARED_DIR/date.sh"
 )
 
 # -- UTILS RIGHT --
@@ -290,8 +297,6 @@ $BAR_NAME \
     --set clock_icon "${clock_icon[@]}" \
     --add item clock right \
     --set clock "${clock[@]}" \
-    --add item date right \
-    --set date "${date[@]}" \
     --add item airpods_case right \
     --set airpods_case "${airpods_case[@]}" \
     --add item airpods right \
@@ -306,7 +311,6 @@ $BAR_NAME \
             volume \
             clock_icon \
             clock \
-            date \
             separator_right \
     --set right_bracket \
             background.height=$OUTER_HEIGHT \
@@ -314,17 +318,6 @@ $BAR_NAME \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_RIGHT_AREA_BG \
-    --add bracket date_bracket \
-            airpods_case \
-            airpods \
-            volume \
-            date \
-    --set date_bracket \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
-            background.padding_right=10 \
-            background.padding_left=10 \
-            background.color=$COLOR_DATE_BG \
     --add bracket utils_right \
             airpods_case \
             airpods \
@@ -335,6 +328,7 @@ $BAR_NAME \
             background.padding_right=20 \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
+
 
 # ------------------------
 # INIT

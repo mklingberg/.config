@@ -11,7 +11,7 @@ echo "Display 2 is of type '$DISPLAY_TYPE'."
 
 # Check if the secondary display type is "Built-in"
 if [[ $DISPLAY_TYPE = "Built-in"* ]]; then
-	source "$LAYOUTS/laptop.sh"
+	source "$LAYOUTS/laptop-rounded.sh"
 else
 	source "$LAYOUTS/desktop-rounded.sh"
 fi
