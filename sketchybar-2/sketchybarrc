@@ -13,5 +13,5 @@ echo "Display 2 is of type '$DISPLAY_TYPE'."
 if [[ $DISPLAY_TYPE = "Built-in"* ]]; then
 	source "$LAYOUTS/laptop.sh"
 else
-	source "$LAYOUTS/desktop.sh"
+	source "$LAYOUTS/desktop-rounded.sh"
 fi
