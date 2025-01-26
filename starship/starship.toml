@@ -1,12 +1,56 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-#right_format = "$azure"
-
 # Inserts a blank line between shell prompts
 add_newline = true
 
+# Use the color palette
+palette = "dracula"
+
+#right_format = "$azure"
+
+# Begin theme 'Dracula'
+[character]
+#error_symbol = "[λ](bold red)"
+#success_symbol = "[λ](bold green)"
+
+[cmd_duration]
+style = "bold yellow"
+
+[directory]
+style = "bold green"
+read_only = " 󰌾"
+
+[git_branch]
+symbol = " "
+style = "bold pink"
+
+[hostname]
+ssh_symbol = " "
+style = "bold purple"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold cyan"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+# End theme 'Dracula'
+
 [git_status]
+style = "bold red"
 staged = '[++\($count\)](green)'
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
@@ -17,7 +61,8 @@ disabled = true
 #format = 'on [$symbol($username)]($style) '
 format = 'on [$symbol($subscription)]($style) '
 symbol = '󰠅 '
-style = 'blue bold'
+style = "bold orange"
+#style = 'blue bold'
 detect_files = ["*.tf"]  # Enable Azure module if any Terraform file is present
 subscription_aliases ={ "AzureCloud" = "Azure", "AzureChinaCloud" = "Azure China", "AzureGermanCloud" = "Azure Germany", "AzureUSGovernment" = "Azure Government" }
 
@@ -46,9 +91,6 @@ symbol = " "
 [dart]
 symbol = " "
 
-[directory]
-read_only = " 󰌾"
-
 [docker_context]
 symbol = " "
 
@@ -62,9 +104,6 @@ symbol = " "
 symbol = " "
 
 [fossil_branch]
-symbol = " "
-
-[git_branch]
 symbol = " "
 
 [git_commit]
@@ -84,9 +123,6 @@ symbol = " "
 
 [hg_branch]
 symbol = " "
-
-[hostname]
-ssh_symbol = " "
 
 [java]
 symbol = " "
