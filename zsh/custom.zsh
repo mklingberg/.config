@@ -81,7 +81,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gitfast azure dotnet macos terraform nvm npm zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(podman gitfast azure dotnet terraform nvm npm zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
