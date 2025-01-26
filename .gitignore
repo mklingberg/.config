@@ -25,6 +25,8 @@
 !zsh/**/*
 !wezterm
 !wezterm/**/*
+!starship
+!starship.toml
 !.install.sh
 !Default.bttpreset
 !bm_cfg.plist
