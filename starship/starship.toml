@@ -1,7 +1,7 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-right_format = "$azure"
+#right_format = "$azure"
 
 # Inserts a blank line between shell prompts
 add_newline = true
@@ -13,11 +13,12 @@ diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
 
 [azure]
-disabled = false
+disabled = true
 #format = 'on [$symbol($username)]($style) '
 format = 'on [$symbol($subscription)]($style) '
 symbol = '󰠅 '
 style = 'blue bold'
+detect_files = ["*.tf"]  # Enable Azure module if any Terraform file is present
 subscription_aliases ={ "AzureCloud" = "Azure", "AzureChinaCloud" = "Azure China", "AzureGermanCloud" = "Azure Germany", "AzureUSGovernment" = "Azure Government" }
 
 [kubernetes]
