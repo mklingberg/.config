@@ -172,7 +172,7 @@ $BAR_NAME \
 
 # -- SPACES --
 
-source $PLUGIN_DIR/spaces_large.sh
+source $PLUGIN_DIR/spaces.sh
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"

@@ -138,6 +138,7 @@ spotify=(
     label.drawing=off
     background.padding_left=12
     background.padding_right=10
+    background.height=$INNER_HEIGHT
     script="$PLUGIN_DIR/spotify.sh"
 )
 
@@ -150,6 +151,8 @@ $BAR_NAME \
     --add bracket spotify_bracket \
             spotify \
     --set spotify_bracket \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
             background.padding_right=10 \
             background.padding_left=10
 
@@ -217,8 +220,6 @@ $BAR_NAME \
 # RIGHT
 # ------------------------
 
-# -- DATE & TIME --
-
 clock=(
     icon.drawing=no
     update_freq=10
@@ -242,8 +243,6 @@ date=(
     update_freq=120
     script="$PLUGIN_SHARED_DIR/date.sh"
 )
-
-# -- UTILS RIGHT --
 
 # VOLUME
 
