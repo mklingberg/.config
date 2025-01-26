@@ -34,12 +34,13 @@ alias gc='git commit -v'
 alias gcm='git commit -m'
 alias gcmnv='git commit --no-verify -m'
 alias gcanenv='git commit --amend --no-edit --no-verify'
+alias gsc='git switch -c'
 
 # zsh
 alias zr='source ~/.zshrc'
 
 # Brew
-alias brb='brew services restart borders'
+alias bsrb='brew services restart borders'
 alias bo='brew outdated'
 alias bug='brew upgrade'
 alias bud='brew update'
