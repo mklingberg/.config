@@ -35,6 +35,8 @@ alias gcm='git commit -m'
 alias gcmnv='git commit --no-verify -m'
 alias gcanenv='git commit --amend --no-edit --no-verify'
 alias gsc='git switch -c'
+alias gsp='git stash push'
+alias gspop='git stash pop'
 
 # zsh
 alias zr='source ~/.zshrc'
