@@ -1,8 +1,4 @@
 # System
-alias shutdown='sudo shutdown now'
-alias restart='sudo reboot'
-alias suspend='sudo pm-suspend'
-alias sleep='pmset sleepnow'
 alias c='clear'
 alias e='exit'
 
@@ -38,3 +34,12 @@ alias gc='git commit -v'
 alias gcm='git commit -m'
 alias gcmnv='git commit --no-verify -m'
 alias gcanenv='git commit --amend --no-edit --no-verify'
+
+# zsh
+alias zr='source ~/.zshrc'
+
+# Brew
+alias brb='brew services restart borders'
+alias bo='brew outdated'
+alias bug='brew upgrade'
+alias bud='brew update'
