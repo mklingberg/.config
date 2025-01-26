@@ -14,8 +14,8 @@ behind = '⇣${count}'
 
 [azure]
 disabled = false
-format = 'on [$symbol($username)]($style) '
-#format = 'on [$symbol($subscription)]($style) '
+#format = 'on [$symbol($username)]($style) '
+format = 'on [$symbol($subscription)]($style) '
 symbol = '󰠅 '
 style = 'blue bold'
 subscription_aliases ={ "AzureCloud" = "Azure", "AzureChinaCloud" = "Azure China", "AzureGermanCloud" = "Azure Germany", "AzureUSGovernment" = "Azure Government" }

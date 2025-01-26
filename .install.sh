@@ -40,8 +40,6 @@ brew install --cask cheatsheet
 #brew install --cask iterm2
 #brew install --cask warp
 brew install --cask wezterm
-brew install zsh-syntax-highlighting
-brew install zsh-autosuggestions
 
 ### Communication
 brew install --cask slack
