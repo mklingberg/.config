@@ -14,18 +14,18 @@ ICON=$ICON_CPU_LOAD_1
 ICON_COLOR=$COLOR_CPU_LOW
 
 # Refresh rate
-UPDATE_FREQ_STANDBY=30
+UPDATE_FREQ_STANDBY=15
 UPDATE_FREQ_HI=5
 UPDATE_FREQ=$UPDATE_FREQ_STANDBY
 
 LABEL_TEXT=""
 
-# Get the total number of CPU cores
-STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
+# Get the process / cpu usage stats
+STATS=$(top -l 1 -n 0)
 
 # Extract Load Avg values 
 LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
-#LOAD_AVG=13.0
+#LOAD_AVG=9.0
 
 # Determine the color based on CPU usage
 if (( $(echo "$LOAD_AVG > $HIGH_THRESHOLD" | bc -l) )); then
@@ -61,15 +61,10 @@ if (( $(echo "$LOAD_AVG > $LABEL_THRESHOLD" | bc -l) )); then
     SHOW_LABEL=true
     
     # Get the CPU usage from the top command
-    USER_CPU=$(echo "$STATS" | grep "CPU usage" | awk -F'[:,%]' '{print $2}' | xargs)
+    # LABEL_TEXT=$(echo "$STATS" | grep "CPU usage" | awk '{print $3 " " $5}')
 
-    # Set locale to C for correct number interpretation
-    export LC_NUMERIC=C
-
-    # Round the values to zero decimals
-    USER_CPU=$(printf "%.0f" "$USER_CPU")
-
-    LABEL_TEXT="${USER_CPU}%"
+    # Show the process with the highest CPU usage
+    LABEL_TEXT=$(ps -A -o %cpu,comm -c | sort -nr | head -n 1 | awk '{printf "%.1f%% %s\n", $1, $2}')
 
     UPDATE_FREQ=$UPDATE_FREQ_HI
 fi
