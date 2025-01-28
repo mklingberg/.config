@@ -9,11 +9,16 @@ source "$HOME/.config/$BAR_NAME/theme.sh"
 MEDIUM_THRESHOLD=8.0
 HIGH_THRESHOLD=12.0
 
+# Refresh rate
+UPDATE_FREQ_STANDBY=15
+UPDATE_FREQ_HI=5
+UPDATE_FREQ=$UPDATE_FREQ_STANDBY
+
 ICON_COLOR=$COLOR_CPU_LOW
 ICON=$ICON_CPU_LOAD_1
 
 # Get the total number of CPU cores
-STATS=$(sysctl -n machdep.cpu.thread_count | top -l 1 -n 0)
+STATS=$(top -l 1 -n 0)
 
 # Extract Load Avg values 
 LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
@@ -23,8 +28,10 @@ LOAD_AVG=$(echo "$STATS" | grep "Load Avg" | awk -F'[:,]' '{print $2}' | xargs)
 # Determine the color based on CPU usage
 if (( $(echo "$LOAD_AVG > $HIGH_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_HIGH
+    UPDATE_FREQ=$UPDATE_FREQ_HI
 elif (( $(echo "$LOAD_AVG > $MEDIUM_THRESHOLD" | bc -l) )); then
     ICON_COLOR=$COLOR_CPU_MEDIUM
+    UPDATE_FREQ=$UPDATE_FREQ_HI
 fi
 
 # Determine the icon based on CPU usage
@@ -50,5 +57,11 @@ else
     ICON=$ICON_CPU_LOAD_1
 fi
 
+cpu=(
+    icon=$ICON
+    icon.color=$ICON_COLOR
+    update_freq=$UPDATE_FREQ
+)
+
 # Update the bar with the CPU percentage and icon color
-$BAR_NAME --set $NAME icon=$ICON icon.color=$ICON_COLOR
+$BAR_NAME --set $NAME "${cpu[@]}"
