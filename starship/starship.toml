@@ -62,8 +62,7 @@ disabled = true
 format = 'on [$symbol($subscription)]($style) '
 symbol = '󰠅 '
 style = "bold orange"
-#style = 'blue bold'
-detect_files = ["*.tf"]  # Enable Azure module if any Terraform file is present
+# style = 'blue bold'
 subscription_aliases ={ "AzureCloud" = "Azure", "AzureChinaCloud" = "Azure China", "AzureGermanCloud" = "Azure Germany", "AzureUSGovernment" = "Azure Government" }
 
 [kubernetes]
