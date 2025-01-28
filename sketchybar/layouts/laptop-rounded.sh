@@ -8,7 +8,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 MARGIN_LEFT=0
 MARGIN_RIGHT=0
-BAR_HEIGHT=44
+BAR_HEIGHT=46
 SEPARATOR_WIDTH=5
 
 DEFAULT_RADIUS=16
@@ -27,7 +27,7 @@ bar=(
     sticky=on
     padding_left=8
     padding_right=8
-    notch_width=0
+    notch_width=234
     display=$DISPLAY_NUMBER
 )
 
@@ -142,33 +142,16 @@ spotify=(
     icon=$ICON_SPOTIFY
     label.drawing=off
     background.padding_left=12
-    background.padding_right=10
+    background.padding_right=12
     script="$PLUGIN_DIR/spotify.sh"
 )
 
 $BAR_NAME \
-    --add item separator_spotify_1 q \
-    --set separator_spotify_1 \
-            icon.padding_left=110 \
-            icon.padding_right=$SEPARATOR_WIDTH \
     --add event spotify_change $SPOTIFY_EVENT \
     --add item spotify q \
     --set spotify "${spotify[@]}" \
     --subscribe spotify spotify_change mouse.clicked \
-    --add item separator_spotify_2 q \
-    --add bracket spotify_bracket \
-            spotify \
-    --set spotify_bracket \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
-            background.padding_right=10 \
-            background.padding_left=10 \
-            background.color=$COLOR_SPOTIFY_BG \
-    --add item separator_current_space_0 e \
-    --set separator_current_space_0 \
-            label.drawing=false \
-            icon.padding_left=120 \
-            icon.padding_right=$SEPARATOR_WIDTH
+    --add item separator_spotify q
 
 # -- SPACES --
 
@@ -193,7 +176,8 @@ front_app_name=(
 $BAR_NAME \
     --add item separator_spaces e \
     --add bracket center_bracket \
-            spotify_bracket \
+            separator_spotify \
+            spotify \
             space.1 \
             space.2 \
             space.3 \
@@ -210,7 +194,7 @@ $BAR_NAME \
             background.corner_radius=$DEFAULT_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
-            background.color=$COLOR_SPOTIFY_BG \
+            background.color=0x88000000 \
     --add bracket spaces_bracket \
             space.1 \
             space.2 \
@@ -228,6 +212,14 @@ $BAR_NAME \
             background.padding_right=20 \
             background.padding_left=20 \
             background.color=$COLOR_SPACE_BG \
+    --add bracket spotify_bracket \
+            spotify \
+    --set spotify_bracket \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+            background.padding_right=10 \
+            background.padding_left=10 \
+            background.color=$COLOR_SPOTIFY_BG
 
 # ------------------------
 # RIGHT

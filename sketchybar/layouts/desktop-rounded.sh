@@ -75,6 +75,7 @@ cpu_user=(
     icon.padding_right=5
     icon.padding_left=5
     label.color=$COLOR_STATS
+    label.padding_right=5
     background.padding_left=10
     background.padding_right=5
     script="$PLUGIN_SHARED_DIR/cpu_load_label.sh"
