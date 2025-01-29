@@ -89,7 +89,7 @@ brew=(
     label.padding_right=10
     background.height=$INNER_HEIGHT
     background.corner_radius=$DEFAULT_RADIUS
-    background.color=$COLOR_UTILS_UPDATES_BG
+    background.color=$COLOR_BREW_BG
     script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 

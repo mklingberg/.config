@@ -94,7 +94,7 @@ brew=(
     label.padding_right=10
     background.height=$INNER_HEIGHT
     background.corner_radius=$DEFAULT_RADIUS
-    background.color=$COLOR_UTILS_UPDATES_BG
+    background.color=$COLOR_BREW_BG
     script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
@@ -110,52 +110,9 @@ $BAR_NAME \
     --add item brew left \
     --set brew "${brew[@]}" \
     --subscribe brew brew_update \
-    --add item separator_utils_1 left \
-    --add bracket left_bracket \
-            screen \
-            cpu_user \
-            brew \
-            separator_utils_1 \
-    --set left_bracket \
-            background.height=$OUTER_HEIGHT \
-            background.corner_radius=$DEFAULT_RADIUS \
-            background.padding_right=10 \
-            background.padding_left=10 \
-            background.color=$COLOR_RELOAD_BG \
-    --add bracket left_bracket2 \
-            cpu_user \
-            brew \
-    --set left_bracket2 \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
-            background.padding_right=10 \
-            background.padding_left=10 \
-            background.color=$COLOR_UTILS_BG
+    --add item separator_utils_1 left
 
-# ------------------------
-# CENTER
-# ------------------------
-
-# -- SPOTIFY --
-
-spotify=(
-    icon=$ICON_SPOTIFY
-    label.drawing=off
-    background.padding_left=12
-    background.padding_right=12
-    script="$PLUGIN_DIR/spotify.sh"
-)
-
-$BAR_NAME \
-    --add event spotify_change $SPOTIFY_EVENT \
-    --add item spotify q \
-    --set spotify "${spotify[@]}" \
-    --subscribe spotify spotify_change mouse.clicked \
-    --add item separator_spotify q
-
-# -- SPACES --
-
-source $PLUGIN_DIR/spaces.sh
+source $PLUGIN_DIR/spaces_left.sh
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -174,10 +131,12 @@ front_app_name=(
 )
 
 $BAR_NAME \
-    --add item separator_spaces e \
-    --add bracket center_bracket \
-            separator_spotify \
-            spotify \
+    --add item separator_spaces left \
+    --add bracket left_bracket \
+            screen \
+            cpu_user \
+            brew \
+            separator_utils_1 \
             space.1 \
             space.2 \
             space.3 \
@@ -189,13 +148,15 @@ $BAR_NAME \
             space.9 \
             space.10 \
             separator_spaces \
-    --set center_bracket \
+    --set left_bracket \
             background.height=$OUTER_HEIGHT \
             background.corner_radius=$DEFAULT_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
-            background.color=0x88000000 \
+            background.color=$COLOR_RELOAD_BG \
     --add bracket spaces_bracket \
+            cpu_user \
+            brew \
             space.1 \
             space.2 \
             space.3 \
@@ -212,14 +173,25 @@ $BAR_NAME \
             background.padding_right=20 \
             background.padding_left=20 \
             background.color=$COLOR_SPACE_BG \
-    --add bracket spotify_bracket \
-            spotify \
-    --set spotify_bracket \
+    --add bracket left_bracket2 \
+            cpu_user \
+            brew \
+    --set left_bracket2 \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
-            background.color=$COLOR_SPOTIFY_BG
+            background.color=$COLOR_UTILS_BG
+
+# ------------------------
+# CENTER
+# ------------------------
+
+
+
+# -- SPACES --
+
+
 
 # ------------------------
 # RIGHT
@@ -284,6 +256,14 @@ airpods_case=(
     script="$PLUGIN_SHARED_DIR/airpods_case.sh"
 )
 
+spotify=(
+    icon=$ICON_SPOTIFY
+    label.drawing=off
+    background.padding_left=12
+    background.padding_right=12
+    script="$PLUGIN_DIR/spotify.sh"
+)
+
 $BAR_NAME \
     --add item clock_icon right \
     --set clock_icon "${clock_icon[@]}" \
@@ -297,6 +277,11 @@ $BAR_NAME \
     --set volume "${volume[@]}" \
     --subscribe volume volume_change \
     --add item separator_right right \
+    --add event spotify_change $SPOTIFY_EVENT \
+    --add item spotify right \
+    --set spotify "${spotify[@]}" \
+    --subscribe spotify spotify_change mouse.clicked \
+    --add item separator_spotify right \
     --add bracket right_bracket \
             airpods_case \
             airpods \
@@ -304,12 +289,25 @@ $BAR_NAME \
             clock_icon \
             clock \
             separator_right \
+            spotify \
+            separator_spotify \
     --set right_bracket \
             background.height=$OUTER_HEIGHT \
             background.corner_radius=$DEFAULT_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_RIGHT_AREA_BG \
+    --add bracket spotify_bracket \
+            airpods_case \
+            airpods \
+            volume \
+            spotify \
+    --set spotify_bracket \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+            background.padding_right=10 \
+            background.padding_left=10 \
+            background.color=$COLOR_SPOTIFY_BG \
     --add bracket utils_right \
             airpods_case \
             airpods \
