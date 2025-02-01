@@ -17,17 +17,19 @@ after-startup-command = [
 # Start AeroSpace at login
 start-at-login = true
 
+# Notify Sketchybar about workspace change
+
 #on-focus-changed = '''
-#    exec-async sketchybar --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)"
+#    exec sketchybar --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)";
+#    exec sketchybar-2 --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)";
 #'''
 
-# Notify Sketchybar about workspace change
 exec-on-workspace-change = [
     '/bin/bash', 
     '-c',
     '''
-    sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE;
-    sketchybar-2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE
+    sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE;
+    sketchybar-2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE
     '''
 ]
 
@@ -53,7 +55,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #on-focus-changed = ["move-mouse window-lazy-center"]
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag

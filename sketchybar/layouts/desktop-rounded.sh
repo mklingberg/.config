@@ -159,7 +159,7 @@ $BAR_NAME \
 
 # -- SPACES --
 
-source $ITEM_DIR/aerospace.sh
+source "$ITEM_DIR/aerospace.sh" center
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"

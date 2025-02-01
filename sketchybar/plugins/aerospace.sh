@@ -9,18 +9,6 @@ PADDING_LEFT_SELECTED=6
 PADDING_RIGHT_OUTSIDE_SELECTED=6
 PADDING_LEFT_OUTSIDE_SELECTED=6
 
-#if echo "$EMPTY_WORKSPACES" | grep -q "$1"; then
-#    # marks empty
-#    $BAR_NAME \
-#        --set $NAME \
-#            icon.drawing=off
-#else
-#    # marks workspaces with windows
-#    $BAR_NAME \
-#        --set $NAME \
-#            icon.drawing=on
-#fi
-
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
     $BAR_NAME \
         --set $NAME \
