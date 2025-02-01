@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/theme.sh"
+source "$HOME/.config/sketchybar/plugins/aerospace_windows.sh" $MONITOR_ID
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
@@ -335,8 +336,9 @@ $BAR_NAME --update
 $BAR_NAME --trigger volume_change
 $BAR_NAME --trigger display_change
 
-# Initialize focused workspace
-$BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+# Initialize workspaces
+init_workspaces 
+init_focused
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

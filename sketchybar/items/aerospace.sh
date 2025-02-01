@@ -19,14 +19,18 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                         click_script="aerospace workspace $ID" \
                         icon=$ID \
                         icon.y_offset=1 \
-                        label.drawing=off \
                         label.font="sketchybar-app-font:Regular:14.0" \
                         label.y_offset=0 \
+                        label=" —" \
+                        background.padding_left=0 \
+                        background.padding_right=0 \
                         script="$PLUGIN_SHARED_DIR/aerospace.sh $ID"
 done
 
 $BAR_NAME \
         --add item workspaces_spacer_2 "$POSITION" \
+        --subscribe workspaces_spacer_2 aerospace_workspace_change \
         --set      workspaces_spacer_2 \
+                        script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
                         width=20 \
                         label.drawing=off

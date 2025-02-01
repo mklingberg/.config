@@ -28,8 +28,10 @@ exec-on-workspace-change = [
     '/bin/bash', 
     '-c',
     '''
-    sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE;
-    sketchybar-2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE
+    FOCUSED_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_WORKSPACE --format "%{monitor-id}|%{workspace}|%{app-name}");
+    PREV_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace $AEROSPACE_PREV_WORKSPACE --format "%{monitor-id}|%{workspace}|%{app-name}");
+    sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" PREV_WORKSPACE_WINDOWS="$PREV_WORKSPACE_WINDOWS";
+    sketchybar-2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" PREV_WORKSPACE_WINDOWS="$PREV_WORKSPACE_WINDOWS";
     '''
 ]
 
