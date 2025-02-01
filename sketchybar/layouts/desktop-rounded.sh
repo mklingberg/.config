@@ -159,7 +159,7 @@ $BAR_NAME \
 
 # -- SPACES --
 
-source $ITEM_DIR/spaces.sh
+source $ITEM_DIR/aerospace.sh
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -198,18 +198,8 @@ $BAR_NAME \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_SPOTIFY_BG \
-    --add bracket spaces_bracket \
-            space.1 \
-            space.2 \
-            space.3 \
-            space.4 \
-            space.5 \
-            space.6 \
-            space.7 \
-            space.8 \
-            space.9 \
-            space.10 \
-    --set spaces_bracket \
+    --add bracket workspaces /workspaces\.*/ \
+    --set workspaces \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
             background.padding_right=20 \
@@ -341,9 +331,12 @@ $BAR_NAME \
 # ------------------------
 
 $BAR_NAME --update
-$BAR_NAME --trigger space_change
+#$BAR_NAME --trigger space_change
 $BAR_NAME --trigger volume_change
 $BAR_NAME --trigger display_change
+
+# Initialize focused workspace
+$BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

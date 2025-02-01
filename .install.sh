@@ -16,7 +16,8 @@ brew install jq
 brew install skhd
 brew install sketchybar
 brew install borders
-brew install yabai
+#brew install yabai
+brew install --cask nikitabobko/tap/aerospace
 brew install gettext
 brew install oh-my-posh
 brew install libyaml
@@ -124,12 +125,13 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.
 # Create links to use .config
 ln -s ~/.config/zsh/zshrc ~/.zshrc
 ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua
-ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh
+#ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh
+#ln -s ~/.config/aerospace/aerospace.toml ~/.aerospace.toml
 
 # Start Services
 echo "Starting Services (grant permissions)..."
-brew services start skhd
-brew services start yabai
+#brew services start skhd
+#brew services start yabai
 brew services start sketchybar
 brew services start borders
 

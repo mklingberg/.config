@@ -27,6 +27,8 @@
 !wezterm/**/*
 !starship
 !starship.toml
+!aerospace
+!aerospace.toml
 !.install.sh
 !Default.bttpreset
 !bm_cfg.plist
