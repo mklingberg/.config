@@ -9,7 +9,7 @@ $BAR_NAME \
                         label.drawing=off
 
 # Fetch workspaces visible on this display/monitor
-MONITOR_WORKSPACES=( $(aerospace list-workspaces --format "%{workspace} %{monitor-appkit-nsscreen-screens-id}" --all | awk -v display="$DISPLAY_NUMBER" '$2 == display' | awk '{print $1}' ) )
+MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
 
 for ID in ${MONITOR_WORKSPACES[@]}; do
     $BAR_NAME \

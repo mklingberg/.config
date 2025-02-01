@@ -1,17 +1,16 @@
 #!/bin/bash
-source "$HOME/.config/$BAR_NAME/utils.sh"
-
-LAYOUTS="$HOME/.config/sketchybar/layouts"
 export DISPLAY_NUMBER=1
+LAYOUTS="$HOME/.config/sketchybar/layouts"
+
+source "$HOME/.config/$BAR_NAME/utils.sh"
 
 # Determines if a monitor is used
 # Since the notch is -only- on the laptop, if a monitor isn't used,
 # then that means the internal display is used ¯\_(ツ)_/¯
-DISPLAY_TYPE=$(get_display_type $DISPLAY_NUMBER)
-echo "Display 1 is of type '$DISPLAY_TYPE'."
 
-# Check if the display type is "Built-in"
-if [[ $DISPLAY_TYPE = "Built-in" ]]; then
+echo "Display 1 is internal? '$MONITOR_INTERNAL'."
+
+if [ "$MONITOR_INTERNAL" = true ]; then
 	source "$LAYOUTS/laptop-rounded.sh"
 else
 	source "$LAYOUTS/desktop-rounded.sh"

@@ -44,6 +44,19 @@ get_display_type() {
     fi
 }
 
+MONITOR_INFO=$(aerospace list-monitors --format "%{monitor-id}|%{monitor-appkit-nsscreen-screens-id}|%{monitor-name}" | awk -v display="$DISPLAY_NUMBER" -F'|' '$2 == display')
+MONITOR_ID=$(echo "$MONITOR_INFO" | awk -F'|' '{print $1}')
+MONITOR_NAME=$(echo "$MONITOR_INFO" | awk -F'|' '{print $3}')
+MONITOR_INTERNAL=false
+
+if [[ $MONITOR_NAME == *"Built-in"* ]]; then
+    MONITOR_INTERNAL=true
+fi
+
+export MONITOR_ID
+export MONITOR_NAME
+export MONITOR_INTERNALi
+
 fade_color() {
     local original_color=$1
     local transparency=${2:-99}  # Default if $2 is not specified

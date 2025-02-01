@@ -1,16 +1,17 @@
 #!/bin/bash
+export DISPLAY_NUMBER=2
 source "$HOME/.config/sketchybar/utils.sh"
 
 LAYOUTS="$HOME/.config/sketchybar/layouts"
 CONFIG_DIR="$HOME/.config/sketchybar"
-DISPLAY_NUMBER=2
 
-# Get the display type of the secondary display
-DISPLAY_TYPE=$(get_display_type $DISPLAY_NUMBER)
-echo "Display 2 is of type '$DISPLAY_TYPE'."
+# Determines if a monitor is used
+# Since the notch is -only- on the laptop, if a monitor isn't used,
+# then that means the internal display is used ¯\_(ツ)_/¯
 
-# Check if the secondary display type is "Built-in"
-if [[ $DISPLAY_TYPE = "Built-in"* ]]; then
+echo "Display 2 is internal? '$MONITOR_INTERNAL'."
+
+if [ "$MONITOR_INTERNAL" = true ]; then
 	source "$LAYOUTS/laptop-rounded.sh"
 else
 	source "$LAYOUTS/desktop-rounded.sh"
