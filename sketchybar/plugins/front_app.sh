@@ -1,4 +1,5 @@
 #!/bin/bash
+source "$HOME/.config/sketchybar/plugins/icon_map_fn.sh"
 
 # Some events send additional information specific to the event in the $INFO
 # variable. E.g. the front_app_switched event sends the name of the newly
@@ -8,7 +9,7 @@
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 
 if [ "$SENDER" = "front_app_switched" ]; then
-  $BAR_NAME --set $NAME icon="$($PLUGIN_SHARED_DIR/icon_map_fn.sh "$INFO")"
+  $BAR_NAME --set $NAME icon="$(icon_map "$INFO")"
   $BAR_NAME --set $NAME.name label="$INFO"
 fi
 
