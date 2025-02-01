@@ -1,5 +1,6 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/theme.sh"
+source "$HOME/.config/sketchybar/plugins/aerospace_windows.sh" $MONITOR_ID
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-laptop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
@@ -112,7 +113,8 @@ $BAR_NAME \
     --subscribe brew brew_update \
     --add item separator_utils_1 left
 
-source $PLUGIN_DIR/spaces_left.sh
+#source $PLUGIN_DIR/spaces_left.sh
+source "$ITEM_DIR/aerospace.sh" left
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -325,9 +327,13 @@ $BAR_NAME \
 # ------------------------
 
 $BAR_NAME --update
-$BAR_NAME --trigger space_change
+#$BAR_NAME --trigger space_change
 $BAR_NAME --trigger volume_change
 $BAR_NAME --trigger display_change
+
+# Initialize workspaces
+init_workspaces 
+init_focused
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

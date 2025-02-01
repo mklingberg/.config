@@ -21,10 +21,10 @@ if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
             label.padding_left=0 \
             label.padding_right=$PADDING_RIGHT_SELECTED \
             background.color=$COLOR_SPACE_SELECTED_BG \
-            background.corner_radius=8 \
+            background.corner_radius=10 \
             background.padding_left=$PADDING_LEFT_OUTSIDE_SELECTED \
             background.padding_right=$PADDING_RIGHT_OUTSIDE_SELECTED \
-            background.height=16
+            background.height=20
 else
     $BAR_NAME \
         --set $NAME \

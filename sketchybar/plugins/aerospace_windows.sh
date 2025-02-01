@@ -38,6 +38,7 @@ function init_focused() {
 }
 
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
+    echo "Processing change event $FOCUSED_WORKSPACE"
     if [ -n "$FOCUSED_WORKSPACE_WINDOWS" ]; then
         update_workspace "$FOCUSED_WORKSPACE" "$FOCUSED_WORKSPACE_WINDOWS"
     fi

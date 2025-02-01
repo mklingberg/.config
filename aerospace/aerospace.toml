@@ -19,10 +19,14 @@ start-at-login = true
 
 # Notify Sketchybar about workspace change
 
-#on-focus-changed = '''
-#    exec sketchybar --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)";
-#    exec sketchybar-2 --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)";
-#'''
+# on-focus-changed = [
+#    'exec-and-forget sketchybar --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused) FOCUSED_WORKSPACE_WINDOWS=$(list-windows --workspace $AEROSPACE_FOCUSED_WORKSPACE --format "%{monitor-id}|%{workspace}|%{app-name}")"',
+#    'exec-and-forget sketchybar-2 --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused) FOCUSED_WORKSPACE_WINDOWS=$(list-windows --workspace $AEROSPACE_FOCUSED_WORKSPACE --format "%{monitor-id}|%{workspace}|%{app-name}")"'
+# ]
+
+# on-focus-changed = [
+#    'exec-and-forget sketchybar --trigger aerospace_workspace_change "FOCUSED_WORKSPACE=$(list-workspaces --focused)"',
+# ]
 
 exec-on-workspace-change = [
     '/bin/bash', 
@@ -57,7 +61,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #on-focus-changed = ["move-mouse window-lazy-center"]
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
@@ -83,7 +87,7 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   10
     outer.left =       10
     outer.bottom =     10
-    outer.top =        40
+    outer.top =        [{ monitor.'^built-in retina display$' = 10 }, 40]
     outer.right =      10
 
 # 'main' binding mode declaration
@@ -164,8 +168,6 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-5 = 'workspace 5'
     ctrl-6 = 'workspace 6'
     ctrl-7 = 'workspace 7'
-    ctrl-8 = 'workspace 8'
-    ctrl-9 = 'workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     ctrl-shift-1 = 'move-node-to-workspace 1'
@@ -175,8 +177,6 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-shift-5 = 'move-node-to-workspace 5'
     ctrl-shift-6 = 'move-node-to-workspace 6'
     ctrl-shift-7 = 'move-node-to-workspace 7'
-    ctrl-shift-8 = 'move-node-to-workspace 8'
-    ctrl-shift-9 = 'move-node-to-workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     ctrl-tab = 'workspace-back-and-forth'
@@ -214,8 +214,6 @@ automatically-unhide-macos-hidden-apps = false
  #   2 = 'main'
 #    3 = 'main'
 #    4 = 'main'
-#    5 = ['secondary','main']
-#     6 = ['secondary','main']
+     5 = ['secondary','main']
+     6 = ['secondary','main']
      7 = ['secondary','main']
-     8 = ['secondary','main']
-     9 = ['secondary','main']
