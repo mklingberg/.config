@@ -144,9 +144,9 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                     click_script="aerospace workspace $ID" \
                     icon.drawing=off \
                     icon.y_offset=1 \
-                    label.font="sketchybar-app-font:Regular:13.0" \
-                    label.y_offset=0 \
-                    label=" —" \
+                    label.font="sketchybar-app-font:Regular:14.0" \
+                    label.y_offset=-1 \
+                    label.drawing=off \
                     label.padding_left=0 \
                     label.padding_right=20 \
                     script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID"
@@ -204,8 +204,6 @@ $BAR_NAME \
             background.color=$COLOR_UTILS_BG \
     --add bracket workspace brew /workspaces\.*/ \
     --set workspace \
-            background.padding_right=20 \
-            background.padding_left=20 \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
             background.color=$COLOR_SPACES_BRACKET
@@ -214,8 +212,8 @@ for ID in "${MONITOR_WORKSPACES[@]}"
 do
   $BAR_NAME \
     --set workspaces."$ID" \
-            icon.padding_left=8 \
-            icon.padding_right=9 \
+            icon.padding_left=12 \
+            icon.padding_right=13 \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
     --add bracket workspace."$ID" \
@@ -228,8 +226,6 @@ do
 done
 
 # Right area
-
-# -- DATE & TIME --
 
 clock=(
     icon.drawing=no
