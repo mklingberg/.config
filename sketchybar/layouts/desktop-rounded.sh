@@ -200,13 +200,32 @@ $BAR_NAME \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_SPOTIFY_BG \
-    --add bracket workspaces /workspaces\.*/ \
-    --set workspaces \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
+    --add bracket workspace workspaces_spacer_1 workspaces_spacer_2 \
+    --set workspace \
             background.padding_right=20 \
             background.padding_left=20 \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+            background.color=$COLOR_SPACES_BRACKET
+
+MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
+
+for ID in "${MONITOR_WORKSPACES[@]}"
+do
+  $BAR_NAME \
+    --set workspaces."$ID" \
+            icon.padding_left=8 \
+            icon.padding_right=9 \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+    --add bracket workspace."$ID" \
+            workspaces."$ID" \
+            workspaces."$ID".windows \
+    --set workspace."$ID" \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
             background.color=$COLOR_SPACE_BG
+done
 
 
 # RIGHT SECTION
