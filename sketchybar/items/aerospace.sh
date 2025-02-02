@@ -24,7 +24,7 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                         label=" —" \
                         background.padding_left=0 \
                         background.padding_right=0 \
-                        script="$PLUGIN_SHARED_DIR/aerospace.sh $ID"
+                        script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID"
 done
 
 $BAR_NAME \

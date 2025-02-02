@@ -3,7 +3,7 @@ MONITOR_ID=$1
 
 source "$HOME/.config/sketchybar/plugins/icon_map_fn.sh"
 
-function update_workspace() {
+function update_workspace_windows() {
     WORKSPACE_ID=$1
     WINDOWS=$2
 
@@ -26,11 +26,13 @@ function update_workspace() {
     fi 
 }
 
-function init_workspaces() {
+function init_workspace_windows() {
     for ID in $(aerospace list-workspaces --monitor "$MONITOR_ID" --empty no); do
         WINDOWS=$(aerospace list-windows --workspace "$ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
-        update_workspace "$ID" "$WINDOWS"
+        update_workspace_windows "$ID" "$WINDOWS"
     done
+
+    init_focused
 }
 
 function init_focused() {
@@ -40,10 +42,10 @@ function init_focused() {
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
     echo "Processing change event $FOCUSED_WORKSPACE"
     if [ -n "$FOCUSED_WORKSPACE_WINDOWS" ]; then
-        update_workspace "$FOCUSED_WORKSPACE" "$FOCUSED_WORKSPACE_WINDOWS"
+        update_workspace_windows "$FOCUSED_WORKSPACE" "$FOCUSED_WORKSPACE_WINDOWS"
     fi
 
     if [ -n "$PREV_WORKSPACE_WINDOWS" ]; then
-        update_workspace "$PREV_WORKSPACE" "$PREV_WORKSPACE_WINDOWS"
+        update_workspace_windows "$PREV_WORKSPACE" "$PREV_WORKSPACE_WINDOWS"
     fi
 fi
