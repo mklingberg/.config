@@ -50,9 +50,7 @@ $BAR_NAME \
     --bar "${bar[@]}" \
     --default "${default[@]}"
 
-# ------------------------
-# LEFT
-# ------------------------
+# Left area
 
 screen=(
     icon=$ICON_APPLE
@@ -65,7 +63,7 @@ screen=(
     script="$PLUGIN_SHARED_DIR/reload.sh"
 )
 
-# -- UTILS --
+## Utils
 
 battery=(
     update_freq=30
@@ -113,8 +111,57 @@ $BAR_NAME \
     --subscribe brew brew_update \
     --add item separator_utils_1 left
 
-#source $PLUGIN_DIR/spaces_left.sh
-source "$ITEM_DIR/aerospace.sh" left
+# Render Aerospace workspaces
+$BAR_NAME \
+    --add event aerospace_workspace_change \
+    --add item  workspaces_spacer_1 left \
+    --set       workspaces_spacer_1 \
+                width=10 \
+                label.drawing=off
+
+# Fetch workspaces visible on this display/monitor
+MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
+ADD_SPACER=false
+
+for ID in ${MONITOR_WORKSPACES[@]}; do
+    # Only add spacer between workspaces
+    if [ "$ADD_SPACER" = true ]; then
+        $BAR_NAME \
+            --add item  workspace_spacer_"$ID" left \
+            --set       workspace_spacer_"$ID" \
+                        width=1 \
+                        label.drawing=off
+    fi
+    
+    $BAR_NAME \
+        --add item  workspaces."$ID" left \
+        --set       workspaces."$ID" \
+                    click_script="aerospace workspace $ID" \
+                    icon="$ID" \
+        --add item  workspaces."$ID".windows left \
+        --subscribe workspaces."$ID".windows aerospace_workspace_change \
+        --set       workspaces."$ID".windows \
+                    click_script="aerospace workspace $ID" \
+                    icon.drawing=off \
+                    icon.y_offset=1 \
+                    label.font="sketchybar-app-font:Regular:13.0" \
+                    label.y_offset=0 \
+                    label=" —" \
+                    label.padding_left=0 \
+                    label.padding_right=20 \
+                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID"
+
+    ADD_SPACER=true   
+done
+
+$BAR_NAME \
+    --add item  workspaces_spacer_2 left \
+    --subscribe workspaces_spacer_2 aerospace_workspace_change \
+    --set       workspaces_spacer_2 \
+                script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
+                width=0 \
+                drawing=off \
+                label.drawing=off
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -138,17 +185,7 @@ $BAR_NAME \
             screen \
             cpu_user \
             brew \
-            separator_utils_1 \
-            space.1 \
-            space.2 \
-            space.3 \
-            space.4 \
-            space.5 \
-            space.6 \
-            space.7 \
-            space.8 \
-            space.9 \
-            space.10 \
+            /workspaces\.*/ \
             separator_spaces \
     --set left_bracket \
             background.height=$OUTER_HEIGHT \
@@ -156,25 +193,6 @@ $BAR_NAME \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_RELOAD_BG \
-    --add bracket spaces_bracket \
-            cpu_user \
-            brew \
-            space.1 \
-            space.2 \
-            space.3 \
-            space.4 \
-            space.5 \
-            space.6 \
-            space.7 \
-            space.8 \
-            space.9 \
-            space.10 \
-    --set spaces_bracket \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
-            background.padding_right=20 \
-            background.padding_left=20 \
-            background.color=$COLOR_SPACE_BG \
     --add bracket left_bracket2 \
             cpu_user \
             brew \
@@ -183,21 +201,33 @@ $BAR_NAME \
             background.corner_radius=$INNER_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
-            background.color=$COLOR_UTILS_BG
+            background.color=$COLOR_UTILS_BG \
+    --add bracket workspace brew /workspaces\.*/ \
+    --set workspace \
+            background.padding_right=20 \
+            background.padding_left=20 \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+            background.color=$COLOR_SPACES_BRACKET
 
-# ------------------------
-# CENTER
-# ------------------------
+for ID in "${MONITOR_WORKSPACES[@]}"
+do
+  $BAR_NAME \
+    --set workspaces."$ID" \
+            icon.padding_left=8 \
+            icon.padding_right=9 \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+    --add bracket workspace."$ID" \
+            workspaces."$ID" \
+            workspaces."$ID".windows \
+    --set workspace."$ID" \
+            background.height=$INNER_HEIGHT \
+            background.corner_radius=$INNER_RADIUS \
+            background.color=$COLOR_SPACE_BG
+done
 
-
-
-# -- SPACES --
-
-
-
-# ------------------------
-# RIGHT
-# ------------------------
+# Right area
 
 # -- DATE & TIME --
 
@@ -216,9 +246,6 @@ clock_icon=(
     background.padding_left=0
 )
 
-# -- UTILS RIGHT --
-
-# VOLUME
 
 volume=(
     icon=$ICON_VOLUME
@@ -322,18 +349,13 @@ $BAR_NAME \
             background.color=$COLOR_UTILS_RIGHT_BG
 
 
-# ------------------------
 # INIT
-# ------------------------
 
 $BAR_NAME --update
-#$BAR_NAME --trigger space_change
 $BAR_NAME --trigger volume_change
 $BAR_NAME --trigger display_change
 
-# Initialize workspaces
-init_workspaces 
-init_focused
+init_workspace_windows
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

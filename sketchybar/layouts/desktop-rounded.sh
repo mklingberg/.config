@@ -2,7 +2,6 @@
 source "$HOME/.config/$BAR_NAME/theme.sh"
 source "$HOME/.config/sketchybar/plugins/aerospace_windows.sh" $MONITOR_ID
 
-
 # Global settings
 
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
@@ -159,7 +158,55 @@ $BAR_NAME \
 
 ## Aerospace workspaces
 
-source "$ITEM_DIR/aerospace.sh" center
+$BAR_NAME \
+    --add event aerospace_workspace_change \
+    --add item workspaces_spacer_1 center \
+    --set      workspaces_spacer_1 \
+                    width=1 \
+                    label.drawing=off
+
+# Fetch workspaces visible on this display/monitor
+MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
+ADD_SPACER=false
+
+for ID in ${MONITOR_WORKSPACES[@]}; do
+    # Only add spacer between workspaces
+    if [ "$ADD_SPACER" = true ]; then
+        $BAR_NAME \
+            --add item  workspace_spacer_"$ID" center \
+            --set       workspace_spacer_"$ID" \
+                        width=1 \
+                        label.drawing=off
+    fi
+    
+    $BAR_NAME \
+        --add item  workspaces."$ID" center \
+        --set       workspaces."$ID" \
+                    click_script="aerospace workspace $ID" \
+                    icon="$ID" \
+        --add item  workspaces."$ID".windows center \
+        --subscribe workspaces."$ID".windows aerospace_workspace_change \
+        --set       workspaces."$ID".windows \
+                    click_script="aerospace workspace $ID" \
+                    icon.drawing=off \
+                    icon.y_offset=1 \
+                    label.font="sketchybar-app-font:Regular:13.0" \
+                    label.y_offset=0 \
+                    label=" —" \
+                    label.padding_left=0 \
+                    label.padding_right=20 \
+                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID"
+
+     ADD_SPACER=true   
+done
+
+$BAR_NAME \
+    --add item  workspaces_spacer_2 center \
+    --subscribe workspaces_spacer_2 aerospace_workspace_change \
+    --set       workspaces_spacer_2 \
+                script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
+                width=1 \
+                label.drawing=off
 
 front_app=(
     icon.font="sketchybar-app-font:Regular:14.0"
@@ -208,7 +255,7 @@ $BAR_NAME \
             background.corner_radius=$INNER_RADIUS \
             background.color=$COLOR_SPACES_BRACKET
 
-MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
+# Workspace brackets
 
 for ID in "${MONITOR_WORKSPACES[@]}"
 do
@@ -226,7 +273,6 @@ do
             background.corner_radius=$INNER_RADIUS \
             background.color=$COLOR_SPACE_BG
 done
-
 
 # RIGHT SECTION
 
