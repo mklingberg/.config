@@ -36,7 +36,7 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                         click_script="aerospace workspace $ID" \
                         icon.drawing=off \
                         icon.y_offset=1 \
-                        label.font="sketchybar-app-font:Regular:14.0" \
+                        label.font="sketchybar-app-font:Regular:13.0" \
                         label.y_offset=0 \
                         label=" —" \
                         label.padding_left=0 \
