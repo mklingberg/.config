@@ -195,7 +195,7 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                     label=" —" \
                     label.padding_left=0 \
                     label.padding_right=20 \
-                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID"
+                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
 
      ADD_SPACER=true   
 done

@@ -36,7 +36,7 @@ function init_workspace_windows() {
 }
 
 function init_focused() {
-    $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+    $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused) FOCUSED_MONITOR=$(aerospace list-monitors --focused --format "%{monitor-id}" | xargs)
 }
 
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
