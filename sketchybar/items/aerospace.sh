@@ -17,6 +17,7 @@ ADD_SPACER=false
 
 for ID in ${MONITOR_WORKSPACES[@]}; do
 
+    # Only add spacer between workspaces
     if [ "$ADD_SPACER" = true ]; then
         $BAR_NAME \
             --add item  workspace_spacer_"$ID" "$POSITION" \

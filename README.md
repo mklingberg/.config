@@ -1,7 +1,7 @@
 # .config
 
-## Yabai & Skhd
-Using tiling window manager yabai and skhd for additional, customizable keyboard shortcuts.
+## Aerospace
+Using Aerospace as window manager integration with sketchybar to show active/inactive workspaces and application windows.
 
 ## Sketchybar
 Configuration for sketchybar that integrates with yabai. Two bar layouts, desktop and laptop. Desktop to be used with external displays and laptop as the main MacBook display.
@@ -19,7 +19,6 @@ Create links to config folder
 
 `ln -s ~/.config/zsh/zshrc ~/.zshrc`
 `ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua`
-`ln -s ~/.config/zsh/p10k.zsh ~/.p10k.zsh`
 
 ### Dracula Zsh
 
