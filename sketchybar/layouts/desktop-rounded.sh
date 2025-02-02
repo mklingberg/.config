@@ -2,6 +2,9 @@
 source "$HOME/.config/$BAR_NAME/theme.sh"
 source "$HOME/.config/sketchybar/plugins/aerospace_windows.sh" $MONITOR_ID
 
+
+# Global settings
+
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
@@ -21,9 +24,8 @@ INNER_HEIGHT=20
 FRONT_APP_ICON_SIZE=14
 FRONT_APP_NAME_SIZE=15
 
-# ------------------------
+
 # MAIN BAR
-# ------------------------
 
 bar=(
     height=$BAR_HEIGHT
@@ -53,9 +55,8 @@ $BAR_NAME \
     --bar "${bar[@]}" \
     --default "${default[@]}"
 
-# ------------------------
-# LEFT
-# ------------------------
+
+# LEFT SECTION
 
 screen=(
     icon=$ICON_APPLE
@@ -68,7 +69,7 @@ screen=(
     script="$PLUGIN_SHARED_DIR/reload.sh"
 )
 
-# -- UTILS --
+## Utils
 
 cpu_user=(
     icon=$ICON_CPU_IDLE
@@ -94,7 +95,7 @@ brew=(
     script="$PLUGIN_SHARED_DIR/brew.sh"
 )
 
-# Add a new item to SketchyBar
+## Render bar section
 
 $BAR_NAME \
     --add item screen left \
@@ -129,11 +130,9 @@ $BAR_NAME \
             background.color=$COLOR_UTILS_BG
 
 
-# ------------------------
-# CENTER
-# ------------------------
+# CENTER SECTION
 
-# -- SPOTIFY --
+## Spotify
 
 spotify=(
     icon=$ICON_SPOTIFY
@@ -158,7 +157,7 @@ $BAR_NAME \
             background.padding_right=10 \
             background.padding_left=10
 
-# -- SPACES --
+## Aerospace workspaces
 
 source "$ITEM_DIR/aerospace.sh" center
 
@@ -177,6 +176,8 @@ front_app_name=(
     background.padding_left=0
     label.color=$COLOR_FRONT_APP_NAME
 )
+
+## Render bar section
 
 $BAR_NAME \
     --add item front_app center \
@@ -208,9 +209,7 @@ $BAR_NAME \
             background.color=$COLOR_SPACE_BG
 
 
-# ------------------------
-# RIGHT
-# ------------------------
+# RIGHT SECTION
 
 clock=(
     icon.drawing=no
@@ -235,8 +234,6 @@ date=(
     update_freq=120
     script="$PLUGIN_SHARED_DIR/date.sh"
 )
-
-# VOLUME
 
 volume=(
     icon=$ICON_VOLUME
@@ -275,6 +272,8 @@ airpods_case=(
     label.color=$COLOR_STATS
     script="$PLUGIN_SHARED_DIR/airpods_case.sh"
 )
+
+## Render bar section
 
 $BAR_NAME \
     --add item clock_icon right \
@@ -327,9 +326,8 @@ $BAR_NAME \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
 
-# ------------------------
+
 # INIT
-# ------------------------
 
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
