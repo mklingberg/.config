@@ -42,4 +42,13 @@ esac
 
 LABEL_COLOR=$(fade_color $ICON_COLOR)
 
-$BAR_NAME --set $NAME icon=$ICON label.drawing=$SHOW_LABEL label="$INFO%" label.color=$LABEL_COLOR icon.color=$ICON_COLOR
+volume=(
+    icon=$ICON
+    label.drawing=$SHOW_LABEL
+    label="$INFO%"
+    label.color=$LABEL_COLOR
+    icon.color=$ICON_COLOR
+    click_script='osascript -e "set volume output muted not (output muted of (get volume settings))"'
+)
+
+$BAR_NAME --set $NAME "${volume[@]}" \
