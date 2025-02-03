@@ -162,7 +162,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "98C74F1C-7E8D-4C64-8041-A1814DA37499",
+  "BTTPresetUUID" : "E1A59DF7-0866-4601-B57A-237DFFB90B4D",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.L",
@@ -1844,6 +1844,36 @@
         },
         {
           "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1738610512.2105629,
+          "BTTTriggerType" : 793,
+          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Disconnect",
+          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+          "BTTUUID" : "FE8E4BB5-31A4-4183-8CBD-B7D3E0AE15C7",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "Empty Placeholder",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTOrder" : 1,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1738610551.25036,
+              "BTTTriggerParentUUID" : "FE8E4BB5-31A4-4183-8CBD-B7D3E0AE15C7",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+              "BTTUUID" : "A91EF8BC-F7A9-4F6F-BFBD-5A64D3D9F0A9",
+              "BTTPredefinedActionType" : 206,
+              "BTTPredefinedActionName" : "Execute Shell Script  or  Task",
+              "BTTShellTaskActionScript" : "\/opt\/homebrew\/bin\/sketchybar --reload;\n\/opt\/homebrew\/bin\/sketchybar-2 --reload;",
+              "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::-:::",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 35
+            }
+          ]
+        },
+        {
+          "BTTActionCategory" : 0,
           "BTTLastUpdatedAt" : 1731273841.312284,
           "BTTTriggerType" : 161,
           "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
@@ -2331,14 +2361,33 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1731749961.1807051,
+          "BTTLastUpdatedAt" : 1738610497.0680361,
+          "BTTTriggerType" : 792,
+          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Connect",
           "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
           "BTTUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTOrder" : 0
+          "BTTOrder" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1738610495.0227451,
+              "BTTTriggerParentUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+              "BTTUUID" : "CA494176-B934-4727-9F09-692872C51DC6",
+              "BTTPredefinedActionType" : 206,
+              "BTTPredefinedActionName" : "Execute Shell Script  or  Task",
+              "BTTShellTaskActionScript" : "\/opt\/homebrew\/bin\/sketchybar --reload;\n\/opt\/homebrew\/bin\/sketchybar-2 --reload;",
+              "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::-:::",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 34
+            }
+          ]
         },
         {
           "BTTActionCategory" : 0,
