@@ -84,7 +84,7 @@ cpu_user=(
 
 brew=(
     icon=$ICON_BREW
-    update_freq=120
+    update_freq=300
     icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
