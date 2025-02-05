@@ -9,7 +9,7 @@ COLOR_BREW_UPDATED=0xffa6da95
 source "$HOME/.config/$BAR_NAME/theme.sh"
 source "$HOME/.config/sketchybar/utils.sh"
 
-COUNT="$(brew outdated | wc -l | tr -d ' ')"
+COUNT="$(brew outdated | wc -l | xargs)"
 
 # If there was an error getting outdated packages, exit
 # just showing previous value
