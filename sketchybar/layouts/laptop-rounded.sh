@@ -66,7 +66,7 @@ screen=(
 ## Utils
 
 battery=(
-    update_freq=30
+    update_freq=60
     icon.padding_right=5
     icon.padding_left=0
     background.padding_left=0
@@ -87,7 +87,7 @@ cpu_user=(
 
 brew=(
     icon=$ICON_BREW
-    update_freq=120
+    update_freq=300
     icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
@@ -122,6 +122,13 @@ $BAR_NAME \
 # Fetch workspaces visible on this display/monitor
 MONITOR_WORKSPACES=( $(aerospace list-workspaces --monitor $MONITOR_ID) )
 ADD_SPACER=false
+SHOW_APPS=off
+
+# If there are less than 5 workspaces show apps 
+# (shows apps with secondary monitory attached)
+if [ ${#MONITOR_WORKSPACES[@]} -lt 5 ]; then
+    SHOW_APPS=on
+fi
 
 for ID in ${MONITOR_WORKSPACES[@]}; do
     # Only add spacer between workspaces
@@ -147,7 +154,7 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                     label.font="sketchybar-app-font:Regular:14.0" \
                     label=" —" \
                     label.y_offset=-1 \
-                    label.drawing=off \
+                    label.drawing=$SHOW_APPS \
                     label.padding_left=0 \
                     label.padding_right=20 \
                     script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
@@ -163,22 +170,6 @@ $BAR_NAME \
                 width=0 \
                 drawing=off \
                 label.drawing=off
-
-front_app=(
-    icon.font="sketchybar-app-font:Regular:14.0"
-    icon.color=$COLOR_FRONT_APP_ICON
-    label.drawing=no
-    background.padding_right=10
-    background.padding_left=10
-    script="$PLUGIN_SHARED_DIR/front_app.sh"
-)
-
-front_app_name=(
-    icon.drawing=off
-    background.padding_right=12
-    background.padding_left=0
-    label.color=$COLOR_FRONT_APP_NAME
-)
 
 $BAR_NAME \
     --add item separator_spaces left \
