@@ -16,7 +16,10 @@ if [ -z "$BREW_OUTDATED_OUTPUT" ]; then
   exit 0
 fi
 
-COUNT=$(echo "$BREW_OUTDATED_OUTPUT" | wc -l | awk '{print $1}')
+#COUNT=$(echo "$BREW_OUTDATED_OUTPUT" | wc -l | awk '{print $1}')
+
+# Remove lines starting with "==>" and count the remaining lines
+COUNT=$(echo "$BREW_OUTDATED_OUTPUT" | grep -v '^==>' | wc -l | awk '{print $1}')
 
 # Log the output for debugging
 echo "BREW_OUTDATED_OUTPUT: $BREW_OUTDATED_OUTPUT"

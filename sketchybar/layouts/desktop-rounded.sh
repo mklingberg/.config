@@ -10,7 +10,7 @@ ITEM_DIR="$CONFIG_DIR/items"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-BAR_HEIGHT=36
+BAR_HEIGHT=38
 SEPARATOR_WIDTH=12
 DEFAULT_PADDING=1
 
@@ -84,7 +84,7 @@ cpu_user=(
 
 brew=(
     icon=$ICON_BREW
-    update_freq=300
+    update_freq=120
     icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
