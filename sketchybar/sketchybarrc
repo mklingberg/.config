@@ -8,8 +8,6 @@ source "$HOME/.config/$BAR_NAME/utils.sh"
 # Since the notch is -only- on the laptop, if a monitor isn't used,
 # then that means the internal display is used ¯\_(ツ)_/¯
 
-echo "Display 1 is internal? '$MONITOR_INTERNAL'."
-
 if [ "$MONITOR_INTERNAL" = true ]; then
 	source "$LAYOUTS/laptop-rounded.sh"
 else
