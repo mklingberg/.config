@@ -91,6 +91,7 @@ brew=(
     icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
+    label.drawing=off
     background.height=$INNER_HEIGHT
     background.corner_radius=$DEFAULT_RADIUS
     background.color=$COLOR_BREW_BG
