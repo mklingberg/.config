@@ -62,7 +62,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #on-focus-changed = ["move-mouse window-lazy-center"]
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
@@ -114,7 +114,7 @@ automatically-unhide-macos-hidden-apps = false
     # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    # You can uncomment the following lines to open up terminal with alt + enter shortcut
+    # You can uncomment the foHllowing lines to open up terminal with alt + enter shortcut
     # (like in i3)
     # alt-enter = '''exec-and-forget osascript -e '
     # tell application "Terminal"               
@@ -129,21 +129,18 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-t = 'layout floating tiling'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    ctrl-period = 'layout tiles horizontal vertical'
-    ctrl-comma = 'layout accordion horizontal vertical'
+    ctrl-period = 'layout horizontal vertical'
+    ctrl-comma = 'layout accordion tiles'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    ctrl-h = 'focus left --boundaries all-monitors-outer-frame'
-    ctrl-j = 'focus down --boundaries all-monitors-outer-frame'
-    ctrl-k = 'focus up --boundaries all-monitors-outer-frame'
-    ctrl-l = 'focus right --boundaries all-monitors-outer-frame'
+    ctrl-h = 'focus left' # --boundaries all-monitors-outer-frame
+    ctrl-j = 'focus down' # --boundaries all-monitors-outer-frame
+    ctrl-k = 'focus up' # --boundaries all-monitors-outer-frame
+    ctrl-l = 'focus right' # --boundaries all-monitors-outer-frame
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
     ctrl-m = 'fullscreen'
     ctrl-shift-m = 'macos-native-fullscreen'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#balance-sizes
-    ctrl-shift-e = 'balance-sizes'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     ctrl-shift-h = 'move left'
@@ -158,8 +155,8 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-shift-alt-l = 'join-with right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    ctrl-shift-z = 'resize smart +140'
-    ctrl-shift-x = 'resize smart -140'
+    ctrl-shift-a = 'resize smart +140'
+    ctrl-shift-z = 'resize smart -140'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
     ctrl-1 = 'workspace 1'
@@ -186,28 +183,43 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-    cmd-alt-ctrl-shift-q = 'mode service'
+    ctrl-shift-s = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
-
-    esc = ['reload-config', 'mode main']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    esc = ['mode main']
+    space = ['mode main']
+    r = ['reload-config', 'mode main']
+    f = ['flatten-workspace-tree', 'mode main'] # reset layout
+    t = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     backspace = ['close-all-windows-but-current', 'mode main']
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    ctrl-shift-h = ['join-with left', 'mode main']
-    ctrl-shift-j = ['join-with down', 'mode main']
-    ctrl-shift-k = ['join-with up', 'mode main']
-    ctrl-shift-l = ['join-with right', 'mode main']
+    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    
+    left = 'focus left --boundaries all-monitors-outer-frame'
+    down = 'focus down --boundaries all-monitors-outer-frame'
+    up = 'focus up --boundaries all-monitors-outer-frame'
+    right = 'focus right --boundaries all-monitors-outer-frame'
 
-    down = 'volume down'
-    up = 'volume up'
-    shift-down = ['volume set 0', 'mode main']
+    cmd-left = 'move left'
+    cmd-down = 'move down'
+    cmd-up = 'move up'
+    cmd-right = 'move right'
+
+    cmd-shift-left = ['join-with left', 'mode main']
+    cmd-shift-down = ['join-with down', 'mode main']
+    cmd-shift-up = ['join-with up', 'mode main']
+    cmd-shift-right = ['join-with right', 'mode main']
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#balance-sizes
+    b = ['balance-sizes', 'mode main']
+
+    s = ['exec-and-forget sketchybar --reload', 'mode main']
+    cmd-s = ['exec-and-forget sketchybar-2 --reload', 'mode main']
 
 [workspace-to-monitor-force-assignment]
 
@@ -218,3 +230,19 @@ automatically-unhide-macos-hidden-apps = false
 #     5 = ['secondary','main']
      6 = ['secondary','main']
      7 = ['secondary','main']
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.AzureVpnMac'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.rdc.macos'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.hegenberg.BetterTouchTool'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'com.bankid.BankID'
+    run = 'layout floating'
