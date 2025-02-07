@@ -9,7 +9,18 @@ COLOR_BREW_UPDATED=0xffa6da95
 source "$HOME/.config/$BAR_NAME/theme.sh"
 source "$HOME/.config/sketchybar/utils.sh"
 
-COUNT="$(brew outdated | wc -l | xargs)"
+# Capture the output of brew outdated
+BREW_OUTDATED_OUTPUT=$(brew outdated)
+
+if [ -z "$BREW_OUTDATED_OUTPUT" ]; then
+  exit 0
+fi
+
+COUNT=$(echo "$BREW_OUTDATED_OUTPUT" | wc -l | awk '{print $1}')
+
+# Log the output for debugging
+echo "BREW_OUTDATED_OUTPUT: $BREW_OUTDATED_OUTPUT"
+echo "COUNT: $COUNT"
 
 # If there was an error getting outdated packages, exit
 # just showing previous value
@@ -22,21 +33,17 @@ SHOW_LABEL=true
 
 ICON=$ICON_BREW
 
-case "$COUNT" in
-  [3-5][0-9]) COLOR=$COLOR_BREW_HIGH
-  ;;
-  [1-2][0-9]) COLOR=$COLOR_BREW_MEDIUM
-  ;;
-  [1-9]) COLOR=$COLOR_BREW_LOW
-  #;;
-  #[1-4]) COLOR=$COLOR_BREW_UPDATED
-  ;;
-  0) COLOR=$COLOR_BREW_UPDATED
-     COUNT=$ICON_BREW_UPDATED
-     SHOW_LABEL=false
-     ICON=$ICON_BREW_UPDATED
-  ;;
-esac
+if [ $COUNT -eq 0 ]; then
+  COLOR=$COLOR_BREW_UPDATED
+  ICON=$ICON_BREW_UPDATED
+  SHOW_LABEL=false
+elif [ $COUNT -lt 10 ]; then
+  COLOR=$COLOR_BREW_LOW
+elif [ $COUNT -lt 20 ]; then
+  COLOR=$COLOR_BREW_MEDIUM
+else
+  COLOR=$COLOR_BREW_HIGH
+fi
 
 LABEL_COLOR=$(fade_color $COLOR)
 
