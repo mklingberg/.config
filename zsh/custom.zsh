@@ -2,6 +2,9 @@
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export ZSH="$HOME/.oh-my-zsh"
 
+# No auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 

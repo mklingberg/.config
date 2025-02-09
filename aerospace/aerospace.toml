@@ -138,7 +138,7 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-k = 'focus up' # --boundaries all-monitors-outer-frame
     ctrl-l = 'focus right' # --boundaries all-monitors-outer-frame
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
+    # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreenj
     ctrl-m = 'fullscreen'
     ctrl-shift-m = 'macos-native-fullscreen'
 
