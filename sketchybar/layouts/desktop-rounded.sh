@@ -106,7 +106,7 @@ $BAR_NAME \
     --add event brew_update \
     --add item brew left \
     --set brew "${brew[@]}" \
-    --subscribe brew brew_update \
+    --subscribe brew brew_update mouse.clicked \
     --add item separator_utils_1 left \
     --add bracket left_bracket \
             screen \
