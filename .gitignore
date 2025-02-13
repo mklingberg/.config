@@ -23,6 +23,10 @@
 !start_sketchybar_3.sh
 !zsh
 !zsh/**/*
+!ghostty
+!ghostty/**/*
+!vscode
+!vscode/**/*
 !wezterm
 !wezterm/**/*
 !starship

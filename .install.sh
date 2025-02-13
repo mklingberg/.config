@@ -28,6 +28,8 @@ brew install ca-certificates
 brew install azure-cli
 #brew install sqlite
 brew install podman
+brew install podman-compose
+brew install nvm
 
 ## Casks
 echo "Installing Brew Casks..."
@@ -43,6 +45,7 @@ brew install --cask nikitabobko/tap/aerospace
 
 ### Terminals
 brew install --cask wezterm
+brew install --cask ghostty
 
 ### Communication
 brew install --cask slack
@@ -129,5 +132,4 @@ ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua
 
 # Start Services
 echo "Starting Services (grant permissions)..."
-brew services start sketchybar
 brew services start borders
