@@ -45,7 +45,7 @@ now_playing_thumbnail=(
     background.drawing=on
     background.image="media.artwork"
     background.image.corner_radius=20
-    background.image.scale=6.2
+    background.image.scale=6.20
     background.image.y_offset=0
     script="$PLUGIN_SHARED_DIR/now_playing.sh"
 )
@@ -59,9 +59,9 @@ now_playing_artist=(
     label.max_chars=26
     label.align=center
     label.width=200
-    label.y_offset=-136
+    label.y_offset=-132
     label.font.size=12
-    label.color=$COLOR_WHITE
+    label.color=$COLOR_DRACULA_TEXT_DARK_BG_LIGHT
 )
 
 now_playing_track=(
@@ -72,9 +72,9 @@ now_playing_track=(
     label.max_chars=20
     label.align=center
     label.width=200
-    label.y_offset=-112
+    label.y_offset=-114
     label.font.style=Bold
-    label.font.size=16
+    label.font.size=14
     label.color=$COLOR_WHITE
 )
 
@@ -84,7 +84,7 @@ $BAR_NAME \
     --add event spotify_change $SPOTIFY_EVENT \
     --add item spacer_1 right \
     --set spacer_1 \
-          width=1 \
+          width=8 \
           label.drawing=off \
     --add item now_playing.thumbnail right \
     --set now_playing.thumbnail "${now_playing_thumbnail[@]}" \
@@ -95,7 +95,7 @@ $BAR_NAME \
     --set now_playing.track "${now_playing_track[@]}" \
     --add item spacer_2 right \
     --set spacer_2 \
-          width=1 \
+          width=8 \
           label.drawing=off \
     --add bracket now_playing.bracket \
             spacer_1 \
@@ -104,11 +104,15 @@ $BAR_NAME \
             now_playing.track \
             spacer_2 \
     --set now_playing.bracket \
-            background.height=248 \
-            background.corner_radius=22 \
-            background.y_offset=-22 \
-            background.color=0x22000000 
+            background.height=254 \
+            background.corner_radius=26 \
+            background.y_offset=-18 \
+            background.color=0x33000000 
 
 echo "Now Playing plugin loaded"
 
 $BAR_NAME --update
+
+# Quick toggle play pause in order to update now playing
+osascript -e 'tell application "Spotify" to playpause'
+osascript -e 'tell application "Spotify" to playpause'
