@@ -86,7 +86,7 @@
     "BTTForceForceClickPressure5F" : 600,
     "BTTForceForceClickPressure" : 700,
     "BSTMemorySaver" : true,
-    "BTTLastClamshellState" : false,
+    "BTTLastClamshellState" : true,
     "BTTStageManagerLeaveGapEvenIfHiding" : false,
     "BTTTouchBarAnimateGroups" : true,
     "BTTShowBTTWhenControlStripHidden" : true,
@@ -131,7 +131,7 @@
     "BTTStageManagerLeftGapAbsolute" : false,
     "snapTopRight" : true,
     "BSTSnapAreaDefaultShowPictogram" : false,
-    "BTTSelectedKeyboardTabIndex" : 0,
+    "BTTSelectedKeyboardTabIndex" : 1,
     "BTTTouchBarKeepIconRatio" : true,
     "BSTBrokenAPICheckDelay" : 0.20000000000000001,
     "BTTStageManagerIncrease" : true,
@@ -162,7 +162,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "5573110D-689D-42A6-8FDF-A683C5A12037",
+  "BTTPresetUUID" : "05E03664-31A2-4240-95A5-076C4EFEF143",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -172,6 +172,58 @@
         "BTTDisableGlobalTriggers" : false
       },
       "BTTTriggers" : [
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1739723731.3135891,
+          "BTTTriggerType" : 624,
+          "BTTTriggerTypeDescriptionReadOnly" : "Please Select a Trigger ",
+          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+          "BTTUUID" : "9433EF4D-E27C-434A-8355-E57D5F67C991",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "Empty Placeholder",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTOrder" : 0,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1739724703.0243101,
+              "BTTTriggerParentUUID" : "9433EF4D-E27C-434A-8355-E57D5F67C991",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+              "BTTUUID" : "7A5E7ECF-C2F0-448E-B566-5F48A0C35779",
+              "BTTPredefinedActionType" : 206,
+              "BTTPredefinedActionName" : "Execute Shell Script  or  Task",
+              "BTTShellTaskActionScript" : "\/opt\/homebrew\/bin\/sketchybar --trigger set_visible;\n\/opt\/homebrew\/bin\/sketchybar-2 --trigger set_visible",
+              "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::-:::",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 35
+            }
+          ],
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 0.29999999999999999,
+            "BTTKeyCount" : 1,
+            "BTTKeySequenceDownKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 761416448
+              }
+            ],
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 761416448
+              }
+            ]
+          }
+        },
         {
           "BTTActionCategory" : 0,
           "BTTLastUpdatedAt" : 1731273849.831367,
@@ -198,35 +250,6 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTOrder" : 20
-            }
-          ]
-        },
-        {
-          "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1738946540.7216129,
-          "BTTTriggerType" : 1006,
-          "BTTTriggerTypeDescriptionReadOnly" : "Button 6",
-          "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
-          "BTTUUID" : "3B1811EF-2F22-4512-80B9-E58882F65180",
-          "BTTPredefinedActionType" : 366,
-          "BTTPredefinedActionName" : "Empty Placeholder",
-          "BTTEnabled" : 1,
-          "BTTEnabled2" : 1,
-          "BTTRequiredModifierKeys" : 524288,
-          "BTTOrder" : 10,
-          "BTTAdditionalActions" : [
-            {
-              "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1738782450.2803211,
-              "BTTTriggerParentUUID" : "3B1811EF-2F22-4512-80B9-E58882F65180",
-              "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
-              "BTTUUID" : "32A5B575-065E-40AB-AB57-C49CFDDFCC17",
-              "BTTLayoutIndependentActionChar" : "t",
-              "BTTShortcutToSend" : "59,17",
-              "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
-              "BTTOrder" : 8
             }
           ]
         },
@@ -369,30 +392,30 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1738946540.7218809,
-          "BTTTriggerType" : 998,
-          "BTTTriggerTypeDescriptionReadOnly" : "Scroll Left",
+          "BTTLastUpdatedAt" : 1738946540.7216129,
+          "BTTTriggerType" : 1006,
+          "BTTTriggerTypeDescriptionReadOnly" : "Button 6",
           "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
-          "BTTUUID" : "0C1335ED-587A-4E5C-A7D0-4EA33F3978B4",
+          "BTTUUID" : "3B1811EF-2F22-4512-80B9-E58882F65180",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
           "BTTRequiredModifierKeys" : 524288,
-          "BTTOrder" : 6,
+          "BTTOrder" : 10,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1732981048.5799298,
-              "BTTTriggerParentUUID" : "0C1335ED-587A-4E5C-A7D0-4EA33F3978B4",
+              "BTTLastUpdatedAt" : 1738782450.2803211,
+              "BTTTriggerParentUUID" : "3B1811EF-2F22-4512-80B9-E58882F65180",
               "BTTIsPureAction" : true,
               "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
-              "BTTUUID" : "211264F3-E2DB-4E94-8D11-9443DF26D346",
-              "BTTPredefinedActionType" : 24,
-              "BTTPredefinedActionName" : "Volume Up",
+              "BTTUUID" : "32A5B575-065E-40AB-AB57-C49CFDDFCC17",
+              "BTTLayoutIndependentActionChar" : "t",
+              "BTTShortcutToSend" : "59,17",
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
-              "BTTOrder" : 4
+              "BTTOrder" : 8
             }
           ]
         },
@@ -421,6 +444,35 @@
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
               "BTTOrder" : 33
+            }
+          ]
+        },
+        {
+          "BTTActionCategory" : 0,
+          "BTTLastUpdatedAt" : 1738946540.7218809,
+          "BTTTriggerType" : 998,
+          "BTTTriggerTypeDescriptionReadOnly" : "Scroll Left",
+          "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
+          "BTTUUID" : "0C1335ED-587A-4E5C-A7D0-4EA33F3978B4",
+          "BTTPredefinedActionType" : 366,
+          "BTTPredefinedActionName" : "Empty Placeholder",
+          "BTTEnabled" : 1,
+          "BTTEnabled2" : 1,
+          "BTTRequiredModifierKeys" : 524288,
+          "BTTOrder" : 6,
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1732981048.5799298,
+              "BTTTriggerParentUUID" : "0C1335ED-587A-4E5C-A7D0-4EA33F3978B4",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeNormalMouse",
+              "BTTUUID" : "211264F3-E2DB-4E94-8D11-9443DF26D346",
+              "BTTPredefinedActionType" : 24,
+              "BTTPredefinedActionName" : "Volume Up",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 4
             }
           ]
         },
@@ -1488,33 +1540,51 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1739442279.480834,
-          "BTTTriggerType" : 792,
-          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Connect",
-          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-          "BTTUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
+          "BTTLastUpdatedAt" : 1739723792.597213,
+          "BTTTriggerType" : 624,
+          "BTTTriggerTypeDescriptionReadOnly" : "Please Select a Trigger ",
+          "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+          "BTTUUID" : "4723C839-8AB1-4BA7-A60F-4392BDD5AE8D",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTOrder" : 0,
+          "BTTOrder" : 1,
           "BTTAdditionalActions" : [
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1739442343.162236,
-              "BTTTriggerParentUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
+              "BTTLastUpdatedAt" : 1739724981.101732,
+              "BTTTriggerParentUUID" : "4723C839-8AB1-4BA7-A60F-4392BDD5AE8D",
               "BTTIsPureAction" : true,
-              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
-              "BTTUUID" : "CA494176-B934-4727-9F09-692872C51DC6",
+              "BTTTriggerClass" : "BTTTriggerTypeKeySequence",
+              "BTTUUID" : "A30AB99E-1663-4AE6-8B7E-40817036C765",
               "BTTPredefinedActionType" : 206,
               "BTTPredefinedActionName" : "Execute Shell Script  or  Task",
-              "BTTShellTaskActionScript" : "#sleep 1;\n\/opt\/homebrew\/bin\/sketchybar --reload;\n\/opt\/homebrew\/bin\/sketchybar-2 --reload;",
+              "BTTShellTaskActionScript" : "\/opt\/homebrew\/bin\/sketchybar --trigger set_hidden;\n\/opt\/homebrew\/bin\/sketchybar-2 --trigger set_hidden",
               "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::-:::",
               "BTTEnabled" : 1,
               "BTTEnabled2" : 1,
-              "BTTOrder" : 34
+              "BTTOrder" : 36
             }
-          ]
+          ],
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 0.29999999999999999,
+            "BTTKeyCount" : 1,
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 761416576
+              }
+            ],
+            "BTTKeySequenceUpKeys" : [
+              {
+                "BTTKEYCode" : 59,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 761416576
+              }
+            ]
+          }
         },
         {
           "BTTActionCategory" : 0,
@@ -2009,18 +2079,33 @@
         },
         {
           "BTTActionCategory" : 0,
-          "BTTLastUpdatedAt" : 1738699621.3962932,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTUUID" : "3065356D-503F-4481-821B-BC6516049730",
+          "BTTLastUpdatedAt" : 1739442279.480834,
+          "BTTTriggerType" : 792,
+          "BTTTriggerTypeDescriptionReadOnly" : "Screen\/Display Did Connect",
+          "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+          "BTTUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
           "BTTPredefinedActionType" : 366,
           "BTTPredefinedActionName" : "Empty Placeholder",
-          "BTTKeyboardShortcutKeyboardType" : 0,
-          "BTTTriggerOnDown" : 1,
           "BTTEnabled" : 1,
           "BTTEnabled2" : 1,
-          "BTTShortcutKeyCode" : -1,
           "BTTOrder" : 0,
-          "BTTAutoAdaptToKeyboardLayout" : 0
+          "BTTAdditionalActions" : [
+            {
+              "BTTActionCategory" : 0,
+              "BTTLastUpdatedAt" : 1739442343.162236,
+              "BTTTriggerParentUUID" : "8D536068-6C26-4245-9706-4A799A48CF91",
+              "BTTIsPureAction" : true,
+              "BTTTriggerClass" : "BTTTriggerTypeOtherTriggers",
+              "BTTUUID" : "CA494176-B934-4727-9F09-692872C51DC6",
+              "BTTPredefinedActionType" : 206,
+              "BTTPredefinedActionName" : "Execute Shell Script  or  Task",
+              "BTTShellTaskActionScript" : "#sleep 1;\n\/opt\/homebrew\/bin\/sketchybar --reload;\n\/opt\/homebrew\/bin\/sketchybar-2 --reload;",
+              "BTTShellTaskActionConfig" : "\/bin\/bash:::-c:::-:::",
+              "BTTEnabled" : 1,
+              "BTTEnabled2" : 1,
+              "BTTOrder" : 34
+            }
+          ]
         },
         {
           "BTTActionCategory" : 0,
