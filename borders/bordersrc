@@ -9,4 +9,4 @@ options=(
 	blacklist='Preview' #ChatGPT,
 )
 
-borders "${options[@]}"f
+borders "${options[@]}"

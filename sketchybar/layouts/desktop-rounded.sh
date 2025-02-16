@@ -34,6 +34,7 @@ bar=(
     padding_right=8
     display=$DISPLAY_NUMBER
     topmost=on
+    hidden=on
 )
 
 default=(
@@ -393,7 +394,6 @@ $BAR_NAME \
             background.padding_right=20 \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
-
 
 # INIT
 
