@@ -10,7 +10,7 @@ ITEM_DIR="$CONFIG_DIR/items"
 
 SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-BAR_HEIGHT=38
+BAR_HEIGHT=40
 SEPARATOR_WIDTH=12
 DEFAULT_PADDING=1
 
@@ -28,9 +28,8 @@ FRONT_APP_NAME_SIZE=15
 
 bar=(
     height=$BAR_HEIGHT
-    color=$TRANSPARENT
+    color=$COLOR_GLASS #$TRANSPARENT
     margin=0
-    sticky=on
     padding_left=8
     padding_right=8
     display=$DISPLAY_NUMBER
@@ -99,9 +98,11 @@ brew=(
 ## Render bar section
 
 $BAR_NAME \
+    --add event set_visible \
+    --add event set_hidden \
     --add item screen left \
     --set screen "${screen[@]}" \
-    --subscribe screen mouse.clicked mouse.entered mouse.exited \
+    --subscribe screen mouse.clicked set_visible set_hidden \
     --add item cpu_user left \
     --set cpu_user "${cpu_user[@]}" \
     --add event brew_update \

@@ -21,4 +21,11 @@ case "$SENDER" in
     $BAR_NAME --set $NAME \
                     icon.color=$COLOR_RELOAD_EXITED
     ;;
+"set_visible")
+    $BAR_NAME --bar hidden=off
+    ;;
+
+"set_hidden")
+    $BAR_NAME --bar hidden=on
+    ;;
 esac
