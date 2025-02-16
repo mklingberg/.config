@@ -34,6 +34,7 @@ bar=(
     padding_left=8
     padding_right=8
     display=$DISPLAY_NUMBER
+    topmost=on
 )
 
 default=(

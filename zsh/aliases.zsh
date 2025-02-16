@@ -5,10 +5,6 @@ alias e='exit'
 # Git
 alias g='git'
 alias ga='git add'
-alias gafzf='git ls-files -m -o --exclude-standard | grep -v "__pycache__" | fzf -m --print0 | xargs -0 -o -t git add' # Git add with fzf
-alias grmfzf='git ls-files -m -o --exclude-standard | fzf -m --print0 | xargs -0 -o -t git rm' # Git rm with fzf
-alias grfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore' # Git restore with fzf
-alias grsfzf='git diff --name-only | fzf -m --print0 | xargs -0 -o -t git restore --staged' # Git restore --staged with fzf
 alias gf='git fetch'
 alias gs='git status'
 alias gss='git status -s'
@@ -22,7 +18,6 @@ alias gbr='git branch -r'
 alias gd='git diff'
 alias gco='git checkout '
 alias gcob='git checkout -b '
-alias gcofzf='git branch | fzf | xargs git checkout' # Select branch with fzf
 alias gre='git remote'
 alias gres='git remote show'
 alias glgg='git log --graph --max-count=5 --decorate --pretty="oneline"'

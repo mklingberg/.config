@@ -128,7 +128,8 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.
 # Create links to use .config
 ln -s ~/.config/zsh/zshrc ~/.zshrc
 ln -s ~/.config/wezterm/wezterm.lua ~/.wezterm.lua
-#ln -s ~/.config/aerospace/aerospace.toml ~/.aerospace.toml
+ln -s ~/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+ln -s ~/.config/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
 
 # Start Services
 echo "Starting Services (grant permissions)..."

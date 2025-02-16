@@ -88,7 +88,7 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   10
     outer.left =       10
     outer.bottom =     10
-    outer.top =        [{ monitor.'^built-in retina display$' = 10 }, 40]
+    outer.top =        [{ monitor.'^built-in retina display$' = 10 }, 10]
     outer.right =      10
 
 # 'main' binding mode declaration
@@ -184,6 +184,9 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     ctrl-shift-s = 'mode service'
+
+    # Go to sleep
+    cmd-ctrl-s = 'exec-and-forget pmset sleepnow'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
