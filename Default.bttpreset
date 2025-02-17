@@ -86,7 +86,7 @@
     "BTTForceForceClickPressure5F" : 600,
     "BTTForceForceClickPressure" : 700,
     "BSTMemorySaver" : true,
-    "BTTLastClamshellState" : true,
+    "BTTLastClamshellState" : false,
     "BTTStageManagerLeaveGapEvenIfHiding" : false,
     "BTTTouchBarAnimateGroups" : true,
     "BTTShowBTTWhenControlStripHidden" : true,
@@ -162,7 +162,7 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "05E03664-31A2-4240-95A5-076C4EFEF143",
+  "BTTPresetUUID" : "BBA30B56-FF10-4559-8343-65AF367CA663",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -284,13 +284,13 @@
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1738448930.282805,
+                  "BTTLastUpdatedAt" : 1739811159.2519078,
                   "BTTTriggerParentUUID" : "28E67E27-FF9F-42AF-B1B2-8226399B2762",
                   "BTTIsPureAction" : true,
                   "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
                   "BTTUUID" : "601D9D73-4520-4C94-A27B-947334AF9DD5",
                   "BTTLayoutIndependentActionChar" : "TAB",
-                  "BTTShortcutToSend" : "58,56,48",
+                  "BTTShortcutToSend" : "59,56,48",
                   "BTTEnabled" : 1,
                   "BTTEnabled2" : 1,
                   "BTTOrder" : 10
@@ -314,13 +314,13 @@
               "BTTAdditionalActions" : [
                 {
                   "BTTActionCategory" : 0,
-                  "BTTLastUpdatedAt" : 1738448940.349391,
+                  "BTTLastUpdatedAt" : 1739811164.594336,
                   "BTTTriggerParentUUID" : "A67D6A7D-C51A-4521-9860-AD4B82124079",
                   "BTTIsPureAction" : true,
                   "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
                   "BTTUUID" : "84EDB703-E611-487D-9474-E4F5AF3A248C",
                   "BTTLayoutIndependentActionChar" : "TAB",
-                  "BTTShortcutToSend" : "58,48",
+                  "BTTShortcutToSend" : "59,48",
                   "BTTEnabled" : 1,
                   "BTTEnabled2" : 1,
                   "BTTOrder" : 11
@@ -329,7 +329,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1739464917.430316,
+              "BTTLastUpdatedAt" : 1739811210.9662271,
               "BTTTriggerType" : 162,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Down",
               "BTTTriggerParentUUID" : "B0D57CC7-A268-4FA1-829B-1A40F19F0082",
@@ -338,7 +338,7 @@
               "BTTPredefinedActionType" : 366,
               "BTTPredefinedActionName" : "Empty Placeholder",
               "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
+              "BTTEnabled2" : 0,
               "BTTRequiredModifierKeys" : 8388608,
               "BTTOrder" : 2,
               "BTTAdditionalActions" : [
@@ -359,7 +359,7 @@
             },
             {
               "BTTActionCategory" : 0,
-              "BTTLastUpdatedAt" : 1739464920.842905,
+              "BTTLastUpdatedAt" : 1739811217.364435,
               "BTTTriggerType" : 161,
               "BTTTriggerTypeDescriptionReadOnly" : "2 Finger Swipe Up",
               "BTTTriggerParentUUID" : "B0D57CC7-A268-4FA1-829B-1A40F19F0082",
@@ -368,7 +368,7 @@
               "BTTPredefinedActionType" : 366,
               "BTTPredefinedActionName" : "Empty Placeholder",
               "BTTEnabled" : 1,
-              "BTTEnabled2" : 1,
+              "BTTEnabled2" : 0,
               "BTTRequiredModifierKeys" : 8388608,
               "BTTOrder" : 3,
               "BTTAdditionalActions" : [
