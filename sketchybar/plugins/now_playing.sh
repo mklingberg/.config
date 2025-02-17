@@ -12,16 +12,14 @@ update_track() {
     PLAYER_STATE=$(echo "$SPOTIFY_JSON" | jq -r '.["Player State"]')
     TRACK="$(echo "$SPOTIFY_JSON" | jq -r .Name)"
     ARTIST="$(echo "$SPOTIFY_JSON" | jq -r .Artist)"
-    ICON=$ICON_SPOTIFY
+    ICON=$ICON_NOW_PLAYING
 
     if [ "$PLAYER_STATE" = "Playing" ]; then
-        ICON=$ICON_SPOTIFY_PLAY
+        ICON=$ICON_NOW_PLAYING_PLAYING
     elif [ "$PLAYER_STATE" = "Paused" ]; then
-        ICON=$ICON_SPOTIFY_PAUSE
+        ICON=$ICON_NOW_PLAYING_PAUSED
     elif [ "$PLAYER_STATE" = "Stopped" ]; then
-        ICON=$ICON_SPOTIFY_PAUSE
-    else
-        ICON=$ICON_SPOTIFY
+        ICON=$ICON_NOW_PLAYING_STOPPED
     fi
 
     $BAR_NAME \
@@ -55,7 +53,7 @@ case "$SENDER" in
         $BAR_NAME --bar y_offset=$HIDDEN_Y_OFFSET
     fi
     ;;
-    
+
 "set_visible")
     $BAR_NAME --bar y_offset=$DEFAULT_Y_OFFSET
     ;;

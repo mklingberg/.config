@@ -32,7 +32,7 @@ icon=(
     icon.y_offset=76
     icon.align=right
     icon.padding_right=8
-    icon=$ICON_SPOTIFY
+    icon=$ICON_NOW_PLAYING
     icon.font.size=32
 )
 

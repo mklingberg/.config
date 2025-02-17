@@ -43,6 +43,12 @@ export ICON_SPOTIFY=
 export ICON_SPOTIFY_PAUSE= #
 export ICON_SPOTIFY_PLAY= #
 
+# Now playing Icons
+export ICON_NOW_PLAYING=
+export ICON_NOW_PLAYING_PAUSED=
+export ICON_NOW_PLAYING_PLAYING=
+export ICON_NOW_PLAYING_STOPPED=
+
 # Yabai Icons
 export ICON_YABAI_STACK=􀏭
 export ICON_YABAI_FULLSCREEN_ZOOM=􀏜
