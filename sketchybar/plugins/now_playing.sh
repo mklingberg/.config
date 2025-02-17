@@ -22,8 +22,8 @@ update_track() {
     fi
 
     $BAR_NAME \
-        --set now_playing.artist label="$ARTIST" \
-        --set now_playing.track label="$TRACK" \
+        --set artist label="$ARTIST" \
+        --set track label="$TRACK" \
         --set icon icon=$ICON
 }
 

@@ -29,14 +29,14 @@ icon=(
     icon.width=200
     background.padding_right=-200
     icon.color=0xaaffffff
-    icon.y_offset=72
+    icon.y_offset=76
     icon.align=right
     icon.padding_right=8
     icon=$ICON_SPOTIFY
-    icon.font.size=40
+    icon.font.size=32
 )
 
-now_playing_thumbnail=(
+thumbnail=(
     background.height=200
     width=200
     #label.drawing=off
@@ -49,7 +49,7 @@ now_playing_thumbnail=(
     script="$PLUGIN_SHARED_DIR/now_playing.sh"
 )
 
-now_playing_artist=(
+artist=(
     #width=200
     background.padding_right=-200
     background.height=20
@@ -63,7 +63,7 @@ now_playing_artist=(
     label.color=$COLOR_DRACULA_TEXT_DARK_BG_LIGHT
 )
 
-now_playing_track=(
+track=(
     background.padding_right=-200
     background.height=20
     scroll_texts=on
@@ -89,27 +89,27 @@ $BAR_NAME \
     --set spacer_1 \
           width=8 \
           label.drawing=off \
-    --add item now_playing.thumbnail right \
-    --set now_playing.thumbnail "${now_playing_thumbnail[@]}" \
-    --subscribe now_playing.thumbnail spotify_change mouse.clicked \
-    --add item now_playing.artist right \
-    --set now_playing.artist "${now_playing_artist[@]}" \
-    --add item now_playing.track right \
-    --set now_playing.track "${now_playing_track[@]}" \
+    --add item thumbnail right \
+    --set thumbnail "${thumbnail[@]}" \
+    --subscribe thumbnail spotify_change mouse.clicked \
+    --add item artist right \
+    --set artist "${artist[@]}" \
+    --add item track right \
+    --set track "${track[@]}" \
     --add item icon right \
     --set icon "${icon[@]}" \
     --add item spacer_2 right \
     --set spacer_2 \
           width=6 \
           label.drawing=off \
-    --add bracket now_playing.bracket \
+    --add bracket wrapper \
             spacer_1 \
             icon \
-            now_playing.thumbnail \
-            now_playing.artist \
-            now_playing.track \
+            thumbnail \
+            artist \
+            track \
             spacer_2 \
-    --set now_playing.bracket \
+    --set wrapper \
             background.height=254 \
             background.corner_radius=26 \
             background.y_offset=-18 \
