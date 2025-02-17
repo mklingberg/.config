@@ -28,7 +28,7 @@ FRONT_APP_NAME_SIZE=15
 
 bar=(
     height=$BAR_HEIGHT
-    color=$COLOR_GLASS #$TRANSPARENT
+    color=$COLOR_BAR_BG
     margin=0
     padding_left=8
     padding_right=8
