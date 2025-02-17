@@ -15,6 +15,7 @@ if [ "$ID" = "$FOCUSED_WORKSPACE" ]; then
             background.color=$COLOR_SPACE_SELECTED_BG \
         --set workspaces."$ID" \
             icon.color=$COLOR_SPACE_SELECTED_SPACE_NO \
+            icon.font.style=Bold \
             background.color=$COLOR_SPACE_SELECTED_SPACE_NO_BG \
         --set workspaces."$ID".windows \
             label.color=$COLOR_SPACE_SELECTED_ICON
@@ -24,6 +25,7 @@ else
             background.color=$COLOR_SPACE_BG \
         --set workspaces."$ID" \
             icon.color=$COLOR_SPACE_SPACE_NO \
+            icon.font.style=Medium \
             background.color=$COLOR_SPACE_SPACE_NO_BG \
         --set workspaces."$ID".windows \
             label.color=$COLOR_SPACE_ICON
