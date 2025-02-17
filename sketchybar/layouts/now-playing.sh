@@ -32,7 +32,7 @@ icon=(
     icon.y_offset=76
     icon.align=right
     icon.padding_right=8
-    icon=$ICON_NOW_PLAYING
+    icon=$COLOR_NOW_PLAYING_ICON
     icon.font.size=32
 )
 
@@ -58,7 +58,7 @@ artist=(
     label.width=200
     label.y_offset=-132
     label.font.size=12
-    label.color=$COLOR_DRACULA_TEXT_DARK_BG_LIGHT
+    label.color=$COLOR_NOW_PLAYING_ARTIST
 )
 
 track=(
@@ -72,7 +72,7 @@ track=(
     label.y_offset=-114
     label.font.style=Bold
     label.font.size=14
-    label.color=$COLOR_WHITE
+    label.color=$COLOR_NOW_PLAYING_TRACK
 )
 
 $BAR_NAME \
@@ -117,7 +117,7 @@ $BAR_NAME \
             background.height=254 \
             background.corner_radius=26 \
             background.y_offset=-18 \
-            background.color=0x77000000 
+            background.color=$COLOR_NOW_PLAYING_BG
 
 $BAR_NAME --update
 
