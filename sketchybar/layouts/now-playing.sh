@@ -117,9 +117,7 @@ $BAR_NAME \
             background.height=254 \
             background.corner_radius=26 \
             background.y_offset=-18 \
-            background.color=0x33000000 
-
-echo "Now Playing plugin loaded"
+            background.color=0x77000000 
 
 $BAR_NAME --update
 
