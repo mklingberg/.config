@@ -8,23 +8,27 @@ SPOTIFY_JSON="$INFO"
 DEFAULT_Y_OFFSET=20
 HIDDEN_Y_OFFSET=-1000
 
-update_track() {
-    PLAYER_STATE=$(echo "$SPOTIFY_JSON" | jq -r '.["Player State"]')
-    TRACK="$(echo "$SPOTIFY_JSON" | jq -r .Name)"
-    ARTIST="$(echo "$SPOTIFY_JSON" | jq -r .Artist)"
+update_media_changed() {
+    PLAYER_STATE="$(echo "$INFO" | jq -r .state)"
+    TITLE="$(echo "$INFO" | jq -r .title)"
+    ARTIST="$(echo "$INFO" | jq -r .artist)"
+    APP="$(echo "$INFO" | jq -r .app)"
     ICON=$ICON_NOW_PLAYING
 
-    if [ "$PLAYER_STATE" = "Playing" ]; then
+    if [ "$PLAYER_STATE" = "playing" ]; then
         ICON=$ICON_NOW_PLAYING_PLAYING
-    elif [ "$PLAYER_STATE" = "Paused" ]; then
+        if [ "$APP" = "Spotify" ]; then
+            ICON=$ICON_NOW_PLAYING_SPOTIFY
+        fi
+    elif [ "$PLAYER_STATE" = "paused" ]; then
         ICON=$ICON_NOW_PLAYING_PAUSED
-    elif [ "$PLAYER_STATE" = "Stopped" ]; then
+    elif [ "$PLAYER_STATE" = "stopped" ]; then
         ICON=$ICON_NOW_PLAYING_STOPPED
     fi
 
     $BAR_NAME \
         --set artist label="$ARTIST" \
-        --set track label="$TRACK" \
+        --set track label="$TITLE" \
         --set icon icon=$ICON
 }
 
@@ -69,7 +73,7 @@ case "$SENDER" in
 "mouse.clicked")
     osascript -e 'tell application "Spotify" to playpause'
     ;;
-"spotify_change")
-    update_track
+"media_change")
+    update_media_changed
     ;;
 esac

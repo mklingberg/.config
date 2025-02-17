@@ -6,11 +6,12 @@ source "$HOME/.config/$BAR_NAME/theme.sh"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
-SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 BAR_HEIGHT=300
 MARGIN_RIGHT=20
 MARGIN_BOTTOM=20
+DEFAULT_Y_OFFSET=20
+HIDDEN_Y_OFFSET=-1000
 
 bar=(
     height=$BAR_HEIGHT
@@ -18,7 +19,7 @@ bar=(
     display=main
     topmost=on
     position=bottom
-    y_offset=$MARGIN_BOTTOM
+    y_offset=$HIDDEN_Y_OFFSET
 )
 
 default=(
@@ -38,7 +39,7 @@ icon=(
 
 thumbnail=(
     background.height=200
-    width=200
+    icon.width=200
     background.drawing=on
     background.image="media.artwork"
     background.image.corner_radius=20
@@ -86,16 +87,15 @@ $BAR_NAME \
     --default "${default[@]}" \
     --add item spacer_outer right \
     --set spacer_outer \
-          width=$MARGIN_RIGHT \
-          label.drawing=off \
-    --add event spotify_change $SPOTIFY_EVENT \
+        width=$MARGIN_RIGHT \
+        label.drawing=off \
     --add item spacer_1 right \
     --set spacer_1 \
-          width=8 \
-          label.drawing=off \
+        width=8 \
+        label.drawing=off \
     --add item thumbnail right \
     --set thumbnail "${thumbnail[@]}" \
-    --subscribe thumbnail spotify_change mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled \
+    --subscribe thumbnail mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled media_change \
     --add item artist right \
     --set artist "${artist[@]}" \
     --add item track right \
@@ -104,23 +104,19 @@ $BAR_NAME \
     --set icon "${icon[@]}" \
     --add item spacer_2 right \
     --set spacer_2 \
-          width=6 \
-          label.drawing=off \
+        width=6 \
+        label.drawing=off \
     --add bracket wrapper \
-            spacer_1 \
-            icon \
-            thumbnail \
-            artist \
-            track \
-            spacer_2 \
+        spacer_1 \
+        icon \
+        thumbnail \
+        artist \
+        track \
+        spacer_2 \
     --set wrapper \
-            background.height=254 \
-            background.corner_radius=26 \
-            background.y_offset=-18 \
-            background.color=$COLOR_NOW_PLAYING_BG
+        background.height=254 \
+        background.corner_radius=26 \
+        background.y_offset=-18 \
+        background.color=$COLOR_NOW_PLAYING_BG
 
 $BAR_NAME --update
-
-# Quick toggle play pause in order to update now playing
-osascript -e 'tell application "Spotify" to playpause'
-osascript -e 'tell application "Spotify" to playpause'
