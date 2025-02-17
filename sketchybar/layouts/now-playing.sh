@@ -28,7 +28,7 @@ default=(
 icon=(
     icon.width=200
     background.padding_right=-200
-    icon.color=0xaaffffff
+    icon.color=0xeeffffff
     icon.y_offset=76
     icon.align=right
     icon.padding_right=8
@@ -39,8 +39,6 @@ icon=(
 thumbnail=(
     background.height=200
     width=200
-    #label.drawing=off
-    #icon.drawing=off
     background.drawing=on
     background.image="media.artwork"
     background.image.corner_radius=20
@@ -79,6 +77,12 @@ track=(
 
 $BAR_NAME \
     --bar "${bar[@]}" \
+    --add event set_visible \
+    --add event set_hidden \
+    --add event set_enabled \
+    --add event set_disabled \
+    --add event toggle_hidden \
+    --add event toggle_enabled \
     --default "${default[@]}" \
     --add item spacer_outer right \
     --set spacer_outer \
@@ -91,7 +95,7 @@ $BAR_NAME \
           label.drawing=off \
     --add item thumbnail right \
     --set thumbnail "${thumbnail[@]}" \
-    --subscribe thumbnail spotify_change mouse.clicked \
+    --subscribe thumbnail spotify_change mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled \
     --add item artist right \
     --set artist "${artist[@]}" \
     --add item track right \
