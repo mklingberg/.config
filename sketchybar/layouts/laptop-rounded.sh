@@ -65,14 +65,6 @@ screen=(
 
 ## Utils
 
-battery=(
-    update_freq=60
-    icon.padding_right=5
-    icon.padding_left=0
-    background.padding_left=0
-    background.padding_right=5
-    script="$PLUGIN_DIR/battery.sh"
-)
 
 cpu_user=(
     icon=$ICON_CPU_IDLE
@@ -85,10 +77,19 @@ cpu_user=(
     script="$PLUGIN_SHARED_DIR/cpu_load.sh"
 )
 
+battery=(
+    update_freq=60
+    icon.padding_right=5
+    icon.padding_left=0
+    background.padding_left=0
+    background.padding_right=10
+    script="$PLUGIN_DIR/battery.sh"
+)
+
 brew=(
     icon=$ICON_BREW
     update_freq=120
-    icon.padding_left=8
+    icon.padding_left=10
     icon.padding_right=10
     label.padding_right=10
     label.drawing=off
@@ -168,8 +169,8 @@ $BAR_NAME \
     --subscribe workspaces_spacer_2 aerospace_workspace_change \
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
-                width=0 \
-                drawing=off \
+                width=10 \
+                drawing=on \
                 label.drawing=off
 
 $BAR_NAME \
