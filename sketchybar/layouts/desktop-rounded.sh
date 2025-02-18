@@ -292,6 +292,8 @@ clock=(
 clock_icon=(
     icon=$ICON_CLOCK
     icon.color=$COLOR_CLOCK
+    # Some numbers seems to get cut at the end, so we add some padding
+    label.padding_right=1
     background.padding_right=10
     background.padding_left=0
 )
