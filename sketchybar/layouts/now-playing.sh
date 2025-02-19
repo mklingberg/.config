@@ -49,7 +49,6 @@ thumbnail=(
 )
 
 artist=(
-    #width=200
     background.padding_right=-200
     background.height=20
     scroll_texts=on
