@@ -35,7 +35,7 @@ bar=(
     display=$DISPLAY_NUMBER
     topmost=on
     #hidden=on
-    y_offset=-1000
+    #y_offset=-1000
 )
 
 default=(

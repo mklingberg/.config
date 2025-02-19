@@ -18,11 +18,11 @@ function update_workspace_windows() {
 
         $BAR_NAME \
             --set workspaces.$WORKSPACE_ID.windows \
-            label="$ICON_STRIP"
+                label="$ICON_STRIP"
     else
         $BAR_NAME \
-        --set workspaces.$WORKSPACE_ID.windows \
-            label=" —"
+            --set workspaces.$WORKSPACE_ID.windows \
+                label=" —"
     fi 
 }
 

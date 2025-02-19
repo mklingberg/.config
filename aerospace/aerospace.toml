@@ -89,7 +89,7 @@ automatically-unhide-macos-hidden-apps = false
     inner.vertical =   10
     outer.left =       10
     outer.bottom =     10
-    outer.top =        [{ monitor.'^built-in retina display$' = 10 }, 10]
+    outer.top =        [{ monitor.'^built-in retina display$' = 10 }, 40]
     outer.right =      10
 
 # 'main' binding mode declaration
@@ -185,7 +185,7 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     #ctrl-shift-s = 'mode service'
-    ctrl-shift-s = 'exec-and-forget sketchybar-3 --trigger toggle_hidden'
+    ctrl-shift-s = 'exec-and-forget sketchybar-3 --trigger toggle_enabled'
 
     # Go to sleep
     cmd-ctrl-s = 'exec-and-forget pmset sleepnow'
