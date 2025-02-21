@@ -76,7 +76,6 @@ brew install --cask rider
 brew install --cask visual-studio-code
 brew install --cask podman-desktop
 brew install --cask powershell
-brew install --cask azure-data-studio
 brew install --cask microsoft-azure-storage-explorer
 brew install --cask gitcredentialmanager
 brew install --cask github
