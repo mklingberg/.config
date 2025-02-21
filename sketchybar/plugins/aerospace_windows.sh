@@ -37,24 +37,27 @@ function init_workspace_windows() {
     init_focused
 }
 
+function refresh_monitor_windows() {
+    for ID in $(aerospace list-workspaces --monitor "$MONITOR_ID"); do
+        WINDOWS=$(aerospace list-windows --workspace "$ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
+        update_workspace_windows "$ID" "$WINDOWS"
+    done
+}
+
 function init_focused() {
     $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused) FOCUSED_MONITOR=$(aerospace list-monitors --focused --format "%{monitor-id}" | xargs)
 }
 
 if [ "$SENDER" = "aerospace_window_moved" ]; then
     echo "Window moved"
-    for ID in $(aerospace list-workspaces --monitor "$MONITOR_ID"); do
-        WINDOWS=$(aerospace list-windows --workspace "$ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
-        update_workspace_windows "$ID" "$WINDOWS"
-    done
+    # As we dont know where the window was moved, we refresh all workspaces
+    refresh_monitor_windows
 fi
 
 if [ "$SENDER" = "space_windows_change" ]; then
     echo "Window created or destroyed"
-    FOCUSED_WORKSPACE_ID=$(aerospace list-workspaces --focused)
-    FOCUSED_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace "$FOCUSED_WORKSPACE_ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
-
-    update_workspace_windows "$FOCUSED_WORKSPACE_ID" "$FOCUSED_WORKSPACE_WINDOWS"
+    # As we dont know where the window was creaded or destroyed, we refresh all workspaces
+    refresh_monitor_windows
 fi
 
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
