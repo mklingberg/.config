@@ -33,7 +33,7 @@ bar=(
     padding_left=8
     padding_right=8
     display=$DISPLAY_NUMBER
-    topmost=on
+    #topmost=on
     #hidden=on
     #y_offset=-1000
 )
@@ -165,6 +165,7 @@ $BAR_NAME \
 
 $BAR_NAME \
     --add event aerospace_workspace_change \
+    --add event aerospace_window_moved \
     --add item workspaces_spacer_1 center \
     --set      workspaces_spacer_1 \
                     width=1 \
@@ -207,7 +208,7 @@ done
 
 $BAR_NAME \
     --add item  workspaces_spacer_2 center \
-    --subscribe workspaces_spacer_2 aerospace_workspace_change \
+    --subscribe workspaces_spacer_2 aerospace_workspace_change space_windows_change aerospace_window_moved\
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
                 width=1 \
@@ -400,11 +401,11 @@ $BAR_NAME \
 
 # INIT
 
+init_workspace_windows 
+
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
-$BAR_NAME --trigger display_change
-
-init_workspace_windows 
+#$BAR_NAME --trigger display_change
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

@@ -169,13 +169,13 @@ automatically-unhide-macos-hidden-apps = false
     ctrl-7 = 'workspace 7'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    ctrl-shift-1 = 'move-node-to-workspace 1'
-    ctrl-shift-2 = 'move-node-to-workspace 2'
-    ctrl-shift-3 = 'move-node-to-workspace 3'
-    ctrl-shift-4 = 'move-node-to-workspace 4'
-    ctrl-shift-5 = 'move-node-to-workspace 5'
-    ctrl-shift-6 = 'move-node-to-workspace 6'
-    ctrl-shift-7 = 'move-node-to-workspace 7'
+    ctrl-shift-1 = ['move-node-to-workspace 1', 'exec-and-forget sketchybar --trigger aerospace_window_moved']
+    ctrl-shift-2 = ['move-node-to-workspace 2', 'exec-and-forget sketchybar --trigger aerospace_window_moved']
+    ctrl-shift-3 = ['move-node-to-workspace 3', 'exec-and-forget sketchybar --trigger aerospace_window_moved']
+    ctrl-shift-4 = ['move-node-to-workspace 4', 'exec-and-forget sketchybar --trigger aerospace_window_moved']
+    ctrl-shift-5 = ['move-node-to-workspace 5', 'exec-and-forget sketchybar --trigger aerospace_window_moved']
+    ctrl-shift-6 = ['move-node-to-workspace 6', 'exec-and-forget sketchybar-2 --trigger aerospace_window_moved']
+    ctrl-shift-7 = ['move-node-to-workspace 7', 'exec-and-forget sketchybar-2 --trigger aerospace_window_moved']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     #alt-tab = 'workspace-back-and-forth'

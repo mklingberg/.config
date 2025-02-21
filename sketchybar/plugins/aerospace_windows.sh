@@ -8,22 +8,24 @@ function update_workspace_windows() {
     WINDOWS=$2
 
     APPS=$(echo "$WINDOWS" | awk -v monitor="$MONITOR_ID" -F'|' '$1 == monitor {print $2 "|" $3}')
-    ICON_STRIP=" "
+    ICON_STRIP=""
 
-    if [ -n "$APPS" ]; then
-        while IFS='|' read -r ID APP_NAME;
-        do
+    while IFS='|' read -r ID APP_NAME;
+    do
+        if [ -n "$APP_NAME" ]; then
             ICON_STRIP+=" $(icon_map "$APP_NAME")"
-        done <<< "${APPS}"
+        fi
+    done <<< "${APPS}"
 
+    if [ -n "$ICON_STRIP" ]; then
         $BAR_NAME \
             --set workspaces.$WORKSPACE_ID.windows \
-                label="$ICON_STRIP"
-    else
+                label=" $ICON_STRIP"
+    else 
         $BAR_NAME \
             --set workspaces.$WORKSPACE_ID.windows \
                 label=" —"
-    fi 
+    fi
 }
 
 function init_workspace_windows() {
@@ -39,13 +41,28 @@ function init_focused() {
     $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused) FOCUSED_MONITOR=$(aerospace list-monitors --focused --format "%{monitor-id}" | xargs)
 }
 
+if [ "$SENDER" = "aerospace_window_moved" ]; then
+    echo "Window moved"
+    for ID in $(aerospace list-workspaces --monitor "$MONITOR_ID"); do
+        WINDOWS=$(aerospace list-windows --workspace "$ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
+        update_workspace_windows "$ID" "$WINDOWS"
+    done
+fi
+
+if [ "$SENDER" = "space_windows_change" ]; then
+    echo "Window created or destroyed"
+    FOCUSED_WORKSPACE_ID=$(aerospace list-workspaces --focused)
+    FOCUSED_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace "$FOCUSED_WORKSPACE_ID" --format "%{monitor-id}|%{workspace}|%{app-name}")
+
+    update_workspace_windows "$FOCUSED_WORKSPACE_ID" "$FOCUSED_WORKSPACE_WINDOWS"
+fi
+
 if [ "$SENDER" = "aerospace_workspace_change" ]; then
-    echo "Processing change event $FOCUSED_WORKSPACE"
-    if [ -n "$FOCUSED_WORKSPACE_WINDOWS" ]; then
+    if [ -n "$FOCUSED_WORKSPACE" ]; then
         update_workspace_windows "$FOCUSED_WORKSPACE" "$FOCUSED_WORKSPACE_WINDOWS"
     fi
 
-    if [ -n "$PREV_WORKSPACE_WINDOWS" ]; then
+    if [ -n "$PREV_WORKSPACE" ]; then
         update_workspace_windows "$PREV_WORKSPACE" "$PREV_WORKSPACE_WINDOWS"
     fi
 fi
