@@ -138,24 +138,26 @@ $BAR_NAME \
 
 ## Spotify
 
-spotify=(
+now_playing=(
     icon=$ICON_SPOTIFY
+    icon.color=$COLOR_SPOTIFY_ICON
+    icon.padding_right=10
+    label.color=$COLOR_SPOTIFY
     label.drawing=off
     background.padding_left=12
     background.padding_right=10
     background.height=$INNER_HEIGHT
-    script="$PLUGIN_DIR/spotify.sh"
+    script="$PLUGIN_SHARED_DIR/now_playing.sh"
 )
 
 $BAR_NAME \
-    --add event spotify_change $SPOTIFY_EVENT \
-    --add item spotify center \
-    --set spotify "${spotify[@]}" \
-    --subscribe spotify spotify_change mouse.clicked \
-    --add item separator_spotify_2 center \
-    --add bracket spotify_bracket \
-            spotify \
-    --set spotify_bracket \
+    --add item now_playing center \
+    --set now_playing "${now_playing[@]}" \
+    --subscribe now_playing media_change mouse.clicked \
+    --add item separator_now_playing_2 center \
+    --add bracket now_playing_bracket \
+            now_playing \
+    --set now_playing_bracket \
             background.height=$INNER_HEIGHT \
             background.corner_radius=$INNER_RADIUS \
             background.padding_right=10 \
@@ -251,7 +253,7 @@ $BAR_NAME \
             background.padding_left=10 \
     --subscribe front_app front_app_switched mouse.clicked \
     --add bracket center_bracket \
-            spotify_bracket \
+            now_playing_bracket \
             front_app_bracket \
     --set center_bracket \
             background.height=$OUTER_HEIGHT \
