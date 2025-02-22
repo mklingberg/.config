@@ -45,7 +45,7 @@ thumbnail=(
     background.image.corner_radius=20
     background.image.scale=6.20
     background.image.y_offset=0
-    script="$PLUGIN_SHARED_DIR/now_playing.sh"
+    script="$PLUGIN_SHARED_DIR/now_playing_player.sh"
 )
 
 artist=(
@@ -77,13 +77,13 @@ track=(
 
 $BAR_NAME \
     --bar "${bar[@]}" \
+    --default "${default[@]}" \
     --add event set_visible \
     --add event set_hidden \
     --add event set_enabled \
     --add event set_disabled \
     --add event toggle_hidden \
     --add event toggle_enabled \
-    --default "${default[@]}" \
     --add item spacer_outer right \
     --set spacer_outer \
         width=$MARGIN_RIGHT \
