@@ -2,9 +2,6 @@
 
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
-# Spotify JSON / $INFO comes in malformed, line below sanitizes it
-SPOTIFY_JSON="$INFO"
-
 DEFAULT_Y_OFFSET=20
 HIDDEN_Y_OFFSET=-1000
 
