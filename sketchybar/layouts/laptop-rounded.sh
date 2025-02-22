@@ -65,7 +65,6 @@ screen=(
 
 ## Utils
 
-
 cpu_user=(
     icon=$ICON_CPU_IDLE
     icon.color=$COLOR_STATS
@@ -141,25 +140,31 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                         width=1 \
                         label.drawing=off
     fi
+
+    workspace_no=(
+        click_script="aerospace workspace $ID"
+        icon="$ID"
+    )
+
+    workspace_windows=(
+        click_script="aerospace workspace $ID"
+        icon.drawing=off
+        icon.y_offset=1
+        label.font="sketchybar-app-font:Regular:14.0"
+        label=" —"
+        label.y_offset=-1
+        label.drawing=$SHOW_APPS
+        label.padding_left=0
+        label.padding_right=20
+        script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
+    )
     
     $BAR_NAME \
         --add item  workspaces."$ID" left \
-        --set       workspaces."$ID" \
-                    click_script="aerospace workspace $ID" \
-                    icon="$ID" \
+        --set       workspaces."$ID" "${workspace_no[@]}" \
         --add item  workspaces."$ID".windows left \
         --subscribe workspaces."$ID".windows aerospace_workspace_change \
-        --set       workspaces."$ID".windows \
-                    click_script="aerospace workspace $ID" \
-                    icon.drawing=off \
-                    icon.y_offset=1 \
-                    label.font="sketchybar-app-font:Regular:14.0" \
-                    label=" —" \
-                    label.y_offset=-1 \
-                    label.drawing=$SHOW_APPS \
-                    label.padding_left=0 \
-                    label.padding_right=20 \
-                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
+        --set       workspaces."$ID".windows "${workspace_windows[@]}"
 
     ADD_SPACER=true   
 done
@@ -235,7 +240,6 @@ clock_icon=(
     background.padding_right=10
     background.padding_left=0
 )
-
 
 volume=(
     icon=$ICON_VOLUME
@@ -338,14 +342,11 @@ $BAR_NAME \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
 
-
 # INIT
+init_workspace_windows
 
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
-$BAR_NAME --trigger display_change
-
-init_workspace_windows
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'

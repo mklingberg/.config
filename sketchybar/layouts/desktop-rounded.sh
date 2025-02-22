@@ -184,24 +184,30 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
                         width=1 \
                         label.drawing=off
     fi
+
+    workspace_no=(
+        click_script="aerospace workspace $ID"
+        icon="$ID"
+    )
+
+    workspace_windows=(
+        click_script="aerospace workspace $ID"
+        icon.drawing=off
+        icon.y_offset=1
+        label.font="sketchybar-app-font:Regular:13.0"
+        label.y_offset=0
+        label=" —"
+        label.padding_left=0
+        label.padding_right=20
+        script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
+    )
     
     $BAR_NAME \
         --add item  workspaces."$ID" center \
-        --set       workspaces."$ID" \
-                    click_script="aerospace workspace $ID" \
-                    icon="$ID" \
+        --set       workspaces."$ID" "${workspace_no[@]}" \
         --add item  workspaces."$ID".windows center \
         --subscribe workspaces."$ID".windows aerospace_workspace_change \
-        --set       workspaces."$ID".windows \
-                    click_script="aerospace workspace $ID" \
-                    icon.drawing=off \
-                    icon.y_offset=1 \
-                    label.font="sketchybar-app-font:Regular:13.0" \
-                    label.y_offset=0 \
-                    label=" —" \
-                    label.padding_left=0 \
-                    label.padding_right=20 \
-                    script="$PLUGIN_SHARED_DIR/aerospace_focus.sh $ID $MONITOR_ID"
+        --set       workspaces."$ID".windows "${workspace_windows[@]}"
 
      ADD_SPACER=true   
 done
@@ -405,7 +411,6 @@ init_workspace_windows
 
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
-#$BAR_NAME --trigger display_change
 
 # Quick toggle play pause in order to update now playing
 osascript -e 'tell application "Spotify" to playpause'
