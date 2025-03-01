@@ -13,6 +13,7 @@ show() {
         --set spacer_1 drawing=on \
         --set spacer_2 drawing=on \
         --set toggle icon=$ICON_NOW_PLAYING_CLOSE \
+                     icon.font.size=32 \
                      icon.color=$COLOR_NOW_PLAYING_CLOSE \
                      background.padding_right=-22
 }
@@ -29,6 +30,7 @@ hide() {
         --set spacer_1 drawing=off \
         --set spacer_2 drawing=off \
         --set toggle icon=$ICON_NOW_PLAYING_OPEN \
+                     icon.font.size=82 \
                      icon.color=$COLOR_NOW_PLAYING_OPEN \
                      background.padding_right=-20
 }
@@ -49,7 +51,7 @@ case "$SENDER" in
             # If the player is closed on media change, then open it to show updated playback info
             # and close it again after a delay..."
             show
-            sleep 10
+            sleep 8
             hide
         fi
         ;;

@@ -7,9 +7,8 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins-desktop"
 PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 
-BAR_HEIGHT=300
+BAR_HEIGHT=400
 MARGIN_RIGHT=8
-MARGIN_BOTTOM=20
 
 bar=(
     height=$BAR_HEIGHT
