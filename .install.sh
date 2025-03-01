@@ -38,7 +38,6 @@ echo "Installing Brew Casks..."
 brew install --cask betterdisplay
 brew install --cask bettertouchtool
 brew install --cask bettermouse
-brew install --cask cheatsheet
 brew install --cask raycast
 brew install --cask spotify
 brew install --cask nikitabobko/tap/aerospace
