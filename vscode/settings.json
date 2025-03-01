@@ -35,44 +35,5 @@
     "[shellscript]": {
         "files.eol": "\n"
     },
-    "workbench.statusBar.visible": false,
-    "mssql.enableRichExperiences": true,
-    "mssql.connections": [
-        {
-            "authenticationType": "AzureMFA",
-            "connectTimeout": 15,
-            "applicationName": "vscode-mssql",
-            "profileName": "Edge UAT",
-            "server": "tcp:sql-edge-core-uat.database.windows.net,1433",
-            "accountId": "046b9dd4-faf4-43d0-b56a-9b6d1008fd12.f6133d6e-20c4-4c25-b024-3ac43c9d5bcb",
-            "tenantId": "f6133d6e-20c4-4c25-b024-3ac43c9d5bcb",
-            "user": "Marcus Klingberg - marcus.klingberg@walley.se",
-            "database": "EdgeUAT",
-            "encrypt": "Mandatory",
-            "trustServerCertificate": true,
-            "password": "",
-            "commandTimeout": 30,
-            "email": "marcus.klingberg@walley.se",
-            "azureAccountToken": ""
-        },
-        {
-            "authenticationType": "AzureMFA",
-            "connectTimeout": 15,
-            "applicationName": "vscode-mssql",
-            "server": "tcp:sql-edge-core-ci.database.windows.net,1433",
-            "accountId": "046b9dd4-faf4-43d0-b56a-9b6d1008fd12.f6133d6e-20c4-4c25-b024-3ac43c9d5bcb",
-            "tenantId": "f6133d6e-20c4-4c25-b024-3ac43c9d5bcb",
-            "database": "EdgeCi",
-            "encrypt": "Mandatory",
-            "applicationIntent": "ReadOnly",
-            "connectRetryCount": "3",
-            "connectRetryInterval": "5",
-            "profileName": "Edge CI",
-            "user": "Marcus Klingberg - marcus.klingberg@walley.se",
-            "password": "",
-            "commandTimeout": 30,
-            "email": "marcus.klingberg@walley.se",
-            "azureAccountToken": ""
-        }
-    ],
+    "workbench.statusBar.visible": false
 }
