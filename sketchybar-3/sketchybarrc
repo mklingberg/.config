@@ -1,6 +1,6 @@
 #!/bin/bash
-export DISPLAY_NUMBER=3
-source "$HOME/.config/sketchybar/utils.sh"
+#export DISPLAY_NUMBER=3
+#source "$HOME/.config/sketchybar/utils.sh"
 
 LAYOUTS="$HOME/.config/sketchybar/layouts"
 CONFIG_DIR="$HOME/.config/sketchybar"

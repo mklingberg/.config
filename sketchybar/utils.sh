@@ -55,7 +55,7 @@ fi
 
 export MONITOR_ID
 export MONITOR_NAME
-export MONITOR_INTERNALi
+export MONITOR_INTERNAL
 
 fade_color() {
     local original_color=$1

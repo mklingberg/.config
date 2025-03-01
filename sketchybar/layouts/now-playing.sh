@@ -8,10 +8,8 @@ PLUGIN_SHARED_DIR="$HOME/.config/sketchybar/plugins"
 ITEM_DIR="$CONFIG_DIR/items"
 
 BAR_HEIGHT=300
-MARGIN_RIGHT=20
+MARGIN_RIGHT=8
 MARGIN_BOTTOM=20
-DEFAULT_Y_OFFSET=20
-HIDDEN_Y_OFFSET=-1000
 
 bar=(
     height=$BAR_HEIGHT
@@ -19,11 +17,18 @@ bar=(
     display=main
     topmost=on
     position=bottom
-    y_offset=$HIDDEN_Y_OFFSET
+    hidden=off
+    #margin=0
+    padding_right=0
 )
 
 default=(
     background.height=$BAR_HEIGHT
+)
+
+spacer_right=(
+    width=$MARGIN_RIGHT
+    label.drawing=off
 )
 
 icon=(
@@ -35,11 +40,13 @@ icon=(
     icon.padding_right=8
     icon=$COLOR_NOW_PLAYING_ICON
     icon.font.size=32
+    display=off
 )
 
 thumbnail=(
     background.height=200
     icon.width=200
+    background.padding_left=-14
     background.drawing=on
     background.image="media.artwork"
     background.image.corner_radius=20
@@ -75,6 +82,30 @@ track=(
     label.color=$COLOR_NOW_PLAYING_TRACK
 )
 
+toggle=(
+    background.padding_right=-22
+    icon.color=$COLOR_NOW_PLAYING_CLOSE
+    icon.y_offset=-18
+    icon.align=left
+    icon.padding_right=0
+    icon=$ICON_NOW_PLAYING_CLOSE
+    icon.font.size=32
+    script="$PLUGIN_SHARED_DIR/now_playing_toggle.sh"
+)
+
+wrapper=(
+    background.height=254
+    background.y_offset=-18
+    background.color=$COLOR_NOW_PLAYING_BG
+)
+
+wrapper_rounded=(
+    background.height=254
+    background.corner_radius=26
+    background.y_offset=-18
+    background.color=$COLOR_NOW_PLAYING_BG
+)
+
 $BAR_NAME \
     --bar "${bar[@]}" \
     --default "${default[@]}" \
@@ -85,16 +116,14 @@ $BAR_NAME \
     --add event toggle_hidden \
     --add event toggle_enabled \
     --add item spacer_outer right \
-    --set spacer_outer \
-        width=$MARGIN_RIGHT \
-        label.drawing=off \
+    --set spacer_outer "${spacer_right[@]}" \
     --add item spacer_1 right \
     --set spacer_1 \
         width=8 \
         label.drawing=off \
     --add item thumbnail right \
     --set thumbnail "${thumbnail[@]}" \
-    --subscribe thumbnail mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled media_change \
+    --subscribe thumbnail mouse.clicked media_change \
     --add item artist right \
     --set artist "${artist[@]}" \
     --add item track right \
@@ -103,19 +132,22 @@ $BAR_NAME \
     --set icon "${icon[@]}" \
     --add item spacer_2 right \
     --set spacer_2 \
-        width=6 \
+        width=22 \
         label.drawing=off \
+    --add item toggle right \
+    --set toggle "${toggle[@]}" \
+    --subscribe toggle mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled \
     --add bracket wrapper \
+        spacer_outer \
         spacer_1 \
         icon \
         thumbnail \
         artist \
         track \
+    --set wrapper "${wrapper[@]}" \
+    --add bracket wrapper_rounded \
+        thumbnail \
         spacer_2 \
-    --set wrapper \
-        background.height=254 \
-        background.corner_radius=26 \
-        background.y_offset=-18 \
-        background.color=$COLOR_NOW_PLAYING_BG
+    --set wrapper_rounded "${wrapper_rounded[@]}"
 
 $BAR_NAME --update

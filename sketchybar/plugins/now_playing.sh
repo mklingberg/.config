@@ -1,7 +1,7 @@
 #!/bin/bash
 source "$HOME/.config/$BAR_NAME/theme.sh"
 
-MAX_LENGTH=82
+MAX_LENGTH=80
 
 # Logic starts here, do not modify
 HALF_LENGTH=$(((MAX_LENGTH + 1) / 2))
