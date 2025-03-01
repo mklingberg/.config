@@ -43,6 +43,16 @@ toggle_hidden() {
 }
 
 case "$SENDER" in
+    "toggle_player_change")
+        CURRENT_ICON=$($BAR_NAME --query toggle | jq -r .icon.value)
+        if [ "$CURRENT_ICON" = "$ICON_NOW_PLAYING_OPEN" ]; then
+            # If the player is closed on media change, then open it to show updated playback info
+            # and close it again after a delay..."
+            show
+            sleep 10
+            hide
+        fi
+        ;;
     "set_visible")
         show
         ;;

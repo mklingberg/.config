@@ -28,7 +28,7 @@ update_media_changed() {
     fi
 
     $BAR_NAME \
-        --trigger set_visible \
+        --trigger toggle_player_change \
         --set artist label="$ARTIST" \
         --set track label="$TITLE" \
         --set icon icon=$ICON

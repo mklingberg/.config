@@ -115,6 +115,7 @@ $BAR_NAME \
     --add event set_disabled \
     --add event toggle_hidden \
     --add event toggle_enabled \
+    --add event toggle_player_change \
     --add item spacer_outer right \
     --set spacer_outer "${spacer_right[@]}" \
     --add item spacer_1 right \
@@ -136,7 +137,7 @@ $BAR_NAME \
         label.drawing=off \
     --add item toggle right \
     --set toggle "${toggle[@]}" \
-    --subscribe toggle mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled \
+    --subscribe toggle mouse.clicked set_visible set_hidden set_enabled set_disabled toggle_hidden toggle_enabled toggle_player_change \
     --add bracket wrapper \
         spacer_outer \
         spacer_1 \
