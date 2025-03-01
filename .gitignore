@@ -18,8 +18,7 @@
 !zsh/**/*
 !ghostty
 !ghostty/**/*
-!vscode
-!vscode/**/*
+!vscode/keybindings.json
 !wezterm
 !wezterm/**/*
 !starship
