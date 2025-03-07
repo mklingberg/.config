@@ -27,19 +27,18 @@ default=(
 
 spacer_right=(
     width=$MARGIN_RIGHT
+    background.height=$BAR_HEIGHT
     label.drawing=off
 )
 
 icon=(
-    icon.width=200
-    background.padding_right=-200
+    icon.width=180
+    background.padding_right=-180
     icon.color=0xeeffffff
     icon.y_offset=76
     icon.align=right
-    icon.padding_right=8
     icon=$COLOR_NOW_PLAYING_ICON
     icon.font.size=32
-    display=off
 )
 
 thumbnail=(
@@ -56,12 +55,13 @@ thumbnail=(
 
 artist=(
     background.padding_right=-200
+    label.width=200
     background.height=20
     scroll_texts=on
     label="Artist"
+    label.padding_right=20
     label.max_chars=26
     label.align=center
-    label.width=200
     label.y_offset=-132
     label.font.size=12
     label.color=$COLOR_NOW_PLAYING_ARTIST

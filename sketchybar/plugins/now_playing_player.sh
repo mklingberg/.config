@@ -18,7 +18,7 @@ update_media_changed() {
     ICON=$ICON_NOW_PLAYING
 
     if [ "$PLAYER_STATE" = "playing" ]; then
-        ICON=$ICON_NOW_PLAYING_PLAYING
+        ICON=$ICON_NOW_PLAYING_SPOTIFY
     elif [ "$PLAYER_STATE" = "paused" ]; then
         ICON=$ICON_NOW_PLAYING_PAUSED
     elif [ "$PLAYER_STATE" = "stopped" ]; then
