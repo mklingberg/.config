@@ -66,6 +66,7 @@ brew install --cask font-fira-code
 brew install --cask font-fira-code-nerd-font
 
 ### Development
+brew tap isen-ng/dotnet-sdk-versions
 brew install --cask dotnet-sdk
 brew install --cask dotnet-sdk7
 brew install --cask dotnet-sdk8
