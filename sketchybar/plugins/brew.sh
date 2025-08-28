@@ -11,8 +11,8 @@ source "$HOME/.config/sketchybar/utils.sh"
 
 # Function to check for outdated brew packages
 check_brew_outdated() {
-        # Remove lines starting with "==>" and count the remaining lines
-    COUNT=$(brew outdated --greedy-auto-updates | grep -v '^==>' | wc -l | awk '{print $1}')
+    # Remove lines starting with "==>" and count the remaining lines
+    COUNT=$(brew outdated | grep -v '^==>' | wc -l | awk '{print $1}')
     # echo "COUNT: $COUNT"
 
     # If there was an error getting outdated packages, exit
