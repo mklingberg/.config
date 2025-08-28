@@ -38,6 +38,7 @@ exec-on-workspace-change = [
     PREV_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace $AEROSPACE_PREV_WORKSPACE --format "%{monitor-id}|%{workspace}|%{app-name}");
     sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" PREV_WORKSPACE_WINDOWS="$PREV_WORKSPACE_WINDOWS" FOCUSED_MONITOR=$FOCUSED_MONITOR;
     sketchybar-2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" PREV_WORKSPACE_WINDOWS="$PREV_WORKSPACE_WINDOWS" FOCUSED_MONITOR=$FOCUSED_MONITOR;
+    sketchybar-3 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" PREV_WORKSPACE_WINDOWS="$PREV_WORKSPACE_WINDOWS" FOCUSED_MONITOR=$FOCUSED_MONITOR;
     '''
 ]
 
@@ -227,14 +228,13 @@ automatically-unhide-macos-hidden-apps = false
     cmd-s = ['exec-and-forget sketchybar-2 --reload', 'mode main']
 
 [workspace-to-monitor-force-assignment]
-
- #   1 = 'main'
- #   2 = 'main'
-#    3 = 'main'
-#    4 = 'main'
-#     5 = ['secondary','main']
-     6 = ['secondary','main']
-     7 = ['secondary','main']
+    1 = ['hdr 4k','main']
+    2 = ['hdr 4k','main']
+    3 = ['hdr 4k','main']
+    4 = ['hdr 4k','main']
+    5 = ['hdr 4k','main']
+    6 = ['sdqhd','secondary','main']
+    7 = ['built-in','secondary','main']
 
 [[on-window-detected]]
     if.app-id = 'com.microsoft.AzureVpnMac'
@@ -251,3 +251,16 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
     if.app-id = 'com.bankid.BankID'
     run = 'layout floating'
+
+[[on-window-detected]]
+#    if.window-title-regex-substring = '^Spotify$'
+    if.app-id = 'com.spotify.client'
+    run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+    if.app-id = 'com.microsoft.teams2'
+    run = 'move-node-to-workspace 6'
