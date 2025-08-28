@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.16/sketchybar-app-font.ttf
+# https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.32/icon_map.sh
 
 function icon_map() {
   case "$1" in
@@ -769,7 +769,7 @@ function icon_map() {
    "Zed")
         icon_result=":zed:"
         ;;
-   "Zen Browser")
+   "Zen")
         icon_result=":zen_browser:"
         ;;
    "Zeplin")
