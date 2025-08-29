@@ -117,7 +117,7 @@ $BAR_NAME \
     --add event aerospace_workspace_change \
     --add item  workspaces_spacer_1 left \
     --set       workspaces_spacer_1 \
-                width=10 \
+                width=20 \
                 label.drawing=off
 
 # Fetch workspaces visible on this display/monitor
@@ -174,7 +174,7 @@ $BAR_NAME \
     --subscribe workspaces_spacer_2 aerospace_workspace_change \
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
-                width=10 \
+                width=24 \
                 drawing=on \
                 label.drawing=off
 
