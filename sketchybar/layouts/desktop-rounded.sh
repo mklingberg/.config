@@ -20,6 +20,11 @@ INNER_RADIUS=10
 OUTER_HEIGHT=24
 INNER_HEIGHT=20
 
+CENTER_HEIGHT=20
+CENTER_OUTER_HEIGHT=28
+CENTER_RADIUS=14
+CENTER_DEFAULT_RADIUS=14
+
 FRONT_APP_ICON_SIZE=14
 FRONT_APP_NAME_SIZE=15
 
@@ -140,13 +145,16 @@ $BAR_NAME \
 
 spotify=(
     icon=$ICON_SPOTIFY
+    icon.font="$FONT_FACE:Medium:18.0"
     icon.color=$COLOR_SPOTIFY_ICON
     icon.padding_right=10
     label.color=$COLOR_SPOTIFY
     label.drawing=off
-    background.padding_left=12
-    background.padding_right=10
-    background.height=$INNER_HEIGHT
+    label.y_offset=0
+    label.font="$FONT_FACE:Medium:16.0"
+    background.padding_left=26
+    background.padding_right=20
+    background.height=$CENTER_HEIGHT
     script="$PLUGIN_DIR/spotify.sh"
 )
 
@@ -159,8 +167,8 @@ $BAR_NAME \
     --add bracket spotify_bracket \
             spotify \
     --set spotify_bracket \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
+            background.height=$CENTER_HEIGHT \
+            background.corner_radius=$CENTER_RADIUS \
             background.padding_right=10 \
             background.padding_left=10
 
@@ -171,7 +179,7 @@ $BAR_NAME \
     --add event aerospace_window_moved \
     --add item workspaces_spacer_1 center \
     --set      workspaces_spacer_1 \
-                    width=1 \
+                    width=20 \
                     label.drawing=off
 
 # Fetch workspaces visible on this display/monitor
@@ -197,8 +205,8 @@ for ID in ${MONITOR_WORKSPACES[@]}; do
         click_script="aerospace workspace $ID"
         icon.drawing=off
         icon.y_offset=1
-        label.font="sketchybar-app-font:Regular:13.0"
-        label.y_offset=0
+        label.font="sketchybar-app-font:Regular:14.0"
+        label.y_offset=-1
         label=" —"
         label.padding_left=0
         label.padding_right=20
@@ -220,21 +228,23 @@ $BAR_NAME \
     --subscribe workspaces_spacer_2 aerospace_workspace_change space_windows_change aerospace_window_moved\
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
-                width=1 \
+                width=20 \
                 label.drawing=off
 
 front_app=(
-    icon.font="sketchybar-app-font:Regular:14.0"
+    icon.font="sketchybar-app-font:Regular:16.0"
     icon.color=$COLOR_FRONT_APP_ICON
     label.drawing=no
     background.padding_right=10
-    background.padding_left=10
+    background.padding_left=20
     script="$PLUGIN_SHARED_DIR/front_app.sh"
 )
 
 front_app_name=(
     icon.drawing=off
-    background.padding_right=12
+    label.y_offset=0
+    label.font="$FONT_FACE:Medium:16.0"
+    background.padding_right=26
     background.padding_left=0
     label.color=$COLOR_FRONT_APP_NAME
 )
@@ -257,8 +267,8 @@ $BAR_NAME \
             spotify_bracket \
             front_app_bracket \
     --set center_bracket \
-            background.height=$OUTER_HEIGHT \
-            background.corner_radius=$DEFAULT_RADIUS \
+            background.height=$CENTER_OUTER_HEIGHT \
+            background.corner_radius=$CENTER_DEFAULT_RADIUS \
             background.padding_right=10 \
             background.padding_left=10 \
             background.color=$COLOR_SPOTIFY_BG \
@@ -266,8 +276,8 @@ $BAR_NAME \
     --set workspace \
             background.padding_right=20 \
             background.padding_left=20 \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
+            background.height=$CENTER_HEIGHT \
+            background.corner_radius=$CENTER_RADIUS \
             background.color=$COLOR_SPACES_BRACKET
 
 # Workspace brackets
@@ -276,16 +286,16 @@ for ID in "${MONITOR_WORKSPACES[@]}"
 do
   $BAR_NAME \
     --set workspaces."$ID" \
-            icon.padding_left=8 \
-            icon.padding_right=9 \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
+            icon.padding_left=10 \
+            icon.padding_right=11 \
+            background.height=$CENTER_HEIGHT \
+            background.corner_radius=$CENTER_RADIUS \
     --add bracket workspace."$ID" \
             workspaces."$ID" \
             workspaces."$ID".windows \
     --set workspace."$ID" \
-            background.height=$INNER_HEIGHT \
-            background.corner_radius=$INNER_RADIUS \
+            background.height=$CENTER_HEIGHT \
+            background.corner_radius=$CENTER_RADIUS \
             background.color=$COLOR_SPACE_BG
 done
 
