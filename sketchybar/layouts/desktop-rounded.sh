@@ -75,7 +75,7 @@ screen=(
     script="$PLUGIN_SHARED_DIR/reload.sh"
 )
 
-## Utils
+## Utils12
 
 cpu_user=(
     icon=$ICON_CPU_IDLE
