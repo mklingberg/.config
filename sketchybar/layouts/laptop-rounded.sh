@@ -349,5 +349,5 @@ $BAR_NAME --update
 $BAR_NAME --trigger volume_change
 
 # Quick toggle play pause in order to update now playing
-osascript -e 'tell application "Spotify" to playpause'
-osascript -e 'tell application "Spotify" to playpause'
+#osascript -e 'tell application "Spotify" to playpause'
+#osascript -e 'tell application "Spotify" to playpause'
