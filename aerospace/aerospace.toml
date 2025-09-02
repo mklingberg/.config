@@ -200,8 +200,7 @@ automatically-unhide-macos-hidden-apps = false
 
     # Go to sleep
     cmd-ctrl-s = 'exec-and-forget pmset sleepnow'
-    cmd-ctrl-r = ['exec-and-forget sketchybar --reload', 'exec-and-forget sketchybar-2 --reload', 'exec-and-forget sketchybar-3 --reload']
-
+    cmd-ctrl-r = ['exec-and-forget sketchybar --trigger aerospace_workspace_reload', 'exec-and-forget sketchybar-2 --trigger aerospace_workspace_reload', 'exec-and-forget sketchybar-3 --trigger aerospace_workspace_reload']
 
 
 # 'service' binding mode declaration.
@@ -246,7 +245,7 @@ automatically-unhide-macos-hidden-apps = false
     3 = ['hdr 4k','main']
     #4 = ['hdr 4k','main']
     #5 = ['hdr 4k','main']
-    4 = ['sdqhd','secondary','main']
+    4 = ['sdqhd', 'built-in','secondary','main']
     5 = ['built-in','secondary','main']
 
 [[on-window-detected]]

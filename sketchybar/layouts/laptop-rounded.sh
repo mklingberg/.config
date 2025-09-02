@@ -115,6 +115,8 @@ $BAR_NAME \
 # Render Aerospace workspaces
 $BAR_NAME \
     --add event aerospace_workspace_change \
+    --add event aerospace_workspace_reload \
+    --add event aerospace_window_moved \
     --add item  workspaces_spacer_1 left \
     --set       workspaces_spacer_1 \
                 width=20 \
@@ -171,7 +173,7 @@ done
 
 $BAR_NAME \
     --add item  workspaces_spacer_2 left \
-    --subscribe workspaces_spacer_2 aerospace_workspace_change \
+    --subscribe workspaces_spacer_2 aerospace_workspace_change aerospace_workspace_reload \
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
                 width=24 \
@@ -282,6 +284,7 @@ airpods_case=(
 spotify=(
     icon=$ICON_SPOTIFY
     label.drawing=off
+    label.padding_left=10
     background.padding_left=12
     background.padding_right=12
     script="$PLUGIN_DIR/spotify.sh"
@@ -343,10 +346,10 @@ $BAR_NAME \
             background.color=$COLOR_UTILS_RIGHT_BG
 
 # INIT
-init_workspace_windows
 
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
+$BAR_NAME --trigger aerospace_workspace_reload
 
 # Quick toggle play pause in order to update now playing
 #osascript -e 'tell application "Spotify" to playpause'

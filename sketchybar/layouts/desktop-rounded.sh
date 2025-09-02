@@ -20,7 +20,7 @@ INNER_RADIUS=10
 OUTER_HEIGHT=24
 INNER_HEIGHT=20
 
-CENTER_HEIGHT=20
+CENTER_HEIGHT=22
 CENTER_OUTER_HEIGHT=28
 CENTER_RADIUS=14
 CENTER_DEFAULT_RADIUS=14
@@ -145,15 +145,18 @@ $BAR_NAME \
 
 spotify=(
     icon=$ICON_SPOTIFY
-    icon.font="$FONT_FACE:Medium:18.0"
+    icon.font="$FONT_FACE:Medium:22.0"
     icon.color=$COLOR_SPOTIFY_ICON
-    icon.padding_right=10
+    icon.padding_right=0
+    icon.padding_left=0
     label.color=$COLOR_SPOTIFY
     label.drawing=off
     label.y_offset=0
     label.font="$FONT_FACE:Medium:16.0"
+    label.padding_left=10
+    label.padding_right=0
     background.padding_left=26
-    background.padding_right=20
+    background.padding_right=18
     background.height=$CENTER_HEIGHT
     script="$PLUGIN_DIR/spotify.sh"
 )
@@ -173,9 +176,9 @@ $BAR_NAME \
             background.padding_left=10
 
 ## Aerospace workspaces
-
 $BAR_NAME \
     --add event aerospace_workspace_change \
+    --add event aerospace_workspace_reload \
     --add event aerospace_window_moved \
     --add item workspaces_spacer_1 center \
     --set      workspaces_spacer_1 \
@@ -225,14 +228,14 @@ done
 
 $BAR_NAME \
     --add item  workspaces_spacer_2 center \
-    --subscribe workspaces_spacer_2 aerospace_workspace_change space_windows_change aerospace_window_moved\
+    --subscribe workspaces_spacer_2 aerospace_workspace_change space_windows_change aerospace_window_moved aerospace_workspace_reload\
     --set       workspaces_spacer_2 \
                 script="$PLUGIN_SHARED_DIR/aerospace_windows.sh $MONITOR_ID" \
                 width=20 \
                 label.drawing=off
 
 front_app=(
-    icon.font="sketchybar-app-font:Regular:16.0"
+    icon.font="sketchybar-app-font:Regular:22.0"
     icon.color=$COLOR_FRONT_APP_ICON
     label.drawing=no
     background.padding_right=10
@@ -286,7 +289,7 @@ for ID in "${MONITOR_WORKSPACES[@]}"
 do
   $BAR_NAME \
     --set workspaces."$ID" \
-            icon.padding_left=10 \
+            icon.padding_left=9 \
             icon.padding_right=11 \
             background.height=$CENTER_HEIGHT \
             background.corner_radius=$CENTER_RADIUS \
@@ -418,12 +421,11 @@ $BAR_NAME \
             background.padding_left=10 \
             background.color=$COLOR_UTILS_RIGHT_BG
 
-# INIT
-
-init_workspace_windows 
+# INIT 
 
 $BAR_NAME --update
 $BAR_NAME --trigger volume_change
+$BAR_NAME --trigger aerospace_workspace_reload 
 
 # Quick toggle play pause in order to update now playing
 #osascript -e 'tell application "Spotify" to playpause'

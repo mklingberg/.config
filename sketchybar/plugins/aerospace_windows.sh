@@ -45,13 +45,22 @@ function refresh_monitor_windows() {
 }
 
 function init_focused() {
-    $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --monitor "$MONITOR_ID" --visible) FOCUSED_MONITOR=$MONITOR_ID
+    FOCUSED_WORKSPACE=$(aerospace list-workspaces --monitor "$MONITOR_ID" --visible)
+    FOCUSED_WORKSPACE_WINDOWS=$(aerospace list-windows --workspace "$FOCUSED_WORKSPACE" --format "%{monitor-id}|%{workspace}|%{app-name}")
+    
+    # Trigger event to force init of focused workspace
+    $BAR_NAME --trigger aerospace_workspace_change FOCUSED_WORKSPACE_WINDOWS="$FOCUSED_WORKSPACE_WINDOWS" FOCUSED_WORKSPACE=$FOCUSED_WORKSPACE FOCUSED_MONITOR=$MONITOR_ID
 }
 
 if [ "$SENDER" = "aerospace_window_moved" ]; then
     echo "Window moved"
     # As we dont know where the window was moved, we refresh all workspaces
     refresh_monitor_windows
+fi
+
+if [ "$SENDER" = "aerospace_workspace_reload" ]; then
+    init_workspace_windows
+    echo "Workspace reloaded"
 fi
 
 if [ "$SENDER" = "space_windows_change" ]; then
