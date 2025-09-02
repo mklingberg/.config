@@ -56,7 +56,6 @@ update_track() {
 
         $BAR_NAME --set $NAME \
                     icon=$ICON_SPOTIFY_PLAY \
-                    icon.padding_right=10 \
                     label="${TRACK} - ${ARTIST}" \
                     label.drawing=yes \
                     icon.color=$COLOR_SPOTIFY_ICON \
@@ -73,7 +72,6 @@ update_track() {
         $BAR_NAME --set $NAME \
                      icon=$ICON_SPOTIFY \
                      icon.color=$COLOR_SPOTIFY_ICON \
-                     icon.padding_right=0 \
                      label.drawing=no
     else
         $BAR_NAME --set $NAME \
